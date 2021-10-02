@@ -1,7 +1,25 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+html {
+  line-height: 1.17;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  
+}
+
+
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,25 +32,18 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: $bg-main;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $bg-second;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App h1 {
+  display: inline-block;
+  text-align: center;
+  color: $font-color-main;
+  
 }
