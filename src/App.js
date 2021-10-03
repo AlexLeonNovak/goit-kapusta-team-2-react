@@ -1,3 +1,4 @@
+import AuthForm from "./components/AuthForm/AuthForm";
 import IncomeList from "./components/income/incomeList";
 import ExpenseList from "./components/expense/expenseList";
 
@@ -11,10 +12,9 @@ import "./App.css";
 function App() {
   return (
     <>
+      <AuthForm />
       <Balance />
-
       <IncomeList items={IncomeApi} />
-
       <ExpenseList items={expenseApi} />
     </>
   );
