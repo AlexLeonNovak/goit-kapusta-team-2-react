@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  background: #f2f5fc;
+  width: 100%;
+  height: 132px;
+  justify-content: center;
+  box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  margin-top: 40px;
+}
+
+.balanceTitle {
+  margin-right: 21px;
+  color: #52555f;
+  font-weight: medium;
+}
+
+.balanceCount {
+  box-sizing: border-box;
+  display: flex;
+  margin-right: 15px;
+  height: 100%;
+  width: 125px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: solid 2px #ffffff;
+  border-radius: 16px;
+}
+
+.balanceBtn {
+  height: 100%;
+  width: 125px;
+  border: solid 2px #ffffff;
+  border-radius: 16px;
+  background: inherit;
+  cursor: pointer;
+  color: #52555f;
+  transition: 0.2s ease-in-out;
+}
+
+.balanceBtn:hover {
+  background: #ff751d;
+  border-color: #ff751d;
+  color: #ffffff;
+}
