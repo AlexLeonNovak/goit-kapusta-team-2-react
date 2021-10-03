@@ -10,9 +10,9 @@ function Balance() {
   return (
     <div className={styles.container}>
       <div className={styles.balance}>
-        <p className={styles.balanceTitle}>Баланс:</p>
-        <p className={styles.balanceCount}>{balance} UAN</p>
-        <button className={styles.balanceBtn} onClick={updateBalance}>
+        <p className={styles.balance_title}>Баланс:</p>
+        <p className={styles.balance_count}>{balance.toFixed(2)} UAN</p>
+        <button className={styles.balance_btn} onClick={updateBalance}>
           ПОДТВЕРДИТЬ
         </button>
       </div>

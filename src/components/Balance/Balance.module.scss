@@ -14,13 +14,13 @@
   margin-top: 40px;
 }
 
-.balanceTitle {
+.balance_title {
   margin-right: 21px;
   color: #52555f;
   font-weight: medium;
 }
 
-.balanceCount {
+.balance_count {
   box-sizing: border-box;
   display: flex;
   margin-right: 15px;
@@ -33,7 +33,7 @@
   border-radius: 16px;
 }
 
-.balanceBtn {
+.balance_btn {
   height: 100%;
   width: 125px;
   border: solid 2px #ffffff;
@@ -44,7 +44,7 @@
   transition: 0.2s ease-in-out;
 }
 
-.balanceBtn:hover {
+.balance_btn:hover {
   background: #ff751d;
   border-color: #ff751d;
   color: #ffffff;
