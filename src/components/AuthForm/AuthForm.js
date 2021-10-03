@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import styles from '../AuthForm/AuthForm.module.css';
+import styles from '../AuthForm/AuthForm.module.scss';
 import logo from '../../images/logo.png';
 import {
   registerOperation,
   loginOperation,
-} from '../../redux/authUser/operations';
+} from '../../redux/authUser/auth.operations';
 
 const AuthForm = () => {
     const [email, setEmail] = useState('');
