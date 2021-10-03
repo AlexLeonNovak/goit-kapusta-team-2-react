@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import IncomeList from "./components/income/incomeList";
+import ExpenseList from "./components/expense/expenseList";
+
+// TODO видалити локальні TODO, коли буде BACK
+import IncomeApi from "./components/income/api.json";
+import expenseApi from "./components/expense/api.json";
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <IncomeList items={IncomeApi} />
+
+      <ExpenseList items={expenseApi} />
+    </>
   );
 }
 
