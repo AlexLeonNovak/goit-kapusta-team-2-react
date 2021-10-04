@@ -75,14 +75,14 @@ const AuthForm = () => {
               type="button"
               className={styles.form_button}
             >
-              войти
+              Войти
             </button>
             <button
               onClick={handleClickRegisterButton}
               type="button"
               className={styles.form_button}
             >
-              регистрация
+              Регистрация
             </button>
           </div>
         </div>
