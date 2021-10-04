@@ -18,14 +18,7 @@
   .wrapper {
     height: 512px;
   }
-}
-
-@media screen and (min-width: 1280px) {
-  .wrapper {
-    flex-flow: row;
-    position: relative;
-  }
-  .wrapper::before {
+   .wrapper::before {
     position: absolute;
     content: '';
     left: 0;
@@ -35,4 +28,12 @@
     background-image: url('../../images/auth_bg1280.png');
     background-repeat: repeat-x;
   }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    flex-flow: row;
+    position: relative;
+  }
+ 
 }

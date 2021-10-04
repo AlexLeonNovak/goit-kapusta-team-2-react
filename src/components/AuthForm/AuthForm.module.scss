@@ -18,7 +18,9 @@
   content: '';
   height: 70px;
   width: 90px;
-  left: 25px;
+  left: 10px;
+  padding-top: -20px;
+  padding-bottom: 20px;
   background-image: url('../../images/authForm_bg320.png');
   background-repeat: no-repeat;
 }
@@ -138,18 +140,17 @@
 
 @media screen and (min-width: 768px) {
   .wrapper::after {
-    width: 170px;
+    width: 180px;
     height: 222px;
-    background-image: url('../../images/authForm_bg768.png');
-    left: auto;
-    right: 0;
-    bottom: 115px;
+    background-image: url('../../images/kapusta_jump.png');
+    left: 200px;
+    right: auto;
+    // bottom: 5px;
   }
   .form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 180px;
     width: 420px;
     padding: 20px 30px;
     background-color: #fff;
