@@ -1,0 +1,92 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+/* Делает картинки блочными */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Типография */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Убрать подчёркивания у ссылок */
+.link {
+  text-decoration: none;
+}
+
+/* Убрать маркировку списков */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Поинтер на кнопки */
+.button {
+  cursor: pointer;
+}
+
+/* Задаём ширину основного контейнера */
+.container {
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include for-size(minmobile) {
+    max-width: 320px;
+  }
+
+  @include for-size(mobile) {
+    max-width: 480px;
+  }
+
+  @include for-size(tablet) {
+    max-width: 768px;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+
+  @include for-size(desktop) {
+    max-width: 1280px;
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
+
