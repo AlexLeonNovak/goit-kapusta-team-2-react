@@ -1,4 +1,7 @@
+import React from "react";
 import PropTypes from "prop-types";
+
+import IconDelete from "../iconDelete/IconDelete";
 
 const ExpenseItem = ({ id, date, desc, catt, summ }) => (
   <tr key={id}>
@@ -7,8 +10,9 @@ const ExpenseItem = ({ id, date, desc, catt, summ }) => (
     <td>{catt}</td>
     <td>-{summ}</td>
     <td>
-      {/* TODO change "X" for deleteButton.svg, when it will be */}
-      <span>X</span>
+      <button type="button">
+        <IconDelete />
+      </button>
     </td>
   </tr>
 );
