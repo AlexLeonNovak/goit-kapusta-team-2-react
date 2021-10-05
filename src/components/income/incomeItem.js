@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 const IncomeItem = ({ id, date, desc, catt, summ }) => (
@@ -7,8 +8,8 @@ const IncomeItem = ({ id, date, desc, catt, summ }) => (
     <td>{catt}</td>
     <td>{summ}</td>
     <td>
-      {/* TODO change "X" for deleteButton.svg, when it will be */}
-      <span>X</span>
+      <span>
+        X</span>
     </td>
   </tr>
 );

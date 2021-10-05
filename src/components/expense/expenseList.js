@@ -1,8 +1,9 @@
+import React from "react";
 import PropTypes from "prop-types";
 
-import ExpenseItem from "./expenseItem";
+import ExpenseItem from "./ExpenseItem";
 
-import "./expense.css";
+import "./Expense.css";
 
 const ExpenseList = ({ items }) => (
   <table className="expense">
@@ -16,31 +17,28 @@ const ExpenseList = ({ items }) => (
       </tr>
     </thead>
 
+    {/* TODO need to fix error with unique id */}
+
     <tbody>
       {items.map(({ id, date, desc, catt, summ, del }) => (
-        <ExpenseItem
-          key={id}
-          date={date}
-          desc={desc}
-          catt={catt}
-          summ={summ}
-          del={del}
-        />
+        <ExpenseItem key={id} date={date} desc={desc} catt={catt} summ={summ} />
       ))}
     </tbody>
   </table>
 );
 
 ExpenseList.defaultProps = {
-  amount: "---",
+  date: "---",
+  desc: "---",
+  catt: "---",
+  summ: "---",
 };
 
 ExpenseList.propTypes = {
   date: PropTypes.string,
   desc: PropTypes.string,
   catt: PropTypes.string,
-  summ: PropTypes.number,
-  del: PropTypes.func,
+  summ: PropTypes.string,
 };
 
 export default ExpenseList;
