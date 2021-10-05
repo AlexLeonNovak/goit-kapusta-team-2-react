@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import IconDelete from "../iconDelete/IconDelete";
-
 const IncomeItem = ({ id, date, desc, catt, summ }) => (
   <tr key={id}>
     <td>{date}</td>
@@ -10,9 +8,8 @@ const IncomeItem = ({ id, date, desc, catt, summ }) => (
     <td>{catt}</td>
     <td>{summ}</td>
     <td>
-      <button type="button">
-        <IconDelete />
-      </button>
+      <span>
+        X</span>
     </td>
   </tr>
 );

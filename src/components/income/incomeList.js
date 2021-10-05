@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import IncomeItem from "./incomeItem";
+import IncomeItem from "./IncomeItem";
 
-import "./income.css";
+import "./Income.css";
 
 const IncomeList = ({ items }) => (
   <table className="income">

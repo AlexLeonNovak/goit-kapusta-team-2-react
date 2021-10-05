@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import ExpenseItem from "./expenseItem";
+import ExpenseItem from "./ExpenseItem";
 
-import "./expense.css";
+import "./Expense.css";
 
 const ExpenseList = ({ items }) => (
   <table className="expense">
