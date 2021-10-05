@@ -1,0 +1,18 @@
+@import '../../base/sass/utils/variables';
+
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  .avatar {
+    margin-right: 4px;
+  }
+  .email {
+    font-weight: 700;
+    margin-right: 12px;
+  }
+  .link {
+    display: inline-block;
+    color: $font-color-main;
+  }

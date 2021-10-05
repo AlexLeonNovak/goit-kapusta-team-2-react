@@ -6,6 +6,6 @@ const getUseremail = state => state.auth.user.email;
 
 export default {
   getIsAuthenticated,
-    getUsername,
+  getUsername,
   getUseremail
 };

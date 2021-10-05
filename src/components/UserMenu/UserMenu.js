@@ -1,34 +1,13 @@
 import React, { useCallback} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import authOperations from '../../redux/auth/auth-operations';
 import authSelectors from '../../redux/auth/auth-selectors';
 import defaultAvatar from '../../base/images/desktop/kapustaVip.png';
+import s from "../UserMenu/UserMenu.module.scss";
 
 import Button from '@material-ui/core/Button';
 
-
-const styles = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  avatar: {
-    marginRight: 4,
-  },
-  email: {
-    fontWeight: 700,
-    marginRight: 12,
-  },
-  link: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    textAlign:'center',
-    padding: 5,
-    margin:10,
-    fontWeight: 700,
-    color: '#fff',
-  },
-};
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -40,14 +19,23 @@ export default function UserMenu() {
    }, [dispatch]);
   
   return (
-    <div style={styles.container}>
-    <img src={defaultAvatar} alt="" width="32" style={styles.avatar} />
-    <span style={styles.name}>Welcome, {name}</span>
+    <div className={s.container}>
+    <img src={defaultAvatar} alt="" width="32" className={s.avatar} />
+    <span className={s.name}>Welcome, user name {name}</span>
     {/* <span style={styles.email}>Welcome, {email}</span> */}
     
-    <Button style={styles.link} variant="contained" color="secondary" href="#contained-buttons" type="button" onClick={onLogOut}>
-      Log out
-    </Button>
+    {/* <Button className={s.link} variant="contained" color="secondary" href="#contained-buttons" type="button" onClick={onLogOut}>
+     Выйти
+      </Button> */}
+      <button
+              onClick={onLogOut}
+              type="button"
+              className={s.button}>
+              Выйти
+            </button>
+      
+     
+      
   </div>
 );
 }

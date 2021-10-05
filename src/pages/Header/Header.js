@@ -1,18 +1,13 @@
 import React from 'react';
-import s from "../Home/home.module.scss";
-
-
+import s from "../Header/Header.module.scss";
+import AppBar from "../../components/AppBar/AppBar";
 
 
 const Header = () => (
-    return (
-    <div className={s.wrapper}>
-      <div className={styles.wrapper}>
-        <AuthArticle />
-        <AuthForm />
-      </div>
+ <div className={s.wrapper}>
+        <AppBar />
     </div>
+   
   );
-  
   
 export default Header;
