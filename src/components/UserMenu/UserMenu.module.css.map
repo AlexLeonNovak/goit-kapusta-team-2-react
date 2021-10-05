@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACYqB,sBAAsB;ADTzC,AAAA,UAAU,CAAC;EACT,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;CACpB;;AACD,AAAA,OAAO,CAAC;EACN,MAAM,EAAE,IAAI;EACZ,gBAAgB,ECPA,OAAO;EDQvB,aAAa,EAAE,GAAG;CACnB;;AACD,AAAA,MAAM,CAAC;EACL,WAAW,EAAE,GAAG;EAChB,YAAY,EAAE,IAAI;CACnB;;AACD,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,YAAY;EACrB,KAAK,ECZS,OAAO;CDatB;;AACD,AAAA,OAAO,CAAA;EACH,MAAM,EAAE,IAAI;EACZ,gBAAgB,ECpBF,OAAO;CDqBxB",
+    "sources": [
+        "UserMenu.module.scss",
+        "../../base/sass/utils/_variables.scss"
+    ],
+    "names": [],
+    "file": "UserMenu.module.css"
+}

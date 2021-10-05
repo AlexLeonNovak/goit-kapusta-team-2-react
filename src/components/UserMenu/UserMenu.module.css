@@ -1,0 +1,27 @@
+/* //linearGradient */
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin: 10px;
+  background-color: #FF751D;
+  border-radius: 50%;
+}
+
+.email {
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+.link {
+  display: inline-block;
+  color: #000000;
+}
+
+.button {
+  margin: 10px;
+  background-color: #FF751D;
+}
+/*# sourceMappingURL=UserMenu.module.css.map */
