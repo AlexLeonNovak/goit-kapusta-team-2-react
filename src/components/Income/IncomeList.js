@@ -1,6 +1,7 @@
+import React from "react";
 import PropTypes from "prop-types";
 
-import IncomeItem from "./incomeItem";
+import IncomeItem from "./IncomeItem";
 
 import "./income.css";
 
@@ -16,31 +17,28 @@ const IncomeList = ({ items }) => (
       </tr>
     </thead>
 
+    {/* TODO need to fix error with unique id */}
+
     <tbody>
-      {items.map(({ id, date, desc, catt, summ, del }) => (
-        <IncomeItem
-          key={id}
-          date={date}
-          desc={desc}
-          catt={catt}
-          summ={summ}
-          del={del}
-        />
+      {items.map(({ id, date, desc, catt, summ }) => (
+        <IncomeItem key={id} date={date} desc={desc} catt={catt} summ={summ} />
       ))}
     </tbody>
   </table>
 );
 
 IncomeList.defaultProps = {
-  amount: "---",
+  date: "---",
+  desc: "---",
+  catt: "---",
+  summ: "---",
 };
 
 IncomeList.propTypes = {
   date: PropTypes.string,
   desc: PropTypes.string,
   catt: PropTypes.string,
-  summ: PropTypes.number,
-  del: PropTypes.func,
+  summ: PropTypes.string,
 };
 
 export default IncomeList;
