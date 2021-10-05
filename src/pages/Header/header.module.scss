@@ -1,0 +1,14 @@
+@import '../../base/sass/utils/variables';
+
+
+
+.wrapper{
+    background:$bg-main;
+     
+}
+.header {
+  position: relative;
+  height: 56px;
+  width: 100%;
+  background-color:$bg-main;
+}

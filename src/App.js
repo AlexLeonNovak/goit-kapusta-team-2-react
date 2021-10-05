@@ -1,3 +1,4 @@
+import AppBar from "./components/AppBar/AppBar";
 import Auth from './pages/Auth/Auth';
 import AuthForm from "./components/AuthForm/AuthForm";
 import IncomeList from "./components/income/incomeList";
@@ -13,9 +14,11 @@ import expenseApi from './components/expense/api.json';
 function App() {
   return (
     <>
-    <Auth />
-	    <HomeView />
-      <AuthForm />
+     <HomeView />
+    <AppBar/>
+      <Auth />
+	   
+     
       <Balance />
       <IncomeList items={IncomeApi} />
       <ExpenseList items={expenseApi} />
