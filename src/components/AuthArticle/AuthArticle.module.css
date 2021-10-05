@@ -1,5 +1,3 @@
-// @import '../../base/sass/utils/variables';
-
 .article {
   position: relative;
   user-select: none;
@@ -8,7 +6,7 @@
 }
 
 .article::after {
-  background-image: url('../../images/auth_bg320.png');
+  background-image: url("../../images/auth_bg320.png");
   content: '';
   position: absolute;
   right: 150px;
@@ -47,14 +45,14 @@
     font-size: 15px;
     padding-left: 30px;
   }
-   .article__title::after {
+  .article__title::after {
     position: absolute;
     width: 180px;
     height: 145px;
     content: '';
     top: 275px;
     left: 10px;
-    background-image: url('../../images/kapusta_jump.png');
+    background-image: url("../../images/kapusta_jump.png");
   }
 }
 
@@ -80,6 +78,7 @@
     content: '';
     top: 275px;
     left: 10px;
-    background-image: url('../../images/kapusta_jump.png');
+    background-image: url("../../images/kapusta_jump.png");
   }
 }
+/*# sourceMappingURL=AuthArticle.module.css.map */

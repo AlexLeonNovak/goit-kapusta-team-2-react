@@ -1,0 +1,23 @@
+
+@import '../../base/sass/utils/variables';
+
+
+.logo {
+  display: inline-block;
+  align-items: flex-start;
+}
+
+
+.link {
+    display: inline-block;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 24px;
+    color: $accent-color-dark;
+  }
+
+.activeLink {
+    color: $accent-color-light
+;
+  }
+

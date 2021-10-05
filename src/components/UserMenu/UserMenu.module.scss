@@ -1,0 +1,24 @@
+@import '../../base/sass/utils/variables';
+
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  .avatar {
+    margin: 10px;
+    background-color: $accent-color-dark;
+    border-radius: 50%;
+  }
+  .email {
+    font-weight: 700;
+    margin-right: 12px;
+  }
+  .link {
+    display: inline-block;
+    color: $font-color-main;
+  }
+  .button{
+      margin: 10px;
+      background-color: $accent-color-dark;
+  }

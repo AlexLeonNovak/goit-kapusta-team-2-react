@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACYqB,sBAAsB;ADR3C,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,YAAY;EACrB,WAAW,EAAE,UAAU;CACxB;;AAGD,AAAA,KAAK,CAAC;EACF,OAAO,EAAE,YAAY;EACrB,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,GAAG;EAChB,SAAS,EAAE,IAAI;EACf,KAAK,ECbW,OAAO;CDcxB;;AAEH,AAAA,WAAW,CAAC;EACR,KAAK,EChBW,OAAO;CDkBxB",
+    "sources": [
+        "Nav.module.scss",
+        "../../base/sass/utils/_variables.scss"
+    ],
+    "names": [],
+    "file": "Nav.module.css"
+}

@@ -1,0 +1,9 @@
+@import '../../base/sass/utils/variables';
+
+.header {
+    display: flex; 
+    justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid $accent-color-dark
+  }
+
