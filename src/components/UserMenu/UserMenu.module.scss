@@ -6,7 +6,9 @@
     align-items: center;
   }
   .avatar {
-    margin-right: 4px;
+    margin: 10px;
+    background-color: $accent-color-dark;
+    border-radius: 50%;
   }
   .email {
     font-weight: 700;
@@ -15,4 +17,8 @@
   .link {
     display: inline-block;
     color: $font-color-main;
+  }
+  .button{
+      margin: 10px;
+      background-color: $accent-color-dark;
   }
