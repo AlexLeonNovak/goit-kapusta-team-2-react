@@ -27,7 +27,6 @@ function App() {
     <>
       <Header />
       <Auth />
-      <AuthForm />
       <Balance />
 
       <Tabs>
