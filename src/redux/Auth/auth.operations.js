@@ -1,4 +1,4 @@
-import {toast} from 'react-toastify';
+import {addToast} from 'react-toast-notifications';
 import {
   getUser,
   authRegister,
@@ -58,7 +58,7 @@ export const getUserOperation = token => dispatch => {
       })
       .catch(err => {
         const errData = err;
-        toast.error('Упс... =( проверьте введенные данные еще раз', 'error');
+        addToast.error('Упс... =( проверьте введенные данные еще раз', 'error');
         dispatch(registerError(errData));
       });
   };
@@ -72,7 +72,7 @@ export const getUserOperation = token => dispatch => {
         dispatch(loginSuccess(res.data));
       })
       .catch(error => {
-        toast.error(
+        addToast.error(
           'Упс... =( возможно Вы ввели не верную почту или пароль',
           'error',
         );
