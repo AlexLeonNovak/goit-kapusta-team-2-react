@@ -5,7 +5,7 @@ import logo from '../../images/logo.png';
 import {
   registerOperation,
   loginOperation,
-} from '../../redux/authUser/auth.operations';
+} from '../../redux/Auth/auth.operations';
 
 const AuthForm = () => {
     const [email, setEmail] = useState('');
