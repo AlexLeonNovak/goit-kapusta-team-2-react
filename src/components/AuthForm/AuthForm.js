@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import styles from '../AuthForm/AuthForm.module.scss';
 import logo from '../../images/logo.png';
-import authOperations from '../../redux/Auth/auth-operations';
+import authOperations from '../../redux/auth/auth.operations';
 
 const AuthForm = () => {
     const [email, setEmail] = useState('');
@@ -86,7 +86,7 @@ const AuthForm = () => {
       </form>
     </div>
   );
-    
+
 }
 
 export default AuthForm;

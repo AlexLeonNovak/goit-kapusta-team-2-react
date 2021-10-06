@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import authSelectors from '../../redux/Auth/auth-selectors';
+import authSelectors from '../../redux/auth/auth.selectors';
 import s from "../Nav/Nav.module.scss";
 import logo from '../../base/images/desktop/logo.png'
 

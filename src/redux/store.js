@@ -2,7 +2,7 @@
 
 // const store = configureStore({
 //   reducer: {
-    
+
 //   },
 //   devTools: process.env.NODE_ENV === 'development',
 // });
@@ -21,8 +21,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import userReducer from './authUser/authUser.reducer';
-import authReducer from './Auth/auth-reducer';
+import userReducer from './user/user.reducer';
+import authReducer from './auth/auth.reducer';
 
 const middleware = [
   ...getDefaultMiddleware({
