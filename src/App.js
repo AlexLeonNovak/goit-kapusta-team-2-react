@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 
-import authOperations from './redux/auth/auth-operations';
+import authOperations from './redux/Auth/auth-operations';
 import { useDispatch } from 'react-redux';
 
 import Header from './pages/Header/Header';
@@ -27,7 +27,6 @@ function App() {
     <>
       <Header />
       <Auth />
-      <AuthForm />
       <Balance />
 
       <Tabs>

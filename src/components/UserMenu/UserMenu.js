@@ -1,8 +1,8 @@
 import React, { useCallback} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import authOperations from '../../redux/auth/auth-operations';
-import authSelectors from '../../redux/auth/auth-selectors';
+import authOperations from '../../redux/Auth/auth-operations';
+import authSelectors from '../../redux/Auth/auth-selectors';
 import defaultAvatar from '../../base/images/desktop/kapustaVip.png';
 import s from "../UserMenu/UserMenu.module.scss";
 

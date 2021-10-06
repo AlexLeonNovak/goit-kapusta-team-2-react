@@ -4,7 +4,7 @@ import Navigation from '../Nav/Nav';
 import UserMenu from '../UserMenu/UserMenu';
 import s from "../AppBar/AppBar.module.scss";
 
-import  authSelectors  from '../../redux/auth/auth-selectors';
+import  authSelectors  from '../../redux/Auth/auth-selectors';
 
 
 export default function AppBar() {
@@ -13,7 +13,7 @@ export default function AppBar() {
   return (
     <div className={s.header}>
       <Navigation />
-      <UserMenu /> 
+      {/* <UserMenu />  */}
       {isLoggedIn ? <UserMenu /> : null}
     </div>
   );

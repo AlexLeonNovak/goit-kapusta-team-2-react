@@ -22,7 +22,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import userReducer from './authUser/authUser.reducer';
-import authReducer from './auth/auth-reducer';
+import authReducer from './Auth/auth-reducer';
 
 const middleware = [
   ...getDefaultMiddleware({

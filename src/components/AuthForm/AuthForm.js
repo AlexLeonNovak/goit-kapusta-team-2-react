@@ -2,10 +2,7 @@ import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import styles from '../AuthForm/AuthForm.module.scss';
 import logo from '../../images/logo.png';
-import {
-  registerOperation,
-  loginOperation,
-} from '../../redux/Auth/auth.operations';
+import authOperations from '../../redux/Auth/auth-operations';
 
 const AuthForm = () => {
     const [email, setEmail] = useState('');
@@ -13,8 +10,8 @@ const AuthForm = () => {
     const dispatch = useDispatch();
     const hahdleChangeEmail = e => setEmail(e.target.value);
     const hahdleChangePassword = e => setPassword(e.target.value);
-    const registerFunc = data => dispatch(registerOperation(data));
-    const loginFunc = data => dispatch(loginOperation(data));
+    const registerFunc = data => dispatch(authOperations.register(data));
+    const loginFunc = data => dispatch(authOperations.logIn(data));
 
     const handleClickRegisterButton = () => {
     registerFunc({ email, password, name: {} });
