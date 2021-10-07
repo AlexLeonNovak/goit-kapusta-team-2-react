@@ -1,11 +1,11 @@
 const getIsAuthenticated = state => state.auth.isAuthenticated;
 
-const getUsername = state => state.auth.user.name;
+const getUserEmail = state => state.auth.user.email;
 
-const getUseremail = state => state.auth.user.email;
+const getUserPassword = state => state.auth.user.password;
 
 export default {
   getIsAuthenticated,
-  getUsername,
-  getUseremail
+  getUserEmail,
+  getUserPassword
 };

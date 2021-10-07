@@ -11,8 +11,7 @@ import Button from '@material-ui/core/Button';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-//   const email = useSelector(authSelectors.getUseremail);
-  const name = useSelector(authSelectors.getUsername);
+  const email = useSelector(authSelectors.getUserEmail);
 
    const onLogOut = useCallback(() => {
         dispatch(authOperations.logOut());
@@ -20,22 +19,19 @@ export default function UserMenu() {
 
   return (
     <div className={s.container}>
-    <img src={defaultAvatar} alt="" width="32" className={s.avatar} />
-    <span className={s.name}>Welcome, user name {name}</span>
-    {/* <span style={styles.email}>Welcome, {email}</span> */}
+      <img src={defaultAvatar} alt="" width="32" className={s.avatar} />
+      <span className={s.name}>Welcome, {email}</span>
+      {/* <span style={styles.email}>Welcome, {email}</span> */}
 
-    {/* <Button className={s.link} variant="contained" color="secondary" href="#contained-buttons" type="button" onClick={onLogOut}>
+      {/* <Button className={s.link} variant="contained" color="secondary" href="#contained-buttons" type="button" onClick={onLogOut}>
      Выйти
       </Button> */}
       <button
-              onClick={onLogOut}
-              type="button"
-              className={s.button}>
-              Выйти
-            </button>
-
-
-
-  </div>
-);
-}
+        onClick={onLogOut}
+        type="button"
+        className={s.button}>
+        Выйти
+      </button>
+    </div>
+  );
+};

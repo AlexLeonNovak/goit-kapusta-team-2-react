@@ -1,21 +1,20 @@
 import React, { Suspense, lazy, useEffect } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-import authOperations from './redux/auth/auth.operations';
+import routes from './routes';
 import { useDispatch } from 'react-redux';
 
+import authOperations from './redux/auth/auth.operations';
+
 import Header from './pages/Header/Header';
-import Auth from "./pages/Auth/Auth";
-import DatePick from './components/DatePick/DatePicker';
-import IncomeList from "./components/Income/IncomeList";
-import ExpenseList from "./components/Expense/ExpenseList";
 
-import Balance from "./components/Balance";
-import Tabs from "./components/Tabs/Tabs";
+const Auth = lazy(() =>
+	import('./pages/Auth/Auth' /* webpackChunkName: "auth" */),
+);
 
-
-// TODO видалити локальні TODO, коли буде BACK
-import IncomeApi from "./components/Income/api.json";
-import ExpenseApi from "./components/Expense/api.json";
+const Finance = lazy(() =>
+	import('./pages/Finance/Finance' /* webpackChunkName: "finance" */),
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -26,18 +25,12 @@ function App() {
   return (
     <>
       <Header />
-      <Auth />
-      <Balance />
-      <DatePick />
-
-      <Tabs>
-        <div label="Доход">
-          <IncomeList items={IncomeApi} />
-        </div>
-        <div label="Расход">
-          <ExpenseList items={ExpenseApi} />
-        </div>
-      </Tabs>
+      <Suspense fallback={<h1>Загружаемся ребята...</h1>}>
+        <Switch>
+          <Route path={routes.auth} component={Auth} />
+          <Route path={routes.finance} component={Finance} />
+        </Switch>        
+      </Suspense>
     </>
   );
 }
