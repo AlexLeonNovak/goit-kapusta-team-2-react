@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import Header from './pages/Header/Header';
 import Auth from "./pages/Auth/Auth";
-import AuthForm from "./components/AuthForm/AuthForm";
+import DatePick from './components/DatePick/DatePicker';
 import IncomeList from "./components/Income/IncomeList";
 import ExpenseList from "./components/Expense/ExpenseList";
 
@@ -28,6 +28,7 @@ function App() {
       <Header />
       <Auth />
       <Balance />
+      <DatePick />
 
       <Tabs>
         <div label="Доход">
