@@ -13,13 +13,17 @@ const AuthForm = () => {
     const registerFunc = data => dispatch(authOperations.register(data));
     const loginFunc = data => dispatch(authOperations.logIn(data));
 
-    const handleClickRegisterButton = () => {
-    registerFunc({ email, password, name: {} });
-    setEmail('');
-    setPassword('');
+  const handleClickRegisterButton = () => {
+    registerFunc({ email, password });
+    reset();
   };
+  
   const handleClickLoginButton = () => {
-    loginFunc({ email, password, name: {} });
+    loginFunc({ email, password });
+    reset();
+  };
+
+  const reset = () => {
     setEmail('');
     setPassword('');
   };
@@ -53,12 +57,12 @@ const AuthForm = () => {
             className={styles.form_input}
             placeholder="your@email.com"
           />
-          <label htmlFor="pass" className={styles.form_inputDescription}>
+          <label htmlFor="password" className={styles.form_inputDescription}>
             Пароль:
           </label>
           <input
-            id="pass"
-            name="pass"
+            id="password"
+            name="password"
             type="password"
             value={password}
             onChange={hahdleChangePassword}
