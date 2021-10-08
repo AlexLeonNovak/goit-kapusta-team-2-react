@@ -23,6 +23,14 @@ display: flex;
     text-decoration-line: underline;
     margin-left: 30px;
     color: $font-color-secondary;
+    border-radius: 4px;
+    padding:  5px;
+    &:hover,
+&:focus {
+  color: $bg-main;
+      background-color: $accent-color-light;
+      
+    }
 }}
 
 .categoryIcon {

@@ -67,12 +67,15 @@ height: 16px;
     @include for-size(tablet) {
     font-size: 12px;
     font-family: inherit;
-    width: 70px;
+    width: 40px;
+    height: 100%;
     margin-left: 20px;
+    padding:  5px 0 5px 0;
     color:$font-color-secondary;
     background-color: $bg-main; 
     background-image: none;
     border: none;
+    border-radius: 4px;
 
     &:hover,
     &:focus {
