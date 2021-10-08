@@ -21,20 +21,13 @@ return (
         alt='Logo' />
   </div>
     </NavLink>
-    <NavLink
+   
+    {isLoggedIn && ( <NavLink
       to="/categories"
       exact>
       <span className={s.category}>Категории</span>
       <span  className={s.categoryIcon}></span>
-    </NavLink>
-    {/* {isLoggedIn && (<NavLink
-      to="/categories"
-      exact
-      className={s.link}
-    
-    >
-    Категории
-    </NavLink> ) } */}
+    </NavLink> )}
 
   </nav>
 );
