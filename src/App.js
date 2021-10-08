@@ -12,8 +12,8 @@ const Auth = lazy(() =>
 	import('./pages/Auth/Auth' /* webpackChunkName: "auth" */),
 );
 
-const Finance = lazy(() =>
-	import('./pages/Finance/Finance' /* webpackChunkName: "finance" */),
+const Transactions = lazy(() =>
+	import('./pages/Transactions/Transactions' /* webpackChunkName: "transactions" */),
 );
 
 function App() {
@@ -27,9 +27,11 @@ function App() {
       <Header />
       <Suspense fallback={<h1>Загружаемся ребята...</h1>}>
         <Switch>
-           <Route exect path='/' component={Auth} />
+          <Route path="/" exact>
+						<Redirect to="/auth" />
+					</Route>
           <Route path={routes.auth} component={Auth} />
-          <Route path={routes.finance} component={Finance} />
+          <Route path={routes.transactions} component={Transactions} />
         </Switch>        
       </Suspense>
     </>
