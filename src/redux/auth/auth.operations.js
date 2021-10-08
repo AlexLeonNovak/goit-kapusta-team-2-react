@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authActions from './auth.actions';
 
-axios.defaults.baseURL = 'https://goit-kapusta-team-2-api.herokuapp.com/api/v1';
+axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/api/v1`;
 
 const token = {
   set(token) {
