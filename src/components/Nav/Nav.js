@@ -23,19 +23,18 @@ return (
     </NavLink>
     <NavLink
       to="/categories"
-      exact
-      className={s.category}
-    >
-    <span>Категории</span>
+      exact>
+      <span className={s.category}>Категории</span>
+      <span  className={s.categoryIcon}></span>
     </NavLink>
-    {isLoggedIn && (<NavLink
+    {/* {isLoggedIn && (<NavLink
       to="/categories"
       exact
       className={s.link}
     
     >
     Категории
-    </NavLink> ) }
+    </NavLink> ) } */}
 
   </nav>
 );
