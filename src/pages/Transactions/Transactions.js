@@ -11,7 +11,7 @@ import Tabs from "../../components/Tabs/Tabs";
 import IncomeApi from "../../components/Income/api.json";
 import ExpenseApi from "../../components/Expense/api.json";
 
-const Finance = () => {
+const Transactions = () => {
   return (
     <>
       <Balance />
@@ -29,4 +29,4 @@ const Finance = () => {
   );
 };
 
-export default Finance;
+export default Transactions;
