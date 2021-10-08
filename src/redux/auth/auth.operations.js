@@ -19,8 +19,8 @@ const register = credentials => async dispatch => {
   try {
     const response = await axios.post('/auth/registration', credentials);
 
-    token.set(response.data.token);
-    dispatch(authActions.registerSuccess(response.data));
+    token.set(response.data.data.token);
+    dispatch(authActions.registerSuccess(response.data.data));
   } catch (error) {
     dispatch(authActions.registerError(error.message));
   }
@@ -33,8 +33,8 @@ const logIn = credentials => async dispatch => {
   try {
     const response = await axios.post('/auth/login', credentials);
 
-    token.set(response.data.token);
-    dispatch(authActions.loginSuccess(response.data));
+    token.set(response.data.data.token);
+    dispatch(authActions.loginSuccess(response.data.data));
   } catch (error) {
     dispatch(authActions.loginError(error.message));
   }
@@ -70,7 +70,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
   try {
     const response = await axios.get('/auth/current');
 
-    dispatch(authActions.getCurrentUserSuccess(response.data));
+    dispatch(authActions.getCurrentUserSuccess(response.data.data));
   } catch (error) {
     dispatch(authActions.getCurrentUserError(error.message));
   }
