@@ -12,7 +12,7 @@ export default function Navigation() {
   //const logo = '../../base/images/desktop/logo.png';
 
 return (
-  <nav>
+  <nav className={ s.flexContainer}>
     <NavLink to="/" exact className={s.link} >
     <div>
 
@@ -21,15 +21,14 @@ return (
         alt='Logo' />
   </div>
     </NavLink>
+   
+    {isLoggedIn && ( <NavLink
+      to="/categories"
+      exact>
+      <span className={s.category}>Категории</span>
+      <span  className={s.categoryIcon}></span>
+    </NavLink> )}
 
-    {/* {isLoggedIn && (<NavLink
-      to="/balance"
-      exact
-      style={s.link}
-      activeStyle={s.activeLink}
-    >
-     Balance
-    </NavLink> ) } */}
   </nav>
 );
     }

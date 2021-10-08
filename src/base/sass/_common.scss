@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif; 
 }
 
 *,
@@ -13,6 +14,7 @@ address {
 }
 
 body {
+ 
   margin: 0px;
   padding: 0px;
   font-family: 'Roboto', sans-serif;
@@ -64,10 +66,9 @@ ul {
 /* Задаём ширину основного контейнера */
 .container {
   width: 100%;
-  padding-left: 25px;
-  padding-right: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  
 
   @include for-size(minmobile) {
     max-width: 320px;
@@ -79,8 +80,8 @@ ul {
 
   @include for-size(tablet) {
     max-width: 768px;
-    padding-left: 85px;
-    padding-right: 85px;
+    padding-left: 51px;
+    padding-right: 51px;
   }
 
   @include for-size(desktop) {
