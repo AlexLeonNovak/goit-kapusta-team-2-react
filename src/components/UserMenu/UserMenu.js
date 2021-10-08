@@ -20,17 +20,16 @@ export default function UserMenu() {
   return (
     <div className={s.container}>
       <img src={defaultAvatar} alt="" width="32" className={s.avatar} />
-      <span className={s.name}>Welcome, {email}</span>
+      
+      <span className={s.name}> User name {email}</span>
       {/* <span style={styles.email}>Welcome, {email}</span> */}
-
-      {/* <Button className={s.link} variant="contained" color="secondary" href="#contained-buttons" type="button" onClick={onLogOut}>
-     Выйти
-      </Button> */}
+<span className={s.line}></span>
+     
       <button
         onClick={onLogOut}
         type="button"
-        className={s.button}>
-        Выйти
+        className={`${s.button} ${s.buttonPhone}`}>
+        <u>Выйти</u>
       </button>
     </div>
   );

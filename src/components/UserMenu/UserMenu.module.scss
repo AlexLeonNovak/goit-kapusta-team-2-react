@@ -1,24 +1,86 @@
-@import '../../base/sass/utils/variables';
+// @import '../../base/sass/utils/variables';
+// @import '../../base/sass/utils/mixins';
+@import '../../base/sass/main.scss';
 
 
-  .container {
+ .container {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
+     padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
   }
   .avatar {
+    height: 32px;
+    width: 32px;
     margin: 10px;
     background-color: $accent-color-dark;
     border-radius: 50%;
+
   }
-  .email {
-    font-weight: 700;
-    margin-right: 12px;
+  .name {
+    display: none;
+
+    @include for-size(tablet) {
+    display: flex;
+   justify-content:center;
+    font-weight: 400;
+    font-size: 12px;
+    color:$font-color-secondary;
+    margin-right: 20px;
+    margin-left: 10px;
+    
+    
+    }
+
   }
-  .link {
-    display: inline-block;
-    color: $font-color-main;
+ .line{
+   @include for-size(tablet) {
+  height: 36px;
+  width: 1px;
+  background-color: $bg-second;
+   }
   }
-  .button{
-      margin: 10px;
-      background-color: $accent-color-dark;
+  button u {
+    display: none;
+     @include for-size(tablet) {
+      display: inline-block;
+       
+     }
   }
+  
+  .button {
+background-image: url(../../base/images/svg_color/logout.svg);
+background-color: $bg-main; 
+border: none;
+width: 16px;
+height: 16px;
+
+&:hover,
+&:focus {
+      background-color: $accent-color-light;
+      
+    }
+
+    @include for-size(tablet) {
+    font-size: 12px;
+    font-family: inherit;
+    width: 70px;
+    margin-left: 20px;
+    margin-right: 73px;
+    // padding-top: 10px;
+    // padding-bottom: 10px;
+    color:$font-color-secondary;
+    background-color: $bg-main; 
+    background-image: none;
+    border: none;
+
+    &:hover,
+    &:focus {
+      background-color: $accent-color-light;
+      color: $bg-main;
+     
+    }
+  }}

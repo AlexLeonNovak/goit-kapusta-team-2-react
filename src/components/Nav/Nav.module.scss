@@ -1,23 +1,41 @@
 
-@import '../../base/sass/utils/variables';
+@import '../../base/sass/main.scss';
 
+
+.flexContainer{
+display: flex;
+  align-items: center;
+
+}
 
 .logo {
   display: inline-block;
   align-items: flex-start;
 }
 
+.category span{
+  display: none;
+     @include for-size(tablet) {
+       font-size: 12px;
+     }
+}
 
-.link {
+.category {
+  
+
+   @include for-size(tablet) {
+
     display: inline-block;
-    padding: 12px;
-    font-weight: 700;
-    font-size: 24px;
-    color: $accent-color-dark;
+     align-items: center;
+   margin-left: 30px;
+    font-weight: 400;
+    font-size: 12px;
+    color: $font-color-secondary;
   }
+}
+
 
 .activeLink {
-    color: $accent-color-light
-;
+    color: $accent-color-light;
   }
 

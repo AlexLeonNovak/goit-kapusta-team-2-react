@@ -27,6 +27,7 @@ function App() {
       <Header />
       <Suspense fallback={<h1>Загружаемся ребята...</h1>}>
         <Switch>
+           <Route exect path='/' component={Auth} />
           <Route path={routes.auth} component={Auth} />
           <Route path={routes.finance} component={Finance} />
         </Switch>        
