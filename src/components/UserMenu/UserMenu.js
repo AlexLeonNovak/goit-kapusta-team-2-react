@@ -20,10 +20,8 @@ export default function UserMenu() {
 
   return (
     <div className={s.container}>
-      {/* <img src={name} alt="" width="32" className={s.avatar} /> */}
        <img src={defaultAvatar} alt="" width="32" className={s.avatar} />
-      <span className={s.name}> Welcome, {email}</span>
-      {/* <span style={styles.email}>Welcome, {email}</span> */}
+      <span className={s.name}> Привет, {email}</span>
 <span className={s.line}></span>
      
       <button

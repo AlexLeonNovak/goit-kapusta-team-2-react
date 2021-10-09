@@ -12,9 +12,23 @@ align-items: center;
   display: inline-block;
   align-items: flex-start;
 }
+.menu{
+  background: rgba(219, 116, 116, 0.3);
+}
+.menuItem{
+ display: inline-block;
+       align-items: center; 
+        font-weight: 400;
+    font-size: 12px;
+    text-decoration-line: underline;
+    margin-bottom: 5px;
+    color: $font-color-secondary;
+
+}
 
 .category{
   display: none;
+  
      @include for-size(tablet) {
        display: inline-block;
        align-items: center; 
@@ -37,12 +51,14 @@ align-items: center;
 display: inline-block;
 width: 25px;
 height: 25px;
+ color: $font-color-secondary;
 align-items: center; 
+text-align: center;
 margin-left: 20px;
 background-color: $accent-color-light; 
-background-image: url(../../base/images/svg_color/polygonR.svg);
-background-repeat: no-repeat;
-background-position: center;
+// background-image: url(../../base/images/svg_color/polygonR.svg);
+// background-repeat: no-repeat;
+// background-position: center;
 border-radius: 50%;
 border: none;
 

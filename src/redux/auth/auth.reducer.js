@@ -33,7 +33,7 @@ const isAuthenticated = createReducer(false, {
   [authActions.registerError]: () => false,
   [authActions.loginError]: () => false,
   // TODO Поставить false, когда поправят роут на бэке
-  [authActions.getCurrentUserError]: () => true,
+  [authActions.getCurrentUserError]: () => false,
   [authActions.logoutSuccess]: () => false,
 });
 
