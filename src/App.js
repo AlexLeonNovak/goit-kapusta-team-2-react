@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import authOperations from './redux/auth/auth.operations';
 import Header from './pages/Header/Header';
+import Summary from './components/Summary/Summary';
 
 import routes from './routes';
 import PrivateRoute from './components/PrivateRoute';
@@ -58,6 +59,7 @@ function App() {
 
         </Switch>        
       </Suspense>
+      {/* TODO раскоментить после добавления expensee and income <Summary /> */}
     </>
   );
 }

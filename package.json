@@ -28,8 +28,10 @@
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
+    "reselect": "^4.0.0",
     "sass-loader": "^12.1.0",
     "shortid": "^2.2.16",
+    "uuidv4": "^6.2.12",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
