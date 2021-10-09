@@ -22,7 +22,7 @@ export default function UserMenu() {
     <div className={s.container}>
       {/* <img src={name} alt="" width="32" className={s.avatar} /> */}
        <img src={defaultAvatar} alt="" width="32" className={s.avatar} />
-      <span className={s.name}> User name {email}</span>
+      <span className={s.name}> Welcome, {email}</span>
       {/* <span style={styles.email}>Welcome, {email}</span> */}
 <span className={s.line}></span>
      

@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth.selectors';
 import s from "../Nav/Nav.module.scss";
 import logo from '../../base/images/desktop/logo.png'
+import  minmobile from '../../base/sass/main.scss';
 
 
 
 export default function Navigation() {
   const isLoggedIn = useSelector(authSelectors.getIsAuthenticated);
+  
   //const logo = '../../base/images/desktop/logo.png';
 
 return (
@@ -22,12 +24,25 @@ return (
   </div>
     </NavLink>
    
-    {isLoggedIn && ( <NavLink
+    {/* {isLoggedIn && ( <NavLink
       to="/categories"
       exact>
-      <span className={s.category}>Категории</span>
+      {`${minmobile}` ?   <span className={s.category}>Категории</span> : <span  className={s.categoryIcon}></span>}
+      
+     
+    </NavLink>) } */}
+     {isLoggedIn && (<NavLink
+      to="/transactions"
+      exact>
+      <span className={s.category}>Транзакции</span>
       <span  className={s.categoryIcon}></span>
     </NavLink> )}
+     {isLoggedIn &&(<NavLink
+      to="/reports"
+      exact>
+      <span className={s.category}>Отчеты</span>
+      <span  className={s.categoryIcon}></span>
+    </NavLink>)}
 
   </nav>
 );
