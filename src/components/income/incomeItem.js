@@ -7,7 +7,6 @@ const IncomeItem = ({ id, date, desc, catt, summ }) => (
     <td>{catt}</td>
     <td>{summ}</td>
     <td>
-      {/* TODO change "X" for deleteButton.svg, when it will be */}
       <span>X</span>
     </td>
   </tr>
