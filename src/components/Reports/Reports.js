@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "./Report.module.css";
+import styles from "./Reports.module.css";
 import SwiperReport from "./Swiper/SwiperReport";
 import Accounting from "./Swiper/SwiperComponents/Accounting";
+import Chartjs from "./Swiper/SwiperComponents/Chartjs/Chartjs";
 
 function Report() {
   return (
@@ -14,6 +15,15 @@ function Report() {
       <div className={styles.expencesBlock}>
         <SwiperReport />
         <Accounting />
+      </div>
+      <div className={styles.chartBlock}>
+        <Chartjs
+          width={605}
+          height={328}
+          options={{
+            maintainAspectRatio: false,
+          }}
+        />
       </div>
     </>
   );

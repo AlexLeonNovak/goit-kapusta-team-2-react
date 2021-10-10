@@ -30,12 +30,16 @@ const SwiperReport = () => {
         >
           <SwiperSlide>
             <div className={styles.containerTitle}>
-              <span className={styles.swiperTitle}>расходы</span>
+              <span id="expences" className={styles.swiperTitle}>
+                расходы
+              </span>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className={styles.containerTitle}>
-              <span className={styles.swiperTitle}>доходы</span>
+              <span id="income" className={styles.swiperTitle}>
+                доходы
+              </span>
             </div>
           </SwiperSlide>
         </Swiper>

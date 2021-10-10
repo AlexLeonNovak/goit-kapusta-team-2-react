@@ -8,7 +8,7 @@ import Header from "./pages/Header/Header";
 import Reports from "./components/Reports/Reports";
 
 import routes from "./routes";
-// import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
 const Auth = lazy(() =>
@@ -51,9 +51,9 @@ function App() {
             <Auth />
           </PublicRoute>
 
-          {/* <PrivateRoute path={routes.transactions} redirectTo={routes.auth}> */}
-          <Transactions />
-          {/* </PrivateRoute> */}
+          <PrivateRoute path={routes.transactions} redirectTo={routes.auth}>
+            <Transactions />
+          </PrivateRoute>
 
           {/* TODO Расскоментить, после добавления компонента */}
           {/* <PrivateRoute path={routes.categories} redirectTo={routes.auth}>
