@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import styles from './DatePick.module.scss';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./DatePick.module.scss";
 
 const DatePick = () => {
   const [date, setDate] = useState();
@@ -12,7 +12,7 @@ const DatePick = () => {
   return (
     <DatePicker
       selected={date}
-      onChange={newDate => setDate(newDate)}
+      onChange={(newDate) => setDate(newDate)}
       dateFormat="dd.MM.yyyy"
       customInput={a}
     />
