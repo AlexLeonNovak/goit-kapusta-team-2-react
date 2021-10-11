@@ -17,7 +17,7 @@ const DropdownMenu = () => {
   // const [value, setValue] = useState("");
   const [description, setDescription] = useState(null);
   const [category, setCategory] = useState(null);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(null);
 
   // const handleChange = (e) => setTextValue(e.target.value);
 
@@ -25,7 +25,7 @@ const DropdownMenu = () => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
-      case "descriptionValue":
+      case "description":
         setDescription(value);
         break;
 
