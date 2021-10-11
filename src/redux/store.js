@@ -22,6 +22,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { transactionsReducer } from './transactions';
+import { categoriesReducer } from './categories';
 import authReducer from './auth/auth.reducer';
 
 const middleware = [
@@ -43,6 +44,7 @@ const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionsReducer,
+    categories: categoriesReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

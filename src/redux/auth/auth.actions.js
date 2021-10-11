@@ -16,6 +16,11 @@ const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
 const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
 const getCurrentUserError = createAction('auth/getCurrentUserError');
 
+const googleAuthRequest = createAction('auth/googleAuthRequest');
+const googleAuthSuccess = createAction('auth/googleAuthSuccess');
+const googleAuthError = createAction('auth/googleAuthError');
+
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   registerRequest,
   registerSuccess,
@@ -29,4 +34,7 @@ export default {
   getCurrentUserRequest,
   getCurrentUserSuccess,
   getCurrentUserError,
+  googleAuthRequest,
+  googleAuthSuccess,
+  googleAuthError,
 };

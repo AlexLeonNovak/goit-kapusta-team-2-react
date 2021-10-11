@@ -41,7 +41,7 @@ const logOut = () => async (dispatch) => {
   dispatch(authActions.logoutRequest());
 
   try {
-    await axios.post("/auth/logout");
+    await axios.get("/auth/logout");
 
     token.unset();
     dispatch(authActions.logoutSuccess());
@@ -72,4 +72,16 @@ const getCurrentUser = () => async (dispatch, getState) => {
   }
 };
 
-export default { register, logOut, logIn, getCurrentUser };
+const googleAuth = (tokenId) => async (dispatch) => {
+  dispatch(authActions.googleAuthRequest());
+
+  try {
+    const response = await axios.post("/auth/google", { tokenId });
+    token.set(response.data.data.token);
+    dispatch(authActions.googleAuthSuccess(response.data.data));
+  } catch (error) {
+    dispatch(authActions.googleAuthError(error.message));
+  }
+};
+
+export default { register, logOut, logIn, getCurrentUser, googleAuth };
