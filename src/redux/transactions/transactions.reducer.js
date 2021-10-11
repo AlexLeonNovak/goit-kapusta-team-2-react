@@ -14,7 +14,7 @@ import {
 } from "./transactions.actions";
 
 const items = createReducer([], {
-  [fetchTransactionsSuccess]: (state, { payload }) => payload,
+  [fetchTransactionsSuccess]: (state, { payload }) => payload.transactions,
 
   [addTransactionSuccess]: (state, { payload }) =>
     state.map((transaction) => transaction.name).includes(payload.name)

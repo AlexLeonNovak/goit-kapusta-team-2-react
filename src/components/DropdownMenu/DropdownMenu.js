@@ -14,10 +14,10 @@ const DropdownMenu = () => {
   const textValueInputId = shortid.generate();
 
   const dispatch = useDispatch();
-  const [value, setValue] = useState("");
-  const [textValue, setTextValue] = useState(null);
-  const [cat, setCat] = useState(null);
-  const [sum, setSum] = useState(null);
+  // const [value, setValue] = useState("");
+  const [description, setDescription] = useState(null);
+  const [category, setCategory] = useState(null);
+  const [amount, setAmount] = useState(0);
 
   // const handleChange = (e) => setTextValue(e.target.value);
 
@@ -25,16 +25,16 @@ const DropdownMenu = () => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
-      case "textValue":
-        setTextValue(value);
+      case "descriptionValue":
+        setDescription(value);
         break;
 
-      case "cat":
-        setCat(value);
+      case "category":
+        setCategory(value);
         break;
 
-      case "sum":
-        setSum(value);
+      case "amount":
+        setAmount(value);
         break;
 
       default:
@@ -47,21 +47,19 @@ const DropdownMenu = () => {
       e.preventDefault();
       dispatch(
         transactionsOperations.addTransaction({
-          id: shortid.generate(),
-          value,
-          textValue,
-          cat,
-          sum,
+          description,
+          category,
+          amount,
         })
       );
       reset();
     },
-    [dispatch, value, textValue, cat, sum]
+    [dispatch, description, category, amount]
   );
 
   const reset = () => {
-    setTextValue("");
-    setSum("");
+    setDescription("");
+    setAmount(0);
   };
 
   return (
@@ -74,7 +72,7 @@ const DropdownMenu = () => {
           type="text"
           options={data}
           placeholder="Описание товара"
-          value={textValue}
+          value={description}
           onChange={handleChange}
         />
 
@@ -84,14 +82,13 @@ const DropdownMenu = () => {
             label="name"
             options={data}
             prompt="Категория товара"
-            value={value}
-            // onChange={handleChange}
-            onChange={(value) => setValue(value)}
+            value={category}
+            onChange={(value) => setCategory(value)}
           />
         </div>
 
         <input
-          value={textValue}
+          value={amount}
           type="number"
           max="100000"
           min="1"

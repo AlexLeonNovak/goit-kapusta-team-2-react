@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  transactionsOperations,
-  transactionsSelectors,
-} from "../../redux/transactions";
+// import {
+//   transactionsOperations,
+//   transactionsSelectors,
+// } from "../../redux/transactions";
 
 import IncomeItem from "./IncomeItem";
 
@@ -12,9 +12,7 @@ import "./income.css";
 
 const IncomeList = () => {
   const dispatch = useDispatch();
-  const transactions = useSelector(
-    transactionsSelectors.getVisibleTransactions
-  );
+  // const transactions = useSelector(transactionsSelectors.getIncomeTransactions);
 
   // const onDeleteTransaction = useCallback(
   //   (id) => {
@@ -38,17 +36,15 @@ const IncomeList = () => {
       {/* TODO need to fix error with unique id */}
 
       <tbody>
-        {transactions.map(
-          ({ _id, datetime, description, category, amount }) => (
-            <IncomeItem
-              key={_id}
-              date={datetime}
-              desc={description}
-              catt={category}
-              summ={amount}
-            />
-          )
-        )}
+        {[].map(({ _id, datetime, description, category, amount }) => (
+          <IncomeItem
+            key={_id}
+            date={datetime}
+            desc={description}
+            catt={category}
+            summ={amount}
+          />
+        ))}
       </tbody>
     </table>
   );
