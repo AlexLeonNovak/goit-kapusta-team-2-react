@@ -7,6 +7,7 @@ const initialUserState = { email: null };
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: (_, { payload }) => payload.user,
   [authActions.loginSuccess]: (_, { payload }) => payload.user,
+  [authActions.googleAuthSuccess]: (_, { payload }) => payload.user,
   [authActions.logoutSuccess]: () => initialUserState,
   [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
 });
@@ -14,6 +15,7 @@ const user = createReducer(initialUserState, {
 const token = createReducer(null, {
   [authActions.registerSuccess]: (_, { payload }) => payload.token,
   [authActions.loginSuccess]: (_, { payload }) => payload.token,
+  [authActions.googleAuthSuccess]: (_, { payload }) => payload.token,
   [authActions.logoutSuccess]: () => null,
 });
 
@@ -24,17 +26,19 @@ const error = createReducer(null, {
   [authActions.loginError]: setError,
   [authActions.logoutError]: setError,
   [authActions.getCurrentUserError]: setError,
+  [authActions.googleAuthError]: setError,
 });
 
 const isAuthenticated = createReducer(false, {
   [authActions.registerSuccess]: () => true,
   [authActions.loginSuccess]: () => true,
   [authActions.getCurrentUserSuccess]: () => true,
+  [authActions.googleAuthSuccess]: () => true,
   [authActions.registerError]: () => false,
   [authActions.loginError]: () => false,
-  // TODO Поставить false, когда поправят роут на бэке
-  [authActions.getCurrentUserError]: () => true,
+  [authActions.getCurrentUserError]: () => false,
   [authActions.logoutSuccess]: () => false,
+  [authActions.googleAuthError]: () => false
 });
 
 export default combineReducers({
