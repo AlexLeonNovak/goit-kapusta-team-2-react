@@ -1,6 +1,9 @@
 .article {
   position: relative;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 100%;
   padding: 85px 90px 0px 60px;
 }

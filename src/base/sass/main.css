@@ -12,13 +12,16 @@
 
 /* //linearGradient */
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 address {
@@ -78,10 +81,8 @@ ul {
 /* Задаём ширину основного контейнера */
 .container {
   width: 100%;
-  padding-left: 25px;
-  padding-right: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media (min-width: 320px) {
@@ -99,8 +100,8 @@ ul {
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding-left: 85px;
-    padding-right: 85px;
+    padding-left: 51px;
+    padding-right: 51px;
   }
 }
 

@@ -2,5 +2,6 @@
 export default {
 	auth: '/auth',
 	transactions: '/transactions',
-	report: '/report'
+	report: '/report',
+	categories: '/categories',
 };
