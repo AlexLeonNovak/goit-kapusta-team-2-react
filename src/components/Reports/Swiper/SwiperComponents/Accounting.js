@@ -1,6 +1,6 @@
 import data from "../../bd/expences.json";
 
-import styles from "./Accounting.module.css";
+import styles from "./Accounting.module.scss";
 
 const Accounting = () => {
   return (
