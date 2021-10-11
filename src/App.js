@@ -5,12 +5,11 @@ import { useDispatch } from "react-redux";
 import Header from "./pages/Header/Header";
 // import Summary from "./components/Summary/Summary";
 import Reports from "./components/Reports/Reports";
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
 
-import authOperations from './redux/auth/auth.operations';
-import routes from './routes';
-
+import authOperations from "./redux/auth/auth.operations";
+import routes from "./routes";
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
@@ -23,7 +22,7 @@ const Transactions = lazy(() =>
 );
 
 const Categories = lazy(() =>
-	import('./pages/Categories/Categories' /* webpackChunkName: "categories" */),
+  import("./pages/Categories/Categories" /* webpackChunkName: "categories" */)
 );
 
 function App() {
@@ -38,7 +37,6 @@ function App() {
       <Header />
       <Suspense fallback={<h1>Загружаемся ребята...</h1>}>
         <Switch>
-
           <PublicRoute exact path="/">
             <Redirect to={routes.auth} />
           </PublicRoute>
@@ -56,17 +54,12 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute path={routes.categories} redirectTo={routes.auth}>
-            <Categories/>
+            <Categories />
           </PrivateRoute>
 
-
-          {/* <PrivateRoute path={routes.reports} redirectTo={routes.auth}>
-            <Reports/>
-          </PrivateRoute> */}
-
-           <PrivateRoute path={routes.reports} redirectTo={routes.auth}>
-              <Reports />
-           </PrivateRoute>
+          <PrivateRoute path={routes.reports} redirectTo={routes.auth}>
+            <Reports />
+          </PrivateRoute>
         </Switch>
       </Suspense>
       {/* <Summary /> */}

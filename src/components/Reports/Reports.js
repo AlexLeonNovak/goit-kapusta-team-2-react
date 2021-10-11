@@ -1,8 +1,9 @@
 import React from "react";
-import styles from "./Reports.module.css";
 import SwiperReport from "./Swiper/SwiperReport";
 import Accounting from "./Swiper/SwiperComponents/Accounting";
-import Chartjs from "./Swiper/SwiperComponents/Chartjs/Chartjs";
+import Chartjs from "./Chartjs/Chartjs";
+
+import styles from "./Reports.module.scss";
 
 function Report() {
   return (

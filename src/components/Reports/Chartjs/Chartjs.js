@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 
-import bd from "./db.json";
+import bd from "./db";
 
 const label = [];
 const prices = [];
@@ -31,7 +31,7 @@ const data = {
       label: "# of Votes",
       data: [...prices],
       backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
-      borderWidth: 1,
+      borderWidth: 0,
     },
   ],
 };
