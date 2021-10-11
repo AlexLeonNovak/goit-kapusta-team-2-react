@@ -1,27 +1,213 @@
+@charset "UTF-8";
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 /* //linearGradient */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+/* Делает картинки блочными */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Типография */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Убрать подчёркивания у ссылок */
+.link {
+  text-decoration: none;
+}
+
+/* Убрать маркировку списков */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Поинтер на кнопки */
+.button {
+  cursor: pointer;
+}
+
+/* Задаём ширину основного контейнера */
 .container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 320px) {
+  .container {
+    max-width: 320px;
+  }
+}
+
+@media (min-width: 480px) {
+  .container {
+    max-width: 480px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 51px;
+    padding-right: 51px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
+
+.dark-bg {
+  background-color: #0e0e0e;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .avatar {
+  height: 32px;
+  width: 32px;
   margin: 10px;
   background-color: #FF751D;
   border-radius: 50%;
 }
 
-.email {
-  font-weight: 700;
-  margin-right: 12px;
+.name {
+  display: none;
 }
 
-.link {
-  display: inline-block;
-  color: #000000;
+@media (min-width: 768px) {
+  .name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-weight: 400;
+    font-size: 12px;
+    color: #52555F;
+    margin-right: 20px;
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .line {
+    height: 36px;
+    width: 1px;
+    background-color: #F5F6FB;
+  }
+}
+
+button u {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  button u {
+    display: inline-block;
+  }
 }
 
 .button {
-  margin: 10px;
-  background-color: #FF751D;
+  background-image: url(../../base/images/svg_color/logout.svg);
+  background-color: #FFFFFF;
+  border: none;
+  width: 16px;
+  height: 16px;
+}
+
+.button:hover, .button:focus {
+  background-color: #FFDAC0;
+}
+
+@media (min-width: 768px) {
+  .button {
+    font-size: 12px;
+    font-family: inherit;
+    width: 40px;
+    height: 100%;
+    margin-left: 20px;
+    padding: 5px 0 5px 0;
+    color: #52555F;
+    background-color: #FFFFFF;
+    background-image: none;
+    border: none;
+    border-radius: 4px;
+  }
+  .button:hover, .button:focus {
+    background-color: #FFDAC0;
+    color: #FFFFFF;
+  }
 }
 /*# sourceMappingURL=UserMenu.module.css.map */

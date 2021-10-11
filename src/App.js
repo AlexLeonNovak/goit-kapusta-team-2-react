@@ -1,15 +1,16 @@
 import React, { Suspense, lazy, useEffect } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import authOperations from "./redux/auth/auth.operations";
 import Header from "./pages/Header/Header";
 // import Summary from "./components/Summary/Summary";
 import Reports from "./components/Reports/Reports";
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
-import routes from "./routes";
-import PrivateRoute from "./components/PrivateRoute";
-import PublicRoute from "./components/PublicRoute";
+import authOperations from './redux/auth/auth.operations';
+import routes from './routes';
+
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
@@ -19,6 +20,10 @@ const Transactions = lazy(() =>
   import(
     "./pages/Transactions/Transactions" /* webpackChunkName: "transactions" */
   )
+);
+
+const Categories = lazy(() =>
+	import('./pages/Categories/Categories' /* webpackChunkName: "categories" */),
 );
 
 function App() {
@@ -33,11 +38,6 @@ function App() {
       <Header />
       <Suspense fallback={<h1>Загружаемся ребята...</h1>}>
         <Switch>
-          <Route path="/" exact>
-            <Redirect to="/auth" />
-          </Route>
-          <Route path={routes.auth} component={Auth} />
-          <Route path={routes.transactions} component={Transactions} />
 
           <PublicRoute exact path="/">
             <Redirect to={routes.auth} />
@@ -55,14 +55,18 @@ function App() {
             <Transactions />
           </PrivateRoute>
 
-          {/* TODO Расскоментить, после добавления компонента */}
-          {/* <PrivateRoute path={routes.categories} redirectTo={routes.auth}>
+          <PrivateRoute path={routes.categories} redirectTo={routes.auth}>
             <Categories/>
-  </PrivateRoute>*/}
+          </PrivateRoute>
 
-          {/* <PrivateRoute path={routes.reports} redirectTo={routes.auth}> */}
-          <Reports />
-          {/* </PrivateRoute> */}
+
+          {/* <PrivateRoute path={routes.reports} redirectTo={routes.auth}>
+            <Reports/>
+          </PrivateRoute> */}
+
+           <PrivateRoute path={routes.reports} redirectTo={routes.auth}>
+              <Reports />
+           </PrivateRoute>
         </Switch>
       </Suspense>
       {/* <Summary /> */}
