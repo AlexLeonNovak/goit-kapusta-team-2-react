@@ -43,17 +43,22 @@ function App() {
             <Redirect to={routes.auth} />
           </PublicRoute>
 
-          <PublicRoute path={routes.auth} restricted redirectTo={routes.transactions}>
+          <PublicRoute
+            path={routes.auth}
+            restricted
+            redirectTo={routes.transactions}
+          >
             <Auth />
           </PublicRoute>
 
           <PrivateRoute path={routes.transactions} redirectTo={routes.auth}>
-            <Transactions/>
+            <Transactions />
           </PrivateRoute>
 
           <PrivateRoute path={routes.categories} redirectTo={routes.auth}>
             <Categories/>
           </PrivateRoute>
+
 
           {/* <PrivateRoute path={routes.reports} redirectTo={routes.auth}>
             <Reports/>
