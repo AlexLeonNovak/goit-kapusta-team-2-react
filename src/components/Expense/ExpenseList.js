@@ -1,30 +1,50 @@
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  transactionsOperations,
+  transactionsSelectors,
+} from "../../redux/transactions";
 
 import ExpenseItem from "./ExpenseItem";
 
 import "./expense.css";
 
-const ExpenseList = ({ items }) => (
-  <table className="expense">
-    <thead className="expense__head">
-      <tr>
-        <th>Дата</th>
-        <th>Описание</th>
-        <th>Категория</th>
-        <th>Сумма</th>
-        <th></th>
-      </tr>
-    </thead>
+const ExpenseList = () => {
+  const dispatch = useDispatch();
+  const transactions = useSelector(
+    transactionsSelectors.getVisibleTransactions
+  );
+  return (
+    <table className="expense">
+      <thead className="expense__head">
+        <tr>
+          <th>Дата</th>
+          <th>Описание</th>
+          <th>Категория</th>
+          <th>Сумма</th>
+          <th></th>
+        </tr>
+      </thead>
 
-    {/* TODO need to fix error with unique id */}
+      {/* TODO need to fix error with unique id */}
 
-    <tbody>
-      {items.map(({ id, date, desc, catt, summ, del }) => (
-        <ExpenseItem key={id} date={date} desc={desc} catt={catt} summ={summ} />
-      ))}
-    </tbody>
-  </table>
-);
+      <tbody>
+        {transactions.map(
+          ({ _id, datetime, description, category, amount }) => (
+            <ExpenseItem
+              key={_id}
+              date={datetime}
+              desc={description}
+              catt={category}
+              summ={amount}
+            />
+          )
+        )}
+      </tbody>
+    </table>
+  );
+};
 
 ExpenseList.defaultProps = {
   date: "---",
