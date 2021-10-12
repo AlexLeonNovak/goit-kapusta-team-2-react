@@ -9,7 +9,7 @@ import { transactionsOperations } from "../../redux/transactions";
 
 import data from "./categories.json";
 
-const DropdownMenu = () => {
+const TransactionsMenu = () => {
   const valueInputId = shortid.generate();
   const textValueInputId = shortid.generate();
 
@@ -73,7 +73,7 @@ const DropdownMenu = () => {
           name="description"
           type="text"
           options={data}
-          placeholder="Описание товара"
+          placeholder="Описание"
           value={description}
           onChange={handleChange}
         />
@@ -83,7 +83,7 @@ const DropdownMenu = () => {
             id={textValueInputId}
             label="name"
             options={data}
-            prompt="Категория товара"
+            prompt="Категория"
             value={category}
             onChange={(value) => setCategory(value)}
           />
@@ -105,10 +105,10 @@ const DropdownMenu = () => {
           ВВОД
         </button>
 
-        <button type="button">ОЧИСТИТЬ</button>
+        <button type="reset">ОЧИСТИТЬ</button>
       </div>
     </form>
   );
 };
 
-export default DropdownMenu;
+export default TransactionsMenu;

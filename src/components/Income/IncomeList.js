@@ -1,10 +1,11 @@
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-// import {
-//   transactionsOperations,
-//   transactionsSelectors,
-// } from "../../redux/transactions";
+import { getIncomeTransactions } from "../../redux/transactions/transactions.selectors";
+import {
+  transactionsOperations,
+  //   transactionsSelectors,
+} from "../../redux/transactions";
 
 import IncomeItem from "./IncomeItem";
 
@@ -51,17 +52,17 @@ const IncomeList = () => {
 };
 
 IncomeList.defaultProps = {
-  date: "---",
-  desc: "---",
-  catt: "---",
-  summ: "---",
+  datetime: "---",
+  description: "---",
+  category: "---",
+  amount: "---",
 };
 
 IncomeList.propTypes = {
-  date: PropTypes.string,
-  desc: PropTypes.string,
-  catt: PropTypes.string,
-  summ: PropTypes.string,
+  datetime: PropTypes.string,
+  description: PropTypes.string,
+  category: PropTypes.string,
+  amount: PropTypes.string,
 };
 
 export default IncomeList;

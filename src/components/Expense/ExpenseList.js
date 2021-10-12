@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  transactionsOperations,
-  transactionsSelectors,
-} from "../../redux/transactions";
+// import {
+// transactionsOperations,
+// transactionsSelectors,
+// } from "../../redux/transactions";
 
 import ExpenseItem from "./ExpenseItem";
 
@@ -45,17 +45,17 @@ const ExpenseList = () => {
 };
 
 ExpenseList.defaultProps = {
-  date: "---",
-  desc: "---",
-  catt: "---",
-  summ: "---",
+  datetime: "---",
+  description: "---",
+  category: "---",
+  amount: "---",
 };
 
 ExpenseList.propTypes = {
-  date: PropTypes.string,
-  desc: PropTypes.string,
-  catt: PropTypes.string,
-  summ: PropTypes.string,
+  datetime: PropTypes.string,
+  description: PropTypes.string,
+  category: PropTypes.string,
+  amount: PropTypes.string,
 };
 
 export default ExpenseList;
