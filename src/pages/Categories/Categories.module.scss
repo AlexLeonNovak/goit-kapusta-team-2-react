@@ -1,32 +1,21 @@
-body {
-	background-color: grey;
-}
+@import "../../base/sass/main.scss";
 
-.wrapper {
-	padding-top: 83px;
-	text-align: center;
-}
-
-.categoriesWrapper {
+.categories {
 	background-color: #fff;
-	width: 1060px;
-	margin: 0 auto;
-	padding: 33px 20px;
-	text-align: center;
+	// text-align: center;
+	background-image: url(../../base/images/mobile/bg/bg-mobile.png);
+	background-repeat: no-repeat;	
 }
 
-.categoriesForm {
-
-}
-
-.categoriesFormItem {
-	
+.container {
+	padding-top: 54px;
 }
 
 .categoriesTitle {
-	margin-bottom: 15px;
+	margin-bottom: 60px;
 }
 
-.categoriesTable {
-	margin: auto;
+.categoriesWrapper {
+	@include for-size(minmobile) {
+	}
 }
