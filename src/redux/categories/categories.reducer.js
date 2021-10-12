@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  addCategorySuccess,
-  deleteCategorySuccess,
-  changeFilter,
+  fetchCategoryRequest,
   fetchCategorySuccess,
+  fetchCategoryError,
+  addCategoryRequest,
+  addCategorySuccess,
+  addCategoryError,
+  deleteCategoryRequest,
+  deleteCategorySuccess,
+  deleteCategoryError,
+  filterCategory,
 } from './categories.actions';
 
 const items = createReducer([], {
@@ -14,10 +20,24 @@ const items = createReducer([], {
     state.filter(({ id }) => id !== payload),
 });
 
+const loading = createReducer(false, {
+  [fetchCategoryRequest]: () => true,
+  [fetchCategorySuccess]: () => false,
+  [fetchCategoryError]: () => false,
+
+  [addCategoryRequest]: () => true,
+  [addCategorySuccess]: () => false,
+  [addCategoryError]: () => false,
+
+  [deleteCategoryRequest]: () => true,
+  [deleteCategorySuccess]: () => false,
+  [deleteCategoryError]: () => false,
+});
+
 const filter = createReducer('', {
-  [changeFilter]: (_, { payload }) => payload,
+  [filterCategory]: (_, { payload }) => payload,
 });
 
 const error = createReducer(null, {});
 
-export default combineReducers({ items, filter, error });
+export default combineReducers({ items, filter, loading, error });

@@ -16,9 +16,7 @@ const fetchCategories = () => async dispatch => {
 
   try {
     const { data } = await axios.get('/categories');
-
-    dispatch(fetchCategorySuccess(data));
-    console.log(data);
+    dispatch(fetchCategorySuccess(data.data.categories));
   } catch (error) {
     dispatch(fetchCategoryError(error.message));
   }
@@ -26,24 +24,28 @@ const fetchCategories = () => async dispatch => {
 
 const addCategory =
   ({ name, type }) =>
-  dispatch => {
+  async (dispatch) => {
     const category = { name, type };
 
     dispatch(addCategoryRequest());
 
-    axios
-      .post('/categories', category)
-      .then(({ data }) => dispatch(addCategorySuccess(data)))
-      .catch(error => dispatch(addCategoryError(error.message)));
+    try {
+      const { data } = await axios.post("/categories", category);
+      dispatch(addCategorySuccess(data));
+    } catch (error) {
+      dispatch(addCategoryError(error.message));
+    }
   };
 
-const deleteCategory = categoryId => dispatch => {
+const deleteCategory = (categoryId) => async (dispatch) => {
   dispatch(deleteCategoryRequest());
 
-  axios
-    .delete(`/categories/${categoryId}`)
-    .then(() => dispatch(deleteCategorySuccess(categoryId)))
-    .catch(error => dispatch(deleteCategoryError(error.message)));
+  try {
+    await axios.delete(`/categories/${categoryId}`);
+    dispatch(deleteCategorySuccess(categoryId));
+  } catch (error) {
+    dispatch(deleteCategoryError(error.message));
+  }
 };
 
 export default { addCategory, deleteCategory, fetchCategories };
