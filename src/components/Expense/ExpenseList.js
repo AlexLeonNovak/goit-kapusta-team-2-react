@@ -12,9 +12,9 @@ import "./expense.css";
 
 const ExpenseList = () => {
   const dispatch = useDispatch();
-  const transactions = useSelector(
-    transactionsSelectors.getVisibleTransactions
-  );
+  // const transactions = useSelector(
+  //   transactionsSelectors.getVisibleTransactions
+  // );
   return (
     <table className="expense">
       <thead className="expense__head">
@@ -30,17 +30,15 @@ const ExpenseList = () => {
       {/* TODO need to fix error with unique id */}
 
       <tbody>
-        {transactions.map(
-          ({ _id, datetime, description, category, amount }) => (
-            <ExpenseItem
-              key={_id}
-              date={datetime}
-              desc={description}
-              catt={category}
-              summ={amount}
-            />
-          )
-        )}
+        {[].map(({ _id, datetime, description, category, amount }) => (
+          <ExpenseItem
+            key={_id}
+            date={datetime}
+            desc={description}
+            catt={category}
+            summ={amount}
+          />
+        ))}
       </tbody>
     </table>
   );

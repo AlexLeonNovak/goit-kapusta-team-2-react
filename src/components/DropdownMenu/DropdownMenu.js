@@ -14,7 +14,7 @@ const DropdownMenu = () => {
   const textValueInputId = shortid.generate();
 
   const dispatch = useDispatch();
-  // const [value, setValue] = useState("");
+  const [datetime, setDatetime] = useState(new Date());
   const [description, setDescription] = useState(null);
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState(null);
@@ -47,14 +47,15 @@ const DropdownMenu = () => {
       e.preventDefault();
       dispatch(
         transactionsOperations.addTransaction({
+          datetime,
           description,
-          category,
+          category: category._id,
           amount,
         })
       );
       reset();
     },
-    [dispatch, description, category, amount]
+    [dispatch, datetime, description, category, amount]
   );
 
   const reset = () => {
@@ -65,10 +66,11 @@ const DropdownMenu = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <DatePicker />
+        <DatePicker value={datetime} onChange={setDatetime} />
 
         <input
           id={valueInputId}
+          name="description"
           type="text"
           options={data}
           placeholder="Описание товара"
@@ -89,6 +91,7 @@ const DropdownMenu = () => {
 
         <input
           value={amount}
+          name="amount"
           type="number"
           max="100000"
           min="1"
