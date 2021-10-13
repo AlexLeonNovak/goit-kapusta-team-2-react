@@ -5,7 +5,7 @@ const IncomeItem = ({ datetime, description, category, amount }) => (
     <td>{datetime}</td>
     <td>{description}</td>
     <td>{category}</td>
-    <td>-{amount}</td>
+    <td>{amount}</td>
     <td>
       <span>X</span>
     </td>
