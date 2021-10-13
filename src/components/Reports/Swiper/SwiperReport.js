@@ -1,29 +1,26 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { EffectCoverflow, Pagination, Navigation } from "swiper";
 
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.min.css";
-
-// import "swiper/components/effect-coverflow/effect-coverflow.min.css";
+import "swiper/components/effect-coverflow/effect-coverflow.min.css";
+import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
-// import "swiper/components/a11y/a11y.min.css";
 
-import styles from "./SwiperReport.module.css";
+import styles from "./SwiperReport.module.scss";
 
-// import { Navigation, A11y, EffectCoverflow } from "swiper";
-import { Navigation } from "swiper";
+SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
 const SwiperReport = () => {
   return (
     <div className={styles.swiperContainer}>
       <div className={styles.swiperWrapper}>
         <Swiper
-          modules={[Navigation]}
+          modules={[EffectCoverflow, Pagination, Navigation]}
           spaceBetween={0}
           centeredSlides={true}
           slidesPerView={1}
           navigation={true}
-          // uniqueNavElements={true}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={(slide) => console.log("slide change")}
           className={styles.swiperSlide}

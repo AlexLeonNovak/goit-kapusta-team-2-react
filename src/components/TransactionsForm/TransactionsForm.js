@@ -17,16 +17,14 @@ const TransactionsForm = () => {
   const [datetime, setDatetime] = useState(new Date());
   const [description, setDescription] = useState(null);
   const [category, setCategory] = useState(null);
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState(0);
+
+  // const handleChange = (e) => setTextValue(e.target.value);
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
-      case "datetime":
-        setDatetime(value);
-        break;
-
       case "description":
         setDescription(value);
         break;
