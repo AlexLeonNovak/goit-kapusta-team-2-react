@@ -75,7 +75,6 @@ const TransactionsForm = () => {
           id={valueInputId}
           name="description"
           type="text"
-          options={data}
           placeholder="Описание"
           value={description}
           onChange={handleChange}
