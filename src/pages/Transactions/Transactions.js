@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { transactionsOperations } from "../../redux/transactions";
 
-import TransactionsMenu from "../../components/TransactionsMenu/TransactionsMenu";
+import TransactionsForm from "../../components/TransactionsForm/TransactionsForm";
 import IncomeList from "../../components/Income/IncomeList";
 import ExpenseList from "../../components/Expense/ExpenseList";
 
@@ -26,11 +26,11 @@ const Transactions = () => {
 
       <Tabs>
         <div label="Доход">
-          <TransactionsMenu />
+          <TransactionsForm />
           <IncomeList items={IncomeApi} />
         </div>
         <div label="Расход">
-          <TransactionsMenu />
+          <TransactionsForm />
           <ExpenseList items={ExpenseApi} />
         </div>
       </Tabs>

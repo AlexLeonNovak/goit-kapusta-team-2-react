@@ -9,7 +9,7 @@ import { transactionsOperations } from "../../redux/transactions";
 
 import data from "./categories.json";
 
-const TransactionsMenu = () => {
+const TransactionsForm = () => {
   const valueInputId = shortid.generate();
   const textValueInputId = shortid.generate();
 
@@ -19,12 +19,14 @@ const TransactionsMenu = () => {
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState(null);
 
-  // const handleChange = (e) => setTextValue(e.target.value);
-
   const handleChange = useCallback((e) => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
+      case "datetime":
+        setDatetime(value);
+        break;
+
       case "description":
         setDescription(value);
         break;
@@ -42,6 +44,12 @@ const TransactionsMenu = () => {
     }
   }, []);
 
+  const reset = () => {
+    setDescription("");
+    setAmount("");
+    setCategory(null);
+  };
+
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -57,11 +65,6 @@ const TransactionsMenu = () => {
     },
     [dispatch, datetime, description, category, amount]
   );
-
-  const reset = () => {
-    setDescription("");
-    setAmount(0);
-  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -111,4 +114,4 @@ const TransactionsMenu = () => {
   );
 };
 
-export default TransactionsMenu;
+export default TransactionsForm;
