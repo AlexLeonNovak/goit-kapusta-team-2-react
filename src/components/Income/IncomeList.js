@@ -2,10 +2,10 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { transactionsSelectors } from "../../redux/transactions";
-import {
-  transactionsOperations,
-  //   transactionsSelectors,
-} from "../../redux/transactions";
+// import {
+//   transactionsOperations,
+//   //   transactionsSelectors,
+// } from "../../redux/transactions";
 
 import IncomeItem from "./IncomeItem";
 
