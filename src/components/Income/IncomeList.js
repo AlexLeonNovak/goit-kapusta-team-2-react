@@ -1,9 +1,10 @@
 import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
+import { transactionsSelectors } from "../../redux/transactions";
 // import {
 //   transactionsOperations,
-//   transactionsSelectors,
+//   //   transactionsSelectors,
 // } from "../../redux/transactions";
 
 import IncomeItem from "./IncomeItem";
@@ -12,7 +13,7 @@ import "./income.css";
 
 const IncomeList = () => {
   const dispatch = useDispatch();
-  // const transactions = useSelector(transactionsSelectors.getIncomeTransactions);
+  const transactions = useSelector(transactionsSelectors.getAllTransactions);
 
   // const onDeleteTransaction = useCallback(
   //   (id) => {
@@ -36,32 +37,34 @@ const IncomeList = () => {
       {/* TODO need to fix error with unique id */}
 
       <tbody>
-        {[].map(({ _id, datetime, description, category, amount }) => (
-          <IncomeItem
-            key={_id}
-            date={datetime}
-            desc={description}
-            catt={category}
-            summ={amount}
-          />
-        ))}
+        {transactions.map(
+          ({ _id, datetime, description, category, amount }) => (
+            <IncomeItem
+              key={_id}
+              datetime={datetime}
+              description={description}
+              category={category.name}
+              amount={amount}
+            />
+          )
+        )}
       </tbody>
     </table>
   );
 };
 
 IncomeList.defaultProps = {
-  date: "---",
-  desc: "---",
-  catt: "---",
-  summ: "---",
+  datetime: "---",
+  description: "---",
+  category: "---",
+  amount: "---",
 };
 
 IncomeList.propTypes = {
-  date: PropTypes.string,
-  desc: PropTypes.string,
-  catt: PropTypes.string,
-  summ: PropTypes.string,
+  datetime: PropTypes.string,
+  description: PropTypes.string,
+  category: PropTypes.string,
+  amount: PropTypes.string,
 };
 
 export default IncomeList;

@@ -48,7 +48,7 @@ const Dropdown = ({ id, label, options, prompt, value, onChange }) => {
             type="text"
             ref={ref}
             placeholder={value ? value[label] : prompt}
-            value={displayValue}
+            value={displayValue()}
             onChange={(e) => {
               setQuery(e.target.value);
               onChange(null);

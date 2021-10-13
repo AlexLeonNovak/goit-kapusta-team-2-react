@@ -9,15 +9,15 @@ import { transactionsOperations } from "../../redux/transactions";
 
 import data from "./categories.json";
 
-const DropdownMenu = () => {
+const TransactionsForm = () => {
   const valueInputId = shortid.generate();
   const textValueInputId = shortid.generate();
 
   const dispatch = useDispatch();
-  // const [value, setValue] = useState("");
+  const [datetime, setDatetime] = useState(new Date());
   const [description, setDescription] = useState(null);
   const [category, setCategory] = useState(null);
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState(0);
 
   // const handleChange = (e) => setTextValue(e.target.value);
 
@@ -42,36 +42,38 @@ const DropdownMenu = () => {
     }
   }, []);
 
+  const reset = () => {
+    setDescription("");
+    setAmount("");
+    setCategory(null);
+  };
+
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
       dispatch(
         transactionsOperations.addTransaction({
+          datetime,
           description,
-          category,
+          category: category._id,
           amount,
         })
       );
       reset();
     },
-    [dispatch, description, category, amount]
+    [dispatch, datetime, description, category, amount]
   );
-
-  const reset = () => {
-    setDescription("");
-    setAmount(0);
-  };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <DatePicker />
+        <DatePicker value={datetime} onChange={setDatetime} />
 
         <input
           id={valueInputId}
+          name="description"
           type="text"
-          options={data}
-          placeholder="Описание товара"
+          placeholder="Описание"
           value={description}
           onChange={handleChange}
         />
@@ -81,7 +83,7 @@ const DropdownMenu = () => {
             id={textValueInputId}
             label="name"
             options={data}
-            prompt="Категория товара"
+            prompt="Категория"
             value={category}
             onChange={(value) => setCategory(value)}
           />
@@ -89,6 +91,7 @@ const DropdownMenu = () => {
 
         <input
           value={amount}
+          name="amount"
           type="number"
           max="100000"
           min="1"
@@ -102,10 +105,10 @@ const DropdownMenu = () => {
           ВВОД
         </button>
 
-        <button type="button">ОЧИСТИТЬ</button>
+        <button type="reset">ОЧИСТИТЬ</button>
       </div>
     </form>
   );
 };
 
-export default DropdownMenu;
+export default TransactionsForm;

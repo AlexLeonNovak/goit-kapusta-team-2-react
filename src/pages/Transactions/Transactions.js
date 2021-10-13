@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { transactionsOperations } from "../../redux/transactions";
 
-// import DatePick from "../../components/DatePick/DatePicker";
-import DropdownMenu from "../../components/DropdownMenu/DropdownMenu";
+import TransactionsForm from "../../components/TransactionsForm/TransactionsForm";
 import IncomeList from "../../components/Income/IncomeList";
 import ExpenseList from "../../components/Expense/ExpenseList";
 
@@ -25,14 +24,13 @@ const Transactions = () => {
     <>
       <Balance />
 
-      {/* <DatePick /> */}
-      <DropdownMenu />
-
       <Tabs>
         <div label="Доход">
+          <TransactionsForm />
           <IncomeList items={IncomeApi} />
         </div>
         <div label="Расход">
+          <TransactionsForm />
           <ExpenseList items={ExpenseApi} />
         </div>
       </Tabs>

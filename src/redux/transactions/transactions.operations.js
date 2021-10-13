@@ -23,20 +23,18 @@ const fetchTransactions = () => async (dispatch) => {
   }
 };
 
-const addTransaction =
-  ({ name, number }) =>
-  async (dispatch) => {
-    const transaction = { name, number };
+const addTransaction = (transaction) => async (dispatch) => {
+  // const transaction = { description, category };
 
-    dispatch(addTransactionRequest);
+  dispatch(addTransactionRequest);
 
-    try {
-      const { data } = await axios.post("/transactions", transaction);
-      dispatch(addTransactionSuccess(data));
-    } catch (error) {
-      dispatch(addTransactionError(error.message));
-    }
-  };
+  try {
+    const { data } = await axios.post("/transactions", transaction);
+    dispatch(addTransactionSuccess(data));
+  } catch (error) {
+    dispatch(addTransactionError(error.message));
+  }
+};
 
 const deleteTransaction = (transactionId) => async (dispatch) => {
   dispatch(deleteTransactionRequest());
