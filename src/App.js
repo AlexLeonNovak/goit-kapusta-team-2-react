@@ -57,7 +57,7 @@ function App() {
             <Categories />
           </PrivateRoute>
 
-          <PrivateRoute path={routes.reports} redirectTo={routes.auth}>
+          <PrivateRoute path={routes.report} redirectTo={routes.auth}>
             <Reports />
           </PrivateRoute>
         </Switch>

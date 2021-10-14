@@ -1,42 +1,15 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { categoryTypes } from '../../helpers/constants';
 
-// const getFilter = state => state.categories.filter;
+export const getAllCategories = state => state.categories.items;
 
-const getAllCategories = state => state.categories.items;
-
-const getIncomeCategories = createSelector(
+export const getIncomeCategories = createSelector(
   [getAllCategories],
-  categories => categories.filter((category) => {
-    if (category.type === 'income') {
-      return category.name
-    }
-  })
+  categories => categories.filter((category) => category.type === categoryTypes.INCOME)
 );
 
-const getExpenseCategories = createSelector(
+export const getExpenseCategories = createSelector(
   [getAllCategories],
-  categories => categories.filter((category) => {
-    if (category.type === 'expense') {
-      return category.name
-    }
-  })
+  categories => categories.filter((category) => category.type === categoryTypes.EXPENSE)
 );
 
-// const getVisibleCategories = createSelector(
-//   [getAllCategories],
-//   (categories, filter) => {
-//     const normalizedFilter = filter.toLowerCase();
-
-//     return categories.filter((category) =>
-//       category.toLowerCase().includes(normalizedFilter),
-//     );
-//   }
-// );
-
-export default {
-  // getFilter,
-  // getVisibleCategories,
-  getAllCategories,
-  getIncomeCategories,
-  getExpenseCategories
-};
