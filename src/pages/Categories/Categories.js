@@ -16,9 +16,13 @@ const Categories = () => {
   return (
     <div className={s.categories}>
       <div className={s.container}>
-        {/* <h2 className={s.categoriesTitle}>Categories</h2> */}
-        <CategoriesForm />  
-        <CategoriesList />
+        <div className={s.categoriesTitleWrapper}>
+          <h2 className={s.categoriesTitle}>Категории</h2>
+        </div>        
+        <div className={s.categoriesWrapper}>          
+          <CategoriesForm />
+          <CategoriesList />
+        </div>
       </div>
     </div>
   );
