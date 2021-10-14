@@ -1,5 +1,5 @@
-import axios from 'axios';
-import authActions from './auth.actions';
+import axios from "axios";
+import authActions from "./auth.actions";
 
 axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/api/v1`;
 
@@ -8,30 +8,27 @@ const token = {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorization = '';
+    axios.defaults.headers.common.Authorization = "";
   },
 };
 
-
-const register = credentials => async dispatch => {
+const register = (credentials) => async (dispatch) => {
   dispatch(authActions.registerRequest());
 
   try {
-    const response = await axios.post('/auth/registration', credentials);
+    const response = await axios.post("/auth/registration", credentials);
 
-    token.set(response.data.data.token);
-    dispatch(authActions.registerSuccess(response.data.data));
+    dispatch(authActions.registerSuccess());
   } catch (error) {
     dispatch(authActions.registerError(error.message));
   }
 };
 
-
-const logIn = credentials => async dispatch => {
+const logIn = (credentials) => async (dispatch) => {
   dispatch(authActions.loginRequest());
 
   try {
-    const response = await axios.post('/auth/login', credentials);
+    const response = await axios.post("/auth/login", credentials);
 
     token.set(response.data.data.token);
     dispatch(authActions.loginSuccess(response.data.data));
@@ -40,12 +37,11 @@ const logIn = credentials => async dispatch => {
   }
 };
 
-
-const logOut = () => async dispatch => {
+const logOut = () => async (dispatch) => {
   dispatch(authActions.logoutRequest());
 
   try {
-    await axios.get('/auth/logout');
+    await axios.get("/auth/logout");
 
     token.unset();
     dispatch(authActions.logoutSuccess());
@@ -53,7 +49,6 @@ const logOut = () => async dispatch => {
     dispatch(authActions.logoutError(error.message));
   }
 };
-
 
 const getCurrentUser = () => async (dispatch, getState) => {
   const {
@@ -69,7 +64,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
   dispatch(authActions.getCurrentUserRequest());
 
   try {
-    const response = await axios.get('/user/current');
+    const response = await axios.get("/user/current");
 
     dispatch(authActions.getCurrentUserSuccess(response.data.data));
   } catch (error) {
@@ -77,4 +72,16 @@ const getCurrentUser = () => async (dispatch, getState) => {
   }
 };
 
-export default { register, logOut, logIn, getCurrentUser };
+const googleAuth = (tokenId) => async (dispatch) => {
+  dispatch(authActions.googleAuthRequest());
+
+  try {
+    const response = await axios.post("/auth/google", { tokenId });
+    token.set(response.data.data.token);
+    dispatch(authActions.googleAuthSuccess(response.data.data));
+  } catch (error) {
+    dispatch(authActions.googleAuthError(error.message));
+  }
+};
+
+export default { register, logOut, logIn, getCurrentUser, googleAuth };

@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-const ExpenseItem = ({ id, date, desc, catt, summ }) => (
-  <tr key={id}>
-    <td>{date}</td>
-    <td>{desc}</td>
-    <td>{catt}</td>
-    <td>-{summ}</td>
+const ExpenseItem = ({ datetime, description, category, amount }) => (
+  <tr>
+    <td>{datetime}</td>
+    <td>{description}</td>
+    <td>{category}</td>
+    <td>-{amount}</td>
     <td>
       <span>X</span>
     </td>
@@ -13,11 +13,10 @@ const ExpenseItem = ({ id, date, desc, catt, summ }) => (
 );
 
 ExpenseItem.protoTypes = {
-  date: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  catt: PropTypes.string.isRequired,
-  summ: PropTypes.number.isRequired,
-  del: PropTypes.func.isRequired,
+  datetime: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
 };
 
 export default ExpenseItem;

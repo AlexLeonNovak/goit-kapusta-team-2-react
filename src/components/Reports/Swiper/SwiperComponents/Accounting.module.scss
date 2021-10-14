@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 613px;
+  height: auto;
+  margin: 20px auto;
+  /* border: solid 1px #000; */
+}
+
+.container_ul {
+  display: flex;
+}
+
+.container_item {
+  display: block;
+  text-align: center;
+  width: 106px;
+  height: 84px;
+  margin: 3px;
+  border-radius: 10px;
+  box-shadow: 0 0 14px 4px rgba(0, 0, 0, 0.06);
+  list-style: none;
+  /* border: solid 1px #000; */
+}
+
+.container_item_txt {
+  display: block;
+  text-transform: uppercase;
+  margin: 8px;
+}

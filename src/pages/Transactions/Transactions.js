@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { transactionsOperations } from "../../redux/transactions";
 
-import DatePick from '../../components/DatePick/DatePicker';
+import TransactionsForm from "../../components/TransactionsForm/TransactionsForm";
 import IncomeList from "../../components/Income/IncomeList";
 import ExpenseList from "../../components/Expense/ExpenseList";
 
@@ -12,16 +14,23 @@ import IncomeApi from "../../components/Income/api.json";
 import ExpenseApi from "../../components/Expense/api.json";
 
 const Transactions = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(transactionsOperations.fetchTransactions());
+  }, [dispatch]);
+
   return (
     <>
       <Balance />
-      <DatePick />
 
       <Tabs>
         <div label="Доход">
+          <TransactionsForm />
           <IncomeList items={IncomeApi} />
         </div>
         <div label="Расход">
+          <TransactionsForm />
           <ExpenseList items={ExpenseApi} />
         </div>
       </Tabs>
