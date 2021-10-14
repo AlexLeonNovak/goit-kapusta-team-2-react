@@ -35,7 +35,6 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "reselect": "^4.0.0",
-    "sass-loader": "^12.1.0",
     "shortid": "^2.2.16",
     "swiper": "^6.8.4",
     "uuidv4": "^6.2.12",
