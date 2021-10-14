@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames'
 
 import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
 import s from '../CategoriesList/CategoriesList.module.scss';
@@ -20,46 +21,37 @@ const CategoriesList = () => {
 
   return (
     <div>
-      <table className={s.table}>
-        <thead className={s.tableHead}>
-          <tr>
-            <td>Название</td>
-            <td>Тип</td>
+      <table className={s.categoriesTable}>
+        <thead className={s.categoriesHead}>
+          <tr className={s.categoriesHeadList}>
+            <th className={s.categoriesHeadItem}>Лого</th>
+            <th className={classNames(s.categoriesHeadItem, s.categoriesHeadItemName)}>Название</th>
+            <th className={classNames(s.categoriesHeadItem, s.categoriesHeadType)}>Тип</th>
+            <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={s.categoriesBody}>
           {categories.map(({ _id, name, type, logo }) => (
-            <tr key={_id} className={s.tableList}>
-              <td className={s.tableCol}>
-                <tr>{name}</tr>
-                <tr>{type}</tr>
+            <tr key={_id} className={s.categoriesList}>
+              <td className={s.categoriesLogo}>
+                <img src={API_URL + logo} alt="logo" className={s.categoriesImg} />
               </td>
-              <td className={s.tableCol}>
-                <img src={API_URL + logo} alt="logo" className={s.tableLogo} />
+              <td className={s.categoriesInfo}>
+                <span className={s.categoriesName}>{name}</span>
+                <span className={s.categoriesType}>{type}</span>
               </td>
-              <td align="center">
-                <button onClick={() => onDeleteContact(_id)} className={s.mobileDelete}>
-                  <img src={trash} alt="" className={s.mobileDeleteIcon} />
+              <td className={s.categoriesTypeColumn}>
+                {type}
+              </td>
+              <td align="center" className={s.categoriesActions}>
+                <button onClick={() => onDeleteContact(_id)} className={s.categoriesActionsDelete}>
+                  <img src={trash} alt="" className={s.categoriesActionsDeleteIcon} />
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      {/* <ul className={s.list}>
-        {categories.map(({ _id, name, type, logo }) => (
-          <li key={_id} className={s.listItem}>
-            <div className={s.infoWrapper}>
-              <p>{name}</p>
-              <p>{type}</p>
-            </div>
-            <img src={API_URL + logo} alt="logo" className={s.listLogo}/>
-            <button onClick={() => onDeleteContact(_id)} className={s.listButton}>
-              <img src={trash} alt="" className={s.listButtonIcon} />
-            </button>
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };

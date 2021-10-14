@@ -53,35 +53,38 @@ const CategoriesForm = () => {
   };
 
   return (
-    <div className={s.wrapper}>
+    <div className={s.formWrapper}>
       <form action="" className={s.form}>
-        <input
-          className={s.categoriesFormItem}
-          onChange={handleChange}
-          value={name}
-          id={nameInputId}
-          name="name"
-          type="text"
-          label="Category name"
-          placeholder="Описание категории"
-          required
-        />
-        <input
-          className={s.categoriesFormItem}
-          onChange={handleChange}
-          value={type}
-          id={typeInputId}
-          name="type"
-          type="text"
-          label="Category type"
-          placeholder="Тип категории"
-          required
-        />
-        <label className={s.customFileUploader}>
-          <input type="file" name="file" className={s.input}/>
-          Выберите логотип
-        </label>
-
+        <div className={s.categoriesInputWrapper}>
+          <div className={s.categoriesFormItemWrapper}>
+            <input
+              className={s.categoriesFormItem}
+              onChange={handleChange}
+              value={name}
+              id={nameInputId}
+              name="name"
+              type="text"
+              label="Category name"
+              placeholder="Описание категории"
+              required
+            />
+            <input
+              className={s.categoriesFormItem}
+              onChange={handleChange}
+              value={type}
+              id={typeInputId}
+              name="type"
+              type="text"
+              label="Category type"
+              placeholder="Тип категории"
+              required
+            />
+          </div>
+          <label className={s.customFileUploader}>
+            <input type="file" name="file" className={s.input} />
+            Выберите логотип
+          </label>
+        </div>
         <div className={s.buttonWrapper}>
           <button className={s.button}
             type="submit"

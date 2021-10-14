@@ -1,28 +1,142 @@
-.table {
-	width: 100%;
+@import "../../base/sass/main.scss";
+
+.categoriesTable {
+	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 	table-layout: fixed;
 	border-collapse: collapse;
+	
+	@include for-size(mobile) {
+		width: 100%;		
+  } 	
+
+	tr:first-child td {
+		padding-top: 0;
+
+		@include for-size(mobile) {
+			padding-top: 12px;
+  	} 
+	}
+
+	tr:last-child td {
+		border: none;
+	}
 }
 
-.tableHead {
-  // display: none;
+.categoriesHead {
+  display: none;
+	// visibility: hidden;
+
+	@include for-size(mobile) {
+    display: table-header-group;
+		// visibility: visible;
+		background-color: #F5F6FB;
+  } 
 }
 
-.tableList {
+.categoriesHeadList {
 	margin-right: auto;
+
+	th {
+		padding: 12px 0;
+
+		&:first-child {
+			border-top-left-radius: 20px;
+		}
+
+		&:last-child {
+			border-top-right-radius: 20px;
+		}
+	}
 }
 
-.tableCol {
-  padding: 12px;
+.categoriesHeadItem {
+
+	@include for-size(mobile) {
+    font-weight: 700;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+  }	
 }
 
-.tableLogo {
-  height: 40px;
+.categoriesHeadItemName {
+	text-align: left;
 }
 
-.mobileDelete {
+.categoriesBody {
+
+	@include for-size(mobile) {
+			tr {
+				border: 1px solid #F5F6FB;
+			}		
+		}	
+}
+
+.categoriesList {
+	margin-right: auto;
+
+	td {
+		padding-top: 10px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #F5F6FB;
+
+		@include for-size(mobile) {
+			padding-top: 12px;			
+		}	
+	}
+}
+
+.categoriesLogo {
+	padding-right: 15px;
+
+	@include for-size(mobile) {
+		padding-right: 0;			
+	}
+}
+
+.categoriesImg {
+	height: 30px;	
+
+	@include for-size(mobile) {
+		height: 50px;			
+	}	
+}
+
+.categoriesInfo {	
+	width: 60%;		
+}
+
+.categoriesName {
+	display: block;
+	font-weight: 700;
+	color: #52555F;
+}
+
+.categoriesType {
+	display: block;
+	font-size: 9px;
+	line-height: 1.125;
+	color: #52555F;
+
+	@include for-size(mobile) {
+		display: none;
+	}
+}
+
+.categoriesTypeColumn {
+	display: none;
+	color: #52555F;
+
+	@include for-size(mobile) {
+		display: table-cell;
+		text-align: center;
+	}
+}
+
+.categoriesActions {}
+
+.categoriesActionsDelete {
 	width: 32px;
 	height: 32px;
   border: none;
@@ -31,33 +145,9 @@
   margin-left: auto;
 }
 
-.mobileDeleteIcon {
+.categoriesActionsDeleteIcon {
 	width: 18px;
 	height: 18px;
   margin-left: auto;
 	margin-right: auto;
 }
-
-// .listItem {
-//   display: flex;
-
-// }
-
-// .listLogo {
-//   height: 50px;
-// }
-
-// .listButton {
-//   width: 32px;
-// 	height: 32px;
-//   border: none;
-//   background-color: #F5F6FB;
-//   border-radius: 50%;
-// }
-
-// .listButtonIcon {
-//   width: 18px;
-// 	height: 18px;
-//   margin-left: auto;
-// 	margin-right: auto;
-// }
