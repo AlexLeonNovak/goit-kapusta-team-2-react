@@ -13,7 +13,8 @@ align-items: center;
   align-items: flex-start;
 }
 .menu{
-  background: rgba(219, 116, 116, 0.3);
+background-size: inherit;
+  background-color: rgba(219, 116, 116, 0.3);
 }
 .menuItem{
  display: inline-block;
