@@ -70,10 +70,10 @@ const TransactionsForm = () => {
       <form onSubmit={handleSubmit} className={s.form}>
       
         <div className={s.inputWrap}>
- 
+ <div className={s.transFormItemWrapper}>
  
         <DatePicker value={datetime} onChange={setDatetime}/>
-<div className={s.transFormItemWrapper}>
+
         <input
           id={valueInputId}
           name="description"
