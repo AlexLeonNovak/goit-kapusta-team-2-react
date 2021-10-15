@@ -66,10 +66,14 @@ const TransactionsForm = () => {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <DatePicker value={datetime} onChange={setDatetime} />
-
+    <div className={s.formWrapper}>
+      <form onSubmit={handleSubmit} className={s.form}>
+      
+        <div className={s.inputWrap}>
+ 
+ 
+        <DatePicker value={datetime} onChange={setDatetime}/>
+<div className={s.transFormItemWrapper}>
         <input
           id={valueInputId}
           name="description"
@@ -77,19 +81,18 @@ const TransactionsForm = () => {
           placeholder="Описание"
           value={description}
           onChange={handleChange}
+          className={s.descr}
         />
 
-        <div style={{ width: 200 }}>
           <Dropdown
             id={textValueInputId}
             label="name"
             options={data}
-            prompt="Категория"
+            prompt="Категория товара"
             value={category}
             onChange={(value) => setCategory(value)}
           />
-        </div>
-
+    
         <input
           value={amount}
           name="amount"
@@ -99,16 +102,24 @@ const TransactionsForm = () => {
           placeholder="00.00"
           pattern="\d+(.\d{2})?"
           onChange={handleChange}
+          className={s.calc}
         />
       </div>
       <div>
-        <button className="contacts__form-button" type="submit">
+        <button className={s.button} type="submit">
           ВВОД
         </button>
 
-        <button type="reset">ОЧИСТИТЬ</button>
+        <button className={s.button} type="reset">ОЧИСТИТЬ</button>
       </div>
-    </form>
+
+    </div>
+     </form>
+    </div>
+
+       
+
+    
   );
 };
 
