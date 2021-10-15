@@ -1,14 +1,13 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Reports from "./components/Reports/Reports";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
 import authOperations from "./redux/auth/auth.operations";
 import routes from "./routes";
-import AppBar from './components/AppBar/AppBar';
-import {Loader} from './components/Loader';
+import AppBar from "./components/AppBar/AppBar";
+import { Loader } from "./components/Loader";
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
@@ -24,6 +23,10 @@ const Categories = lazy(() =>
   import("./pages/Categories/Categories" /* webpackChunkName: "categories" */)
 );
 
+const Report = lazy(() =>
+  import("./pages/Report/Report" /* webpackChunkName: "reports" */)
+);
+
 function App() {
   const dispatch = useDispatch();
 
@@ -34,7 +37,7 @@ function App() {
   return (
     <>
       <AppBar />
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute exact path="/">
             <Redirect to={routes.auth} />
@@ -57,7 +60,7 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute path={routes.report} redirectTo={routes.auth}>
-            <Reports />
+            <Report />
           </PrivateRoute>
         </Switch>
       </Suspense>
