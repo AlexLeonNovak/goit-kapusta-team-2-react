@@ -9,7 +9,7 @@ import { transactionsOperations } from "../../redux/transactions";
 
 import data from "./categories.json";
 
-const TransactionsForm = () => {
+const TransactionsForm = ({type}) => {
   const valueInputId = shortid.generate();
   const textValueInputId = shortid.generate();
 
@@ -19,7 +19,9 @@ const TransactionsForm = () => {
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState(0);
 
-  // const handleChange = (e) => setTextValue(e.target.value);
+  const categoryFilter = () => {
+       return data.filter(data => data.type === type)
+  }
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.currentTarget;
@@ -63,6 +65,7 @@ const TransactionsForm = () => {
     },
     [dispatch, datetime, description, category, amount]
   );
+  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -82,7 +85,7 @@ const TransactionsForm = () => {
           <Dropdown
             id={textValueInputId}
             label="name"
-            options={data}
+            options={categoryFilter()}
             prompt="Категория"
             value={category}
             onChange={(value) => setCategory(value)}
