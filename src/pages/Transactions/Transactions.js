@@ -28,11 +28,11 @@ const Transactions = () => {
 
       <Tabs>
         <div label="Доход">
-          <TransactionsForm />
+          <TransactionsForm type={"income"}/>
           <IncomeList items={IncomeApi} />
         </div>
         <div label="Расход">
-          <TransactionsForm />
+          <TransactionsForm type={"expense"} />
           <ExpenseList items={ExpenseApi} />
         </div>
       </Tabs>

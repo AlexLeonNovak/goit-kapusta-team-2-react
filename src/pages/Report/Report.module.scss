@@ -1,0 +1,106 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* background: #f2f5fc; */
+}
+
+.dataline {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 85px;
+  width: 282px;
+  border: solid 2px #e0e5eb;
+  border-radius: 30px;
+  margin: 15px auto;
+}
+
+.dataline_block {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.dataline_label {
+  width: 100%;
+}
+
+.dataline_expenses,
+.dataline_income {
+  width: 100%;
+}
+
+.dataline_expenses {
+  color: #e53935;
+}
+
+.dataline_income {
+  color: #407946;
+}
+
+.datalineJumper {
+  border-left: solid 1px #e0e5eb;
+  height: 70.5px;
+}
+
+// .dataline_expenses {
+//   margin-right: 20px;
+// }
+
+.dataline_income {
+  // margin-left: 20px;
+}
+
+.expencesBlock {
+  width: 100%;
+  height: auto;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
+}
+
+.chartBlock {
+  margin: 0 auto 75px auto;
+  padding: 44px;
+  width: 1060px;
+  height: auto;
+  border-radius: 30px;
+  box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
+}
+
+@media screen and (min-width: 768px) {
+  .dataline_block {
+    display: block;
+    justify-content: space-evenly;
+  }
+  .dataline {
+    height: 50px;
+    width: 668px;
+  }
+  .datalineJumper {
+    height: 36px;
+  }
+  .expencesBlock {
+    width: 666px;
+  }
+  .chartBlock {
+    width: 666px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dataline {
+    height: 50px;
+    width: 1060px;
+  }
+  .expencesBlock {
+    width: 1060px;
+  }
+  .chartBlock {
+    width: 1060px;
+  }
+}
