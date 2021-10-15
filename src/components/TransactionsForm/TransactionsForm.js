@@ -8,6 +8,7 @@ import DatePicker from "../DatePick/DatePicker";
 import { transactionsOperations } from "../../redux/transactions";
 
 import data from "./categories.json";
+import s from '../TransactionsForm/TransForm.module.scss'
 
 const TransactionsForm = () => {
   const valueInputId = shortid.generate();

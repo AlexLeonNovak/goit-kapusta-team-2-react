@@ -1,12 +1,8 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@import '../../base/sass/utils/variables';
 
 .container {
   display: flex;
-  background: #f2f5fc;
+  background: $bg-main;
   width: 100%;
   height: 132px;
   justify-content: center;
