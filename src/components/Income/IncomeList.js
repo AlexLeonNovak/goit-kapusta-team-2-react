@@ -10,6 +10,7 @@ import { transactionsSelectors } from "../../redux/transactions";
 import IncomeItem from "./IncomeItem";
 
 import "./income.css";
+import { format } from "prettier";
 
 const IncomeList = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,8 @@ const IncomeList = () => {
           ({ _id, datetime, description, category, amount }) => (
             <IncomeItem
               key={_id}
-              datetime={datetime}
+              id={_id}
+              datetime={datetime.slice(0,10)}
               description={description}
               category={category.name}
               amount={amount}
