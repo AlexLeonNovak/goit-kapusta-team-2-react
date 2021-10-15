@@ -28,15 +28,23 @@ const data = {
   labels: [...label],
   datasets: [
     {
-      label: "# of Votes",
       data: [...prices],
       backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
       borderWidth: 0,
     },
   ],
+  options: {
+    indexAxis: "y",
+  },
 };
 
 const options = {
+  // indexAxis: "y",
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
   scales: {
     yAxes: [
       {
