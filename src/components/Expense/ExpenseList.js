@@ -34,7 +34,8 @@ const ExpenseList = () => {
           ({ _id, datetime, description, category, amount }) => (
             <ExpenseItem
               key={_id}
-              datetime={datetime}
+              id={_id}
+              datetime={datetime.slice(0,10)}
               description={description}
               category={category.name}
               amount={amount}
