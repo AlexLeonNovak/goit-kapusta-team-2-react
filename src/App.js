@@ -1,15 +1,14 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
-import Header from "./pages/Header/Header";
-// import Summary from "./components/Summary/Summary";
 import Reports from "./components/Reports/Reports";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
 import authOperations from "./redux/auth/auth.operations";
 import routes from "./routes";
+import AppBar from './components/AppBar/AppBar';
+import {Loader} from './components/Loader';
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
@@ -34,8 +33,8 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Suspense fallback={<h1>Загружаемся ребята...</h1>}>
+      <AppBar />
+      <Suspense fallback={<Loader/>}>
         <Switch>
           <PublicRoute exact path="/">
             <Redirect to={routes.auth} />
