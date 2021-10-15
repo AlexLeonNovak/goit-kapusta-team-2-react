@@ -35,14 +35,10 @@ function Report() {
           <SwiperReport />
           <Accounting />
         </div>
-        <div className={styles.chartBlock}>
-          <Chartjs
-            width={605}
-            height={328}
-            options={{
-              maintainAspectRatio: false,
-            }}
-          />
+        <div className={styles.expencesBlock}>
+          <div className={styles.chartBlock}>
+            <Chartjs />
+          </div>
         </div>
       </div>
     </>

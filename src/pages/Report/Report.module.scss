@@ -76,14 +76,15 @@
 }
 
 .chartBlock {
-  margin: 0 auto 75px auto;
-  padding: 44px;
   width: 100%;
-  height: auto;
-  background: #ffffff;
+  margin: 0 auto;
+  // padding: 44px;
 
-  border-radius: 30px;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  // height: auto;
+  // background: #ffffff;
+
+  // border-radius: 30px;
+  // box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 }
 
 @include for-size(tablet) {
@@ -110,7 +111,7 @@
     width: 666px;
   }
   .chartBlock {
-    width: 666px;
+    width: 605px;
   }
 }
 
@@ -120,9 +121,6 @@
     width: 1060px;
   }
   .expencesBlock {
-    width: 1060px;
-  }
-  .chartBlock {
     width: 1060px;
   }
 }

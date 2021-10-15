@@ -37,19 +37,24 @@ const data = {
 
 const options = {
   indexAxis: "",
+  barWidth: 605,
+  maxBarThickness: 38,
   plugins: {
     legend: {
       display: false,
     },
   },
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
+    x: {
+      grid: {
+        display: false,
       },
-    ],
+    },
+  },
+  elements: {
+    bar: {
+      borderRadius: 10,
+    },
   },
 };
 
