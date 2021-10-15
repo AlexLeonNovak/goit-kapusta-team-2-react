@@ -1,64 +1,61 @@
-import { Component } from "react";
+import { useEffect } from "react";
 import { ReactComponent as CloseIcon } from "../../images/close.svg";
 import stylesModal from "../Modal/Modal.module.scss";
 
+export default function Modal({ title, onClose, onClick }) {
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
 
-export default class Modal extends Component {
-  componentDidMount() {
-    window.addEventListener("keydown", this.handleKeyDown);
-  }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
-  componentWillUnmount() {
-    window.removeEventListener("keydown", this.handleKeyDown);
-  }
-
-  handleKeyDown = (evt) => {
+  function handleKeyDown(evt) {
     if (evt.code === "Escape") {
-      this.props.onClose();
+      onClose();
     }
-  };
+  }
 
-  handleBackdropClick = (evt) => {
+  const handleBackdropClick = (evt) => {
     if (evt.target === evt.currentTarget) {
-      this.props.onClose();
+      onClose();
     }
   };
 
-  handleButtonClickNo = () => {
-    this.props.onClose();
+  const handleButtonClickNo = () => {
+    onClose();
   };
 
-  handleButtonClickYes = () => {
-    this.props.onClick();
+  const handleButtonClickYes = () => {
+    onClick();
   };
 
-  render() {
-    return (
-      <div className={stylesModal.Overlay} onClick={this.handleBackdropClick}>
-        <div className={stylesModal.modal}>
+  return (
+    <div className={stylesModal.Overlay} onClick={handleBackdropClick}>
+      <div className={stylesModal.modal}>
+        <button
+          className={stylesModal.modalClose}
+          onClick={handleButtonClickNo}
+        >
+          <CloseIcon width='12' height='12' />
+        </button>
+        <h2 className={stylesModal.modalTitle}>{title}</h2>
+        <div className={stylesModal.modalButtonBlock}>
           <button
-            className={stylesModal.modalClose}
-            onClick={this.handleButtonClickNo}
+            className={stylesModal.modalButtonYes}
+            onClick={handleButtonClickYes}
           >
-            <CloseIcon width='12' height='12' />
+            Да
           </button>
-          <h2 className={stylesModal.modalTitle}>{this.props.title}</h2>
-          <div className={stylesModal.modalButtonBlock}>
-            <button
-              className={stylesModal.modalButtonYes}
-              onClick={this.handleButtonClickYes}
-            >
-              Да
-            </button>
-            <button
-              className={stylesModal.buttonModal}
-              onClick={this.handleButtonClickNo}
-            >
-              Нет
-            </button>
-          </div>
+          <button
+            className={stylesModal.buttonModal}
+            onClick={handleButtonClickNo}
+          >
+            Нет
+          </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
