@@ -4,13 +4,8 @@
 }
 
 .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
   width: 100%;
   height: 289px;
   border-radius: 0 0 0 120px;
@@ -37,10 +32,7 @@
 
 @media screen and (min-width: 1280px) {
   .wrapper {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row;
-            flex-flow: row;
+    flex-flow: row;
     position: relative;
   }
 }

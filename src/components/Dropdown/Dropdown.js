@@ -64,9 +64,7 @@ const Dropdown = ({ id, label, options, prompt, value, onChange }) => {
         {filter(options).map((option) => (
           <div
             key={option[id]}
-            className={classNames(s.option, value === option, {
-              [s.selected]: null,
-            })}
+            className={classNames(s.option, value === option ? [s.selected]: null)}
             onClick={() => selectOption(option)}
             onTouchEnd={() => selectOption(option)}
           >

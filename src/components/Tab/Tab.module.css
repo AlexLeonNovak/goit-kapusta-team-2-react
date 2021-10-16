@@ -115,82 +115,26 @@ ul {
   background-color: #0e0e0e;
 }
 
-.userMenu {
+.tabListItem {
+  /* position: absolute; */
   display: flex;
+  text-align: center;
   align-items: center;
+  width: 138px;
+  height: 40px;
+  left: 110px;
+  top: 148px;
+  background: #FFFFFF;
+  border-radius: 20px 20px 0 0;
+  cursor: pointer;
+  display: inline-block;
+  list-style: none;
+  /* margin-bottom: -1px;
+  padding: 0.5rem 0.75rem; */
 }
 
-.avatar {
-  height: 32px;
-  width: 32px;
-  margin: 10px;
-  background-color: #FF751D;
-  border-radius: 50%;
-}
-
-.name {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .name {
-    display: flex;
-    justify-content: center;
-    font-weight: 400;
-    font-size: 12px;
-    color: #52555F;
-    margin-right: 20px;
-    margin-left: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .line {
-    height: 36px;
-    width: 1px;
-    background-color: #F5F6FB;
-  }
-}
-
-button u {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  button u {
-    display: inline-block;
-  }
-}
-
-.button {
-  background-image: url(../../base/images/svg_color/logout.svg);
-  background-color: #FFFFFF;
-  border: none;
-  width: 16px;
-  height: 16px;
-}
-
-.button:hover, .button:focus {
+.tabListActive {
   background-color: #FFDAC0;
+  border-width: 1px 1px 0 1px;
 }
-
-@media (min-width: 768px) {
-  .button {
-    font-size: 12px;
-    font-family: inherit;
-    width: 40px;
-    height: 100%;
-    margin-left: 20px;
-    padding: 5px 0 5px 0;
-    color: #52555F;
-    background-color: #FFFFFF;
-    background-image: none;
-    border: none;
-    border-radius: 4px;
-  }
-  .button:hover, .button:focus {
-    background-color: #FFDAC0;
-    color: #FFFFFF;
-  }
-}
-/*# sourceMappingURL=UserMenu.module.css.map */
+/*# sourceMappingURL=Tab.module.css.map */
