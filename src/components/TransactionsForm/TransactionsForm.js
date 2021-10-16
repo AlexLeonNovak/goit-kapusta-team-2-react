@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import shortid from "shortid";
 
-import Dropdown from "./Dropdown";
+import Dropdown from "../Dropdown/Dropdown";
 import DatePicker from "../DatePick/DatePicker";
 
 import { transactionsOperations } from "../../redux/transactions";

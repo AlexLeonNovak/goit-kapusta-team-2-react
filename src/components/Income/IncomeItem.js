@@ -1,6 +1,20 @@
 import PropTypes from "prop-types";
 
-const IncomeItem = ({ datetime, description, category, amount }) => (
+// const deleteTransaction = (transactionId) => {
+//   this.setState((prevState) => ({
+//     transactions: prevState.transactions.filter(
+//       (transaction) => transaction.id !== transactionId
+//     ),
+//   }));
+// };
+
+const IncomeItem = ({
+  datetime,
+  description,
+  category,
+  amount,
+  onDeleteTransaction,
+}) => (
   <tr>
     <td>{datetime}</td>
     <td>{description}</td>
