@@ -5,17 +5,26 @@ import * as transactionsActions from "./transactions.actions";
 const items = createReducer([], {
   [transactionsActions.fetchTransactionsSuccess]: (state, { payload }) => payload.transactions,
 
-  [transactionsActions.addTransactionSuccess]: (state, { payload }) =>
-    state.map((transaction) => transaction.name).includes(payload.name)
-      ? alert(`${payload.name} is already in transactions.`)
-      : [payload, ...state],
+  [transactionsActions.addTransactionSuccess]: (state, { payload }) => [payload.result, ...state],
 
   [transactionsActions.deleteTransactionSuccess]: (state, { payload }) =>
-    state.filter((transaction) => transaction.id !== payload),
+    state.filter((transaction) => transaction._id !== payload),
 });
 
 const summary = createReducer([], {
-  [transactionsActions.transactionsSummarySuccess]: (_, {payload}) => payload.summary
+  [transactionsActions.transactionsSummarySuccess]: (_, {payload}) => payload.summary,
+  [transactionsActions.addTransactionSuccess]: (state, { payload }) => {
+    const date = new Date(payload.result.datetime);
+    const idx = state.findIndex(item => item.year === date.getFullYear() && item.month === date.getMonth() + 1)
+    state[idx][payload.result.category.type] += payload.result.amount;
+    return state;
+  },
+  [transactionsActions.deleteTransactionSuccess]: (state, { payload }) => {
+    // const date = new Date(payload.result.datetime);
+    // const idx = state.findIndex(item => item.year === date.getFullYear() && item.month === date.getMonth() + 1)
+    // state[idx][payload.result.category.type] -= payload.result.amount;
+    return state;
+  }
 });
 
 const isLoadingAction = action => action.type.endsWith('Request');

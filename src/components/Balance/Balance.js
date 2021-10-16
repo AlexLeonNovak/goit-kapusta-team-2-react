@@ -7,8 +7,8 @@ import styles from "./Balance.module.scss";
 const Balance = () => {
 
   const dispatch = useDispatch();
-  const [popoverOpen, setPopoverOpen] = useState(false);
-  const toggle = () => setPopoverOpen(!popoverOpen);
+  // const [popoverOpen, setPopoverOpen] = useState(false);
+  // const toggle = () => setPopoverOpen(!popoverOpen);
   const currentBalance = useSelector(userSelectors.getBalance);
 
   useEffect(() => {

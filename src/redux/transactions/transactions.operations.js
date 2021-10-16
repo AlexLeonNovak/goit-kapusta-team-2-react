@@ -17,7 +17,7 @@ export const addTransaction = (transaction) => async (dispatch) => {
 
   try {
     const { data } = await axios.post("/transactions", transaction);
-    dispatch(transactionsActions.addTransactionSuccess(data));
+    dispatch(transactionsActions.addTransactionSuccess(data.data));
   } catch (error) {
     dispatch(transactionsActions.addTransactionError(error.message));
   }

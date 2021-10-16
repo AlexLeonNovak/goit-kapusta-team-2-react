@@ -21,7 +21,7 @@ const authPersistConfig = {
   storage,
   whitelist: ['token', 'isAuthenticated'],
 };
-console.log(configureStore);
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),

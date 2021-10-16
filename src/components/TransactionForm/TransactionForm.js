@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
-import shortid from "shortid";
 
 import Dropdown from "../Dropdown/Dropdown";
 import DatePicker from "../DatePick/DatePicker";
@@ -15,12 +14,10 @@ import {categoryTypes} from '../../helpers/constants';
 
 
 export const TransactionForm = ({ type }) => {
-  const valueInputId = shortid.generate();
-  const textValueInputId = shortid.generate();
   const dispatch = useDispatch();
 
   const [datetime, setDatetime] = useState(new Date());
-  const [description, setDescription] = useState(null);
+  const [description, setDescription] = useState('');
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState(0);
 
@@ -81,7 +78,7 @@ export const TransactionForm = ({ type }) => {
             <DatePicker value={datetime} onChange={setDatetime} />
 
             <input
-              id={valueInputId}
+              // id={valueInputId}
               name="description"
               type="text"
               placeholder="Описание"
@@ -91,7 +88,7 @@ export const TransactionForm = ({ type }) => {
             />
 
             <Dropdown
-              id={textValueInputId}
+              // id={textValueInputId}
               label="name"
               options={categoryFilter()}
               prompt="Категория товара"
