@@ -15,11 +15,11 @@ const Transactions = () => {
   return (
     <>
       <Tabs>
-        <div label="Доход">
+        <div label="ДОХОД">
           <TransactionsForm type={categoryTypes.INCOME}/>
           <IncomeList />
         </div>
-        <div label="Расход">
+        <div label="РАСХОД">
           <TransactionsForm type={categoryTypes.EXPENSE} />
           <ExpenseList />
         </div>
