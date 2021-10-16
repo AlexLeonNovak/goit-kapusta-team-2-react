@@ -33,28 +33,47 @@ const data = {
       borderWidth: 0,
     },
   ],
-  options: {
-    indexAxis: "y",
-  },
 };
 
 const options = {
-  // indexAxis: "y",
+  indexAxis: "",
+  barWidth: 605,
+  maxBarThickness: 38,
   plugins: {
     legend: {
       display: false,
     },
   },
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
+    x: {
+      grid: {
+        display: false,
       },
-    ],
+    },
+  },
+  elements: {
+    bar: {
+      borderRadius: 10,
+    },
   },
 };
+
+const mediaQueryList = window.matchMedia("(max-width: 767px)");
+console.log(mediaQueryList);
+
+function handleOrientationChange(mql) {
+  mql.matches ? (options.indexAxis = "y") : (options.indexAxis = "x");
+}
+
+handleOrientationChange(mediaQueryList);
+
+mediaQueryList.addEventListener("change", handleOrientationChange);
+
+// if (window.matchMedia("(max-width: 767px)").matches) {
+//   options.indexAxis = "y";
+// } else {
+//   options.indexAxis = "x";
+// }
 
 const Chartjs = () => (
   <>

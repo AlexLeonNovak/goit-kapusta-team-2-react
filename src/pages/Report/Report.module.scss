@@ -1,10 +1,25 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  /* background: #f2f5fc; */
-}
+@import "../../base/sass/main.scss";
 
+.categories {
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include for-size(tablet) {
+    background-image: url(../../base/images/tablet/bg/bg-tablet.png);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #f5f6fb;
+    border-bottom-left-radius: 150px;
+    z-index: -1;
+    height: 97.8vw;
+  }
+}
 .dataline {
   display: flex;
   flex-flow: column wrap;
@@ -12,12 +27,15 @@
   align-items: center;
   height: 85px;
   width: 282px;
-  border: solid 2px #e0e5eb;
-  border-radius: 30px;
+  border: solid 1px #ffffff;
+  background: #ffffff;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  border-radius: 20px;
   margin: 15px auto;
 }
 
-.dataline_block {
+.dataline_block_expenses,
+.dataline_block_income {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -44,14 +62,7 @@
 .datalineJumper {
   border-left: solid 1px #e0e5eb;
   height: 70.5px;
-}
-
-// .dataline_expenses {
-//   margin-right: 20px;
-// }
-
-.dataline_income {
-  // margin-left: 20px;
+  width: 1px;
 }
 
 .expencesBlock {
@@ -60,26 +71,38 @@
   margin: 30px auto;
   padding: 20px;
   border-radius: 30px;
-  box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
+  background: #ffffff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 }
 
 .chartBlock {
-  margin: 0 auto 75px auto;
-  padding: 44px;
-  width: 1060px;
-  height: auto;
-  border-radius: 30px;
-  box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
+  width: 100%;
+  margin: 0 auto;
+  // padding: 44px;
+
+  // height: auto;
+  // background: #ffffff;
+
+  // border-radius: 30px;
+  // box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 }
 
-@media screen and (min-width: 768px) {
-  .dataline_block {
-    display: block;
-    justify-content: space-evenly;
-  }
+@include for-size(tablet) {
   .dataline {
+    justify-content: center;
+    flex-flow: row nowrap;
     height: 50px;
     width: 668px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+  }
+  .dataline_block_expenses,
+  .dataline_block_income {
+    display: block;
+    margin: 20px;
+  }
+  .dataline_label {
+    margin-right: 15px;
   }
   .datalineJumper {
     height: 36px;
@@ -88,19 +111,16 @@
     width: 666px;
   }
   .chartBlock {
-    width: 666px;
+    width: 605px;
   }
 }
 
-@media screen and (min-width: 1280px) {
+@include for-size(desktop) {
   .dataline {
     height: 50px;
     width: 1060px;
   }
   .expencesBlock {
-    width: 1060px;
-  }
-  .chartBlock {
     width: 1060px;
   }
 }
