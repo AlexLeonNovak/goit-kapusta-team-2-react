@@ -1,18 +1,12 @@
-import React, { useCallback } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { transactionsSelectors } from "../../redux/transactions";
-// import {
-//   transactionsOperations,
-//   //   transactionsSelectors,
-// } from "../../redux/transactions";
-
 import ExpenseItem from "./ExpenseItem";
 
 import "./expense.css";
 
 const ExpenseList = () => {
-  const dispatch = useDispatch();
   const transactions = useSelector(transactionsSelectors.getAllTransactions);
 
   return (
@@ -27,20 +21,20 @@ const ExpenseList = () => {
         </tr>
       </thead>
 
-      {/* TODO need to fix error with unique id */}
-
       <tbody>
         {transactions.map(
-          ({ _id, datetime, description, category, amount }) => (
-            <ExpenseItem
+          ({ _id, datetime, description, category, amount }) => {
+             if(category.type === "expense") {
+              return <ExpenseItem
               key={_id}
               id={_id}
               datetime={datetime.slice(0,10)}
               description={description}
               category={category.name}
               amount={amount}
-            />
-          )
+              />
+            }
+          }
         )}
       </tbody>
     </table>

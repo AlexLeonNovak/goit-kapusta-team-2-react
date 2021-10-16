@@ -10,8 +10,8 @@ import Balance from "../../components/Balance";
 import Tabs from "../../components/Tabs/Tabs";
 
 // TODO видалити локальні TODO, коли буде BACK
-import IncomeApi from "../../components/Income/api.json";
-import ExpenseApi from "../../components/Expense/api.json";
+// import IncomeApi from "../../components/Income/api.json";
+// import ExpenseApi from "../../components/Expense/api.json";
 
 
 
@@ -29,11 +29,11 @@ const Transactions = () => {
       <Tabs>
         <div label="Доход">
           <TransactionsForm type={"income"}/>
-          <IncomeList items={IncomeApi} />
+          <IncomeList />
         </div>
         <div label="Расход">
           <TransactionsForm type={"expense"} />
-          <ExpenseList items={ExpenseApi} />
+          <ExpenseList />
         </div>
       </Tabs>
     </>
