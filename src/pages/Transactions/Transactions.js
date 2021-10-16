@@ -13,6 +13,8 @@ import Tabs from "../../components/Tabs/Tabs";
 import IncomeApi from "../../components/Income/api.json";
 import ExpenseApi from "../../components/Expense/api.json";
 
+
+
 const Transactions = () => {
   const dispatch = useDispatch();
 

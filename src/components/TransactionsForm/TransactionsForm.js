@@ -8,6 +8,7 @@ import DatePicker from "../DatePick/DatePicker";
 import { transactionsOperations } from "../../redux/transactions";
 
 import data from "./categories.json";
+import s from '../TransactionsForm/TransForm.module.scss'
 
 const TransactionsForm = ({type}) => {
   const valueInputId = shortid.generate();
@@ -68,9 +69,13 @@ const TransactionsForm = ({type}) => {
   
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <DatePicker value={datetime} onChange={setDatetime} />
+    <div className={s.formWrapper}>
+      <form onSubmit={handleSubmit} className={s.form}>
+      
+        <div className={s.inputWrap}>
+ <div className={s.transFormItemWrapper}>
+ 
+        <DatePicker value={datetime} onChange={setDatetime}/>
 
         <input
           id={valueInputId}
@@ -79,19 +84,19 @@ const TransactionsForm = ({type}) => {
           placeholder="Описание"
           value={description}
           onChange={handleChange}
+          className={s.descr}
         />
 
-        <div style={{ width: 200 }}>
           <Dropdown
             id={textValueInputId}
             label="name"
-            options={categoryFilter()}
-            prompt="Категория"
+            options={data}
+            prompt="Категория товара"
+
             value={category}
             onChange={(value) => setCategory(value)}
           />
-        </div>
-
+    
         <input
           value={amount}
           name="amount"
@@ -101,16 +106,24 @@ const TransactionsForm = ({type}) => {
           placeholder="00.00"
           pattern="\d+(.\d{2})?"
           onChange={handleChange}
+          className={s.calc}
         />
       </div>
       <div>
-        <button className="contacts__form-button" type="submit">
+        <button className={s.button} type="submit">
           ВВОД
         </button>
 
-        <button type="reset">ОЧИСТИТЬ</button>
+        <button className={s.button} type="reset">ОЧИСТИТЬ</button>
       </div>
-    </form>
+
+    </div>
+     </form>
+    </div>
+
+       
+
+    
   );
 };
 

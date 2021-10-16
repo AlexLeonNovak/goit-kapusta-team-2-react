@@ -1,12 +1,14 @@
-import { createSelector } from 'reselect';
+//import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
 import {getAmountByPeriod} from '../../services/helpers';
 
-export const getCosts = store => {
-  return store.transactions.costs;
+
+export const getCosts = state => {
+  return state.transactions.costs;
 };
 
-export const getIncomes = store => {
-  return store.transactions.income;
+export const getIncomes = state => {
+  return state.transactions.income;
 };
 
 export const getCostsStatistic = createSelector([getCosts], costs =>

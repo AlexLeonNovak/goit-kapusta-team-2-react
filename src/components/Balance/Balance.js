@@ -5,8 +5,8 @@ import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
 import { balanceOperations } from "../../redux/balance";
 import styles from "./Balance.module.scss";
 
-function Balance() {
-  const dispatch = useDispatch();
+
+const Balance = () => {
 
   const [popoverOpen, setPopoverOpen] = useState(false);
   const toggle = () => setPopoverOpen(!popoverOpen);
@@ -73,12 +73,13 @@ function Balance() {
               Привет! Для начала работы внеси текущий баланс своего счета!
             </PopoverHeader>
             <PopoverBody>
-              Ты не можешь тратить деньги пока их у тебя нет :)
+              Ты не можешь тратить деньги пока их у тебя нет
             </PopoverBody>
           </Popover> */}
         </div>
       </form>
     </div>
   );
+
 }
 export default Balance;

@@ -1,7 +1,10 @@
+@import "../../base/sass/main.scss";
+
 .dropdown {
   position: relative;
-  color: #333;
+  color: $bg-second;
   cursor: default;
+  //width:168px;
 }
 
 .dropdown .arrow {
@@ -23,9 +26,9 @@
   border-width: 0 5px 5px;
 }
 
-.dropdown .selected-value input {
-  line-height: 1.5;
-  font-size: 1rem;
+.dropdown .selectedValue input {
+  line-height: 1.17;
+  font-size: 12px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 2px;
@@ -34,7 +37,7 @@
   outline: none;
   padding: 8px 52px 8px 10px;
   transition: all 200ms ease;
-  width: 100%;
+  //width: 100%;
 }
 
 .dropdown .options {
