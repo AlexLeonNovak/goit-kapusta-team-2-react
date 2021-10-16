@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import PrivateRoute from "./components/PrivateRoute";
@@ -21,9 +21,7 @@ const Auth = lazy(() =>
 );
 
 const Transactions = lazy(() =>
-  import(
-    "./pages/Transactions/Transactions" /* webpackChunkName: "transactions" */
-  )
+  import("./pages/Transactions/Transactions" /* webpackChunkName: "transactions" */)
 );
 
 const Categories = lazy(() =>

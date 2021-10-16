@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as userActions from './user.actions';
+import { userActions } from './index';
 
 
 //axios.defaults.baseURL = 'http://localhost:3000';

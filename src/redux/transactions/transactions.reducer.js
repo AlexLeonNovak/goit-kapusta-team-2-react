@@ -1,52 +1,42 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
-import {
-  fetchTransactionsRequest,
-  fetchTransactionsSuccess,
-  fetchTransactionsError,
-  addTransactionRequest,
-  addTransactionSuccess,
-  addTransactionError,
-  deleteTransactionRequest,
-  deleteTransactionSuccess,
-  deleteTransactionError,
-  filterTransactions,
-} from "./transactions.actions";
+import * as transactionsActions from "./transactions.actions";
 
 const items = createReducer([], {
-  [fetchTransactionsSuccess]: (state, { payload }) => payload.transactions,
+  [transactionsActions.fetchTransactionsSuccess]: (state, { payload }) => payload.transactions,
 
-  [addTransactionSuccess]: (state, { payload }) =>
+  [transactionsActions.addTransactionSuccess]: (state, { payload }) =>
     state.map((transaction) => transaction.name).includes(payload.name)
       ? alert(`${payload.name} is already in transactions.`)
       : [payload, ...state],
 
-  [deleteTransactionSuccess]: (state, { payload }) =>
+  [transactionsActions.deleteTransactionSuccess]: (state, { payload }) =>
     state.filter((transaction) => transaction.id !== payload),
 });
 
-const loading = createReducer(false, {
-  [fetchTransactionsRequest]: () => true,
-  [fetchTransactionsSuccess]: () => false,
-  [fetchTransactionsError]: () => false,
+const summary = createReducer([], {
+  [transactionsActions.transactionsSummarySuccess]: (_, {payload}) => payload
+});
 
-  [addTransactionRequest]: () => true,
-  [addTransactionSuccess]: () => false,
-  [addTransactionError]: () => false,
+const isLoadingAction = action => action.type.endsWith('Request');
+const isEndLoadingAction = action =>
+  action.type.endsWith('Success') || action.type.endsWith('Error');
 
-  [deleteTransactionRequest]: () => true,
-  [deleteTransactionSuccess]: () => false,
-  [deleteTransactionError]: () => false,
+const loading = createReducer(false, builder => {
+  builder
+    .addMatcher(isLoadingAction, () => true)
+    .addMatcher(isEndLoadingAction, () => false);
 });
 
 const filter = createReducer("", {
-  [filterTransactions]: (state, { payload }) => payload,
+  [transactionsActions.filterTransactions]: (state, { payload }) => payload,
 });
 
 const error = createReducer(null, {});
 
-export default combineReducers({
+export const transactionsReducer = combineReducers({
   items,
+  summary,
   filter,
   loading,
   error,

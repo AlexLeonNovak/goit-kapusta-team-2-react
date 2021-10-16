@@ -34,37 +34,6 @@
   margin: 15px auto;
 }
 
-.dataline_block_expenses,
-.dataline_block_income {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  text-align: center;
-}
-
-.dataline_label {
-  width: 100%;
-}
-
-.dataline_expenses,
-.dataline_income {
-  width: 100%;
-}
-
-.dataline_expenses {
-  color: #e53935;
-}
-
-.dataline_income {
-  color: #407946;
-}
-
-.datalineJumper {
-  border-left: solid 1px #e0e5eb;
-  height: 70.5px;
-  width: 1px;
-}
-
 .expencesBlock {
   width: 100%;
   height: auto;
@@ -96,17 +65,7 @@
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     border-radius: 30px;
   }
-  .dataline_block_expenses,
-  .dataline_block_income {
-    display: block;
-    margin: 20px;
-  }
-  .dataline_label {
-    margin-right: 15px;
-  }
-  .datalineJumper {
-    height: 36px;
-  }
+
   .expencesBlock {
     width: 666px;
   }

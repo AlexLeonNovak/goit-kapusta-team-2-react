@@ -2,15 +2,6 @@ import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import * as authActions from "./auth.actions";
 
-// const initialUserState = { email: null };
-
-// const user = createReducer(initialUserState, {
-//   [authActions.registerSuccess]: () => initialUserState,
-//   [authActions.loginSuccess]: (_, { payload }) => payload.user,
-//   [authActions.googleAuthSuccess]: (_, { payload }) => payload.user,
-//   [authActions.logoutSuccess]: () => initialUserState,
-// });
-
 const token = createReducer(null, {
   [authActions.registerSuccess]: () => null,
   [authActions.loginSuccess]: (_, { payload }) => payload.token,
@@ -38,7 +29,6 @@ const isAuthenticated = createReducer(false, {
 });
 
 export const authReducer = combineReducers({
-  // user,
   isAuthenticated,
   token,
   error,

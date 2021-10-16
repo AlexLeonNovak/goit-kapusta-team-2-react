@@ -8,12 +8,8 @@ export const addCategoryRequest = createAction('categories/addCategoryRequest');
 export const addCategorySuccess = createAction('categories/addCategorySuccess');
 export const addCategoryError = createAction('categories/addCategoryError');
 
-export const deleteCategoryRequest = createAction(
-  'categories/deleteCategoryRequest',
-);
-export const deleteCategorySuccess = createAction(
-  'categories/deleteCategorySuccess',
-);
+export const deleteCategoryRequest = createAction('categories/deleteCategoryRequest');
+export const deleteCategorySuccess = createAction('categories/deleteCategorySuccess');
 export const deleteCategoryError = createAction('categories/deleteCategoryError');
 
 // export const changeFilter = createAction('categories/changeFilter');

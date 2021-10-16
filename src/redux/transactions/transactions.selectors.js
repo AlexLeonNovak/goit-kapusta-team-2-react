@@ -30,3 +30,10 @@ export const getTransactionsByCategory = (id) => createSelector(
 	[getAllTransactions],
 	(transactions) => transactions.filter(transaction => transaction.category._id === id)
 );
+
+export const getSummary = state => state.transactions.summary;
+
+// export const getSummaryExpense = createSelector(
+// 	[getSummary],
+// 	(transactions) => transactions.filter(transaction => )
+// )

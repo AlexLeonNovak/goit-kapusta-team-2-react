@@ -1,43 +1,28 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import {
-  fetchCategoryRequest,
-  fetchCategorySuccess,
-  fetchCategoryError,
-  addCategoryRequest,
-  addCategorySuccess,
-  addCategoryError,
-  deleteCategoryRequest,
-  deleteCategorySuccess,
-  deleteCategoryError,
-  filterCategory,
-} from './categories.actions';
+import * as categoriesActions from './categories.actions';
 
 const items = createReducer([], {
-  [fetchCategorySuccess]: (_, { payload }) => payload,
-  [addCategorySuccess]: (state, { payload }) => [...state, payload],
-  [deleteCategorySuccess]: (state, { payload }) =>
+  [categoriesActions.fetchCategorySuccess]: (_, { payload }) => payload,
+  [categoriesActions.addCategorySuccess]: (state, { payload }) => [...state, payload],
+  [categoriesActions.deleteCategorySuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
-const loading = createReducer(false, {
-  [fetchCategoryRequest]: () => true,
-  [fetchCategorySuccess]: () => false,
-  [fetchCategoryError]: () => false,
+const isLoadingAction = action => action.type.endsWith('Request');
+const isEndLoadingAction = action =>
+  action.type.endsWith('Success') || action.type.endsWith('Error');
 
-  [addCategoryRequest]: () => true,
-  [addCategorySuccess]: () => false,
-  [addCategoryError]: () => false,
-
-  [deleteCategoryRequest]: () => true,
-  [deleteCategorySuccess]: () => false,
-  [deleteCategoryError]: () => false,
+const loading = createReducer(false, builder => {
+  builder
+    .addMatcher(isLoadingAction, () => true)
+    .addMatcher(isEndLoadingAction, () => false);
 });
 
 const filter = createReducer('', {
-  [filterCategory]: (_, { payload }) => payload,
+  [categoriesActions.filterCategory]: (_, { payload }) => payload,
 });
 
 const error = createReducer(null, {});
 
-export default combineReducers({ items, filter, loading, error });
+export const categoriesReducer = combineReducers({ items, filter, loading, error });

@@ -1,40 +1,27 @@
-import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import propTypes from 'prop-types';
 import styles from './Summary.module.scss';
-import {
-  getCostsStatistic,
-  getIncomesStatistic,
-} from '../../redux/user/user.selectors';
+import { transactionsSelectors } from '../../redux/transactions';
+import { categoryTypes } from '../../helpers/constants';
 
-const Summary = () => {
-  const dataCost = useSelector(getCostsStatistic);
-  const dataIncome = useSelector(getIncomesStatistic);
-  const isExpenses = useSelector(store => store.isExpenses);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    if (!dataCost) return;
-    if (!dataIncome) return;
-
-    if (isExpenses) {
-      setData(dataCost);
-      return;
-    }
-    setData(dataIncome);
-  }, [dataCost, dataIncome, isExpenses]);
+export const Summary = ({type}) => {
+  const summary = useSelector(transactionsSelectors.getSummary);
 
   return (
     <div className={styles.container}>
       <h4 className={styles.title}>Сводка</h4>
       <ul className={styles.list}>
-        {data.map(item => (
-          <li key={item.id} className={styles.item}>
+        {summary.map(item => (
+          <li key={`${item.year}${item.month}`} className={styles.item}>
             <span>{item.month}</span>
-            <span>{item.amount}</span>
+            <span>{item[type]}</span>
           </li>
         ))}
       </ul>
     </div>
   );
 };
-export default Summary;
+
+Summary.propTypes = {
+  type: propTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME])
+}

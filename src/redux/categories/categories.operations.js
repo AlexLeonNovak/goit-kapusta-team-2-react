@@ -1,51 +1,40 @@
 import axios from 'axios';
-import {
-  addCategoryRequest,
-  addCategorySuccess,
-  addCategoryError,
-  deleteCategoryRequest,
-  deleteCategorySuccess,
-  deleteCategoryError,
-  fetchCategoryRequest,
-  fetchCategorySuccess,
-  fetchCategoryError,
-} from './categories.actions';
+import { categoriesActions } from './index';
 
-const fetchCategories = () => async dispatch => {
-  dispatch(fetchCategoryRequest());
+export const fetchCategories = () => async dispatch => {
+  dispatch(categoriesActions.fetchCategoryRequest());
 
   try {
     const { data } = await axios.get('/categories');
-    dispatch(fetchCategorySuccess(data.data.categories));
+    dispatch(categoriesActions.fetchCategorySuccess(data.data.categories));
   } catch (error) {
-    dispatch(fetchCategoryError(error.message));
+    dispatch(categoriesActions.fetchCategoryError(error.message));
   }
 };
 
-const addCategory =
+export const addCategory =
   ({ name, type }) =>
   async (dispatch) => {
     const category = { name, type };
 
-    dispatch(addCategoryRequest());
+    dispatch(categoriesActions.addCategoryRequest());
 
     try {
       const { data } = await axios.post("/categories", category);
-      dispatch(addCategorySuccess(data));
+      dispatch(categoriesActions.addCategorySuccess(data));
     } catch (error) {
-      dispatch(addCategoryError(error.message));
+      dispatch(categoriesActions.addCategoryError(error.message));
     }
   };
 
-const deleteCategory = (categoryId) => async (dispatch) => {
-  dispatch(deleteCategoryRequest());
+export const deleteCategory = (categoryId) => async (dispatch) => {
+  dispatch(categoriesActions.deleteCategoryRequest());
 
   try {
     await axios.delete(`/categories/${categoryId}`);
-    dispatch(deleteCategorySuccess(categoryId));
+    dispatch(categoriesActions.deleteCategorySuccess(categoryId));
   } catch (error) {
-    dispatch(deleteCategoryError(error.message));
+    dispatch(categoriesActions.deleteCategoryError(error.message));
   }
 };
 
-export default { addCategory, deleteCategory, fetchCategories };
