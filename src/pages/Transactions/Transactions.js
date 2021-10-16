@@ -1,8 +1,6 @@
 import TransactionsForm from "../../components/TransactionsForm/TransactionsForm";
 import IncomeList from "../../components/Income/IncomeList";
 import ExpenseList from "../../components/Expense/ExpenseList";
-
-import Balance from "../../components/Balance";
 import Tabs from "../../components/Tabs/Tabs";
 
 import { categoryTypes } from '../../helpers/constants';
@@ -16,8 +14,6 @@ import { categoryTypes } from '../../helpers/constants';
 const Transactions = () => {
   return (
     <>
-      <Balance />
-
       <Tabs>
         <div label="Доход">
           <TransactionsForm type={categoryTypes.INCOME}/>

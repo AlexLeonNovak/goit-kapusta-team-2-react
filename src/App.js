@@ -13,6 +13,7 @@ import AppBar from "./components/AppBar/AppBar";
 import { Loader } from "./components/Loader";
 import {categoriesOperations} from './redux/categories';
 import { transactionsOperations } from './redux/transactions';
+import Balance from './components/Balance';
 
 
 const Auth = lazy(() =>
@@ -48,6 +49,7 @@ function App() {
   return (
     <>
       <AppBar />
+      {isAuth && <Balance />}
       <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute exact path="/">

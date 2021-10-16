@@ -2,15 +2,12 @@ import SwiperReport from "../../components/Swiper/SwiperReport";
 import Accounting from "../../components/Accounting/Accounting";
 import Chartjs from "../../components/Chartjs/Chartjs";
 
-import Balance from "../../components/Balance/Balance";
-
 import styles from "./Report.module.scss";
 
 function Report() {
   return (
     <>
       <div className={styles.categories}>
-        <Balance />
         <div className={styles.dataline}>
           <div className={styles.dataline_block_expenses}>
             <span className={styles.dataline_label}>Расходы:</span>
