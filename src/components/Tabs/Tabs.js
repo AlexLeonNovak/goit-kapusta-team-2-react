@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Tab from "../Tab/Tab";
 
-import "./tabs.css";
+import s from "../Tabs/Tabs.module.scss";
 
 class Tabs extends Component {
   static propTypes = {
@@ -29,8 +29,8 @@ class Tabs extends Component {
     } = this;
 
     return (
-      <div className="tabs">
-        <ol className="tabs-list">
+      <div className={s.tabs}>
+        <ol className={s.tabsList}>
           {children.map((child) => {
             const { label } = child.props;
 
