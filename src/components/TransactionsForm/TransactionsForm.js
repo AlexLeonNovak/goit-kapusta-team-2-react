@@ -107,7 +107,7 @@ const TransactionsForm = () => {
           ВВОД
         </button>
 
-        <button type="reset">ОЧИСТИТЬ</button>
+        <button type="">ОЧИСТИТЬ</button>
       </div>
     </form>
   );
