@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import "./styles.css";
+
+import classNames from 'classnames';
+import s from '../TransactionsForm/Dropdown.module.scss'
+
 
 const Dropdown = ({ id, label, options, prompt, value, onChange }) => {
   const [open, setOpen] = useState(false);
@@ -41,9 +44,9 @@ const Dropdown = ({ id, label, options, prompt, value, onChange }) => {
   }
 
   return (
-    <div className="dropdown">
-      <div className="control">
-        <div className="selected-value">
+    <div className={ s.dropdown}>
+      <div className={ s.control}>
+        <div className={s.selectedValue}>
           <input
             type="text"
             ref={ref}
@@ -57,13 +60,13 @@ const Dropdown = ({ id, label, options, prompt, value, onChange }) => {
             onTouchEnd={toggle}
           />
         </div>
-        <div className={`arrow ${open ? "open" : null}`}></div>
+        <div className={classNames(s.arrow,{[s.open]: open} )}></div>
       </div>
-      <div className={`options ${open ? "open" : null}`}>
+      <div className={classNames(s.options,{[s.open]: open} )}>
         {filter(options).map((option) => (
           <div
             key={option[id]}
-            className={`option ${value === option ? "selected" : null}`}
+            className={classNames(s.option, value === option, {[s.selected] : null})}
             onClick={() => selectOption(option)}
             onTouchEnd={() => selectOption(option)}
           >

@@ -59,47 +59,6 @@ export default function Navigation() {
 					</NavLink>
 				</li>
 			</ul>
-
-
-			{/*<NavLink to="/" exact className={s.link}>*/}
-			{/*	<div>*/}
-			{/*		<img src={logo}*/}
-			{/*		     sizes="(max-width: 767px) 450px, (min-width: 768px) 354px, (min-width: 1200px) 270px, 100vw"*/}
-			{/*		     alt="Logo"/>*/}
-			{/*	</div>*/}
-			{/*</NavLink>*/}
-
-			{/*{isLoggedIn && (<NavLink*/}
-			{/*	to={routes.categories}*/}
-			{/*	exact>*/}
-			{/*	<span className={s.category}>Категории</span>*/}
-
-
-			{/*	<div className={s.categoryIcon}>*/}
-			{/*		<Menu className={s.menu}>*/}
-
-			{/*			<a id="categories" className={s.menuItem} href={routes.categories}>Категории</a>*/}
-			{/*			<a id="transactions" className={s.menuItem} href={routes.transactions}>Транзакции</a>*/}
-			{/*			<a id="reports" className={s.menuItem} href={routes.report}>Отчеты</a>*/}
-			{/*		</Menu>*/}
-
-			{/*	</div>*/}
-
-
-			{/*</NavLink>)}*/}
-			{/*{isLoggedIn && (<NavLink*/}
-			{/*	to={routes.transactions}*/}
-			{/*	exact>*/}
-			{/*	<span className={s.category}>Транзакции</span>*/}
-
-			{/*</NavLink>)}*/}
-			{/*{isLoggedIn && (<NavLink*/}
-			{/*	to={routes.report}*/}
-			{/*	exact>*/}
-			{/*	<span className={s.category}>Отчеты</span>*/}
-
-			{/*</NavLink>)}*/}
-
 		</nav>
 	);
 }

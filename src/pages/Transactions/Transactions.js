@@ -13,6 +13,8 @@ import Tabs from "../../components/Tabs/Tabs";
 import IncomeApi from "../../components/Income/api.json";
 import ExpenseApi from "../../components/Expense/api.json";
 
+
+
 const Transactions = () => {
   const dispatch = useDispatch();
 
@@ -26,11 +28,11 @@ const Transactions = () => {
 
       <Tabs>
         <div label="Доход">
-          <TransactionsForm />
+          <TransactionsForm type={"income"}/>
           <IncomeList items={IncomeApi} />
         </div>
         <div label="Расход">
-          <TransactionsForm />
+          <TransactionsForm type={"expense"} />
           <ExpenseList items={ExpenseApi} />
         </div>
       </Tabs>
