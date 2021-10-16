@@ -5,11 +5,15 @@ import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
 import { authOperations, authSelectors } from "./redux/auth";
+import { userOperations} from "./redux/user";
+
+
 import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
 import { Loader } from "./components/Loader";
 import {categoriesOperations} from './redux/categories';
-import {transactionsOperations} from './redux/transactions';
+import { transactionsOperations } from './redux/transactions';
+
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
@@ -34,7 +38,7 @@ function App() {
   const isAuth = useSelector(authSelectors.getIsAuthenticated);
 
   useEffect(() => {
-    dispatch(authOperations.getCurrentUser());
+    dispatch(userOperations.getCurrentUser());
     if (isAuth) {
       dispatch(categoriesOperations.fetchCategories());
       dispatch(transactionsOperations.fetchTransactions());

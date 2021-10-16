@@ -1,11 +1,11 @@
 import { createAction } from '@reduxjs/toolkit';
 //import shortid from "shortid";
 
-export const fetchBalanceRequest = createAction('balance/fetchBalanceRequest');
-export const fetchBalanceSuccess = createAction('Balance/fetchBalanceSuccess');
-export const fetchBalanceError = createAction('balance/fetchBalanceError');
+export const getCurrentUserRequest = createAction('user/getCurrentUserRequest');
+export const getCurrentUserSuccess = createAction('user/getCurrentUserSuccess');
+export const getCurrentUserError = createAction('user/getCurrentUserError');
 
-export const updateBalanceRequest = createAction('balance/updateBalanceRequest');
-export const updateBalanceSuccess = createAction('balance/updateBalanceSuccess');
-export const updateBalanceError = createAction('balance/updateBalanceError');
+export const updateBalanceRequest = createAction('user/updateBalanceRequest');
+export const updateBalanceSuccess = createAction('user/updateBalanceSuccess');
+export const updateBalanceError = createAction('user/updateBalanceError');
 
