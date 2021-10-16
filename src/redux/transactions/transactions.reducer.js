@@ -15,7 +15,7 @@ const items = createReducer([], {
 });
 
 const summary = createReducer([], {
-  [transactionsActions.transactionsSummarySuccess]: (_, {payload}) => payload
+  [transactionsActions.transactionsSummarySuccess]: (_, {payload}) => payload.summary
 });
 
 const isLoadingAction = action => action.type.endsWith('Request');

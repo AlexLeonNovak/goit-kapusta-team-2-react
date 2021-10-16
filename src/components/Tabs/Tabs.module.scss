@@ -1,10 +1,40 @@
 @import "../../base/sass/main.scss";
 
 .tabs{
-    
+
 }
 
 .tabsList {
   border-bottom: 1px solid #ccc;
   padding-left: 0;
+}
+
+@import "../../base/sass/main.scss";
+
+
+.tabListItem {
+  /* position: absolute; */
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+
+  width: 138px;
+  height: 40px;
+  left: 110px;
+  top: 148px;
+
+  color: $font-color-main;
+  font-weight: 700;
+  border-radius: 20px 20px 0 0;
+  cursor: pointer;
+
+  padding-top: 13px;
+  padding-bottom: 13px;
+  /* margin-bottom: -1px;
+  padding: 0.5rem 0.75rem; */
+}
+
+.tabListActive {
+  background-color: $bg-second;
+  color: $accent-color-dark;
 }

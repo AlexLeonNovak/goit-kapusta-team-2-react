@@ -1,10 +1,17 @@
-import { useSelector } from 'react-redux';
-import propTypes from 'prop-types';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import PropTypes from 'prop-types';
 import styles from './Summary.module.scss';
-import { transactionsSelectors } from '../../redux/transactions';
+import { transactionsSelectors, transactionsOperations } from '../../redux/transactions';
 import { categoryTypes } from '../../helpers/constants';
 
 export const Summary = ({type}) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(transactionsOperations.fetchSummary())
+  }, [dispatch]);
+
+
   const summary = useSelector(transactionsSelectors.getSummary);
 
   return (
@@ -23,5 +30,5 @@ export const Summary = ({type}) => {
 };
 
 Summary.propTypes = {
-  type: propTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME])
+  type: PropTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME])
 }

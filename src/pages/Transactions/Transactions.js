@@ -1,31 +1,34 @@
-import TransactionsForm from "../../components/TransactionsForm/TransactionsForm";
-import IncomeList from "../../components/Income/IncomeList";
-import ExpenseList from "../../components/Expense/ExpenseList";
+import {useState} from 'react';
+import classNames from "classnames";
+
+import { TransactionForm } from "../../components/TransactionForm";
+import { TransactionTable } from "../../components/TransactionTable";
 import Tabs from "../../components/Tabs/Tabs";
 
-import s from "../Transactions/Transactions.module.scss";
-import classNames from "classnames";
 import { categoryTypes } from '../../helpers/constants';
-
-// TODO видалити локальні TODO, коли буде BACK
-// import IncomeApi from "../../components/Income/api.json";
-// import ExpenseApi from "../../components/Expense/api.json";
-
-
+import s from "../Transactions/Transactions.module.scss";
+import {Summary} from '../../components/Summary';
 
 const Transactions = () => {
+  const tabItems = [
+    {
+      label: "РАСХОД",
+      value: categoryTypes.EXPENSE
+    },
+    {
+      label: "ДОХОД",
+      value: categoryTypes.INCOME
+    }
+  ];
+
+  const [currentType, setCurrentType] = useState(categoryTypes.EXPENSE);
+
   return (
     <div className={classNames(s.container, s.transWrapper )}>
-      <Tabs>
-        <div label="ДОХОД">
-          <TransactionsForm type={categoryTypes.INCOME}/>
-          <IncomeList />
-        </div>
-        <div label="РАСХОД">
-          <TransactionsForm type={categoryTypes.EXPENSE} />
-          <ExpenseList />
-        </div>
-      </Tabs>
+      <Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
+      <TransactionForm type={currentType}/>
+      <TransactionTable type={currentType}/>
+      <Summary type={currentType}/>
     </div>
   );
 };

@@ -36,7 +36,6 @@ export const store = configureStore({
   }).concat(logger),
   devTools: process.env.NODE_ENV === 'development',
 });
-console.log(store)
 
 export let persistor = persistStore(store)
 

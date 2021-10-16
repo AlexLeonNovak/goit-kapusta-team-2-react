@@ -27,7 +27,7 @@ const CategoriesList = () => {
             <th className={s.categoriesHeadItem}>Лого</th>
             <th className={classNames(s.categoriesHeadItem, s.categoriesHeadItemName)}>Название</th>
             <th className={classNames(s.categoriesHeadItem, s.categoriesHeadType)}>Тип</th>
-            <th></th>
+            <th />
           </tr>
         </thead>
         <tbody className={s.categoriesBody}>
@@ -45,7 +45,7 @@ const CategoriesList = () => {
               </td>
               <td align="center" className={s.categoriesActions}>
                 <button onClick={() => onDeleteContact(_id)} className={s.categoriesActionsDelete}>
-                  <img src={trash} alt="" className={s.categoriesActionsDeleteIcon} />
+                  <img src={trash} alt="Delete" className={s.categoriesActionsDeleteIcon} />
                 </button>
               </td>
             </tr>

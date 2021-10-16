@@ -1,27 +1,33 @@
 import React, { useState, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import PropTypes from 'prop-types';
+import {useDispatch, useSelector} from 'react-redux';
 import shortid from "shortid";
 
 import Dropdown from "../Dropdown/Dropdown";
 import DatePicker from "../DatePick/DatePicker";
 
 import { transactionsOperations } from "../../redux/transactions";
+import { categoriesSelectors } from '../../redux/categories';
 
-import data from "./categories.json";
-import s from "../TransactionsForm/TransForm.module.scss";
+import s from "./TransactionForm.module.scss";
 
-const TransactionsForm = ({ type }) => {
+import {categoryTypes} from '../../helpers/constants';
+
+
+export const TransactionForm = ({ type }) => {
   const valueInputId = shortid.generate();
   const textValueInputId = shortid.generate();
-
   const dispatch = useDispatch();
+
   const [datetime, setDatetime] = useState(new Date());
   const [description, setDescription] = useState(null);
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState(0);
 
+  const categories = useSelector(categoriesSelectors.getAllCategories)
+
   const categoryFilter = () => {
-    return data.filter((data) => data.type === type);
+    return categories.filter((category) => category.type === type);
   };
 
   const handleChange = useCallback((e) => {
@@ -47,7 +53,7 @@ const TransactionsForm = ({ type }) => {
 
   const reset = () => {
     setDescription("");
-    setAmount("");
+    setAmount(0);
     setCategory(null);
   };
 
@@ -120,4 +126,6 @@ const TransactionsForm = ({ type }) => {
   );
 };
 
-export default TransactionsForm;
+TransactionForm.propTypes = {
+  type: PropTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME])
+}

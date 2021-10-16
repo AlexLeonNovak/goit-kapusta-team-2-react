@@ -8,7 +8,10 @@ export const getAllTransactions = (state) => state.transactions.items;
 
 export const getIncomeTransactions = createSelector(
   [getAllTransactions],
-  (transactions) => transactions.filter(transaction => transaction.category.type === categoryTypes.INCOME)
+  (transactions) => transactions.filter(transaction => {
+	  console.log(transaction.category.type, transaction.category.type === categoryTypes.EXPENSE)
+		return transaction.category.type === categoryTypes.INCOME
+  })
 );
 
 export const getIncomeSum = createSelector(
