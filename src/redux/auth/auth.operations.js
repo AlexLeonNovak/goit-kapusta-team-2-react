@@ -1,5 +1,5 @@
 import axios from "axios";
-import authActions from "./auth.actions";
+import * as authActions from "./auth.actions";
 
 axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/api/v1`;
 
@@ -12,11 +12,11 @@ const token = {
   },
 };
 
-const register = (credentials) => async (dispatch) => {
+export const register = (credentials) => async (dispatch) => {
   dispatch(authActions.registerRequest());
 
   try {
-    const response = await axios.post("/auth/registration", credentials);
+    await axios.post("/auth/registration", credentials);
 
     dispatch(authActions.registerSuccess());
   } catch (error) {
@@ -24,7 +24,7 @@ const register = (credentials) => async (dispatch) => {
   }
 };
 
-const logIn = (credentials) => async (dispatch) => {
+export const logIn = (credentials) => async (dispatch) => {
   dispatch(authActions.loginRequest());
 
   try {
@@ -37,7 +37,7 @@ const logIn = (credentials) => async (dispatch) => {
   }
 };
 
-const logOut = () => async (dispatch) => {
+export const logOut = () => async (dispatch) => {
   dispatch(authActions.logoutRequest());
 
   try {
@@ -51,7 +51,7 @@ const logOut = () => async (dispatch) => {
 };
 
 
-const googleAuth = (tokenId) => async (dispatch) => {
+export const googleAuth = (tokenId) => async (dispatch) => {
   dispatch(authActions.googleAuthRequest());
 
   try {
@@ -63,4 +63,3 @@ const googleAuth = (tokenId) => async (dispatch) => {
   }
 };
 
-export default { register, logOut, logIn, googleAuth };

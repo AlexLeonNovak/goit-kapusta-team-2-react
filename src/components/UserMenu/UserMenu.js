@@ -1,20 +1,14 @@
-import React, {useCallback, useState} from 'react';
+import {useCallback, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {NavLink} from 'react-router-dom';
-import authOperations from '../../redux/auth/auth.operations';
-import authSelectors from '../../redux/auth/auth.selectors';
+import { authOperations } from '../../redux/auth';
+import { userSelectors } from '../../redux/user';
 import defaultAvatar from '../../base/images/desktop/kapustaVip.png';
 import s from '../UserMenu/UserMenu.module.scss';
 import Modal from '../Modal';
 
-
-import Button from '@material-ui/core/Button';
-
-
 export default function UserMenu() {
 	const dispatch = useDispatch();
-	const email = useSelector(authSelectors.getUserEmail);
-	const name = useSelector(authSelectors.getUserName);
+	const email = useSelector(userSelectors.getEmail);
 
 	const [showModal, setShowModal] = useState(false)
 
@@ -34,7 +28,7 @@ export default function UserMenu() {
 		<div className={s.userMenu}>
 			<img src={defaultAvatar} alt="" width="32" className={s.avatar}/>
 			<span className={s.name}> Привет, {email}</span>
-			<span className={s.line} />
+			<span className={s.line}/>
 
 			<button
 				onClick={onOpenModal}

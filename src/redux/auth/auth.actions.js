@@ -1,40 +1,18 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const registerRequest = createAction('auth/registerRequest');
-const registerSuccess = createAction('auth/registerSuccess');
-const registerError = createAction('auth/registerError');
+export const registerRequest = createAction('auth/registerRequest');
+export const registerSuccess = createAction('auth/registerSuccess');
+export const registerError = createAction('auth/registerError');
 
-const loginRequest = createAction('auth/loginRequest');
-const loginSuccess = createAction('auth/loginSuccess');
-const loginError = createAction('auth/loginError');
+export const loginRequest = createAction('auth/loginRequest');
+export const loginSuccess = createAction('auth/loginSuccess');
+export const loginError = createAction('auth/loginError');
 
-const logoutRequest = createAction('auth/logoutRequest');
-const logoutSuccess = createAction('auth/logoutSuccess');
-const logoutError = createAction('auth/logoutError');
+export const logoutRequest = createAction('auth/logoutRequest');
+export const logoutSuccess = createAction('auth/logoutSuccess');
+export const logoutError = createAction('auth/logoutError');
 
-const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
-const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
-const getCurrentUserError = createAction('auth/getCurrentUserError');
+export const googleAuthRequest = createAction('auth/googleAuthRequest');
+export const googleAuthSuccess = createAction('auth/googleAuthSuccess');
+export const googleAuthError = createAction('auth/googleAuthError');
 
-const googleAuthRequest = createAction('auth/googleAuthRequest');
-const googleAuthSuccess = createAction('auth/googleAuthSuccess');
-const googleAuthError = createAction('auth/googleAuthError');
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
-  registerRequest,
-  registerSuccess,
-  registerError,
-  logoutRequest,
-  logoutSuccess,
-  logoutError,
-  loginRequest,
-  loginSuccess,
-  loginError,
-  getCurrentUserRequest,
-  getCurrentUserSuccess,
-  getCurrentUserError,
-  googleAuthRequest,
-  googleAuthSuccess,
-  googleAuthError,
-};

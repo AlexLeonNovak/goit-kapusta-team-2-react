@@ -4,7 +4,7 @@ import GoogleLogin from 'react-google-login';
 
 import styles from '../AuthForm/AuthForm.module.scss';
 import logo from '../../images/logo.png';
-import authOperations from '../../redux/auth/auth.operations';
+import { authOperations } from '../../redux/auth';
 
 const AuthForm = () => {
 	const [email, setEmail] = useState('');

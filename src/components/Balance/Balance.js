@@ -1,8 +1,7 @@
 import React, { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
-// import { Popover, OverlayTrigger } from "bootstrap";
-import { balanceOperations } from "../../redux/balance";
+import {useDispatch, useSelector} from 'react-redux';
+import { Button } from "reactstrap";
+import {userOperations, userSelectors} from '../../redux/user';
 import styles from "./Balance.module.scss";
 
 
@@ -12,17 +11,15 @@ const Balance = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const toggle = () => setPopoverOpen(!popoverOpen);
 
+  const currentBalance = useSelector(userSelectors.getBalance);
 
-  const defaultBalance = 0;
-  const [balance, setBalance] = useState(() => {
-    return defaultBalance;
-  });
+  const [balance, setBalance] = useState(currentBalance);
 
   const onSubmit = useCallback(
-    (event) => {
+    (e) => {
+      e.preventDefault();
       console.log("balance:", { balance });
-      event.preventDefault();
-      dispatch(balanceOperations.addBalance(balance));
+      dispatch(userOperations.updateBalance(balance));
     },
     [dispatch, balance]
   );
@@ -33,10 +30,7 @@ const Balance = () => {
     // console.log(
     //   new Intl.NumberFormat({ minimumSignificantDigits: 4 }).format(value)
     // );
-    setBalance((prevBalance) => {
-      return (prevBalance = value);
-    });
-    dispatch(balanceOperations.fetchBalance(balance));
+    setBalance(value);
   });
 
   return (
@@ -49,7 +43,7 @@ const Balance = () => {
             className={styles.balance_input_zone}
             type="money"
             name="balance"
-            pattern="\d+(\.\d{2})?"
+            // pattern="\d+(\.\d{2})?"
             step="any"
             onChange={onChangeBalance}
             value={balance}

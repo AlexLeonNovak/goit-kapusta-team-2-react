@@ -1,7 +1,7 @@
-import { default as authActions } from './auth.actions';
-import { default as authOperations } from './auth.operations';
-import { default as authReducer } from './auth.reducer';
-import { default as authSelectors } from './auth.selectors';
+import * as authActions from './auth.actions';
+import * as authOperations from './auth.operations';
+import * as authReducer from './auth.reducer';
+import * as authSelectors from './auth.selectors';
 
 export {
 	authActions,

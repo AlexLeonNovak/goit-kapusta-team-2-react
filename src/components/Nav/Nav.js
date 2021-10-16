@@ -1,12 +1,9 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {NavLink} from 'react-router-dom';
-import {useSelector} from 'react-redux';
 
 import s from '../Nav/Nav.module.scss';
 import logo from '../../base/images/desktop/logo.png'
-import closeImg from '../../base/images/svg_black/close.svg';
 import sprite from '../../base/images/sprite.svg';
-import authSelectors from '../../redux/auth/auth.selectors';
 import routes from '../../routes'
 import classNames from 'classnames';
 

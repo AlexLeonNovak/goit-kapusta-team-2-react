@@ -4,8 +4,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
-import { authOperations, authSelectors } from "./redux/auth";
-import { userOperations} from "./redux/user";
+import { authSelectors } from "./redux/auth";
+import { userOperations } from "./redux/user";
 
 
 import routes from "./routes";

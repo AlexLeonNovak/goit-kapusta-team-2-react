@@ -1,52 +1,43 @@
 import axios from 'axios';
-import {
-  updateBalanceRequest,
-  updateBalanceSuccess,
-  updateBalanceError,
- getCurrentUserRequest,
-  getCurrentUserSuccess,
-  getCurrentUserError,
-} from './user.actions';
+import * as userActions from './user.actions';
 
 
 //axios.defaults.baseURL = 'http://localhost:3000';
 const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = "";
-  },
+	set(token) {
+		axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+	},
+	unset() {
+		axios.defaults.headers.common.Authorization = '';
+	},
 };
 
- export const getCurrentUser = () => async (dispatch, getState) => {
-  const {
-    auth: { token: persistedToken },
-  } = getState();
+export const getCurrentUser = () => async (dispatch, getState) => {
+	const {
+		auth: {token: persistedToken},
+	} = getState();
 
-  if (!persistedToken) {
-    return;
-  }
-  token.set(persistedToken);
-  dispatch(getCurrentUserRequest());
-  try {
-    const response = await axios.get('/user/current');
+	if (!persistedToken) {
+		return;
+	}
+	token.set(persistedToken);
+	dispatch(userActions.getCurrentUserRequest());
+	try {
+		const response = await axios.get('/user/current');
 
-    dispatch(getCurrentUserSuccess(response.data.data));
-  } catch (error) {
-    dispatch(getCurrentUserError(error.message));
-  }
+		dispatch(userActions.getCurrentUserSuccess(response.data.data));
+	} catch (error) {
+		dispatch(userActions.getCurrentUserError(error.message));
+	}
 };
 
 export const updateBalance = (balance) => async (dispatch) => {
-   
-  dispatch(updateBalanceRequest());
-  try {
-    const response = await axios.patch('/user', balance)
-    dispatch(updateBalanceSuccess(response.data.data))
-  }
 
-  catch (error) {
-    dispatch(updateBalanceError(error.message))
-  }
+	dispatch(userActions.updateBalanceRequest());
+	try {
+		const response = await axios.patch('/user', {balance})
+		dispatch(userActions.updateBalanceSuccess(response.data.data))
+	} catch (error) {
+		dispatch(userActions.updateBalanceError(error.message))
+	}
 }

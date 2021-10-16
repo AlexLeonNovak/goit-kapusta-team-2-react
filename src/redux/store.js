@@ -14,7 +14,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { transactionsReducer } from './transactions';
 import { categoriesReducer } from './categories';
-import authReducer from './auth/auth.reducer';
+import { authReducer } from './auth/auth.reducer';
 import { userReducer } from './user/user.reducer';
 
 const middleware = [

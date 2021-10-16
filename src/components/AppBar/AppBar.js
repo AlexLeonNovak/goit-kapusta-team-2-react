@@ -4,7 +4,7 @@ import Navigation from '../Nav/Nav';
 import UserMenu from '../UserMenu/UserMenu';
 import s from "../AppBar/AppBar.module.scss";
 
-import  authSelectors  from '../../redux/auth/auth.selectors';
+import { authSelectors } from '../../redux/auth';
 
 
 export default function AppBar() {
