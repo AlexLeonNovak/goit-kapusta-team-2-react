@@ -7,36 +7,38 @@ import {
   updateBalanceRequest,
   updateBalanceSuccess,
   updateBalanceError,
-  fetchBalanceRequest,
-  fetchBalanceSuccess,
-  fetchBalanceError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
 } from './user.actions';
 
-const itemsReducer = createReducer([], {
-  [fetchBalanceSuccess]: (_, { payload }) => payload,
+const balanceReducer = createReducer([], {
+  [getCurrentUserSuccess]: (_, { payload }) => payload,
   [updateBalanceSuccess]: (_, { payload }) => payload,
  
 });
 
 const loadingReducer = createReducer(false, {
-  [fetchBalanceRequest]: () => true,
-  [fetchBalanceSuccess]: () => false,
-  [fetchBalanceError]: () => false,
+  [getCurrentUserRequest]: () => true,
+  [getCurrentUserSuccess]: () => false,
+  [getCurrentUserError]: () => false,
   [updateBalanceRequest]: () => true,
   [updateBalanceSuccess]: () => false,
   [updateBalanceError]: () => false,
 
- 
 });
 
+const infoReducer = createReducer([], {
+  [getCurrentUserSuccess]: (_, { payload }) => payload,
+  
+});
 
 const error = createReducer(null, {});
 
-const balanceReducer = combineReducers({
-  items: itemsReducer,
+ export const userReducer = combineReducers({
+  balance: balanceReducer,
   loading: loadingReducer,
+  info: infoReducer,
   error,
 });
 
-
-export default balanceReducer;

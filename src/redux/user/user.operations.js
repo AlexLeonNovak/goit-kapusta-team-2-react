@@ -3,28 +3,50 @@ import {
   updateBalanceRequest,
   updateBalanceSuccess,
   updateBalanceError,
-  fetchBalanceRequest,
-  fetchBalanceSuccess,
-  fetchBalanceError,
+ getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
 } from './user.actions';
 
-//axios.defaults.baseURL = 'http://localhost:3000';
 
- export const fetchBalance = () => async dispatch => {
-  dispatch(fetchBalanceRequest());
-  axios
-    .get('/balance')
-    .then(({ data }) => dispatch(fetchBalanceSuccess(data)))
-    .catch(error => dispatch(fetchBalanceError(error.message)));
+//axios.defaults.baseURL = 'http://localhost:3000';
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = "";
+  },
 };
 
- export const updateBalance = ({ email}) => dispatch => {
-   const balance = { email };
-   
-    dispatch(updateBalanceRequest());
-    axios
-      .patch('/balance', balance)
-      .then(({ data }) => dispatch(updateBalanceSuccess(data)))
-      .catch(error => dispatch(updateBalanceError(error.message)));
-  };
+ export const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
 
+  if (!persistedToken) {
+    return;
+  }
+  token.set(persistedToken);
+  dispatch(getCurrentUserRequest());
+  try {
+    const response = await axios.get('/user/current');
+
+    dispatch(getCurrentUserSuccess(response.data.data));
+  } catch (error) {
+    dispatch(getCurrentUserError(error.message));
+  }
+};
+
+export const updateBalance = (balance) => async (dispatch) => {
+   
+  dispatch(updateBalanceRequest());
+  try {
+    const response = await axios.patch('/user', balance)
+    dispatch(updateBalanceSuccess(response.data.data))
+  }
+
+  catch (error) {
+    dispatch(updateBalanceError(error.message))
+  }
+}
