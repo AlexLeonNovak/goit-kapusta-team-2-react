@@ -8,8 +8,10 @@ import styles from "./Balance.module.scss";
 
 const Balance = () => {
 
+  const dispatch = useDispatch();
   const [popoverOpen, setPopoverOpen] = useState(false);
   const toggle = () => setPopoverOpen(!popoverOpen);
+
 
   const defaultBalance = 0;
   const [balance, setBalance] = useState(() => {

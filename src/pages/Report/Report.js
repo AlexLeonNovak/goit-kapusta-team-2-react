@@ -1,6 +1,3 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { reportsOperations } from "../../redux/reports";
 import SwiperReport from "../../components/Swiper/SwiperReport";
 import Accounting from "../../components/Accounting/Accounting";
 import Chartjs from "../../components/Chartjs/Chartjs";
@@ -10,12 +7,6 @@ import Balance from "../../components/Balance/Balance";
 import styles from "./Report.module.scss";
 
 function Report() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(reportsOperations.fetchReports());
-  }, [dispatch]);
-
   return (
     <>
       <div className={styles.categories}>

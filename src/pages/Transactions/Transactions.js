@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { transactionsOperations } from "../../redux/transactions";
-
 import TransactionsForm from "../../components/TransactionsForm/TransactionsForm";
 import IncomeList from "../../components/Income/IncomeList";
 import ExpenseList from "../../components/Expense/ExpenseList";
 
 import Balance from "../../components/Balance";
 import Tabs from "../../components/Tabs/Tabs";
+
+import { categoryTypes } from '../../helpers/constants';
 
 // TODO видалити локальні TODO, коли буде BACK
 // import IncomeApi from "../../components/Income/api.json";
@@ -16,23 +14,17 @@ import Tabs from "../../components/Tabs/Tabs";
 
 
 const Transactions = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(transactionsOperations.fetchTransactions());
-  }, [dispatch]);
-
   return (
     <>
       <Balance />
 
       <Tabs>
         <div label="Доход">
-          <TransactionsForm type={"income"}/>
+          <TransactionsForm type={categoryTypes.INCOME}/>
           <IncomeList />
         </div>
         <div label="Расход">
-          <TransactionsForm type={"expense"} />
+          <TransactionsForm type={categoryTypes.EXPENSE} />
           <ExpenseList />
         </div>
       </Tabs>

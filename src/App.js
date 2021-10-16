@@ -1,13 +1,15 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from 'react-redux';
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
-import authOperations from "./redux/auth/auth.operations";
+import { authOperations, authSelectors } from "./redux/auth";
 import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
 import { Loader } from "./components/Loader";
+import {categoriesOperations} from './redux/categories';
+import {transactionsOperations} from './redux/transactions';
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
@@ -29,10 +31,15 @@ const Report = lazy(() =>
 
 function App() {
   const dispatch = useDispatch();
+  const isAuth = useSelector(authSelectors.getIsAuthenticated);
 
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
-  }, [dispatch]);
+    if (isAuth) {
+      dispatch(categoriesOperations.fetchCategories());
+      dispatch(transactionsOperations.fetchTransactions());
+    }
+  }, [dispatch, isAuth]);
 
   return (
     <>
