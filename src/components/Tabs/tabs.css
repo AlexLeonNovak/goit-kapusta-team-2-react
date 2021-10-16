@@ -4,11 +4,22 @@
 }
 
 .tab-list-item {
+  /* position: absolute; */
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 138px;
+  height: 40px;
+  left: 110px;
+  top: 148px;
+
+  background: #fafbfd;
+  border-radius: 20px;
   cursor: pointer;
   display: inline-block;
   list-style: none;
-  margin-bottom: -1px;
-  padding: 0.5rem 0.75rem;
+  /* margin-bottom: -1px;
+  padding: 0.5rem 0.75rem; */
 }
 
 .tab-list-active {
