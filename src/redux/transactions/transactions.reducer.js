@@ -9,6 +9,7 @@ const items = createReducer([], {
 
   [transactionsActions.deleteTransactionSuccess]: (state, { payload }) =>
     state.filter((transaction) => transaction._id !== payload),
+    
 });
 
 const summary = createReducer([], {
@@ -30,10 +31,21 @@ const filter = createReducer("", {
   [transactionsActions.filterTransactions]: (state, { payload }) => payload,
 });
 
+const date = new Date();
+const month = createReducer(date.getMonth() + 1, {
+  [transactionsActions.fetchTransactionsSuccess]: (state, { payload }) => payload.month
+})
+
+const year = createReducer(date.getFullYear(), {
+  [transactionsActions.fetchTransactionsSuccess]: (state, { payload }) => payload.year
+})
+
 const error = createReducer(null, {});
 
 export const transactionsReducer = combineReducers({
   items,
+  month,
+  year,
   summary,
   filter,
   loading,

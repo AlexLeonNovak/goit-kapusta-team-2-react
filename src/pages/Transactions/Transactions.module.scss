@@ -1,5 +1,6 @@
 @import "../../base/sass/main.scss";
 
+
 .transactions {
 	&:before {
 		content: '';
@@ -113,5 +114,36 @@ margin-top: 60px;
 	display: flex;
 	
 }
-}
 
+.transSummWrapper {
+  display: inline-block;
+  // width: 100%;
+  text-transform: uppercase;
+  margin: 60px auto;
+
+  // width: 320px;
+  // display: flow-root;
+  // margin-top: 170px;
+  // justify-content: space-between;
+  // align-items: flex-start;
+
+  @include for-size(mobile) {
+    // display: flow-root;
+    margin-top: 60px;
+  }
+
+  @include for-size(tablet) {
+    display: inline-block;
+    margin-top: 60px;
+  }
+
+  // @include for-size(desktop) {
+  //   display: grid;
+  //   margin-top: 0;
+  //   justify-content: space-between;
+  //   align-items: flex-start;
+  // }
+
+  // width: 100%;
+}
+}

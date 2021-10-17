@@ -1,27 +1,27 @@
 import { useState, useCallback } from "react";
-import PropTypes from 'prop-types';
-import {useDispatch, useSelector} from 'react-redux';
+import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 
 import Dropdown from "../Dropdown/Dropdown";
 import DatePicker from "../DatePick/DatePicker";
 
 import { transactionsOperations } from "../../redux/transactions";
-import { categoriesSelectors } from '../../redux/categories';
+import { categoriesSelectors } from "../../redux/categories";
 
 import s from "./TransactionForm.module.scss";
 
-import {categoryTypes} from '../../helpers/constants';
-
+import { categoryTypes } from "../../helpers/constants";
+import { toast } from 'react-toastify';
 
 export const TransactionForm = ({ type }) => {
   const dispatch = useDispatch();
 
   const [datetime, setDatetime] = useState(new Date());
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState("");
   const [category, setCategory] = useState(null);
   const [amount, setAmount] = useState(0);
 
-  const categories = useSelector(categoriesSelectors.getAllCategories)
+  const categories = useSelector(categoriesSelectors.getAllCategories);
 
   const categoryFilter = () => {
     return categories.filter((category) => category.type === type);
@@ -50,8 +50,8 @@ export const TransactionForm = ({ type }) => {
 
   const reset = () => {
     setDescription("");
-    setAmount(0);
     setCategory(null);
+    setAmount("00.00");
   };
 
   const handleSubmit = useCallback(
@@ -69,6 +69,12 @@ export const TransactionForm = ({ type }) => {
     },
     [dispatch, datetime, description, category, amount]
   );
+  const notify = () => {
+    if (!description || !amount || !category) {
+      return toast.warning('Description, amount and category are required fields')
+    }
+    toast.success('Successful operation')
+  }
 
   return (
     <div className={s.formWrapper}>
@@ -108,11 +114,13 @@ export const TransactionForm = ({ type }) => {
             />
           </div>
           <div className={s.buttonWrapper}>
-            <button className={s.button} type="submit">
+
+            <button className={s.button} type="submit" onClick={notify}>
+
               ВВОД
             </button>
 
-            <button className={s.button} type="reset">
+            <button className={s.button} type="reset" onClick={reset}>
               ОЧИСТИТЬ
             </button>
           </div>
@@ -123,5 +131,5 @@ export const TransactionForm = ({ type }) => {
 };
 
 TransactionForm.propTypes = {
-  type: PropTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME])
-}
+  type: PropTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME]),
+};

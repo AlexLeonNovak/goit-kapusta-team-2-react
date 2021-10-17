@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import moment from 'moment';
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -6,11 +7,14 @@ import {
   transactionsSelectors,
 } from "../../redux/transactions";
 
-
 import s from "./TransactionTable.module.scss";
+
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
 import Modal from "../Modal";
+
+import { toast } from 'react-toastify';
+
 
 export const TransactionTable = ({ type }) => {
   const dispatch = useDispatch();
@@ -25,6 +29,11 @@ export const TransactionTable = ({ type }) => {
     setShowModal(true);
     setId(id);
   };
+   const notify = (id) => {
+    if (id) {
+      return toast.success('The transaction has been deleted')
+    }
+  }
 
   const transactions = useSelector(
     transactionsSelectors.getAllTransactions
@@ -33,13 +42,16 @@ export const TransactionTable = ({ type }) => {
   const onDeleteTransaction = useCallback(
     (id) => {
       dispatch(transactionsOperations.deleteTransaction(id));
+      notify(id)
     },
     [dispatch]
   );
 
   return (
+
     <table className={ s.income}>
       <thead className={s.income__head}>
+
         <tr>
           <th>Дата</th>
           <th>Описание</th>
@@ -53,7 +65,7 @@ export const TransactionTable = ({ type }) => {
         {transactions.map(
           ({ _id, datetime, description, category, amount }) => (
             <tr key={_id}>
-              <td>{datetime}</td>
+              <td>{moment(datetime).format('DD.MM.YYYY')}</td>
               <td>{description}</td>
               <td>{category.name}</td>
               <td>

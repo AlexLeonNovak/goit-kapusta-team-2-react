@@ -1,3 +1,5 @@
+
+
 * {
   box-sizing: border-box;
 }
@@ -8,7 +10,7 @@
   margin-right: auto;
   text-align: center;
   height: 20px;
-  width: 134px;
+  width: 170px;
   overflow: hidden;
 }
 
@@ -17,10 +19,10 @@
   /* background-size: cover; */
 }
 
-.containerTitle {
-  margin: 0 auto;
-  border: solid 2 px #000;
-}
+//.containerTitle {
+//  margin: 0 auto;
+//  border: solid 2px #000;
+//}
 
 .swiperTitle {
   display: block;
@@ -28,8 +30,9 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-  letter-spacing: 2%;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
 }
+

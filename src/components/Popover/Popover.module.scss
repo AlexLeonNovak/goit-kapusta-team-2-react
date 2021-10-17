@@ -1,0 +1,35 @@
+.popoverContainer {
+  position: absolute;
+  top: 55px;
+  width: 292px;
+  height: 152px;
+  padding: 30px 30px;
+  background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+  border-radius: 30px;
+  z-index: 2;
+}
+
+.popoverContainer::before {
+  position: absolute;
+  content: " ";
+  background-color: #172d5e;
+  left: 20%;
+  width: 20px;
+  height: 20px;
+  top: -8px;
+  transform: rotate(45deg);
+}
+
+.popoverText {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  color: #ffffff;
+}
+.popoverTextComment {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+  color: #ffffff;
+}

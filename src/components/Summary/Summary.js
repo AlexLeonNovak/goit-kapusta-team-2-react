@@ -1,22 +1,14 @@
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useSelector} from 'react-redux';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import styles from './Summary.module.scss';
-import {transactionsSelectors, transactionsOperations} from '../../redux/transactions';
+import {transactionsSelectors} from '../../redux/transactions';
 import {categoryTypes} from '../../helpers/constants';
 
 import 'moment/locale/ru';
 
 export const Summary = ({type}) => {
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(transactionsOperations.fetchSummary())
-	}, [dispatch]);
-
-
 	const summary = useSelector(transactionsSelectors.getSummary);
-
 	return (
 		<div className={styles.containerSummary}>
 			<h4 className={styles.titleSummary}>Сводка</h4>
