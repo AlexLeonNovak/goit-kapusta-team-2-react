@@ -32,6 +32,7 @@ export default function Modal({ title, onClose, onClick }) {
 
   const handleButtonClickYes = () => {
     onClick();
+    onClose();
   };
 
   return (
