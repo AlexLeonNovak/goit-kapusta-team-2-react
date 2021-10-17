@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState} from 'react';
 import classNames from "classnames";
 
 import { TransactionForm } from "../../components/TransactionForm";
@@ -8,8 +8,21 @@ import Tabs from "../../components/Tabs/Tabs";
 import { categoryTypes } from "../../helpers/constants";
 import s from "../Transactions/Transactions.module.scss";
 import { Summary } from "../../components/Summary";
+import {useDispatch, useSelector} from 'react-redux';
+import {transactionsOperations, transactionsSelectors} from '../../redux/transactions';
 
 const Transactions = () => {
+  const dispatch = useDispatch();
+  const year = useSelector(transactionsSelectors.getYear);
+  const month = useSelector(transactionsSelectors.getMonth);
+
+  useEffect(() => {
+    const date = new Date();
+    if (date.getMonth() + 1 !== month || date.getFullYear() !== year) {
+      dispatch(transactionsOperations.fetchTransactions());
+    }
+  }, [dispatch, month, year]);
+
   const tabItems = [
     {
       label: "РАСХОД",

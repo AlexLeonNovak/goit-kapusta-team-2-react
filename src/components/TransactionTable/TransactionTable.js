@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import moment from 'moment';
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,6 +12,7 @@ import s from "../CategoriesList/CategoriesList.module.scss";
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
 import Modal from "../Modal";
+
 
 export const TransactionTable = ({ type }) => {
   const dispatch = useDispatch();
@@ -53,7 +55,7 @@ export const TransactionTable = ({ type }) => {
         {transactions.map(
           ({ _id, datetime, description, category, amount }) => (
             <tr key={_id}>
-              <td>{datetime}</td>
+              <td>{moment(datetime).format('DD.MM.YYYY')}</td>
               <td>{description}</td>
               <td>{category.name}</td>
               <td>
