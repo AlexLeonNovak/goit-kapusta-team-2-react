@@ -6,8 +6,25 @@
 }
 
 .transSummWrapper {
-  display: flex;
-  margin-top: 80px;
+  display: flow-root;
+  margin-top: 170px;
   justify-content: space-between;
   align-items: flex-start;
+
+  @include for-size(mobile) {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  @include for-size(tablet) {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  @include for-size(desktop) {
+    display: flex;
+    margin-top: 0;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
