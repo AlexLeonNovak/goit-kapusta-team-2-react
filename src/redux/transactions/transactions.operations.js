@@ -4,6 +4,7 @@ import { transactionsActions } from "./index";
 
 export const fetchTransactions = (query) => async (dispatch) => {
   dispatch(transactionsActions.fetchTransactionsRequest());
+
   try {
     const { data } = await axios.get(`/transactions?${queryString.stringify(query)}`);
     dispatch(transactionsActions.fetchTransactionsSuccess(data.data));

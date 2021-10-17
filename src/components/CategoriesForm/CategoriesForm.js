@@ -5,6 +5,8 @@ import { categoriesOperations, categoriesSelectors } from '../../redux/categorie
 import shortid from 'shortid';
 import s from '../CategoriesForm/CategoriesForm.module.scss'
 
+import { toast } from 'react-toastify';
+
 const CategoriesForm = () => {
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelectors.getAllCategories);
@@ -58,6 +60,13 @@ const CategoriesForm = () => {
     setName('');
     setType('');
   };
+  const notify = () => {
+    if (!name || !type) {
+      return toast.warning('Name and type are required fields')
+    }
+    toast.success('Successful operation')
+  }
+
 
   return (
     <div className={s.formWrapper}>
@@ -99,7 +108,8 @@ const CategoriesForm = () => {
         <div className={s.buttonWrapper}>
           <button className={s.button}
             type="submit"
-            onClick={handleSubmit}
+            onSubmit={handleSubmit}
+            onClick={notify}
           >
             Ввод
           </button>

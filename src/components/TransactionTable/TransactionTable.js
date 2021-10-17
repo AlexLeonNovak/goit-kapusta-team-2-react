@@ -13,6 +13,8 @@ import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
 import Modal from "../Modal";
 
+import { toast } from 'react-toastify';
+
 
 export const TransactionTable = ({ type }) => {
   const dispatch = useDispatch();
@@ -27,6 +29,11 @@ export const TransactionTable = ({ type }) => {
     setShowModal(true);
     setId(id);
   };
+   const notify = (id) => {
+    if (id) {
+      return toast.success('The transaction has been deleted')
+    }
+  }
 
   const transactions = useSelector(
     transactionsSelectors.getAllTransactions
@@ -35,13 +42,14 @@ export const TransactionTable = ({ type }) => {
   const onDeleteTransaction = useCallback(
     (id) => {
       dispatch(transactionsOperations.deleteTransaction(id));
+      notify(id)
     },
     [dispatch]
   );
 
   return (
-    <table className="income">
-      <thead className="income__head">
+    <table className='income'>
+      <thead className='income__head'>
         <tr>
           <th>Дата</th>
           <th>Описание</th>
@@ -62,14 +70,14 @@ export const TransactionTable = ({ type }) => {
                 {type === categoryTypes.EXPENSE && "-"}
                 {amount}
               </td>
-              <td align="center" className={s.categoriesActions}>
+              <td align='center' className={s.categoriesActions}>
                 <button
                   onClick={() => onOpenModal(_id)}
                   className={s.categoriesActionsDelete}
                 >
                   <img
                     src={trash}
-                    alt="Delete"
+                    alt='Delete'
                     className={s.categoriesActionsDeleteIcon}
                   />
                 </button>

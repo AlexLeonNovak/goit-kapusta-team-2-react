@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as authActions from "./auth.actions";
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/api/v1`;
 
@@ -17,10 +18,12 @@ export const register = (credentials) => async (dispatch) => {
 
   try {
     await axios.post("/auth/registration", credentials);
+    toast.success('🚀 Register success')
 
     dispatch(authActions.registerSuccess());
   } catch (error) {
     dispatch(authActions.registerError(error.message));
+    toast.error('Wrong email or password')
   }
 };
 

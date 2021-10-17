@@ -9,6 +9,7 @@ const items = createReducer([], {
 
   [transactionsActions.deleteTransactionSuccess]: (state, { payload }) =>
     state.filter((transaction) => transaction._id !== payload),
+    
 });
 
 const summary = createReducer([], {

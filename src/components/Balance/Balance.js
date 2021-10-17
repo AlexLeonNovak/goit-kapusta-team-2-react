@@ -4,6 +4,9 @@ import { userOperations, userSelectors } from "../../redux/user";
 import Popover from "../Popover/Popover";
 import styles from "./Balance.module.scss";
 
+import { toast } from 'react-toastify';
+
+
 const Balance = () => {
   const dispatch = useDispatch();
   // const [popoverOpen, setPopoverOpen] = useState(false);
@@ -24,6 +27,13 @@ const Balance = () => {
     [dispatch, balance]
   );
 
+  const notify = () => {
+    if (!balance || balance === "0") {
+      return toast.warning('Balance not entered')
+    }
+    toast.success('Balance entered')
+  }
+  
   return (
     <div className={styles.container}>
       <form className={styles.balance} onSubmit={onSubmit}>
@@ -48,6 +58,7 @@ const Balance = () => {
             className={styles.balance_btn}
             type="submit"
             aria-describedby="tooltip"
+            onClick={notify}
           >
             ПОДТВЕРДИТЬ
           </button>
