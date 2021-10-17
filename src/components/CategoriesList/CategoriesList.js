@@ -1,14 +1,27 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames'
 
 import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
 import s from '../CategoriesList/CategoriesList.module.scss';
 import trash from '../../base/images/svg_black/trash.svg';
+import Modal from "../Modal";
+
 
 const CategoriesList = () => {
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelectors.getAllCategories);
+  const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState("");
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+    setId("");
+  };
+  const onOpenModal = (id) => {
+    setShowModal(true);
+    setId(id);
+  };
 
   const API_URL = `${process.env.REACT_APP_API_URL}/`;
 
@@ -44,7 +57,7 @@ const CategoriesList = () => {
                 {type}
               </td>
               <td align="center" className={s.categoriesActions}>
-                <button onClick={() => onDeleteContact(_id)} className={s.categoriesActionsDelete}>
+                <button onClick={() => onOpenModal(_id)} className={s.categoriesActionsDelete}>
                   <img src={trash} alt="Delete" className={s.categoriesActionsDeleteIcon} />
                 </button>
               </td>
@@ -52,8 +65,16 @@ const CategoriesList = () => {
           ))}
         </tbody>
       </table>
+      {showModal && (
+        <Modal
+          ChildComponent
+          title={"Вы уверены?"}
+          onClose={toggleModal}
+          onClick={() => onDeleteContact(id)}
+        />
+      )}
     </div>
   );
 };
-
+ 
 export default CategoriesList;
