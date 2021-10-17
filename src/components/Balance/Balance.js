@@ -1,6 +1,8 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {userOperations, userSelectors} from '../../redux/user';
+import { userOperations, userSelectors } from '../../redux/user';
+import { ReactComponent as Arrow } from '../../images/left-arrow.svg';
 import styles from "./Balance.module.scss";
 
 
@@ -10,12 +12,11 @@ const Balance = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const toggle = () => setPopoverOpen(!popoverOpen);
   const currentBalance = useSelector(userSelectors.getBalance);
+  const history = useHistory();
 
   useEffect(() => {
     setBalance(currentBalance);
   }, [currentBalance]);
-
-
 
   const [balance, setBalance] = useState(0);
 
@@ -26,9 +27,22 @@ const Balance = () => {
     [dispatch, balance]
   );
 
+   const handleClickBack = () => {
+    history.push('/');
+  };
+
   return (
     <div className={styles.container}>
       <form className={styles.balance} onSubmit={onSubmit}>
+         <button
+          className={styles.arrowBtn}
+          type="button"
+          onClick={handleClickBack}
+        >
+          <Arrow className={styles.arrowSvg} />
+          <p className={styles.backText}>Вернуться на главную</p>
+          {/* <p className={styles.backTextTabl}>На главную</p> */}
+        </button>
         <span className={styles.balance_title}>Баланс:</span>
 
         <div className={styles.balance_input}>
