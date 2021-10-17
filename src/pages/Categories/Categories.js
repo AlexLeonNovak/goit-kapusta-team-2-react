@@ -2,6 +2,9 @@ import CategoriesForm from '../../components/CategoriesForm/CategoriesForm';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import s from '../Categories/Categories.module.scss'
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Categories = () => {
   return (
     <div className={s.categories}>
@@ -12,6 +15,7 @@ const Categories = () => {
         <div className={s.categoriesWrapper}>
           <CategoriesForm />
           <CategoriesList />
+          <ToastContainer />
         </div>
       </div>
     </div>

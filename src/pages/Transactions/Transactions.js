@@ -9,6 +9,9 @@ import { categoryTypes } from "../../helpers/constants";
 import s from "../Transactions/Transactions.module.scss";
 import { Summary } from "../../components/Summary";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Transactions = () => {
   const tabItems = [
     {
@@ -20,6 +23,7 @@ const Transactions = () => {
       value: categoryTypes.INCOME,
     },
   ];
+  
 
   const [currentType, setCurrentType] = useState(categoryTypes.EXPENSE);
 
@@ -29,6 +33,7 @@ const Transactions = () => {
       <TransactionForm type={currentType} />
       <TransactionTable type={currentType} />
       <Summary type={currentType} />
+      <ToastContainer />
     </div>
   );
 };
