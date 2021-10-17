@@ -12,11 +12,11 @@ import {Summary} from '../../components/Summary';
 const Transactions = () => {
   const tabItems = [
     {
-      label: "РАСХОД",
+      label: "Расход",
       value: categoryTypes.EXPENSE
     },
     {
-      label: "ДОХОД",
+      label: "Доход",
       value: categoryTypes.INCOME
     }
   ];
@@ -24,24 +24,23 @@ const Transactions = () => {
   const [currentType, setCurrentType] = useState(categoryTypes.EXPENSE);
 
   return (
-    <div className={classNames(s.transWrapper)}>
-      <div>
+    <div className={classNames(s.transactions)}>
+<div className={classNames(s.container)}>
+      <div className={classNames(s.tabs)}>
 <Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
       </div>
       <div className={s.formWrapper}>
- <div >
-        <TransactionForm type={currentType} />
-      </div>
-      <div>
+          <TransactionForm type={currentType} />
+          <div className={s.tableWrapper}>
  <TransactionTable type={currentType}/>
-      </div>
-      <div>
-         <Summary type={currentType}/>
+    <Summary type={currentType}/>
+          </div>
+   
      </div>
-     
       </div>
-     
     </div>
+    
+     
   );
 };
 
