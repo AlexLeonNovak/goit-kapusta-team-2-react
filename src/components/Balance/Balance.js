@@ -1,11 +1,10 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {userOperations, userSelectors} from '../../redux/user';
+import React, { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userOperations, userSelectors } from "../../redux/user";
+import Popover from "../Popover/Popover";
 import styles from "./Balance.module.scss";
 
-
 const Balance = () => {
-
   const dispatch = useDispatch();
   // const [popoverOpen, setPopoverOpen] = useState(false);
   // const toggle = () => setPopoverOpen(!popoverOpen);
@@ -15,11 +14,10 @@ const Balance = () => {
     setBalance(currentBalance);
   }, [currentBalance]);
 
-
-
   const [balance, setBalance] = useState(0);
 
-  const onSubmit = useCallback((e) => {
+  const onSubmit = useCallback(
+    (e) => {
       e.preventDefault();
       dispatch(userOperations.updateBalance(balance));
     },
@@ -38,9 +36,10 @@ const Balance = () => {
             name="balance"
             // pattern="\d+(\.\d{2})?"
             step="any"
-            onChange={e => setBalance(e.target.value)}
+            onChange={(e) => setBalance(e.target.value)}
             value={balance}
           />
+          {!currentBalance && <Popover />}
           <span className={styles.balance_input_text}>UAH</span>
         </div>
         <div>
@@ -52,23 +51,9 @@ const Balance = () => {
           >
             ПОДТВЕРДИТЬ
           </button>
-          {/* <Popover
-            placement="bottom"
-            isOpen={popoverOpen}
-            target="Popover1"
-            toggle={toggle}
-          >
-            <PopoverHeader>
-              Привет! Для начала работы внеси текущий баланс своего счета!
-            </PopoverHeader>
-            <PopoverBody>
-              Ты не можешь тратить деньги пока их у тебя нет
-            </PopoverBody>
-          </Popover> */}
         </div>
       </form>
     </div>
   );
-
-}
+};
 export default Balance;
