@@ -27,8 +27,10 @@ const Transactions = () => {
     <div className={classNames(s.container, s.transWrapper)}>
       <Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
       <TransactionForm type={currentType} />
-      <TransactionTable type={currentType} />
-      <Summary type={currentType} />
+      <div className={s.transSummWrapper}>
+        <TransactionTable type={currentType} />
+        <Summary type={currentType} />
+      </div>
     </div>
   );
 };
