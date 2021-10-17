@@ -48,6 +48,10 @@
 	font-size: 12px;
 	line-height: 1.17;
 
+	&::placeholder {
+		color: #C7CCDC;
+	}
+
 	@include for-size(mobile) {
 		border: 2px solid #f5f6fb;
 	}
@@ -89,26 +93,51 @@
 }
 
 .customFileUploader {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.customFileUploader + label {
 	display: inline-block;
 	width: 185px;
 	padding: 12px;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 30px;
+  background-color: #fff;
 	border: 2px solid #ffffff;
 	border-radius: 22px;
+	cursor: pointer;
+	color: #C7CCDC;
 
 	@include for-size(mobile) {
 		border: 2px solid #f6f7fc;
 	}
 
 	@include for-size(tablet) {
-		display: inline-block;
 		margin: 0;
 		width: 100%;
 		border-radius: 0 16px 16px 0;
 		flex: 1;
 	}
+}
+
+.customFileUploader + label * {
+	pointer-events: none;
+}
+
+.customFileUploader:focus + label,
+.customFileUploader + label:hover {
+    background-color: #F5F6FB;
+}
+
+.customFileUploader:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
 }
 
 .buttonWrapper {
