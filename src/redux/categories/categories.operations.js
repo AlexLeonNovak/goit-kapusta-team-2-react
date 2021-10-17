@@ -12,16 +12,19 @@ export const fetchCategories = () => async dispatch => {
   }
 };
 
-export const addCategory =
-  ({ name, type }) =>
+const addCategory =
+  (category) =>
   async (dispatch) => {
-    const category = { name, type };
+    dispatch(addCategoryRequest());
+    console.log(category);
 
-    dispatch(categoriesActions.addCategoryRequest());
+    const bodyFormData = new FormData();
+    bodyFormData.append('logo', category.logo);
 
     try {
-      const { data } = await axios.post("/categories", category);
-      dispatch(categoriesActions.addCategorySuccess(data));
+      const { data } = await axios.post("/categories", bodyFormData, { headers: { 'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}` } });
+      dispatch(addCategorySuccess(data.data));
+
     } catch (error) {
       dispatch(categoriesActions.addCategoryError(error.message));
     }

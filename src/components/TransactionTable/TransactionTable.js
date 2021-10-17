@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import moment from 'moment';
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -62,7 +63,7 @@ export const TransactionTable = ({ type }) => {
         {transactions.map(
           ({ _id, datetime, description, category, amount }) => (
             <tr key={_id}>
-              <td>{datetime}</td>
+              <td>{moment(datetime).format('DD.MM.YYYY')}</td>
               <td>{description}</td>
               <td>{category.name}</td>
               <td>

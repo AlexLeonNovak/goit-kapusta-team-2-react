@@ -1,12 +1,6 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import "../../base/sass/main.scss";
 
-.container {
+.categoriesListContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,23 +10,33 @@
   // border: solid 1px #000;
 }
 
-.container_ul {
+.categoriesList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.container_item {
-  display: block;
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  width: 106px;
-  height: 84px;
+  width: 84px;
   margin: 3px;
-  border-radius: 10px;
-  box-shadow: 0 0 14px 4px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
   list-style: none;
-  /* border: solid 1px #000; */
+
+  &:hover, &:focus, &.active {
+    .categoryLogoWrapper:before {
+      background-color: $accent-color-light;
+    }
+    .categoryLogo {
+      fill: $accent-color-dark
+    }
+  }
 }
+
+
 
 .container_item_txt {
   display: block;
@@ -41,14 +45,29 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .categoriesListContainer {
     width: 613px;
-  }
-  .container_item {
-    width: 106px;
-    height: 84px;
   }
 }
 
 @media screen and (min-width: 1280px) {
+}
+
+.categoryLogoWrapper{
+  position: relative;
+}
+
+.categoryLogoWrapper:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 59px;
+  height: 46px;
+  background: $bg-second;
+  border-radius: 20px;
+}
+.categoryLogo {
+  width: 56px;
+  position: inherit;
 }
