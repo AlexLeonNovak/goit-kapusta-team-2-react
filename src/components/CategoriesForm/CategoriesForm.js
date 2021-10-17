@@ -5,6 +5,8 @@ import { categoriesOperations, categoriesSelectors } from '../../redux/categorie
 import shortid from 'shortid';
 import s from '../CategoriesForm/CategoriesForm.module.scss'
 
+import { toast } from 'react-toastify';
+
 const CategoriesForm = () => {
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelectors.getAllCategories);
@@ -14,9 +16,12 @@ const CategoriesForm = () => {
 
   const [name, setName] = useState('');
   const [type, setType] = useState('');
+  const [filename, setFilename] = useState('Загрузите логотип');
+  const [logo, setLogo] = useState(null);
 
   const handleChange = useCallback(e => {
     const { name, value } = e.currentTarget;
+    const { files } = e.target;
 
     switch (name) {
       case 'name':
@@ -26,35 +31,46 @@ const CategoriesForm = () => {
       case 'type':
         setType(value);
         break;
+      
+      case 'filename':
+        setLogo(files[0]);
+        setFilename(files[0].name);
+        console.log(logo);
+        break;
 
       default:
         console.warn(`Тип поля ${name} не обрабатывается`);
     }
-  }, []);
-
+  }, [name, type, filename, logo]);
+  
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
 
       categories.find(category => category.name === name)
         ? alert(`${name} is already in categories`)
-        : categories.find(category => category.type === type)
-          ? alert(`${type} is already in categories`)
-          : dispatch(categoriesOperations.addCategory({ name, type }));
+        : dispatch(categoriesOperations.addCategory({ name, type, logo }));
 
       reset();
     },
-    [categories, dispatch, name, type],
+    [categories, dispatch, name, type]
   );
 
   const reset = () => {
     setName('');
     setType('');
   };
+  const notify = () => {
+    if (!name || !type) {
+      return toast.warning('Name and type are required fields')
+    }
+    toast.success('Successful operation')
+  }
+
 
   return (
     <div className={s.formWrapper}>
-      <form action="" className={s.form}>
+      <form action="" method="post" encType="multipart/form-data" className={s.form}>
         <div className={s.categoriesInputWrapper}>
           <div className={s.categoriesFormItemWrapper}>
             <input
@@ -80,15 +96,20 @@ const CategoriesForm = () => {
               required
             />
           </div>
-          <label className={s.customFileUploader}>
-            <input type="file" name="file" className={s.input} />
-            Выберите логотип
-          </label>
+          <input
+              type="file"
+              name="filename"
+              id="filename"
+              className={s.customFileUploader}
+              onChange={handleChange}
+            />
+          <label htmlFor="filename">{filename}</label>
         </div>
         <div className={s.buttonWrapper}>
           <button className={s.button}
             type="submit"
-            onClick={handleSubmit}
+            onSubmit={handleSubmit}
+            onClick={notify}
           >
             Ввод
           </button>

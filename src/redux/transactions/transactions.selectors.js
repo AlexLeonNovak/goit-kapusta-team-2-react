@@ -9,7 +9,7 @@ export const getAllTransactions = (state) => state.transactions.items;
 export const getIncomeTransactions = createSelector(
   [getAllTransactions],
   (transactions) => transactions.filter(transaction => {
-	  console.log(transaction.category.type, transaction.category.type === categoryTypes.EXPENSE)
+	  // console.log(transaction.category.type, transaction.category.type === categoryTypes.EXPENSE)
 		return transaction.category.type === categoryTypes.INCOME
   })
 );
@@ -40,6 +40,10 @@ export const getTransactionById = id => createSelector(
 )
 
 export const getSummary = state => state.transactions.summary;
+
+export const getYear = state => state.transactions.year;
+
+export const getMonth = state => state.transactions.month;
 
 // export const getSummaryExpense = createSelector(
 // 	[getSummary],
