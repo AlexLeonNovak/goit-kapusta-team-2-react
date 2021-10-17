@@ -1,8 +1,97 @@
 @import "../../base/sass/main.scss";
 
-.transWrapper {
-    
+
+
+.formWrapper {
+background-color: $bg-main;
+width: 100%;
+padding-right: 110px;
+padding-left: 110px;
 border-radius: 0px 30px 30px 30px;
 box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 }
 
+.transWrapper {
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include for-size(tablet) {
+    //background-image: url(../../base/images/tablet/bg/bg-tablet.png);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $bg-second;
+    border-bottom-left-radius: 150px;
+    z-index: -1;
+    height: 55%;
+  }
+}
+.dataline {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 85px;
+  width: 282px;
+  border: solid 1px #ffffff;
+  background: #ffffff;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  border-radius: 20px;
+  margin: 15px auto;
+}
+
+.expencesBlock {
+  width: 100%;
+  height: auto;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
+
+.chartBlock {
+  width: 100%;
+  margin: 0 auto;
+  // padding: 44px;
+
+  // height: auto;
+  // background: #ffffff;
+
+  // border-radius: 30px;
+  // box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
+
+@include for-size(tablet) {
+  .dataline {
+    justify-content: center;
+    flex-flow: row nowrap;
+    height: 50px;
+    width: 668px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+  }
+
+  .expencesBlock {
+    width: 666px;
+  }
+  .chartBlock {
+    width: 605px;
+  }
+}
+
+@include for-size(desktop) {
+  .dataline {
+    height: 50px;
+    width: 1060px;
+    
+  }
+  .expencesBlock {
+    width: 1060px;
+  }
+}

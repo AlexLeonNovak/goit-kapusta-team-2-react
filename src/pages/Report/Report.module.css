@@ -120,12 +120,6 @@ ul {
   background-size: contain;
 }
 
-@media (min-width: 768px) {
-  .categories {
-    background-image: url(../../base/images/tablet/bg/bg-tablet.png);
-  }
-}
-
 .categories:before {
   content: "";
   position: absolute;
@@ -135,7 +129,7 @@ ul {
   background: #f5f6fb;
   border-bottom-left-radius: 150px;
   z-index: -1;
-  height: 97.8vw;
+  height: 55%;
 }
 
 .dataline {
@@ -150,37 +144,6 @@ ul {
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 20px;
   margin: 15px auto;
-}
-
-.dataline_block_expenses,
-.dataline_block_income {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  text-align: center;
-}
-
-.dataline_label {
-  width: 100%;
-}
-
-.dataline_expenses,
-.dataline_income {
-  width: 100%;
-}
-
-.dataline_expenses {
-  color: #e53935;
-}
-
-.dataline_income {
-  color: #407946;
-}
-
-.datalineJumper {
-  border-left: solid 1px #e0e5eb;
-  height: 70.5px;
-  width: 1px;
 }
 
 .expencesBlock {
@@ -206,17 +169,6 @@ ul {
     width: 668px;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     border-radius: 30px;
-  }
-  .dataline_block_expenses,
-  .dataline_block_income {
-    display: block;
-    margin: 20px;
-  }
-  .dataline_label {
-    margin-right: 15px;
-  }
-  .datalineJumper {
-    height: 36px;
   }
   .expencesBlock {
     width: 666px;

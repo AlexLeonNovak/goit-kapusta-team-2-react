@@ -24,11 +24,23 @@ const Transactions = () => {
   const [currentType, setCurrentType] = useState(categoryTypes.EXPENSE);
 
   return (
-    <div className={classNames(s.container, s.transWrapper )}>
-      <Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
-      <TransactionForm type={currentType}/>
-      <TransactionTable type={currentType}/>
-      <Summary type={currentType}/>
+    <div className={classNames(s.transWrapper)}>
+      <div>
+<Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
+      </div>
+      <div className={s.formWrapper}>
+ <div >
+        <TransactionForm type={currentType} />
+      </div>
+      <div>
+ <TransactionTable type={currentType}/>
+      </div>
+      <div>
+         <Summary type={currentType}/>
+     </div>
+     
+      </div>
+     
     </div>
   );
 };

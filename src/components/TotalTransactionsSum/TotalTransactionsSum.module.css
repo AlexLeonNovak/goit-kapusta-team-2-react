@@ -115,100 +115,54 @@ ul {
   background-color: #0e0e0e;
 }
 
-.container {
+.block_expenses,
+.block_income {
   display: flex;
-  height: 44px;
-  margin: 40px auto 30px auto;
+  flex-flow: column wrap;
   justify-content: center;
-}
-
-.balance {
-  display: flex;
-  height: 44px;
-  align-items: center;
-}
-
-.balance_title {
-  display: flex;
-  justify-content: center;
-  width: 83px;
-  height: 20px;
-  color: #52555f;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  align-items: center;
   text-align: center;
-  margin-right: 21px;
 }
 
-.balance_input {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  position: relative;
-  height: 44px;
-  margin-right: 15px;
-}
-
-.balance_input_zone {
-  height: 100%;
-  width: 125px;
-  text-align: right;
-  padding-right: 55px;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: 700;
-  border: solid 2px #ffffff;
-  border-radius: 16px;
-  background: #f2f5fc;
-}
-
-.balance_input_zone:focus {
-  outline: 0;
-}
-
-.balance_input_text {
-  position: absolute;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: bold;
-  right: 25px;
-  align-items: center;
-}
-
-.balance_btn {
-  height: 44px;
-  width: 125px;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-  border: solid 2px #ffffff;
-  border-radius: 16px;
-  background: inherit;
-  cursor: pointer;
-  color: #52555f;
-  transition: 0.2s ease-in-out;
-}
-
-.balance_btn:hover {
-  background: #ff751d;
-  border-color: #ff751d;
-  color: #ffffff;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    width: 668px;
-    height: 44px;
+@media (min-width: 768px) {
+  .block_expenses,
+  .block_income {
+    display: block;
+    margin: 20px;
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .container {
-    width: 1060px;
-    height: 44px;
+.label {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .label {
+    margin-right: 15px;
   }
 }
-/*# sourceMappingURL=Balance.module.css.map */
+
+.expenses,
+.income {
+  width: 100%;
+}
+
+.expenses {
+  color: #e53935;
+}
+
+.income {
+  color: #407946;
+}
+
+.splitter {
+  border-left: solid 1px #e0e5eb;
+  height: 70.5px;
+  width: 1px;
+}
+
+@media (min-width: 768px) {
+  .splitter {
+    height: 36px;
+  }
+}
+/*# sourceMappingURL=TotalTransactionsSum.module.css.map */

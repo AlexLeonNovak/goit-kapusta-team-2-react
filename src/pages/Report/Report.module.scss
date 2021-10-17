@@ -5,7 +5,7 @@
   background-size: contain;
 
   @include for-size(tablet) {
-    background-image: url(../../base/images/tablet/bg/bg-tablet.png);
+    //background-image: url(../../base/images/tablet/bg/bg-tablet.png);
   }
 
   &:before {
@@ -17,7 +17,7 @@
     background: #f5f6fb;
     border-bottom-left-radius: 150px;
     z-index: -1;
-    height: 97.8vw;
+    height: 55%;
   }
 }
 .dataline {
@@ -78,6 +78,7 @@
   .dataline {
     height: 50px;
     width: 1060px;
+    
   }
   .expencesBlock {
     width: 1060px;

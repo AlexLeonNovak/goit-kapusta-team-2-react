@@ -76,7 +76,6 @@ export const TransactionForm = ({ type }) => {
         <div className={s.inputWrap}>
           <div className={s.transFormItemWrapper}>
             <DatePicker value={datetime} onChange={setDatetime} />
-
             <input
               // id={valueInputId}
               name="description"
