@@ -6,8 +6,8 @@ import {
   transactionsSelectors,
 } from "../../redux/transactions";
 
-import "./TransactionTable.css";
-import s from "../CategoriesList/CategoriesList.module.scss";
+
+import s from "./TransactionTable.module.scss";
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
 import Modal from "../Modal";
@@ -38,8 +38,8 @@ export const TransactionTable = ({ type }) => {
   );
 
   return (
-    <table className='income'>
-      <thead className='income__head'>
+    <table className={ s.income}>
+      <thead className={s.income__head}>
         <tr>
           <th>Дата</th>
           <th>Описание</th>
