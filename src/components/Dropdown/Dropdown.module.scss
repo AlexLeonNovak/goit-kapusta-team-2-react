@@ -4,7 +4,6 @@
   position: relative;
   color: $bg-second;
   cursor: default;
-  //width:168px;
 }
 
 .dropdown .arrow {
@@ -44,10 +43,12 @@
   display: none;
   background-color: #fff;
   border: 1px solid #ccc;
+  border-radius: 2px;
+
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
-  margin-top: -1px;
-  max-height: 200px;
+  margin-top: -13px;
+  max-height: 400px;
   overflow-y: auto;
   position: absolute;
   top: 100%;
