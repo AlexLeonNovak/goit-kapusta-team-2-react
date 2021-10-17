@@ -1,41 +1,54 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
-import { useDispatch } from "react-redux";
-
-import Header from "./pages/Header/Header";
-// import Summary from "./components/Summary/Summary";
-import Reports from "./components/Reports/Reports";
+import {useDispatch, useSelector} from 'react-redux';
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
-import authOperations from "./redux/auth/auth.operations";
+import { authSelectors } from "./redux/auth";
+import { userOperations } from "./redux/user";
+
+
 import routes from "./routes";
+import AppBar from "./components/AppBar/AppBar";
+import { Loader } from "./components/Loader";
+import {categoriesOperations} from './redux/categories';
+import { transactionsOperations } from './redux/transactions';
+import Balance from './components/Balance';
+
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
 );
 
 const Transactions = lazy(() =>
-  import(
-    "./pages/Transactions/Transactions" /* webpackChunkName: "transactions" */
-  )
+  import("./pages/Transactions/Transactions" /* webpackChunkName: "transactions" */)
 );
 
 const Categories = lazy(() =>
   import("./pages/Categories/Categories" /* webpackChunkName: "categories" */)
 );
 
+const Report = lazy(() =>
+  import("./pages/Report/Report" /* webpackChunkName: "reports" */)
+);
+
 function App() {
   const dispatch = useDispatch();
+  const isAuth = useSelector(authSelectors.getIsAuthenticated);
 
   useEffect(() => {
-    dispatch(authOperations.getCurrentUser());
-  }, [dispatch]);
+    dispatch(userOperations.getCurrentUser());
+    if (isAuth) {
+      dispatch(categoriesOperations.fetchCategories());
+      dispatch(transactionsOperations.fetchTransactions());
+    }
+  }, [dispatch, isAuth]);
 
   return (
     <>
-      <Header />
-      <Suspense fallback={<h1>Загружаемся ребята...</h1>}>
+      <AppBar />
+      {isAuth && <Balance />}
+      <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute exact path="/">
             <Redirect to={routes.auth} />
@@ -58,7 +71,7 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute path={routes.report} redirectTo={routes.auth}>
-            <Reports />
+            <Report />
           </PrivateRoute>
         </Switch>
       </Suspense>

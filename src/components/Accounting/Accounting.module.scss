@@ -1,0 +1,73 @@
+@import "../../base/sass/main.scss";
+
+.categoriesListContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: 20px auto;
+  // border: solid 1px #000;
+}
+
+.categoriesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 84px;
+  margin: 3px;
+  cursor: pointer;
+  list-style: none;
+
+  &:hover, &:focus, &.active {
+    .categoryLogoWrapper:before {
+      background-color: $accent-color-light;
+    }
+    .categoryLogo {
+      fill: $accent-color-dark
+    }
+  }
+}
+
+
+
+.container_item_txt {
+  display: block;
+  text-transform: uppercase;
+  margin: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .categoriesListContainer {
+    width: 613px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}
+
+.categoryLogoWrapper{
+  position: relative;
+}
+
+.categoryLogoWrapper:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 59px;
+  height: 46px;
+  background: $bg-second;
+  border-radius: 20px;
+}
+.categoryLogo {
+  width: 56px;
+  position: inherit;
+}

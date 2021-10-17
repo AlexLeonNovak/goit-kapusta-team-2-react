@@ -1,40 +1,37 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { transactionsOperations } from "../../redux/transactions";
+import { useState } from "react";
+import classNames from "classnames";
 
-import TransactionsForm from "../../components/TransactionsForm/TransactionsForm";
-import IncomeList from "../../components/Income/IncomeList";
-import ExpenseList from "../../components/Expense/ExpenseList";
-
-import Balance from "../../components/Balance";
+import { TransactionForm } from "../../components/TransactionForm";
+import { TransactionTable } from "../../components/TransactionTable";
 import Tabs from "../../components/Tabs/Tabs";
 
-// TODO видалити локальні TODO, коли буде BACK
-import IncomeApi from "../../components/Income/api.json";
-import ExpenseApi from "../../components/Expense/api.json";
+import { categoryTypes } from "../../helpers/constants";
+import s from "../Transactions/Transactions.module.scss";
+import { Summary } from "../../components/Summary";
 
 const Transactions = () => {
-  const dispatch = useDispatch();
+  const tabItems = [
+    {
+      label: "РАСХОД",
+      value: categoryTypes.EXPENSE,
+    },
+    {
+      label: "ДОХОД",
+      value: categoryTypes.INCOME,
+    },
+  ];
 
-  useEffect(() => {
-    dispatch(transactionsOperations.fetchTransactions());
-  }, [dispatch]);
+  const [currentType, setCurrentType] = useState(categoryTypes.EXPENSE);
 
   return (
-    <>
-      <Balance />
-
-      <Tabs>
-        <div label="Доход">
-          <TransactionsForm />
-          <IncomeList items={IncomeApi} />
-        </div>
-        <div label="Расход">
-          <TransactionsForm />
-          <ExpenseList items={ExpenseApi} />
-        </div>
-      </Tabs>
-    </>
+    <div className={classNames(s.container, s.transWrapper)}>
+      <Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
+      <TransactionForm type={currentType} />
+      <div className={s.transSummWrapper}>
+        <TransactionTable type={currentType} />
+        <Summary type={currentType} />
+      </div>
+    </div>
   );
 };
 

@@ -1,32 +1,28 @@
-import React, { useState } from "react";
-import { Button, Popover, PopoverHeader, PopoverBody } from "reactstrap";
-// import { Popover, OverlayTrigger } from "bootstrap";
+import React, { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userOperations, userSelectors } from "../../redux/user";
+import Popover from "../Popover/Popover";
 import styles from "./Balance.module.scss";
 
-function Balance() {
-  const [popoverOpen, setPopoverOpen] = useState(false);
-  const toggle = () => setPopoverOpen(!popoverOpen);
+const Balance = () => {
+  const dispatch = useDispatch();
+  // const [popoverOpen, setPopoverOpen] = useState(false);
+  // const toggle = () => setPopoverOpen(!popoverOpen);
+  const currentBalance = useSelector(userSelectors.getBalance);
 
-  const defaultBalance = 55000;
-  const [balance, setBalance] = useState(() => {
-    return defaultBalance;
-  });
+  useEffect(() => {
+    setBalance(currentBalance);
+  }, [currentBalance]);
 
-  const onSubmit = (event) => {
-    console.log(`your balance: ${balance}!`);
-    event.preventDefault();
-  };
+  const [balance, setBalance] = useState(0);
 
-  const onChangeBalance = (event) => {
-    // console.log(event.currentTarget.value);
-    const { value } = event.currentTarget;
-    console.log(
-      new Intl.NumberFormat({ minimumSignificantDigits: 4 }).format(value)
-    );
-    setBalance((prevBalance) => {
-      return (prevBalance = value);
-    });
-  };
+  const onSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      dispatch(userOperations.updateBalance(balance));
+    },
+    [dispatch, balance]
+  );
 
   return (
     <div className={styles.container}>
@@ -38,38 +34,26 @@ function Balance() {
             className={styles.balance_input_zone}
             type="money"
             name="balance"
-            pattern="\d+(\.\d{2})?"
+            // pattern="\d+(\.\d{2})?"
             step="any"
-            onChange={onChangeBalance}
+            onChange={(e) => setBalance(e.target.value)}
             value={balance}
           />
+          {!currentBalance && <Popover />}
           <span className={styles.balance_input_text}>UAH</span>
         </div>
         <div>
-          <Button
+          <button
             id="Popover1"
             className={styles.balance_btn}
-            type="button"
+            type="submit"
             aria-describedby="tooltip"
           >
             ПОДТВЕРДИТЬ
-          </Button>
-          <Popover
-            placement="bottom"
-            isOpen={popoverOpen}
-            target="Popover1"
-            toggle={toggle}
-          >
-            <PopoverHeader>
-              Привет! Для начала работы внеси текущий баланс своего счета!
-            </PopoverHeader>
-            <PopoverBody>
-              Ты не можешь тратить деньги пока их у тебя нет :)
-            </PopoverBody>
-          </Popover>
+          </button>
         </div>
       </form>
     </div>
   );
-}
+};
 export default Balance;

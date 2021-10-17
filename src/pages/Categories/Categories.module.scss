@@ -1,13 +1,23 @@
 @import "../../base/sass/main.scss";
 
 .categories {
-	background-color: #fff;
 	background-repeat: no-repeat;
-	background-image: url(../../base/images/mobile/bg/bg-mobile.png);
 	background-size: contain;
 
 	@include for-size(tablet) {
 		background-image: url(../../base/images/tablet/bg/bg-tablet.png);
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: #F5F6FB;
+		border-bottom-left-radius: 150px;
+		z-index: -1;
+		height: 97.8vw;
 	}
 }
 
@@ -41,7 +51,7 @@
 		width: 1060px;
 		margin-right: auto;
 		margin-left: auto;
-	}	
+	}
 }
 
 .categoriesWrapper {

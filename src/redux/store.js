@@ -1,14 +1,4 @@
-// import {configureStore} from '@reduxjs/toolkit';
-
-// const store = configureStore({
-//   reducer: {
-
-//   },
-//   devTools: process.env.NODE_ENV === 'development',
-// });
-
-// export default store;
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import {
   persistStore,
@@ -21,18 +11,10 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { transactionsReducer } from './transactions';
-import { categoriesReducer } from './categories';
-import authReducer from './auth/auth.reducer';
-
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-  logger,
-];
+import { transactionsReducer } from './transactions/transactions.reducer';
+import { categoriesReducer } from './categories/categories.reducer';
+import { authReducer } from './auth/auth.reducer';
+import { userReducer } from './user/user.reducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -40,14 +22,21 @@ const authPersistConfig = {
   whitelist: ['token', 'isAuthenticated'],
 };
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionsReducer,
     categories: categoriesReducer,
+    user: userReducer,
   },
-  middleware,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }).concat(logger),
   devTools: process.env.NODE_ENV === 'development',
 });
-const persistor = persistStore(store)
-export default { store, persistor };
+
+export let persistor = persistStore(store)
+
+
