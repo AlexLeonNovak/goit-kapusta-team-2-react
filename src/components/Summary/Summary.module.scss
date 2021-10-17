@@ -1,8 +1,29 @@
+@import "../../base/sass/main.scss";
+
 .container {
-  display: block;
+  // display: block;
+  display: none;
   width: 230px;
   text-transform: uppercase;
   margin: 60px auto;
+
+  @include for-size(mobile) {
+    display: flow-root;
+    margin-top: 60px;
+  }
+
+  @include for-size(tablet) {
+    display: block;
+    max-width: 605px;
+    margin-top: 60px;
+  }
+
+  @include for-size(desktop) {
+    display: flex;
+    margin-top: 0;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
 
 .title {
