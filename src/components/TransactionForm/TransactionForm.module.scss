@@ -1,36 +1,35 @@
 @import "../../base/sass/main.scss";
 
 .formWrapper {
+  display: inline-block;
+  padding-top: 20px;
   text-align: center;
   height: 40px;
   width: 100%;
 }
 
 .form {
-  // padding-top: 32px;
-  // display: flex;
-  // flex-direction: column;
-  // text-align: center;
-
   @include for-size(mobile) {
     width: 100%;
     flex-direction: row;
-    margin-bottom: 80px;
+    margin-bottom: 90px;
     justify-content: center;
     align-items: flex-start;
   }
 
   @include for-size(tablet) {
     width: 100%;
+    display: inline-flex;
+
     flex-direction: row;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     justify-content: center;
     align-items: flex-start;
   }
 
   @include for-size(desktop) {
     flex-direction: row;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     justify-content: center;
     align-items: flex-start;
   }

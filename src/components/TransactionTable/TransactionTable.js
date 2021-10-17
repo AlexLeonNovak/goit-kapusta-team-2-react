@@ -7,7 +7,7 @@ import {
   transactionsSelectors,
 } from "../../redux/transactions";
 
-import "./TransactionTable.css";
+import st from "./TransactionTable.module.scss";
 import s from "../CategoriesList/CategoriesList.module.scss";
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
@@ -48,8 +48,8 @@ export const TransactionTable = ({ type }) => {
   );
 
   return (
-    <table className='income'>
-      <thead className='income__head'>
+    <table className={st.income}>
+      <thead className={st.income__head}>
         <tr>
           <th>Дата</th>
           <th>Описание</th>
