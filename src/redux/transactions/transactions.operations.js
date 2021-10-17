@@ -18,6 +18,7 @@ export const addTransaction = (transaction) => async (dispatch) => {
   try {
     const { data } = await axios.post("/transactions", transaction);
     dispatch(transactionsActions.addTransactionSuccess(data.data));
+    dispatch(fetchSummary())
   } catch (error) {
     dispatch(transactionsActions.addTransactionError(error.message));
   }
@@ -29,6 +30,7 @@ export const deleteTransaction = (transactionId) => async (dispatch) => {
   try {
     await axios.delete(`/transactions/${transactionId}`);
     dispatch(transactionsActions.deleteTransactionSuccess(transactionId));
+    dispatch(fetchSummary())
   } catch (error) {
     dispatch(transactionsActions.deleteTransactionError(error.message));
   }
@@ -40,7 +42,7 @@ export const fetchSummary = () => async dispatch =>{
   try {
     const response = await axios.get('/transactions/summary');
     dispatch(transactionsActions.transactionsSummarySuccess(response.data.data));
-  } catch (e) {
-    dispatch(transactionsActions.transactionsSummaryError(e));
+  } catch (error) {
+    dispatch(transactionsActions.transactionsSummaryError(error));
   }
 }

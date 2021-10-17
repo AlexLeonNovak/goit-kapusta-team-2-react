@@ -12,19 +12,8 @@ const items = createReducer([], {
 });
 
 const summary = createReducer([], {
-  [transactionsActions.transactionsSummarySuccess]: (_, {payload}) => payload.summary,
-  [transactionsActions.addTransactionSuccess]: (state, { payload }) => {
-    const date = new Date(payload.result.datetime);
-    const idx = state.findIndex(item => item.year === date.getFullYear() && item.month === date.getMonth() + 1)
-    state[idx][payload.result.category.type] += payload.result.amount;
-    return state;
-  },
-  [transactionsActions.deleteTransactionSuccess]: (state, { payload }) => {
-    // const date = new Date(payload.result.datetime);
-    // const idx = state.findIndex(item => item.year === date.getFullYear() && item.month === date.getMonth() + 1)
-    // state[idx][payload.result.category.type] -= payload.result.amount;
-    return state;
-  }
+  [transactionsActions.transactionsSummarySuccess]: (_, {payload}) =>
+    payload.summary.sort((a,b) => a.year - b.year || a.month - b.month),
 });
 
 const isLoadingAction = action => action.type.endsWith('Request');

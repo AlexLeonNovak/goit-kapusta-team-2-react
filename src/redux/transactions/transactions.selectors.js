@@ -29,10 +29,15 @@ export const getExpenseSum = createSelector(
 	(transactions) => transactions.reduce((acc, transaction) => acc + transaction.amount, 0)
 );
 
-export const getTransactionsByCategory = (id) => createSelector(
+export const getTransactionsByCategoryId = id => createSelector(
 	[getAllTransactions],
-	(transactions) => transactions.filter(transaction => transaction.category._id === id)
+	transactions => transactions.filter(transaction => transaction.category._id === id)
 );
+
+export const getTransactionById = id => createSelector(
+	[getAllTransactions],
+	transactions => transactions.find(transaction => transaction._id === id)
+)
 
 export const getSummary = state => state.transactions.summary;
 
