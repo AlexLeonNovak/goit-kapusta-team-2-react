@@ -35,10 +35,9 @@ const Balance = () => {
   }
   
   return (
-    <div className={styles.container}>
+    <div className={styles.container_balance}>
+      <span className={styles.balance_title}>Баланс:</span>
       <form className={styles.balance} onSubmit={onSubmit}>
-        <span className={styles.balance_title}>Баланс:</span>
-
         <div className={styles.balance_input}>
           <input
             className={styles.balance_input_zone}
