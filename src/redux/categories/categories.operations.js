@@ -14,6 +14,7 @@ export const fetchCategories = () => async dispatch => {
 
 
 export const addCategory = ({name, type, logo}) => async (dispatch) => {
+  console.log(type)
     dispatch(categoriesActions.addCategoryRequest());
 
     const bodyFormData = new FormData();

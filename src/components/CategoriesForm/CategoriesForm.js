@@ -2,18 +2,17 @@ import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
-import shortid from 'shortid';
 import s from '../CategoriesForm/CategoriesForm.module.scss'
 import { toast } from 'react-toastify';
 
-const CategoriesForm = () => {
+export const CategoriesForm = () => {
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelectors.getAllCategories);
 
-  const options = [
-  { value: 'income', label: 'income' },
-  { value: 'expense', label: 'expense' }
-]
+  // const options = [
+  //   { value: 'income', label: 'income' },
+  //   { value: 'expense', label: 'expense' }
+  // ]
 
   const [name, setName] = useState('');
   const [type, setType] = useState('');
@@ -29,7 +28,7 @@ const CategoriesForm = () => {
       case 'name':
         setName(value);
         break;
-      
+
       case 'filename':
         setLogo(files[0]);
         setFilename(files[0].name);
@@ -39,7 +38,7 @@ const CategoriesForm = () => {
         console.warn(`Тип поля ${name} не обрабатывается`);
     }
   }, []);
-  
+
   const handleSubmit = useCallback(
     e => {
       e.preventDefault();
