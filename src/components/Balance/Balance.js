@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { userOperations, userSelectors } from "../../redux/user";
+import React, { useCallback, useEffect, useState } from 'react';
+import {useHistory} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import { userOperations, userSelectors } from '../../redux/user';
+import { ReactComponent as Arrow } from '../../images/left-arrow.svg';
 import Popover from "../Popover/Popover";
 import styles from "./Balance.module.scss";
 
@@ -12,6 +14,7 @@ const Balance = () => {
   // const [popoverOpen, setPopoverOpen] = useState(false);
   // const toggle = () => setPopoverOpen(!popoverOpen);
   const currentBalance = useSelector(userSelectors.getBalance);
+  const history = useHistory();
 
   useEffect(() => {
     setBalance(currentBalance);
@@ -27,6 +30,10 @@ const Balance = () => {
     [dispatch, balance]
   );
 
+   const handleClickBack = () => {
+    history.push('/');
+  };
+
   const notify = () => {
     if (!balance || balance === "0") {
       return toast.warning('Balance not entered')
@@ -38,6 +45,17 @@ const Balance = () => {
     <div className={styles.container_balance}>
       <span className={styles.balance_title}>Баланс:</span>
       <form className={styles.balance} onSubmit={onSubmit}>
+
+         <button
+          className={styles.arrowBtn}
+          type="button"
+          onClick={handleClickBack}
+        >
+          <Arrow className={styles.arrowSvg} />
+          <p className={styles.backText}>Вернуться на главную</p>
+          {/* <p className={styles.backTextTabl}>На главную</p> */}
+        </button>
+        <span className={styles.balance_title}>Баланс:</span>
         <div className={styles.balance_input}>
           <input
             className={styles.balance_input_zone}
