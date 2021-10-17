@@ -76,5 +76,5 @@ const CategoriesList = () => {
     </div>
   );
 };
-
+ 
 export default CategoriesList;
