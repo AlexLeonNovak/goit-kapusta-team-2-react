@@ -126,9 +126,8 @@ ul {
   align-items: center;
   width: 138px;
   height: 40px;
-  left: 110px;
-  top: 148px;
   color: #000000;
+  background-color: #F5F6FB;
   font-weight: 700;
   border-radius: 20px 20px 0 0;
   cursor: pointer;
@@ -139,7 +138,7 @@ ul {
 }
 
 .tabListActive {
-  background-color: #F5F6FB;
+  background-color: #FFFFFF;
   color: #FF751D;
 }
 /*# sourceMappingURL=Tabs.module.css.map */

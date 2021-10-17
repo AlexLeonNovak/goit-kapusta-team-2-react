@@ -14,10 +14,11 @@
 
   width: 138px;
   height: 40px;
-  left: 110px;
-  top: 148px;
+  // left: 110px;
+  // top: 148px;
 
   color: $font-color-main;
+  background-color: $bg-second;
   font-weight: 700;
   border-radius: 20px 20px 0 0;
   cursor: pointer;
@@ -29,6 +30,6 @@
 }
 
 .tabListActive {
-  background-color: $bg-second;
+  background-color: $bg-main;
   color: $accent-color-dark;
 }
