@@ -38,8 +38,8 @@ export const TransactionTable = ({ type }) => {
   );
 
   return (
-    <table className='income'>
-      <thead className='income__head'>
+    <table className="income">
+      <thead className="income__head">
         <tr>
           <th>Дата</th>
           <th>Описание</th>
@@ -60,14 +60,14 @@ export const TransactionTable = ({ type }) => {
                 {type === categoryTypes.EXPENSE && "-"}
                 {amount}
               </td>
-              <td align='center' className={s.categoriesActions}>
+              <td align="center" className={s.categoriesActions}>
                 <button
                   onClick={() => onOpenModal(_id)}
                   className={s.categoriesActionsDelete}
                 >
                   <img
                     src={trash}
-                    alt='Delete'
+                    alt="Delete"
                     className={s.categoriesActionsDeleteIcon}
                   />
                 </button>
