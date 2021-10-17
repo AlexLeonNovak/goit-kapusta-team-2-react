@@ -1,9 +1,11 @@
 @import "../../base/sass/main.scss";
+@import "../../base/sass/utils/variables";
 
 .block_expenses,
 .block_income {
   display: flex;
   flex-flow: column wrap;
+  width: 50%;
   justify-content: center;
   text-align: center;
 
@@ -15,6 +17,9 @@
 
 .label {
   width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
 
   @include for-size(tablet) {
     margin-right: 15px;
@@ -24,14 +29,18 @@
 .expenses,
 .income {
   width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
 }
 
 .expenses {
-  color: #e53935;
+  color: $balance-out;
 }
 
 .income {
-  color: #407946;
+  color: $balance-in;
 }
 
 .splitter {

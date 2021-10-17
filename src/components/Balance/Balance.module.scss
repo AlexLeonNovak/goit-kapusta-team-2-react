@@ -1,5 +1,8 @@
 @import "../../base/sass/main.scss";
 @import "../../base/sass/utils/variables";
+.container {
+  display: flex;
+}
 
 .container_balance {
   display: flex;
@@ -7,9 +10,8 @@
   background: inherit;
   width: 248px;
   height: 70px;
-  margin: 30px auto 40px auto;
+  margin: 30px auto 0 auto;
   justify-content: center;
-  
 }
 
 .balance {
@@ -21,14 +23,14 @@
 .balance_title {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 83px;
   height: 20px;
   color: $font-color-secondary;
   font-weight: 500;
   font-size: 12px;
+  line-height: 14px;
   letter-spacing: 0.02em;
-  align-items: center;
-  justify-content: center;
 }
 
 .balance_input {
@@ -88,7 +90,7 @@
   border-color: $accent-color-dark;
   color: $bg-main;
 }
-@media screen and (min-width: 768px) {
+@include for-size(tablet) {
   .container_balance {
     flex-wrap: nowrap;
     justify-content: center;
@@ -115,7 +117,7 @@
     border-radius: 16px;
   }
 }
-@media screen and (min-width: 1280px) {
+@include for-size(desktop) {
   .container_balance {
     width: 1060px;
     height: 44px;
@@ -129,20 +131,23 @@
   left: 20px;
   border: none;
   background-color: #f2f5fc;
-  margin-left: 80px;
+  // margin-left: 80px;
   color: rgba(82, 85, 95, 0.7);
 }
 
 .arrowSvg {
-  color:#FF751D;
+  color: #ff751d;
   width: 30px;
   height: 20px;
   margin-right: 18px;
 }
 
 .backText {
-font: normal normal 12px/14px "Roboto";
-letter-spacing: 0.04em;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font: normal normal 12px/14px "Roboto";
+  letter-spacing: 0.04em;
 }
 
 .backTextTabl {
