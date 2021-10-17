@@ -1,58 +1,40 @@
-import React, { Component } from "react";
+import { useState} from 'react';
+import classNames from 'classnames';
 import PropTypes from "prop-types";
-import Tab from "../Tab/Tab";
 
-import "./tabs.css";
+import s from "../Tabs/Tabs.module.scss";
 
-class Tabs extends Component {
-  static propTypes = {
-    children: PropTypes.instanceOf(Array).isRequired,
-  };
+export const Tabs = ({items, onChange}) => {
+  const [activeTabIdx, setActiveTabIdx] = useState(0);
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeTab: this.props.children[0].props.label,
-    };
+  const tabHandleClick = (index) => {
+    setActiveTabIdx(index);
+    onChange(items[index])
   }
 
-  onClickTabItem = (tab) => {
-    this.setState({ activeTab: tab });
-  };
-
-  render() {
-    const {
-      onClickTabItem,
-      props: { children },
-      state: { activeTab },
-    } = this;
-
-    return (
-      <div className="tabs">
-        <ol className="tabs-list">
-          {children.map((child) => {
-            const { label } = child.props;
-
-            return (
-              <Tab
-                activeTab={activeTab}
-                key={label}
-                label={label}
-                onClick={onClickTabItem}
-              />
-            );
-          })}
-        </ol>
-        <div>
-          {children.map((child) => {
-            if (child.props.label !== activeTab) return undefined;
-            return child.props.children;
-          })}
-        </div>
-      </div>
-    );
-  }
+  return (
+    <div className={s.tabs}>
+      <ul className={s.tabsList}>
+        {items.map(({label, value}, index) => (
+          <li key={index}
+              className={classNames(s.tabListItem, {[s.tabListActive]: activeTabIdx === index})}
+              onClick={() => tabHandleClick(index)}
+          >
+            {label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
+
+Tabs.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string
+  })),
+  onChange: PropTypes.func
+}
+
 
 export default Tabs;

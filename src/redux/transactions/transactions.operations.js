@@ -1,51 +1,49 @@
 import axios from "axios";
-import {
-  fetchTransactionsRequest,
-  fetchTransactionsSuccess,
-  fetchTransactionsError,
-  addTransactionRequest,
-  addTransactionSuccess,
-  addTransactionError,
-  deleteTransactionRequest,
-  deleteTransactionSuccess,
-  deleteTransactionError,
-} from "./transactions.actions";
+import queryString from 'query-string';
+import { transactionsActions } from "./index";
 
-const fetchTransactions = () => async (dispatch) => {
-  dispatch(fetchTransactionsRequest());
+export const fetchTransactions = (query) => async (dispatch) => {
+  dispatch(transactionsActions.fetchTransactionsRequest());
 
   try {
-    const { data } = await axios.get("/transactions");
-    dispatch(fetchTransactionsSuccess(data.data));
+    const { data } = await axios.get(`/transactions?${queryString.stringify(query)}`);
+    dispatch(transactionsActions.fetchTransactionsSuccess(data.data));
   } catch (error) {
-    dispatch(fetchTransactionsError(error.message));
+    dispatch(transactionsActions.fetchTransactionsError(error.message));
   }
 };
 
-const addTransaction = (transaction) => async (dispatch) => {
-  // const transaction = { description, category };
-
-  dispatch(addTransactionRequest);
+export const addTransaction = (transaction) => async (dispatch) => {
+  dispatch(transactionsActions.addTransactionRequest);
 
   try {
     const { data } = await axios.post("/transactions", transaction);
-    dispatch(addTransactionSuccess(data));
+    dispatch(transactionsActions.addTransactionSuccess(data.data));
+    dispatch(fetchSummary())
   } catch (error) {
-    dispatch(addTransactionError(error.message));
+    dispatch(transactionsActions.addTransactionError(error.message));
   }
 };
 
-const deleteTransaction = (transactionId) => async (dispatch) => {
-  dispatch(deleteTransactionRequest());
+export const deleteTransaction = (transactionId) => async (dispatch) => {
+  dispatch(transactionsActions.deleteTransactionRequest());
 
   try {
     await axios.delete(`/transactions/${transactionId}`);
-    dispatch(deleteTransactionSuccess(transactionId));
+    dispatch(transactionsActions.deleteTransactionSuccess(transactionId));
+    dispatch(fetchSummary())
   } catch (error) {
-    dispatch(deleteTransactionError(error.message));
+    dispatch(transactionsActions.deleteTransactionError(error.message));
   }
 };
 
-// const transactionsOperations = { addTransaction, deleteTransaction, fetchTransactions };
+export const fetchSummary = () => async dispatch =>{
+  dispatch(transactionsActions.transactionsSummaryRequest());
 
-export default { addTransaction, deleteTransaction, fetchTransactions };
+  try {
+    const response = await axios.get('/transactions/summary');
+    dispatch(transactionsActions.transactionsSummarySuccess(response.data.data));
+  } catch (error) {
+    dispatch(transactionsActions.transactionsSummaryError(error));
+  }
+}

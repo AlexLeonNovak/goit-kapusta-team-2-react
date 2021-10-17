@@ -3,19 +3,22 @@ import { ReactComponent as CloseIcon } from "../../images/close.svg";
 import stylesModal from "../Modal/Modal.module.scss";
 
 export default function Modal({ title, onClose, onClick }) {
+
   useEffect(() => {
+    const handleKeyDown = (evt) => {
+      if (evt.code === "Escape") {
+        onClose();
+      }
+    }
+
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [onClose]);
 
-  function handleKeyDown(evt) {
-    if (evt.code === "Escape") {
-      onClose();
-    }
-  }
+
 
   const handleBackdropClick = (evt) => {
     if (evt.target === evt.currentTarget) {
@@ -29,6 +32,7 @@ export default function Modal({ title, onClose, onClick }) {
 
   const handleButtonClickYes = () => {
     onClick();
+    onClose();
   };
 
   return (

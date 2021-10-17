@@ -1,0 +1,57 @@
+@import "../../base/sass/main.scss";
+
+.income {
+  display: none;
+  width: 320px;
+  border-radius: 30px;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
+
+  @include for-size(mobile) {
+    display: table;
+
+    margin: 60px auto;
+    width: 320px;
+  }
+
+  @include for-size(tablet) {
+    display: table;
+    margin: 60px auto;
+    width: 605px;
+  }
+
+  @include for-size(desktop) {
+  }
+}
+
+.income__head {
+  color: rgb(0, 0, 0);
+
+  @include for-size(mobile) {
+    width: 320px;
+  }
+
+  @include for-size(tablet) {
+    width: 605px;
+  }
+
+  @include for-size(desktop) {
+  }
+}
+
+th {
+  padding: 10px;
+  overflow: hidden;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  /* background-color: rgb(55, 161, 211); */
+}
+
+td {
+  border: 2px solid #f5f6fb;
+  padding: 10px;
+}
+
+/* tr:nth-child(even) {
+  background-color: rgb(219, 217, 217);
+} */

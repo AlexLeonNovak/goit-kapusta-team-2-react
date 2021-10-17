@@ -1,0 +1,45 @@
+@import "../../base/sass/main.scss";
+
+.block_expenses,
+.block_income {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
+
+  @include for-size(tablet) {
+    display: block;
+    margin: 20px;
+  }
+}
+
+.label {
+  width: 100%;
+
+  @include for-size(tablet) {
+    margin-right: 15px;
+  }
+}
+
+.expenses,
+.income {
+  width: 100%;
+}
+
+.expenses {
+  color: #e53935;
+}
+
+.income {
+  color: #407946;
+}
+
+.splitter {
+  border-left: solid 1px #e0e5eb;
+  height: 70.5px;
+  width: 1px;
+
+  @include for-size(tablet) {
+    height: 36px;
+  }
+}

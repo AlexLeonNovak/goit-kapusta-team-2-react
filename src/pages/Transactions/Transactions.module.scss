@@ -1,1 +1,38 @@
-import s from "./Header.module.scss";
+@import "../../base/sass/main.scss";
+
+.transWrapper {
+  border-radius: 0px 30px 30px 30px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
+
+.transSummWrapper {
+  display: inline-block;
+  // width: 100%;
+  text-transform: uppercase;
+  margin: 60px auto;
+
+  // width: 320px;
+  // display: flow-root;
+  // margin-top: 170px;
+  // justify-content: space-between;
+  // align-items: flex-start;
+
+  @include for-size(mobile) {
+    // display: flow-root;
+    margin-top: 60px;
+  }
+
+  @include for-size(tablet) {
+    display: inline-block;
+    margin-top: 60px;
+  }
+
+  // @include for-size(desktop) {
+  //   display: grid;
+  //   margin-top: 0;
+  //   justify-content: space-between;
+  //   align-items: flex-start;
+  // }
+
+  // width: 100%;
+}

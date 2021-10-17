@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import s from "./Dropdown.module.scss";
 
-const Dropdown = ({ id, label, options, prompt, value, onChange }) => {
+const Dropdown = ({ label, options, prompt, value, onChange }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -58,15 +58,13 @@ const Dropdown = ({ id, label, options, prompt, value, onChange }) => {
             onTouchEnd={toggle}
           />
         </div>
-        <div className={classNames(s.arrow, { [s.open]: open })}></div>
+        <div className={classNames(s.arrow, { [s.open]: open })}/>
       </div>
       <div className={classNames(s.options, { [s.open]: open })}>
         {filter(options).map((option) => (
           <div
-            key={option[id]}
-            className={classNames(s.option, value === option, {
-              [s.selected]: null,
-            })}
+            key={option._id}
+            className={classNames(s.option, value === option ? [s.selected]: null)}
             onClick={() => selectOption(option)}
             onTouchEnd={() => selectOption(option)}
           >

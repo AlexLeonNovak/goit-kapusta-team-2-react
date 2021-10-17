@@ -1,5 +1,6 @@
 import axios from 'axios';
-import * as userActions from './user.actions';
+import { userActions } from './index';
+// import { toast } from 'react-toastify';
 
 
 //axios.defaults.baseURL = 'http://localhost:3000';

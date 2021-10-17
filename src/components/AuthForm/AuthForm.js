@@ -6,6 +6,7 @@ import styles from '../AuthForm/AuthForm.module.scss';
 import logo from '../../images/logo.png';
 import { authOperations } from '../../redux/auth';
 
+
 const AuthForm = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');

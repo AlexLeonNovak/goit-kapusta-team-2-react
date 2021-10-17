@@ -1,84 +1,78 @@
-import React from "react";
 import { Bar } from "react-chartjs-2";
+import {useSelector} from 'react-redux';
+import {transactionsSelectors} from '../../redux/transactions'
+import {useEffect, useState} from 'react';
 
-import bd from "./db";
+const Chartjs = ({category}) => {
 
-const label = [];
-const prices = [];
+  const [axis, setAxis] = useState('x');
 
-function toCharData(arr) {
-  arr.forEach((item) => {
-    for (const key in item) {
-      if (key === "name") {
-        label.push(item[key]);
-      }
-      if (key === "price") {
-        prices.push(+item[key]);
-      }
-    }
-  });
-}
-
-toCharData(bd);
-
-// console.log("labels: ", label);
-// console.log("prices: ", prices);
-
-const data = {
-  labels: [...label],
-  datasets: [
-    {
-      data: [...prices],
-      backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
-      borderWidth: 0,
-    },
-  ],
-};
-
-const options = {
-  indexAxis: "",
-  barWidth: 605,
-  maxBarThickness: 38,
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-  scales: {
-    x: {
-      grid: {
+  const options = {
+    barWidth: 605,
+    maxBarThickness: 38,
+    plugins: {
+      legend: {
         display: false,
       },
     },
-  },
-  elements: {
-    bar: {
-      borderRadius: 10,
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
     },
-  },
-};
+    elements: {
+      bar: {
+        borderRadius: 10,
+      },
+    },
+  }
 
-const mediaQueryList = window.matchMedia("(max-width: 767px)");
-console.log(mediaQueryList);
 
-function handleOrientationChange(mql) {
-  mql.matches ? (options.indexAxis = "y") : (options.indexAxis = "x");
+  useEffect(() => {
+    const handleResize = () => {
+      setAxis(window.matchMedia("(max-width: 767px)").matches ? 'y' : 'x');
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
+  const transactions = useSelector(transactionsSelectors.getTransactionsByCategoryId(category));
+  // console.log(transactions);
+  const labels = [];
+  const amounts = [];
+
+  transactions.forEach(transaction => {
+    const labelIdx = labels.indexOf(transaction.description);
+    if (labelIdx !== -1) {
+      amounts[labelIdx] += transaction.amount;
+    } else {
+      labels.push(transaction.description);
+      amounts.push(transaction.amount)
+    }
+  })
+
+  const data = {
+    labels: [...labels],
+    datasets: [
+      {
+        data: [...amounts],
+        backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
+        borderWidth: 0,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <Bar data={data} options={{...options, indexAxis: axis}} />
+    </>
+  );
 }
-
-handleOrientationChange(mediaQueryList);
-
-mediaQueryList.addEventListener("change", handleOrientationChange);
-
-// if (window.matchMedia("(max-width: 767px)").matches) {
-//   options.indexAxis = "y";
-// } else {
-//   options.indexAxis = "x";
-// }
-
-const Chartjs = () => (
-  <>
-    <Bar data={data} options={options} />
-  </>
-);
 
 export default Chartjs;
