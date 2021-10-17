@@ -41,6 +41,10 @@ export const getTransactionById = id => createSelector(
 
 export const getSummary = state => state.transactions.summary;
 
+export const getYear = state => state.transactions.year;
+
+export const getMonth = state => state.transactions.month;
+
 // export const getSummaryExpense = createSelector(
 // 	[getSummary],
 // 	(transactions) => transactions.filter(transaction => )
