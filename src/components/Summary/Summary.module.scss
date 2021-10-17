@@ -1,11 +1,44 @@
-.container {
-  display: block;
+@import "../../base/sass/main.scss";
+
+
+.containerSummary {
+display: none;
+@include for-size(tablet) {
+  position: absolute;
+  left: 80px;
+  top: 800px;
+  display: inline-block;
+
   width: 230px;
   text-transform: uppercase;
   margin: 60px auto;
-}
 
-.title {
+  @include for-size(mobile) {
+    display: flow-root;
+    margin-top: 60px;
+  }
+
+  @include for-size(tablet) {
+    display: block;
+    max-width: 605px;
+    margin-top: 60px;
+  }
+
+  @include for-size(desktop) {
+    display: flex;
+    margin-top: 0;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+@include for-size(desktop) {
+  position: static;
+  display: inline-block;
+  width: 230px;
+  text-transform: uppercase;
+}
+}
+.titleSummary {
   text-align: center;
   font-weight: 700;
   padding: 10px;
@@ -15,10 +48,10 @@
   border-top-right-radius: 14px;
 }
 
-.list {
+.listSummary {
   background-color: #f4f6fb;
 }
-.list:last-child {
+.listSummary:last-child {
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
 }

@@ -11,6 +11,7 @@ import { categoriesSelectors } from "../../redux/categories";
 import s from "./TransactionForm.module.scss";
 
 import { categoryTypes } from "../../helpers/constants";
+import { toast } from 'react-toastify';
 
 export const TransactionForm = ({ type }) => {
   const dispatch = useDispatch();
@@ -68,6 +69,12 @@ export const TransactionForm = ({ type }) => {
     },
     [dispatch, datetime, description, category, amount]
   );
+  const notify = () => {
+    if (!description || !amount || !category) {
+      return toast.warning('Description, amount and category are required fields')
+    }
+    toast.success('Successful operation')
+  }
 
   return (
     <div className={s.formWrapper}>
@@ -75,7 +82,6 @@ export const TransactionForm = ({ type }) => {
         <div className={s.inputWrap}>
           <div className={s.transFormItemWrapper}>
             <DatePicker value={datetime} onChange={setDatetime} />
-
             <input
               // id={valueInputId}
               name="description"
@@ -108,7 +114,9 @@ export const TransactionForm = ({ type }) => {
             />
           </div>
           <div className={s.buttonWrapper}>
-            <button className={s.button} type="submit">
+
+            <button className={s.button} type="submit" onClick={notify}>
+
               ВВОД
             </button>
 

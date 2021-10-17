@@ -4,10 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
 import shortid from 'shortid';
 import s from '../CategoriesForm/CategoriesForm.module.scss'
+import { toast } from 'react-toastify';
 
-export default function CategoriesForm () {
-  const nameInputId = shortid.generate();
-
+const CategoriesForm = () => {
   const dispatch = useDispatch();
   const categories = useSelector(categoriesSelectors.getAllCategories);
 
@@ -65,6 +64,13 @@ export default function CategoriesForm () {
     setFilename('Загрузите логотип');
     setLogo(null);
   };
+  const notify = () => {
+    if (!name || !type) {
+      return toast.warning('Name and type are required fields')
+    }
+    toast.success('Successful operation')
+  }
+
 
   return (
     <div className={s.formWrapper}>
@@ -80,7 +86,6 @@ export default function CategoriesForm () {
               className={s.categoriesFormItem}
               onChange={handleChange}
               value={name}
-              id={nameInputId}
               name="name"
               type="text"
               label="Category name"
@@ -107,6 +112,7 @@ export default function CategoriesForm () {
           <button
             className={s.button}
             type="submit"
+            onClick={notify}
           >
             Ввод
           </button>

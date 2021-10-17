@@ -10,24 +10,30 @@ import 'swiper/components/navigation/navigation.min.css';
 import styles from './Swiper.module.scss';
 import './SwiperCustomize.scss'
 import PropTypes from 'prop-types';
+import {useState} from 'react';
 
 SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
 
-export const Swiper = ({items, onSlideChange}) => {
+export const Swiper = ({items, onSlideChange, activeIndex = 0}) => {
+
+	const [swiper, setSwiper] = useState(null);
+
 	return (
 		<div className={styles.swiperContainer}>
 			<div className={styles.swiperWrapper}>
 				<CommonSwiper
+					onImagesReady={() => swiper.slideTo(activeIndex)}
 					modules={[EffectCoverflow, Pagination, Navigation]}
 					spaceBetween={0}
 					centeredSlides={true}
-					slidesPerView={1}
+					slidesPerView="auto"
 					navigation={true}
-					onSwiper={(swiper) => console.log(swiper)}
+					onSwiper={setSwiper}
 					onSlideChange={(slide) => onSlideChange(items[slide.activeIndex])}
+
 					className={styles.swiperSlide}
 				>
-					{items.map((item) => (
+					{items && items.map((item) => (
 						<SwiperSlide key={item.value}>
 							<div className={styles.containerTitle}>
 	              <span className={styles.swiperTitle}>
@@ -47,5 +53,6 @@ Swiper.propTypes = {
 		label: PropTypes.string,
 		value: PropTypes.string
 	})),
-	onSlideChange: PropTypes.func
+	onSlideChange: PropTypes.func,
+	activeIndex: PropTypes.number
 }

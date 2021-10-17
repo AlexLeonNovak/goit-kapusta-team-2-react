@@ -41,6 +41,7 @@ function App() {
     if (isAuth) {
       dispatch(categoriesOperations.fetchCategories());
       dispatch(transactionsOperations.fetchTransactions());
+      dispatch(transactionsOperations.fetchSummary());
     }
   }, [dispatch, isAuth]);
 

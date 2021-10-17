@@ -116,7 +116,29 @@ ul {
 }
 
 .tabsList {
-  border-bottom: 1px solid #ccc;
   padding-left: 0;
+}
+
+.tabListItem {
+  /* position: absolute; */
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  width: 138px;
+  height: 40px;
+  color: #000000;
+  background-color: #F5F6FB;
+  font-weight: 700;
+  border-radius: 20px 20px 0 0;
+  cursor: pointer;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  /* margin-bottom: -1px;
+  padding: 0.5rem 0.75rem; */
+}
+
+.tabListActive {
+  background-color: #FFFFFF;
+  color: #FF751D;
 }
 /*# sourceMappingURL=Tabs.module.css.map */

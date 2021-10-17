@@ -1,26 +1,18 @@
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { useSelector} from 'react-redux';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import styles from './Summary.module.scss';
-import {transactionsSelectors, transactionsOperations} from '../../redux/transactions';
+import {transactionsSelectors} from '../../redux/transactions';
 import {categoryTypes} from '../../helpers/constants';
 
 import 'moment/locale/ru';
 
 export const Summary = ({type}) => {
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(transactionsOperations.fetchSummary())
-	}, [dispatch]);
-
-
 	const summary = useSelector(transactionsSelectors.getSummary);
-
 	return (
-		<div className={styles.container}>
-			<h4 className={styles.title}>Сводка</h4>
-			<ul className={styles.list}>
+		<div className={styles.containerSummary}>
+			<h4 className={styles.titleSummary}>Сводка</h4>
+			<ul className={styles.listSummary}>
 				{summary.map(item => (
 						<li key={`${item.year}${item.month}`} className={styles.item}>
 							<span>{moment().month(item.month - 1).format('MMMM')}</span>

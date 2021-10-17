@@ -1,43 +1,47 @@
 import { Bar } from "react-chartjs-2";
 import {useSelector} from 'react-redux';
 import {transactionsSelectors} from '../../redux/transactions'
+import {useEffect, useState} from 'react';
 
-const options = {
-  indexAxis: "",
-  barWidth: 605,
-  maxBarThickness: 38,
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-  scales: {
-    x: {
-      grid: {
+const Chartjs = ({category}) => {
+
+  const [axis, setAxis] = useState('x');
+
+  const options = {
+    barWidth: 605,
+    maxBarThickness: 38,
+    plugins: {
+      legend: {
         display: false,
       },
     },
-  },
-  elements: {
-    bar: {
-      borderRadius: 10,
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
     },
-  },
-};
-
-const mediaQueryList = window.matchMedia("(max-width: 767px)");
-console.log(mediaQueryList);
-
-function handleOrientationChange(mql) {
-  mql.matches ? (options.indexAxis = "y") : (options.indexAxis = "x");
-}
-
-handleOrientationChange(mediaQueryList);
-
-mediaQueryList.addEventListener("change", handleOrientationChange);
+    elements: {
+      bar: {
+        borderRadius: 10,
+      },
+    },
+  }
 
 
-const Chartjs = ({category}) => {
+  useEffect(() => {
+    const handleResize = () => {
+      setAxis(window.matchMedia("(max-width: 767px)").matches ? 'y' : 'x');
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
   const transactions = useSelector(transactionsSelectors.getTransactionsByCategoryId(category));
   // console.log(transactions);
   const labels = [];
@@ -66,7 +70,7 @@ const Chartjs = ({category}) => {
 
   return (
     <>
-      <Bar data={data} options={options} />
+      <Bar data={data} options={{...options, indexAxis: axis}} />
     </>
   );
 }

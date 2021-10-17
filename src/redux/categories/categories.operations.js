@@ -12,6 +12,7 @@ export const fetchCategories = () => async dispatch => {
   }
 };
 
+
 export const addCategory = ({name, type, logo}) => async (dispatch) => {
     dispatch(categoriesActions.addCategoryRequest());
 
@@ -27,6 +28,7 @@ export const addCategory = ({name, type, logo}) => async (dispatch) => {
         }
       });
       dispatch(categoriesActions.addCategorySuccess(data.data.result));
+
     } catch (error) {
       dispatch(categoriesActions.addCategoryError(error.message));
     }
