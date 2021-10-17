@@ -19,6 +19,19 @@
 		z-index: -1;
 		height: 97.8vw;
 	}
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+    background-image: url(../../base/images/desktop/kapusta.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1; 
+    height: 230px;
+		
+		
+	}
 }
 
 .container {

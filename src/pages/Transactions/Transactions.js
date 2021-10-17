@@ -33,7 +33,8 @@ const Transactions = () => {
           <TransactionForm type={currentType} />
           <div className={s.tableWrapper}>
  <TransactionTable type={currentType}/>
-    <Summary type={currentType}/>
+    
+    <div className={s.summaryWrap}><Summary type={currentType} /></div>
           </div>
    
      </div>

@@ -1,13 +1,6 @@
 @import "../../base/sass/main.scss";
 
 .transactions {
-	background-repeat: no-repeat;
-	background-size: contain;
-
-	@include for-size(tablet) {
-		//background-image: url(../../base/images/tablet/bg/bg-tablet.png);
-	}
-
 	&:before {
 		content: '';
 		position: absolute;
@@ -19,6 +12,45 @@
 		z-index: -1;
 		height: 55%;
 	}
+
+	@include for-size(tablet) {
+
+		
+  
+		&:after {
+		content: '';
+		position: absolute;
+		right: 88px;
+		
+    background-image: url(../../base/images/desktop/kapusta2.png);
+    background-repeat: no-repeat;
+    
+   z-index: -2; 
+    height: 142px;
+	width: 182px;
+		
+		
+	}
+	}
+@include for-size(desktop) {
+	
+		
+	&:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+    background-image: url(../../base/images/desktop/kapusta.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+   	z-index: -2; 
+    height: 230px;
+	width: 100%;
+		
+		
+	}
+	}
+	
 }
 .container {
 	padding-top: 37px;
@@ -29,6 +61,7 @@
 
 	@include for-size(tablet) {
 		padding-bottom: 40px;
+
 	}
 
 	@include for-size(desktop) {
@@ -69,11 +102,16 @@
 //box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 }
 
-.tableWrapper{
+.tableWrapper {
 	display: flex;
-	margin-top: 60px;
+margin-top: 60px;
 	justify-content: center;
 	padding-left: 20px;
 	padding-right: 20px;
+
+	@include for-size(desktop) {
+	display: flex;
+	
+}
 }
 

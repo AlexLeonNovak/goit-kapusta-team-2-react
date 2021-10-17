@@ -1,9 +1,23 @@
-.container {
+@import "../../base/sass/main.scss";
+
+.containerSummary {
+display: none;
+@include for-size(tablet) {
+  position: absolute;
+  left: 80px;
+  top: 800px;
+  display: inline-block;
   width: 230px;
   text-transform: uppercase;
 }
-
-.title {
+@include for-size(desktop) {
+  position: static;
+  display: inline-block;
+  width: 230px;
+  text-transform: uppercase;
+}
+}
+.titleSummary {
   text-align: center;
   font-weight: 700;
   padding: 10px;
@@ -13,10 +27,10 @@
   border-top-right-radius: 14px;
 }
 
-.list {
+.listSummary {
   background-color: #f4f6fb;
 }
-.list:last-child {
+.listSummary:last-child {
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
 }

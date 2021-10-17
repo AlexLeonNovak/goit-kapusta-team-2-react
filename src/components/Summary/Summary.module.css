@@ -1,9 +1,145 @@
-.container {
-  width: 230px;
-  text-transform: uppercase;
+@charset "UTF-8";
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
-.title {
+/* //linearGradient */
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+/* Делает картинки блочными */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Типография */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Убрать подчёркивания у ссылок */
+.link {
+  text-decoration: none;
+}
+
+/* Убрать маркировку списков */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Поинтер на кнопки */
+.button {
+  cursor: pointer;
+}
+
+/* Задаём ширину основного контейнера */
+.container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 320px) {
+  .container {
+    min-width: 320px;
+  }
+}
+
+@media (min-width: 480px) {
+  .container {
+    min-width: 480px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 768px;
+    padding-left: 51px;
+    padding-right: 51px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    min-width: 1280px;
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
+
+.dark-bg {
+  background-color: #0e0e0e;
+}
+
+.containerSummary {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .containerSummary {
+    position: absolute;
+    left: 80px;
+    top: 800px;
+    display: inline-block;
+    width: 230px;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 1280px) {
+  .containerSummary {
+    position: static;
+    display: inline-block;
+    width: 230px;
+    text-transform: uppercase;
+  }
+}
+
+.titleSummary {
   text-align: center;
   font-weight: 700;
   padding: 10px;
@@ -13,11 +149,11 @@
   border-top-right-radius: 14px;
 }
 
-.list {
+.listSummary {
   background-color: #f4f6fb;
 }
 
-.list:last-child {
+.listSummary:last-child {
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
 }
