@@ -136,13 +136,13 @@ ul {
 
 @media (min-width: 768px) {
   .inputWrap {
-    display: flex;
     margin-bottom: 30px;
   }
 }
 
 @media (min-width: 1280px) {
   .inputWrap {
+    display: flex;
     margin-bottom: 0;
     margin-right: 30px;
   }
@@ -236,9 +236,17 @@ ul {
   margin-bottom: 62px;
 }
 
+@media (min-width: 768px) {
+  .buttonWrapper {
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+}
+
 @media (min-width: 1280px) {
   .buttonWrapper {
     margin-bottom: 0;
+    margin-top: 0;
   }
 }
 
