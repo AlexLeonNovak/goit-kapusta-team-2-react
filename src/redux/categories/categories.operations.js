@@ -13,6 +13,7 @@ export const fetchCategories = () => async dispatch => {
 };
 
 const addCategory = (category) => async (dispatch) => {
+
     dispatch(categoriesActions.addCategoryRequest());
     console.log(category);
 

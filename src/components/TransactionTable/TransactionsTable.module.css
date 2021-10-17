@@ -115,79 +115,51 @@ ul {
   background-color: #0e0e0e;
 }
 
-.containerSummary {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .containerSummary {
-    position: absolute;
-    left: 80px;
-    top: 800px;
-    display: inline-block;
-    width: 230px;
-    text-transform: uppercase;
-    margin: 60px auto;
-  }
-}
-
-@media (min-width: 768px) and (min-width: 480px) {
-  .containerSummary {
-    display: flow-root;
-    margin-top: 60px;
-  }
-}
-
-@media (min-width: 768px) and (min-width: 768px) {
-  .containerSummary {
-    display: block;
-    max-width: 605px;
-    margin-top: 60px;
-  }
-}
-
-@media (min-width: 768px) and (min-width: 1280px) {
-  .containerSummary {
-    display: flex;
-    margin-top: 0;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-
-@media (min-width: 1280px) {
-  .containerSummary {
-    position: static;
-    display: inline-block;
-    width: 230px;
-    text-transform: uppercase;
-  }
-}
-
-.titleSummary {
+.income {
+  margin: 30px auto;
+  width: 500px;
   text-align: center;
-  font-weight: 700;
+  border-radius: 30px;
+  /* color: rgb(0, 0, 0); */
+  border-radius: 30px;
+  background-color: #f7f7f7;
+  box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
+}
+
+.income__head {
+  color: black;
+  /* border-radius: 30px 30px 0px 0px; */
+}
+
+th {
   padding: 10px;
-  background-color: #f4f6fb;
-  border-bottom: 1px solid white;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
+  /* opacity: 20%; */
+  overflow: hidden;
+  text-transform: uppercase;
+  color: black;
+  /* background-color: rgb(55, 161, 211); */
 }
 
-.listSummary {
-  background-color: #f4f6fb;
-}
-
-.listSummary:last-child {
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+td {
   padding: 10px;
-  border-bottom: 1px solid white;
 }
-/*# sourceMappingURL=Summary.module.css.map */
+
+/* tr:nth-child(even) {
+  background-color: rgb(219, 217, 217);
+} */
+.categoriesActionsDelete {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: #F5F6FB;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+.categoriesActionsDeleteIcon {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*# sourceMappingURL=TransactionsTable.module.css.map */

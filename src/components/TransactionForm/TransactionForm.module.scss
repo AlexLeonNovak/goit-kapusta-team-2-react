@@ -1,11 +1,16 @@
 @import "../../base/sass/main.scss";
 
-.formWrapper {
-  display: inline-block;
+
+.formWrapper{
+   
+	text-align: center;
+    height: 40px;
+	display: inline-block;
   padding-top: 20px;
   text-align: center;
-  height: 40px;
+  
   width: 100%;
+	
 }
 
 .form {
@@ -36,15 +41,15 @@
 }
 
 .inputWrap {
-  @include for-size(tablet) {
-    display: block;
-    margin-bottom: 30px;
-  }
+
+	@include for-size(tablet) {
+		display: block;
+		margin-bottom: 30px;
+	}
 
   @include for-size(desktop) {
-    display: flex;
-
-    margin-bottom: 0;
+display: flex;
+	margin-bottom: 0;
     //width: 600px;
     margin-right: 30px;
   }
@@ -128,9 +133,17 @@
 .buttonWrapper {
   margin-bottom: 62px;
 
+	@include for-size(tablet) {
+		margin-top: 30px;
+		margin-bottom: 50px;
+	}
+
   @include for-size(desktop) {
-    margin-bottom: 0;
-  }
+
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
 }
 
 .button {

@@ -115,12 +115,14 @@ ul {
   background-color: #0e0e0e;
 }
 
-.container {
+/* //linearGradient */
+.container_balance {
   display: flex;
-  background: #FFFFFF;
-  width: 100%;
-  height: 44px;
-  margin: 40px auto 30px auto;
+  flex-wrap: wrap;
+  background: inherit;
+  width: 248px;
+  height: 70px;
+  margin: 30px auto 40px auto;
   justify-content: center;
 }
 
@@ -135,13 +137,12 @@ ul {
   justify-content: center;
   width: 83px;
   height: 20px;
-  color: #52555f;
+  color: #52555F;
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.02em;
   align-items: center;
-  text-align: center;
-  margin-right: 21px;
+  justify-content: center;
 }
 
 .balance_input {
@@ -150,20 +151,20 @@ ul {
   align-items: center;
   position: relative;
   height: 44px;
-  margin-right: 15px;
 }
 
 .balance_input_zone {
   height: 100%;
   width: 125px;
   text-align: right;
-  padding-right: 55px;
+  padding-right: 45px;
   font-size: 12px;
   line-height: 14px;
   font-weight: 700;
-  border: solid 2px #ffffff;
-  border-radius: 16px;
-  background: #f2f5fc;
+  border: solid 2px #FFFFFF;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  background: inherit;
 }
 
 .balance_input_zone:focus {
@@ -175,42 +176,88 @@ ul {
   font-size: 12px;
   line-height: 14px;
   font-weight: bold;
-  right: 25px;
+  right: 15px;
   align-items: center;
 }
 
 .balance_btn {
   height: 44px;
   width: 125px;
+  padding: 0;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
-  border: solid 2px #ffffff;
-  border-radius: 16px;
+  border: solid 2px #FFFFFF;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
   background: inherit;
   cursor: pointer;
-  color: #52555f;
+  color: #52555F;
   transition: 0.2s ease-in-out;
 }
 
 .balance_btn:hover {
-  background: #ff751d;
-  border-color: #ff751d;
-  color: #ffffff;
+  background: #FF751D;
+  border-color: #FF751D;
+  color: #FFFFFF;
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .container_balance {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     width: 668px;
     height: 44px;
+  }
+  .balance_title {
+    height: 20px;
+    width: 83px;
+  }
+  .balance_input_zone {
+    border-radius: 16px;
+    margin-right: 15px;
+  }
+  .balance_input_text {
+    right: 30px;
+  }
+  .balance_btn {
+    border-radius: 16px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .container {
+  .container_balance {
     width: 1060px;
     height: 44px;
   }
+}
+
+.arrowBtn {
+  display: flex;
+  justify-content: flex-start;
+  top: 18px;
+  left: 20px;
+  border: none;
+  background-color: #f2f5fc;
+  margin-left: 80px;
+  color: rgba(82, 85, 95, 0.7);
+}
+
+.arrowSvg {
+  color: #FF751D;
+  width: 30px;
+  height: 20px;
+  margin-right: 18px;
+}
+
+.backText {
+  font: normal normal 12px/14px "Roboto";
+  letter-spacing: 0.04em;
+}
+
+.backTextTabl {
+  display: none;
 }
 /*# sourceMappingURL=Balance.module.css.map */

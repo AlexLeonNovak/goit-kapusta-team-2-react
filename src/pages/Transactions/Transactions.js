@@ -28,27 +28,37 @@ const Transactions = () => {
 
   const tabItems = [
     {
-      label: "РАСХОД",
-      value: categoryTypes.EXPENSE,
+      label: "Расход",
+      value: categoryTypes.EXPENSE
     },
     {
-      label: "ДОХОД",
-      value: categoryTypes.INCOME,
-    },
+      label: "Доход",
+      value: categoryTypes.INCOME
+    }
   ];
 
   const [currentType, setCurrentType] = useState(categoryTypes.EXPENSE);
 
   return (
-    <div className={classNames(s.container, s.transWrapper)}>
-      <Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
-      <TransactionForm type={currentType} />
-      <div className={s.transSummWrapper}>
-        <TransactionTable type={currentType} />
-        <Summary type={currentType} />
+
+    <div className={classNames(s.transactions)}>
+<div className={classNames(s.container)}>
+      <div className={classNames(s.tabs)}>
+<Tabs items={tabItems} onChange={(item) => setCurrentType(item.value)} />
       </div>
-      <ToastContainer />
+      <div className={s.formWrapper}>
+          <TransactionForm type={currentType} />
+          <div className={classNames(s.tableWrapper, s.transSummWrapper)}>
+ <TransactionTable type={currentType}/>
+    
+    <div className={s.summaryWrap}><Summary type={currentType} /></div>
+          </div>
+   <ToastContainer />
+     </div>
+      </div>
     </div>
+    
+     
   );
 };
 

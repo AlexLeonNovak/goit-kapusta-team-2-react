@@ -10,9 +10,9 @@ import 'moment/locale/ru';
 export const Summary = ({type}) => {
 	const summary = useSelector(transactionsSelectors.getSummary);
 	return (
-		<div className={styles.container}>
-			<h4 className={styles.title}>Сводка</h4>
-			<ul className={styles.list}>
+		<div className={styles.containerSummary}>
+			<h4 className={styles.titleSummary}>Сводка</h4>
+			<ul className={styles.listSummary}>
 				{summary.map(item => (
 						<li key={`${item.year}${item.month}`} className={styles.item}>
 							<span>{moment().month(item.month - 1).format('MMMM')}</span>
