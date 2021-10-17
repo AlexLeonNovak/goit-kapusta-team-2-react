@@ -1,4 +1,4 @@
-import CategoriesForm from '../../components/CategoriesForm/CategoriesForm';
+import CategoriesForm from '../../components/CategoriesForm';
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
 import s from '../Categories/Categories.module.scss'
 

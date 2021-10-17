@@ -13,7 +13,7 @@ export const fetchTransactions = () => async (dispatch) => {
 };
 
 export const addTransaction = (transaction) => async (dispatch) => {
-  dispatch(transactionsActions.addTransactionRequest);
+  dispatch(transactionsActions.addTransactionRequest());
 
   try {
     const { data } = await axios.post("/transactions", transaction);
