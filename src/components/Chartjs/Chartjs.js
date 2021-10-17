@@ -1,39 +1,6 @@
-import React from "react";
 import { Bar } from "react-chartjs-2";
-
-import bd from "./db";
-
-const label = [];
-const prices = [];
-
-function toCharData(arr) {
-  arr.forEach((item) => {
-    for (const key in item) {
-      if (key === "name") {
-        label.push(item[key]);
-      }
-      if (key === "price") {
-        prices.push(+item[key]);
-      }
-    }
-  });
-}
-
-toCharData(bd);
-
-// console.log("labels: ", label);
-// console.log("prices: ", prices);
-
-const data = {
-  labels: [...label],
-  datasets: [
-    {
-      data: [...prices],
-      backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
-      borderWidth: 0,
-    },
-  ],
-};
+import {useSelector} from 'react-redux';
+import {transactionsSelectors} from '../../redux/transactions'
 
 const options = {
   indexAxis: "",
@@ -69,16 +36,39 @@ handleOrientationChange(mediaQueryList);
 
 mediaQueryList.addEventListener("change", handleOrientationChange);
 
-// if (window.matchMedia("(max-width: 767px)").matches) {
-//   options.indexAxis = "y";
-// } else {
-//   options.indexAxis = "x";
-// }
 
-const Chartjs = () => (
-  <>
-    <Bar data={data} options={options} />
-  </>
-);
+const Chartjs = ({category}) => {
+  const transactions = useSelector(transactionsSelectors.getTransactionsByCategoryId(category));
+  // console.log(transactions);
+  const labels = [];
+  const amounts = [];
+
+  transactions.forEach(transaction => {
+    const labelIdx = labels.indexOf(transaction.description);
+    if (labelIdx !== -1) {
+      amounts[labelIdx] += transaction.amount;
+    } else {
+      labels.push(transaction.description);
+      amounts.push(transaction.amount)
+    }
+  })
+
+  const data = {
+    labels: [...labels],
+    datasets: [
+      {
+        data: [...amounts],
+        backgroundColor: ["#FF751D", "#FFDAC0", "#FFDAC0"],
+        borderWidth: 0,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <Bar data={data} options={options} />
+    </>
+  );
+}
 
 export default Chartjs;
