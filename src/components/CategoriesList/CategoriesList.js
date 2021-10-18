@@ -6,6 +6,7 @@ import { categoriesOperations, categoriesSelectors } from '../../redux/categorie
 import s from '../CategoriesList/CategoriesList.module.scss';
 import trash from '../../base/images/svg_black/trash.svg';
 import Modal from "../Modal";
+import { categoryTypes } from '../../helpers/constants';
 
 
 const CategoriesList = () => {
@@ -52,10 +53,10 @@ const CategoriesList = () => {
               </td>
               <td className={s.categoriesInfo}>
                 <span className={s.categoriesName}>{name}</span>
-                <span className={s.categoriesType}>{type}</span>
+                <span className={s.categoriesType}>{type===categoryTypes.INCOME ? 'Доход' : 'Расход'}</span>
               </td>
               <td className={s.categoriesTypeColumn}>
-                {type}
+                {type===categoryTypes.INCOME ? 'Доход' : 'Расход'}
               </td>
               <td align="center" className={s.categoriesActions}>
                 <button onClick={() => onOpenModal(_id)} className={s.categoriesActionsDelete}>

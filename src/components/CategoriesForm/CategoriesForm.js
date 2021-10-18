@@ -3,16 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
 import s from '../CategoriesForm/CategoriesForm.module.scss'
+import Dropdown from '../Dropdown/Dropdown';
+import { categoryTypes } from '../../helpers/constants';
 import { toast } from 'react-toastify';
 
 export const CategoriesForm = () => {
   const dispatch = useDispatch();
-  const categories = useSelector(categoriesSelectors.getAllCategories);
-
-  // const options = [
-  //   { value: 'income', label: 'income' },
-  //   { value: 'expense', label: 'expense' }
-  // ]
+  const categories = useSelector(categoriesSelectors.getAllCategories);  
 
   const [name, setName] = useState('');
   const [type, setType] = useState('');
@@ -20,6 +17,17 @@ export const CategoriesForm = () => {
   const [logo, setLogo] = useState(null);
 
   const onChange = e => setType(e.currentTarget.value);
+
+  const types = [
+    {
+      name: 'Доход',
+      value: categoryTypes.INCOME
+    },
+    {
+      name: 'Расход',
+      value: categoryTypes.EXPENSE
+    }
+  ]
 
   const handleChange = useCallback(e => {
     const { name, value, files } = e.currentTarget;
@@ -48,7 +56,7 @@ export const CategoriesForm = () => {
         : dispatch(
           categoriesOperations.addCategory({
             name,
-            type,
+            type: type.value,
             logo
           })
         );
@@ -92,19 +100,23 @@ export const CategoriesForm = () => {
               required
             />
 
-            <select name="select" onChange={onChange}>
-              <option value="income">income</option>
-              <option value="expense" selected>expense</option>
-            </select>
+            <Dropdown
+              label="name"
+              options={types}
+              prompt="Тип категории"
+              value={type}
+              onChange={(value) => setType(value)}
+            />
+            
           </div>
 
           <input
-              type="file"
-              name="filename"
-              id="filename"
-              className={s.customFileUploader}
-              onChange={handleChange}
-            />
+            type="file"
+            name="filename"
+            id="filename"
+            className={s.customFileUploader}
+            onChange={handleChange}
+          />
           <label htmlFor="filename">{filename}</label>
         </div>
         <div className={s.buttonWrapper}>
