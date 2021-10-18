@@ -75,6 +75,7 @@ display: flex;
 }
 
 .calc {
+position: absolute;
   display: block;
   height: 44px;
   width: 126px;
@@ -85,8 +86,15 @@ display: flex;
   font-size: 12px;
   line-height: 1.17;
   border-radius: 0 16px 16px 0;
-}
 
+  
+}
+.calcIcon{
+position: relative;
+top: 10px;
+left: 60px;
+	
+}
 .descr {
   display: block;
   height: 44px;

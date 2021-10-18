@@ -9,6 +9,7 @@ import Modal from '../Modal';
 export default function UserMenu() {
 	const dispatch = useDispatch();
 	const email = useSelector(userSelectors.getEmail);
+	const emailFirstLetter = useSelector(userSelectors.getFirstLetterOfEmail)
 
 	const [showModal, setShowModal] = useState(false)
 
@@ -22,12 +23,13 @@ export default function UserMenu() {
 	const onOpenModal = () => {
 		setShowModal(true)
 	};
-
-
+	
+	//const shortName = email.toString().charAt(0);
+	//console.log(email[0]);
 	return (
 		<div className={s.userMenu}>
-			<img src={defaultAvatar} alt="" width="32" className={s.avatar}/>
-			<span className={s.name}> Привет, {email}</span>
+			<span className={s.avatar}>{emailFirstLetter}</span>
+			<span className={s.name}> {email}</span>
 			<span className={s.line}/>
 
 			<button

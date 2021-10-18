@@ -1,12 +1,121 @@
+@charset "UTF-8";
+.hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+/* //linearGradient */
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+/* Делает картинки блочными */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Типография */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
+/* Убрать подчёркивания у ссылок */
+.link {
+  text-decoration: none;
+}
+
+/* Убрать маркировку списков */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Поинтер на кнопки */
+.button {
+  cursor: pointer;
+}
+
+/* Задаём ширину основного контейнера */
 .container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 320px) {
+  .container {
+    min-width: 320px;
+  }
+}
+
+@media (min-width: 480px) {
+  .container {
+    min-width: 480px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 768px;
+    padding-left: 51px;
+    padding-right: 51px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    min-width: 1280px;
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
+
+.dark-bg {
+  background-color: #0e0e0e;
+}
+
+.categoriesListContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,22 +124,29 @@
   margin: 20px auto;
 }
 
-.container_ul {
+.categoriesList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.container_item {
-  display: block;
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  width: 106px;
-  height: 84px;
+  width: 84px;
   margin: 3px;
-  border-radius: 10px;
-  box-shadow: 0 0 14px 4px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
   list-style: none;
-  /* border: solid 1px #000; */
+}
+
+.categoryItem:hover .categoryLogoWrapper:before, .categoryItem:focus .categoryLogoWrapper:before, .categoryItem.active .categoryLogoWrapper:before {
+  background-color: #FFDAC0;
+}
+
+.categoryItem:hover .categoryLogo, .categoryItem:focus .categoryLogo, .categoryItem.active .categoryLogo {
+  fill: #FF751D;
 }
 
 .container_item_txt {
@@ -40,12 +156,28 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .categoriesListContainer {
     width: 613px;
   }
-  .container_item {
-    width: 106px;
-    height: 84px;
-  }
+}
+
+.categoryLogoWrapper {
+  position: relative;
+}
+
+.categoryLogoWrapper:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 59px;
+  height: 46px;
+  background: #F5F6FB;
+  border-radius: 20px;
+}
+
+.categoryLogo {
+  width: 56px;
+  position: inherit;
 }
 /*# sourceMappingURL=Accounting.module.css.map */

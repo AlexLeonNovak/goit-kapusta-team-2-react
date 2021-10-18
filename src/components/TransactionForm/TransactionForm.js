@@ -9,6 +9,7 @@ import { transactionsOperations } from "../../redux/transactions";
 import { categoriesSelectors } from "../../redux/categories";
 
 import s from "./TransactionForm.module.scss";
+import sprite from '../../base/images/sprite.svg';
 
 import { categoryTypes } from "../../helpers/constants";
 import { toast } from 'react-toastify';
@@ -100,7 +101,7 @@ export const TransactionForm = ({ type }) => {
               value={category}
               onChange={(value) => setCategory(value)}
             />
-
+            <div>
             <input
               value={amount}
               name="amount"
@@ -112,6 +113,14 @@ export const TransactionForm = ({ type }) => {
               onChange={handleChange}
               className={s.calc}
             />
+            <span>
+              <svg width="20" height="20" className={s.calcIcon}>
+							<use href={sprite + '#icon-calculator'}/>
+						</svg>
+            </span>  
+</div>
+
+            
           </div>
           <div className={s.buttonWrapper}>
 

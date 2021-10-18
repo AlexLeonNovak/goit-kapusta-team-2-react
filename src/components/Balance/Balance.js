@@ -31,24 +31,14 @@ const Balance = () => {
     history.push("/");
   };
 
-  // const notify = () => {
-  //   if (!balance || balance === "0") {
-  //     return toast.warning("Balance not entered");
-  //   }
-  //   toast.success("Balance entered");
-  // };
 
-  {
-    /* <button
-          className={styles.arrowBtn}
-          type="button"
-          onClick={handleClickBack}
-        >
-          <Arrow className={styles.arrowSvg} />
-          <p className={styles.backText}>Вернуться на главную</p>
-        </button> */
+  const notify = () => {
+    if (!balance || balance === "0") {
+      return toast.warning('Balance not entered')
+    }
+    toast.success('Balance entered')
   }
-
+ 
   return (
     <div className={styles.container_balance}>
       <span className={styles.balance_title}>Баланс:</span>
