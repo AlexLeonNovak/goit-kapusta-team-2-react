@@ -155,7 +155,7 @@ display: block;
   @include for-size(tablet) {
 	  display: block;
     margin-top: 30px;
-    margin-bottom: 50px;
+    //margin-bottom: 50px;
   }
 
   @include for-size(desktop) {
