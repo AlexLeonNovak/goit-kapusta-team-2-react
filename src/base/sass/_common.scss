@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif; 
+  font-family: "Roboto", sans-serif;
 }
 
 *,
@@ -14,10 +14,9 @@ address {
 }
 
 body {
- 
   margin: 0px;
   padding: 0px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   line-height: 1.17;
 }
@@ -69,7 +68,6 @@ ul {
  
   padding-left: 20px;
   padding-right: 20px;
-  
 
   @include for-size(minmobile) {
     min-width: 320px;
@@ -89,6 +87,6 @@ ul {
     min-width: 1280px;
     padding-left: 110px;
     padding-right: 110px;
+    overflow: hidden;
   }
 }
-
