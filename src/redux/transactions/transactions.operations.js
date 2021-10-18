@@ -1,11 +1,12 @@
 import axios from "axios";
+import queryString from 'query-string';
 import { transactionsActions } from "./index";
 
-export const fetchTransactions = () => async (dispatch) => {
+export const fetchTransactions = (query) => async (dispatch) => {
   dispatch(transactionsActions.fetchTransactionsRequest());
 
   try {
-    const { data } = await axios.get("/transactions");
+    const { data } = await axios.get(`/transactions?${queryString.stringify(query)}`);
     dispatch(transactionsActions.fetchTransactionsSuccess(data.data));
   } catch (error) {
     dispatch(transactionsActions.fetchTransactionsError(error.message));
@@ -13,7 +14,7 @@ export const fetchTransactions = () => async (dispatch) => {
 };
 
 export const addTransaction = (transaction) => async (dispatch) => {
-  dispatch(transactionsActions.addTransactionRequest);
+  dispatch(transactionsActions.addTransactionRequest());
 
   try {
     const { data } = await axios.post("/transactions", transaction);

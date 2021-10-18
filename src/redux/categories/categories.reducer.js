@@ -4,9 +4,9 @@ import * as categoriesActions from './categories.actions';
 
 const items = createReducer([], {
   [categoriesActions.fetchCategorySuccess]: (_, { payload }) => payload,
-  [categoriesActions.addCategorySuccess]: (state, { payload }) => [...state, payload],
+  [categoriesActions.addCategorySuccess]: (state, { payload }) => [payload, ...state],
   [categoriesActions.deleteCategorySuccess]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+    state.filter(({ _id }) => _id !== payload),
 });
 
 const isLoadingAction = action => action.type.endsWith('Request');

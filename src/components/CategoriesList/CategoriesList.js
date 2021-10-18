@@ -18,6 +18,7 @@ const CategoriesList = () => {
     setShowModal(!showModal);
     setId("");
   };
+  
   const onOpenModal = (id) => {
     setShowModal(true);
     setId(id);

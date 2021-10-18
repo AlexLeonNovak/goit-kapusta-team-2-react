@@ -150,6 +150,12 @@
   cursor: pointer;
   border-radius: 50%;
   transition: 350ms;
+
+	cursor: pointer;
+
+	&:hover {
+		background-color: rgb(255, 101, 101);
+
 }
 
 .categoriesActionsDeleteIcon {

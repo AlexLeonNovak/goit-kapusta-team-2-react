@@ -115,79 +115,54 @@ ul {
   background-color: #0e0e0e;
 }
 
-.containerSummary {
-  display: none;
+.block_expenses,
+.block_income {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
-  .containerSummary {
-    position: absolute;
-    left: 80px;
-    top: 800px;
-    display: inline-block;
-    width: 230px;
-    text-transform: uppercase;
-    margin: 60px auto;
-  }
-}
-
-@media (min-width: 768px) and (min-width: 480px) {
-  .containerSummary {
-    display: flow-root;
-    margin-top: 60px;
-  }
-}
-
-@media (min-width: 768px) and (min-width: 768px) {
-  .containerSummary {
+  .block_expenses,
+  .block_income {
     display: block;
-    max-width: 605px;
-    margin-top: 60px;
+    margin: 20px;
   }
 }
 
-@media (min-width: 768px) and (min-width: 1280px) {
-  .containerSummary {
-    display: flex;
-    margin-top: 0;
-    justify-content: space-between;
-    align-items: flex-start;
+.label {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .label {
+    margin-right: 15px;
   }
 }
 
-@media (min-width: 1280px) {
-  .containerSummary {
-    position: static;
-    display: inline-block;
-    width: 230px;
-    text-transform: uppercase;
+.expenses,
+.income {
+  width: 100%;
+}
+
+.expenses {
+  color: #e53935;
+}
+
+.income {
+  color: #407946;
+}
+
+.splitter {
+  border-left: solid 1px #e0e5eb;
+  height: 70.5px;
+  width: 1px;
+}
+
+@media (min-width: 768px) {
+  .splitter {
+    height: 36px;
   }
 }
-
-.titleSummary {
-  text-align: center;
-  font-weight: 700;
-  padding: 10px;
-  background-color: #f4f6fb;
-  border-bottom: 1px solid white;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-}
-
-.listSummary {
-  background-color: #f4f6fb;
-}
-
-.listSummary:last-child {
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid white;
-}
-/*# sourceMappingURL=Summary.module.css.map */
+/*# sourceMappingURL=TotalTransactionsSum.module.css.map */
