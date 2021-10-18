@@ -1,14 +1,12 @@
-import React, { useCallback, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import classNames from "classnames";
+import React, { useCallback, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames'
 
-import {
-  categoriesOperations,
-  categoriesSelectors,
-} from "../../redux/categories";
-import s from "../CategoriesList/CategoriesList.module.scss";
-import trash from "../../base/images/svg_black/trash.svg";
+import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
+import s from '../CategoriesList/CategoriesList.module.scss';
+import trash from '../../base/images/svg_black/trash.svg';
 import Modal from "../Modal";
+
 
 const CategoriesList = () => {
   const dispatch = useDispatch();
@@ -20,7 +18,7 @@ const CategoriesList = () => {
     setShowModal(!showModal);
     setId("");
   };
-
+  
   const onOpenModal = (id) => {
     setShowModal(true);
     setId(id);
@@ -29,10 +27,10 @@ const CategoriesList = () => {
   const API_URL = `${process.env.REACT_APP_API_URL}/`;
 
   const onDeleteContact = useCallback(
-    (id) => {
+    id => {
       dispatch(categoriesOperations.deleteCategory(id));
     },
-    [dispatch]
+    [dispatch],
   );
 
   return (
@@ -41,19 +39,8 @@ const CategoriesList = () => {
         <thead className={s.categoriesHead}>
           <tr className={s.categoriesHeadList}>
             <th className={s.categoriesHeadItem}>Лого</th>
-            <th
-              className={classNames(
-                s.categoriesHeadItem,
-                s.categoriesHeadItemName
-              )}
-            >
-              Название
-            </th>
-            <th
-              className={classNames(s.categoriesHeadItem, s.categoriesHeadType)}
-            >
-              Тип
-            </th>
+            <th className={classNames(s.categoriesHeadItem, s.categoriesHeadItemName)}>Название</th>
+            <th className={classNames(s.categoriesHeadItem, s.categoriesHeadType)}>Тип</th>
             <th />
           </tr>
         </thead>
@@ -61,29 +48,18 @@ const CategoriesList = () => {
           {categories.map(({ _id, name, type, logo }) => (
             <tr key={_id} className={s.categoriesList}>
               <td className={s.categoriesLogo}>
-                <img
-                  src={API_URL + logo}
-                  alt='logo'
-                  className={s.categoriesImg}
-                />
+                <img src={API_URL + logo} alt="logo" className={s.categoriesImg} />
               </td>
               <td className={s.categoriesInfo}>
                 <span className={s.categoriesName}>{name}</span>
                 <span className={s.categoriesType}>{type}</span>
               </td>
               <td className={s.categoriesTypeColumn}>
-                {type === "expense" ? "расходы" : "доход"}
+              {type === "expense" ? "расходы" : "доход"}
               </td>
-              <td align='center' className={s.categoriesActions}>
-                <button
-                  onClick={() => onOpenModal(_id)}
-                  className={s.categoriesActionsDelete}
-                >
-                  <img
-                    src={trash}
-                    alt='Delete'
-                    className={s.categoriesActionsDeleteIcon}
-                  />
+              <td align="center" className={s.categoriesActions}>
+                <button onClick={() => onOpenModal(_id)} className={s.categoriesActionsDelete}>
+                  <img src={trash} alt="Delete" className={s.categoriesActionsDeleteIcon} />
                 </button>
               </td>
             </tr>
@@ -101,5 +77,5 @@ const CategoriesList = () => {
     </div>
   );
 };
-
+ 
 export default CategoriesList;
