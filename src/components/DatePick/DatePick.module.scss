@@ -1,5 +1,5 @@
 .customInput {
-  display: block;
+  display: inline-block;
   border: 0;
   color: var(--text-dark);
   font-size: 11px;
@@ -7,7 +7,7 @@
   height: 25px;
   caret-color: rgba(0, 0, 0, 0);
   width: 90px;
-  background-image: url('../../images/calendar.png');
+  background-image: url("../../images/calendar.png");
   background-position: 0px 0px;
   padding-left: 25px;
   background-repeat: no-repeat;
@@ -17,6 +17,11 @@
 .customInput:active {
   border: none;
   border-color: black;
+}
+
+.datepicker {
+  margin: auto;
+  margin-right: 23px;
 }
 
 @media screen and (min-width: 768px) {
