@@ -8,10 +8,15 @@
 }
 
 .avatar {
+  color:$font-color-secondary;
+  font-size: 12px;
+  align-content: center;
+  text-align: center;
+  padding: 9px 12px 9px 12px;
   height: 32px;
   width: 32px;
   margin: 10px;
-  background-color: $accent-color-dark;
+  background-color: $bg-second;
   border-radius: 50%;
 
 }

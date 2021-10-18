@@ -10,6 +10,7 @@
   overflow: hidden;
 }
 
+/* //linearGradient */
 html {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
@@ -114,88 +115,7 @@ ul {
   background-color: #0e0e0e;
 }
 
-.categories {
-  background-repeat: no-repeat;
-  background-size: contain;
+.swiper-button-next, .swiper-button-prev {
+  color: #FF751D;
 }
-
-.categories:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #f5f6fb;
-  border-bottom-left-radius: 150px;
-  z-index: -1;
-  height: 55%;
-}
-
-.categories:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-image: url(../../base/images/desktop/kapusta.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-  height: 230px;
-}
-
-.dataline {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  height: 85px;
-  width: 282px;
-  border: solid 1px #ffffff;
-  background: #ffffff;
-  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
-  border-radius: 20px;
-  margin: 15px auto;
-}
-
-.expencesBlock {
-  width: 100%;
-  height: auto;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 30px;
-  background: #ffffff;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-}
-
-.chartBlock {
-  width: 100%;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .dataline {
-    justify-content: center;
-    flex-flow: row nowrap;
-    height: 50px;
-    width: 668px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 30px;
-  }
-  .expencesBlock {
-    width: 666px;
-  }
-  .chartBlock {
-    width: 605px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .dataline {
-    height: 50px;
-    width: 1060px;
-  }
-  .expencesBlock {
-    width: 1060px;
-  }
-}
-/*# sourceMappingURL=Report.module.css.map */
+/*# sourceMappingURL=SwiperCustomize.css.map */

@@ -43,10 +43,10 @@ const Balance = () => {
   
   return (
     <div className={styles.container_balance}>
-      <span className={styles.balance_title}>Баланс:</span>
+  
       <form className={styles.balance} onSubmit={onSubmit}>
 
-         <button
+        { } <button
           className={styles.arrowBtn}
           type="button"
           onClick={handleClickBack}
