@@ -2,6 +2,7 @@
 
 .dropdown {
 
+
 display: none;
   @include for-size(tablet) {
     display: block;
@@ -9,6 +10,7 @@ display: none;
   color: $bg-second;
   cursor: default;
   }
+
 
   @include for-size(mobile) {
     width: 100%;
