@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import classNames from "classnames";
-import s from "./Dropdown.module.scss";
+import s from "./Dropdown.scss";
 
 const Dropdown = ({ label, options, prompt, value, onChange }) => {
   const [open, setOpen] = useState(false);
@@ -35,17 +35,19 @@ const Dropdown = ({ label, options, prompt, value, onChange }) => {
     return "";
   }
 
-  function selectOption(option) {
+  function selectOption(e, option) {
+    e.preventDefault();
     setQuery("");
     onChange(option);
     setOpen(false);
   }
 
   return (
-    <div className={s.dropdown}>
-      <div className={s.control}>
-        <div className={s.selectedValue}>
+    <div className='dropdown'>
+      <div className='control'>
+        <div className='selectedValue'>
           <input
+            className='dropdownInput'
             type="text"
             ref={ref}
             placeholder={value ? value[label] : prompt}
@@ -58,15 +60,15 @@ const Dropdown = ({ label, options, prompt, value, onChange }) => {
             onTouchEnd={toggle}
           />
         </div>
-        <div className={classNames(s.arrow, { [s.open]: open })}/>
+        <div className={classNames('arrow', { 'open': open })}/>
       </div>
-      <div className={classNames(s.options, { [s.open]: open })}>
+      <div className={classNames('options', { 'open': open })}>
         {filter(options).map((option) => (
           <div
             key={option._id}
-            className={classNames(s.option, value === option ? [s.selected]: null)}
-            onClick={() => selectOption(option)}
-            onTouchEnd={() => selectOption(option)}
+            className={classNames('option', value === option ? 'selected': null)}
+            onClick={(e) => selectOption(e, option)}
+            onTouchEnd={(e) => selectOption(e, option)}
           >
             {option[label]}
           </div>
