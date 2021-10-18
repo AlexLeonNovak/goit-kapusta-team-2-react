@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Hi everyone. This is a training project of the team №2 `KAPUSTA`.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[https://goit-kapusta-team-2-react.herokuapp.com]
 
-## Available Scripts
+## Our task was to create a working web application for calculating income / expenses and provide you with a convenient report on the movement of money.
 
-In the project directory, you can run:
+And also to unite all our knowledge received for a year, to adjust communication in a team and to create the real, working project.
 
-### `npm start`
+## Technologies we used:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React;
+- redux;
+- JS
+- axios;
+- API;
+- HTML/CSS;
+- SASS;
+- Swiper;
+- reduxjs/toolkit;
+- node.js;
+- MongoDB;
+- Postman;
+- ...and other
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Link to the repository of the frontend part
 
-### `npm test`
+[https://github.com/AlexLeonNovak/goit-kapusta-team-2-react]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Link to the repository of the backend part
 
-### `npm run build`
+[https://github.com/AlexLeonNovak/goit-kapusta-team-2-api]
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Our team:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### \*Alexander Novak - `Team Lider`, engaged in debugging and resolving conflicts when merging branches, implemented the basic structure of the project, in the backend worked on authorization, authorization through Google, database creation and working API, as well as from the frontend implemented database connections and implemented graphs of transaction reports.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[https://www.linkedin.com/in/alexleonnovak/]
 
-### `npm run eject`
+### \*Iryna Dagli - `Scrum Master`, created a board on the Trello with the corresponding task cards, engaged in team communication, was responsible forregular stand-up meeting, created basic styles for the application, implemented the logic of registration, login and logout.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[https://www.linkedin.com/in/iryna-dagli-56796497/]
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### \* Evgeniya Obernikhina - realized the layout of the background for all pages, the layout of the login window, implemented the function of registration / login, implemented the logic of returning the user to the main page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[]
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### \* Tatiana Grogol - was engaged in the implementation of transaction logic on the backend, realized: endpoint of adding categories, endpoint of registration, login and logout, endpoint of income / expenditure, on the frontend was engaged in the implementation of a universal modal window and the implementation of transactions.
 
-## Learn More
+[https://www.linkedin.com/in/тетяна-татула-052983211]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### \* Alexandr Herasymenko - implemented the page of the category, its stylization, display in the table of addition / removal of the data is realized, logic of buttons of deletion of categories and transactions is realized and also logic of transition by the button to the section of expenses is realized.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[https://www.linkedin.com/in/alexandr-herasymenko-8409a013b/]
 
-### Code Splitting
+### \* Dmytro Filius - on the backend was engaged in the implementation of the user balance endpoint and its update on the first use, implemented the transaction delete endpoint, on the front implemented the sorting of categories to the corresponding transactions in the drop-down menu and table and added notification.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[www.linkedin.com/in/dmitry-filius]
 
-### Analyzing the Bundle Size
+### \* Volodymyr Viter - on the frontend was engaged in the page of transactions and its adaptive stylization, implemented logic of entering of transactions in the table with the corresponding categories, added the calendar for check of archive of transactions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[https://www.linkedin.com/in/viterd/]
 
-### Making a Progressive Web App
+### \* Vitaliy Mamchur - on the frontend was engaged in the implementation of the display of the user's balance on the page and its stylization, implemented a modal window with zero balance, as well as implemented a reporting page displaying the relevant graphs to the categories.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[]
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# We wish everyone inspiration and clean code 😀
