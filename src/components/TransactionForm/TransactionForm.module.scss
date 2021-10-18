@@ -75,7 +75,7 @@ display: flex;
 }
 
 .calc {
-position: relative;
+position: absolute;
   display: block;
   height: 44px;
   width: 126px;
@@ -86,21 +86,15 @@ position: relative;
   font-size: 12px;
   line-height: 1.17;
   border-radius: 0 16px 16px 0;
-//   &::after{
-// 	 content: '';
-// 	position: absolute;
-// 	right: 20px;
-// 	left:0;	
-//     background-image: url(../../base/images/svg_color/calculator.svg);
-//     background-repeat: no-repeat;
-    
-//   z-index: 2;
-//     height: 20px;
-// 	width: 30px; 
- // }
 
+  
 }
-
+.calcIcon{
+position: relative;
+top: 10px;
+left: 60px;
+	
+}
 .descr {
   display: block;
   height: 44px;

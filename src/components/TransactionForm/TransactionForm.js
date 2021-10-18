@@ -101,7 +101,7 @@ export const TransactionForm = ({ type }) => {
               value={category}
               onChange={(value) => setCategory(value)}
             />
-
+            <div>
             <input
               value={amount}
               name="amount"
@@ -114,10 +114,13 @@ export const TransactionForm = ({ type }) => {
               className={s.calc}
             />
             <span>
-              <svg width="30" height="30" className={s.closeImg}>
+              <svg width="20" height="20" className={s.calcIcon}>
 							<use href={sprite + '#icon-calculator'}/>
 						</svg>
-            </span>
+            </span>  
+</div>
+
+            
           </div>
           <div className={s.buttonWrapper}>
 
