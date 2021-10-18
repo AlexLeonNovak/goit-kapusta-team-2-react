@@ -93,8 +93,8 @@ export const CategoriesForm = () => {
             />
 
             <select name="select" onChange={onChange}>
-              <option value="income">income</option>
-              <option value="expense" selected>expense</option>
+              <option value="income">доход</option>
+              <option value="expense" selected>расход</option>
             </select>
           </div>
 
