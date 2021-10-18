@@ -1,13 +1,14 @@
 @import "../../base/sass/main.scss";
+
 .form {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 
-  @include for-size(desktop) {
-    flex-direction: row;
-    margin-bottom: 60px;
-    justify-content: center;
+	@include for-size(desktop) {
+		flex-direction: row;
+		margin-bottom: 60px;
+		justify-content: center;
 	}
 }
 
@@ -17,10 +18,10 @@
 		margin-bottom: 30px;
 	}
 
-  @include for-size(desktop) {
+	@include for-size(desktop) {
 		margin-bottom: 0;
-    width: 600px;
-    margin-right: 30px;
+		width: 600px;
+		margin-right: 30px;
 	}
 }
 
@@ -49,7 +50,7 @@
 	line-height: 1.17;
 
 	&::placeholder {
-		color: #C7CCDC;
+		color: #c7ccdc;
 	}
 
 	@include for-size(mobile) {
@@ -108,11 +109,11 @@
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 30px;
-  background-color: #fff;
+	background-color: #fff;
 	border: 2px solid #ffffff;
 	border-radius: 22px;
 	cursor: pointer;
-	color: #C7CCDC;
+	color: #c7ccdc;
 
 	@include for-size(mobile) {
 		border: 2px solid #f6f7fc;
@@ -132,7 +133,7 @@
 
 .customFileUploader:focus + label,
 .customFileUploader + label:hover {
-    background-color: #F5F6FB;
+	background-color: #f5f6fb;
 }
 
 .customFileUploader:focus + label {
@@ -143,7 +144,7 @@
 .buttonWrapper {
 	margin-bottom: 62px;
 
-  @include for-size(desktop) {
+	@include for-size(desktop) {
 		margin-bottom: 0;
 	}
 }
