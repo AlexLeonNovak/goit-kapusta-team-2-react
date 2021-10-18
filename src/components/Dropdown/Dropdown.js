@@ -35,7 +35,8 @@ const Dropdown = ({ label, options, prompt, value, onChange }) => {
     return "";
   }
 
-  function selectOption(option) {
+  function selectOption(e, option) {
+    e.preventDefault();
     setQuery("");
     onChange(option);
     setOpen(false);
@@ -66,8 +67,8 @@ const Dropdown = ({ label, options, prompt, value, onChange }) => {
           <div
             key={option._id}
             className={classNames('option', value === option ? 'selected': null)}
-            onClick={() => selectOption(option)}
-            onTouchEnd={() => selectOption(option)}
+            onClick={(e) => selectOption(e, option)}
+            onTouchEnd={(e) => selectOption(e, option)}
           >
             {option[label]}
           </div>
