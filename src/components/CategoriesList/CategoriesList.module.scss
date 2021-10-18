@@ -139,23 +139,15 @@
   width: 32px;
   height: 32px;
   border: none;
-  background-color: #ffffff;
+  background-color: $bg-main;
   border-radius: 50%;
   margin-left: auto;
   transition: 350ms;
-}
-
-.categoriesActionsDelete:hover {
-  background-color: #f5f6fb;
   cursor: pointer;
-  border-radius: 50%;
-  transition: 350ms;
 
-	cursor: pointer;
-
-	&:hover {
-		background-color: rgb(255, 101, 101);
-
+  &:hover {
+    background-color: $bg-second;
+  }
 }
 
 .categoriesActionsDeleteIcon {
@@ -165,5 +157,5 @@
   margin-right: auto;
 }
 
-.categoriesActionsDeleteIcon:hover {
-}
+//.categoriesActionsDeleteIcon:hover {
+//}
