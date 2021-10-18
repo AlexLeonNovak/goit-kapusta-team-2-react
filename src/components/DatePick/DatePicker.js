@@ -9,12 +9,14 @@ const DatePick = ({ value, onChange }) => {
   const a = <input className={styles.customInput} />;
 
   return (
-    <DatePicker
-      selected={value}
-      onChange={onChange}
-      dateFormat="dd.MM.yyyy"
-      customInput={a}
-    />
+    <div className={styles.datepicker}>
+      <DatePicker
+        selected={value}
+        onChange={onChange}
+        dateFormat="dd.MM.yyyy"
+        customInput={a}
+      />
+    </div>
   );
 };
 
