@@ -92,7 +92,7 @@ export const CategoriesForm = () => {
               required
             />
 
-            <select name="select" onChange={onChange}>
+            <select name="select" onChange={onChange} className={s.categoriesFormItem}>
               <option value="income">доход</option>
               <option value="expense" selected>расход</option>
             </select>
