@@ -8,7 +8,7 @@ import styles from "./Balance.module.scss";
 
 import { toast } from "react-toastify";
 
-const Balance = () => {
+const Balance = ({isHiddenButton = false}) => {
   const dispatch = useDispatch();
   const currentBalance = useSelector(userSelectors.getBalance);
   const history = useHistory();
@@ -56,6 +56,7 @@ const Balance = () => {
           {!currentBalance && <Popover />}
           <span className={styles.balance_input_text}>UAH</span>
         </div>
+        {!isHiddenButton &&
         <div>
           <button
             id="Popover1"
@@ -65,7 +66,7 @@ const Balance = () => {
           >
             Подтвердить
           </button>
-        </div>
+        </div>}        
       </form>
     </div>
   );

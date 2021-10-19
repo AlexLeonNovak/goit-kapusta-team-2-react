@@ -1,0 +1,51 @@
+@import "../../base/sass/main.scss";
+@import '../../base/sass/utils/placeholder';
+
+.LinkToTransactionsWrapper {
+	margin-bottom: 10px;
+
+  @include for-size(tablet) {
+    margin-bottom: 0;
+  }
+
+  @include for-size(desktop) {
+    flex-basis: 33%;
+  }
+}
+
+.LinkToTransactions {
+	display: inline-flex;
+  align-items: center;
+  justify-content: center;
+	text-decoration: none;
+	letter-spacing: 0.04em;
+	color: rgba(82, 85, 95, 0.7);
+
+  &:hover, 
+  &:focus {
+    color: royalblue;
+    @extend %animation;   
+  }
+
+  &:hover .LinkToTransactionsIcon,
+  &:focus .LinkToTransactionsIcon {
+    fill: royalblue;
+    @extend %animation;
+  }
+}
+
+.LinkToTransactionsText {
+  display: none;
+
+  @include for-size(tablet) {
+    margin-right: 20px;
+    width: 135px;
+    display: block;
+  }
+}
+
+.LinkToTransactionsIcon {
+	width: 24px;
+	height: 24px;
+  fill: #52555F;
+}
