@@ -8,6 +8,7 @@ import {
 } from '../../redux/transactions';
 
 import s from './TransactionTable.module.scss';
+import classNames from 'classnames';
 
 import trash from '../../base/images/svg_black/trash.svg';
 import {categoryTypes} from '../../helpers/constants';
@@ -61,15 +62,16 @@ export const TransactionTable = ({type}) => {
 				</tr>
 				</thead>
 
-				<tbody>
+        <tbody className={ s.tBody}>
 				{transactions.map(
 					({_id, datetime, description, category, amount}) => (
 						<tr key={_id}>
 							<td>{moment(datetime).format('DD.MM.YYYY')}</td>
 							<td>{description}</td>
 							<td>{category.name}</td>
-							<td>
-								{type === categoryTypes.EXPENSE && '-'}
+              <td className={classNames(categoryTypes.EXPENSE ? s.expense : s.in)}>
+	
+                {type === categoryTypes.EXPENSE && '-'}
 								{amount}
 							</td>
 							<td align="center" className={s.categoriesActions}>

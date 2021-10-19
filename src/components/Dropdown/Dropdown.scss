@@ -1,9 +1,16 @@
 @import "../../base/sass/main.scss";
 
 .dropdown {
+
+
+display: none;
+  @include for-size(tablet) {
+    display: block;
   position: relative;
   color: $bg-second;
   cursor: default;
+  }
+
 
   @include for-size(mobile) {
     width: 100%;
