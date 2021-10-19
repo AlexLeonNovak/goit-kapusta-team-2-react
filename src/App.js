@@ -1,27 +1,27 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Switch, Redirect } from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
 import { authSelectors } from "./redux/auth";
 import { userOperations } from "./redux/user";
 
-
 import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
 import { Loader } from "./components/Loader";
-import {categoriesOperations} from './redux/categories';
-import { transactionsOperations } from './redux/transactions';
-import Balance from './components/Balance';
-
+import { categoriesOperations } from "./redux/categories";
+import { transactionsOperations } from "./redux/transactions";
+// import Balance from './components/Balance';
 
 const Auth = lazy(() =>
   import("./pages/Auth/Auth" /* webpackChunkName: "auth" */)
 );
 
 const Transactions = lazy(() =>
-  import("./pages/Transactions/Transactions" /* webpackChunkName: "transactions" */)
+  import(
+    "./pages/Transactions/Transactions" /* webpackChunkName: "transactions" */
+  )
 );
 
 const Categories = lazy(() =>
@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       <AppBar />
-      {isAuth && <Balance />}
+      {/* {isAuth && <Balance />} */}
       <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute exact path="/">
@@ -72,7 +72,7 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute path={routes.report} redirectTo={routes.auth}>
-            <Report />
+            <Report isHiddenBtn={true} />
           </PrivateRoute>
         </Switch>
       </Suspense>

@@ -1,0 +1,34 @@
+@import "../../base/sass/main.scss";
+@import "../../base/sass/utils/variables";
+
+.arrowBtn {
+  // display: flex;
+  // justify-content: flex-start;
+  // align-items: center;
+  display: flex;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: rgba(82, 85, 95, 0.7);
+}
+
+.backText {
+  opacity: 0;
+  @include for-size(tablet) {
+    opacity: 1;
+
+    font: normal normal 12px/14px "Roboto";
+    letter-spacing: 0.04em;
+  }
+}
+
+.arrowSvg {
+  color: #ff751d;
+  width: 30px;
+  height: 20px;
+  margin: 15px 10px 0 0;
+  cursor: pointer;
+  @include for-size(tablet) {
+    margin-top: 0;
+  }
+}

@@ -1,5 +1,7 @@
 @import "../../base/sass/main.scss";
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   color: $accent-color-dark;
+  cursor: pointer;
 }

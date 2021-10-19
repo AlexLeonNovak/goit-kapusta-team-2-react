@@ -15,6 +15,18 @@
   }
 }
 
+.block_expenses {
+  @include for-size(tablet) {
+    text-align: end;
+  }
+}
+
+.block_income {
+  @include for-size(tablet) {
+    text-align: start;
+  }
+}
+
 .label {
   width: 100%;
   font-weight: bold;

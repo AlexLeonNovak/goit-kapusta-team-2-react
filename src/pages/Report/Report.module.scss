@@ -32,6 +32,30 @@
   }
 }
 
+.clickBack {
+  position: absolute;
+  top: 55px;
+  left: 20px;
+  @include for-size(tablet) {
+    position: static;
+  }
+}
+.containerBalance {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: center;
+  align-items: center;
+  @include for-size(tablet) {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 40px auto 0;
+    width: 664px;
+  }
+  @include for-size(desktop) {
+    width: 1060px;
+  }
+}
+
 .currentPeriod {
   display: flex;
   flex-wrap: wrap;
@@ -39,9 +63,10 @@
   height: 39px;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  // position: relative;
-  // top: -134px;
+  margin-top: 49px;
+  @include for-size(tablet) {
+    margin: 0;
+  }
 }
 
 .currentPeriod_txt {
@@ -49,7 +74,6 @@
   line-height: 14px;
   letter-spacing: 0.04em;
   color: rgba(82, 85, 95, 0.7);
-  margin-bottom: 5px;
 }
 
 .dataline {
@@ -63,7 +87,19 @@
   background: #ffffff;
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 20px;
-  margin: 30px auto 0 auto;
+  margin: 30px auto 18px auto;
+  @include for-size(tablet) {
+    justify-content: center;
+    flex-flow: row nowrap;
+    height: 50px;
+    width: 668px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+  }
+  @include for-size(desktop) {
+    height: 50px;
+    width: 1060px;
+  }
 }
 
 .expencesBlock {
@@ -72,39 +108,20 @@
   padding: 20px;
   background: #ffffff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  @include for-size(tablet) {
+    width: 666px;
+    border-radius: 30px;
+    margin: 30px auto 0 auto;
+  }
+  @include for-size(desktop) {
+    width: 1060px;
+  }
 }
 
 .chartBlock {
   width: 100%;
   margin: 0 auto;
-}
-
-@include for-size(tablet) {
-  .dataline {
-    justify-content: center;
-    flex-flow: row nowrap;
-    height: 50px;
-    width: 668px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 30px;
-  }
-
-  .expencesBlock {
-    width: 666px;
-    border-radius: 30px;
-    margin: 30px auto 0 auto;
-  }
-  .chartBlock {
+  @include for-size(tablet) {
     width: 605px;
-  }
-}
-
-@include for-size(desktop) {
-  .dataline {
-    height: 50px;
-    width: 1060px;
-  }
-  .expencesBlock {
-    width: 1060px;
   }
 }

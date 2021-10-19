@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { Swiper } from "../../components/Swiper";
 import { Accounting } from "../../components/Accounting";
+import Balance from "../../components/Balance";
+import ClickBack from "../../components/ClickBack";
 import Chartjs from "../../components/Chartjs/Chartjs";
 import { TotalTransactionsSum } from "../../components/TotalTransactionsSum";
 
@@ -50,17 +52,25 @@ function Report() {
 
   return (
     <>
-      {summary && (
-        <div className={s.currentPeriod}>
-          <span className={s.currentPeriod_txt}>Текущий период:</span>
-          <Swiper
-            items={summary}
-            onSlideChange={(item) => handleChangeMonth(item)}
-            activeIndex={summaryIdx}
-            className={s.currentPeriod_swiper}
-          />
+      <div className={s.containerBalance}>
+        <div className={s.clickBack}>
+          <ClickBack />
         </div>
-      )}
+        <div className={s.balance}>
+          <Balance isHiddenBtn={false} />
+        </div>
+        {summary && (
+          <div className={s.currentPeriod}>
+            <span className={s.currentPeriod_txt}>Текущий период:</span>
+            <Swiper
+              items={summary}
+              onSlideChange={(item) => handleChangeMonth(item)}
+              activeIndex={summaryIdx}
+              className={s.currentPeriod_swiper}
+            />
+          </div>
+        )}
+      </div>
       <div className={s.categories}>
         <div className={s.dataline}>
           <TotalTransactionsSum />

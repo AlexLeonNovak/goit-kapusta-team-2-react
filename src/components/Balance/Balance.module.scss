@@ -1,8 +1,8 @@
 @import "../../base/sass/main.scss";
 @import "../../base/sass/utils/variables";
-.container {
-  display: flex;
-}
+// .container {
+//   display: flex;
+// }
 
 .container_balance {
   display: flex;
@@ -10,7 +10,7 @@
   background: inherit;
   width: 248px;
   height: 70px;
-  margin: 118px auto 0 auto;
+  margin: 30px auto 0 auto;
   justify-content: center;
 }
 
@@ -85,6 +85,30 @@
   transition: 0.2s ease-in-out;
 }
 
+// .balance_btn_hidden {
+//   opacity: 0;
+// }
+
+// @include for-size(desktop) {
+//   .balance_btn_hidden {
+//     display: block;
+//     height: 44px;
+//     width: 125px;
+//     padding: 0;
+//     font-weight: normal;
+//     font-size: 12px;
+//     line-height: 14px;
+//     letter-spacing: 0.02em;
+//     border: solid 2px $bg-main;
+//     border-top-right-radius: 16px;
+//     border-bottom-right-radius: 16px;
+//     background: inherit;
+//     cursor: pointer;
+//     color: $font-color-secondary;
+//     transition: 0.2s ease-in-out;
+//   }
+// }
+
 .balance_btn:hover {
   background: $accent-color-dark;
   border-color: $accent-color-dark;
@@ -95,9 +119,9 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
-    width: 668px;
     height: 44px;
+    width: 360px;
+    margin: 0;
   }
 
   .balance_title {
@@ -118,39 +142,7 @@
     border-radius: 16px;
   }
 }
-@include for-size(desktop) {
-  .container_balance {
-    width: 1060px;
-    height: 44px;
-  }
-}
-
-.arrowBtn {
-  display: flex;
-  justify-content: flex-start;
-  top: 18px;
-  left: 20px;
-  border: none;
-  background-color: #f2f5fc;
-  // margin-left: 80px;
-  color: rgba(82, 85, 95, 0.7);
-}
-
-.arrowSvg {
-  color: #ff751d;
-  width: 30px;
-  height: 20px;
-  margin-right: 18px;
-}
-
-.backText {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  font: normal normal 12px/14px "Roboto";
-  letter-spacing: 0.04em;
-}
-
-.backTextTabl {
-  display: none;
-}
+// @include for-size(desktop) {
+//   .container_balance {
+//   }
+// }
