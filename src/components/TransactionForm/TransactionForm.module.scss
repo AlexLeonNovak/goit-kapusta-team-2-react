@@ -29,7 +29,7 @@
 
   @include for-size(desktop) {
     flex-direction: row;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     justify-content: center;
     align-items: flex-start;
   }
@@ -51,12 +51,10 @@
 }
 
 .transFormItemWrapper {
-  @include for-size(mobile) {
-    display: flex;
     margin-bottom: 30px;
-  }
 
   @include for-size(tablet) {
+    display: flex;
     width: 100%;
     // margin-bottom: 30px;
     flex: 2;
@@ -64,7 +62,6 @@
 
   @include for-size(desktop) {
     width: 100%;
-    margin-bottom: 30px;
     flex: 2;
     align-items: center;
   }
@@ -72,6 +69,7 @@
 
 .amountInputWrapper {
   @include for-size(tablet) {
+    width: 300px;
     position: relative;
     display: block;
   }
@@ -138,6 +136,9 @@
 }
 
 .buttonWrapper {
+
+  display: flex;
+  margin-bottom: 30px;
 
   @include for-size(tablet) {
     display: block;

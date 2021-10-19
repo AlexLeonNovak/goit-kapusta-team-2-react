@@ -4,10 +4,10 @@
 .containerSummary {
 display: none;
 @include for-size(tablet) {
-  position: absolute;
-  left: 80px;
-  top: 800px;
-  display: inline-block;
+  //position: absolute;
+  //left: 80px;
+  //top: 800px;
+  //display: inline-block;
 
   width: 230px;
   text-transform: uppercase;

@@ -1,5 +1,27 @@
 @import "../../base/sass/main.scss";
 
+.tabs {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  font-size: 12px;
+  text-transform: uppercase;
+  z-index: 5;
+
+  @include for-size(tablet) {
+    position: static;
+    bottom: auto;
+    border-radius: 20px 20px 0 0;
+  }
+
+  @include for-size(desktop) {
+    width: 1060px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 
 .tabsList {
   display: flex;
@@ -20,24 +42,29 @@
   padding-top: 15px;
   padding-bottom: 15px;
 
-   &:hover {
-  color: $bg-main;
-  background-color: $accent-color-dark;
-    
+  &:hover, &.tabListActive {
+    color: $bg-main;
+    background-color: $accent-color-dark;
+
+    @include for-size(tablet) {
+      background-color: $bg-main;
+      color: $accent-color-dark;
+    }
+
   }
 
   @include for-size(tablet) {
-  display: inline-block;
-  width: 138px;
-   height: 40px;
-  border-radius: 20px 20px 0 0;
-  color: $font-color-main;
-  background-color: $bg-second;
-  padding-top: 13px;
-  padding-bottom: 13px;
+    display: inline-block;
+    width: 138px;
+    height: 40px;
+    border-radius: 20px 20px 0 0;
+    color: $font-color-main;
+    background-color: $bg-second;
+    padding-top: 13px;
+    padding-bottom: 13px;
   }
 
-  
+
   /* margin-bottom: -1px;
   padding: 0.5rem 0.75rem; */
 }

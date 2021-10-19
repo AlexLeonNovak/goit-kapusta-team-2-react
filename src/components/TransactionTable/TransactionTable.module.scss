@@ -2,14 +2,13 @@
 
 .income {
 
-  width: 320px;
+  width: 100%;
   border-radius: 30px;
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 4px 4px 2px rgba(187, 187, 187, 0.3);
 
   @include for-size(tablet) {
- 
-  width: 760px;
+
   text-align: center;
   border-radius: 30px 30px 0 0;
   /* color: rgb(0, 0, 0); */
@@ -27,7 +26,7 @@
 display: none;
 
   @include for-size(tablet) {
-    display: inline-block;
+    display: table-header-group;
   color: rgb(0, 0, 0);
 
   /* border-radius: 30px 30px 0px 0px; */
@@ -36,6 +35,27 @@ display: none;
 .tBody{
 
 border-radius: 50px ;
+}
+
+.hideOnMobile {
+  @include for-size(minmobile) {
+    display: none;
+  }
+
+}
+
+//.columnCategoryName {
+//
+//}
+
+.hideOnTablet {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+
+  @include for-size(tablet) {
+    display: none;
+  }
 }
 
 th {
@@ -51,6 +71,7 @@ th {
 td {
   padding: 10px;
   background-color: $bg-main;
+  vertical-align: bottom;
 }
 
 .expense {

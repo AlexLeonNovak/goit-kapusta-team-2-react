@@ -66,11 +66,16 @@ export const TransactionTable = ({type}) => {
 				{transactions.map(
 					({_id, datetime, description, category, amount}) => (
 						<tr key={_id}>
-							<td>{moment(datetime).format('DD.MM.YYYY')}</td>
-							<td>{description}</td>
+							<td>
+								<span className={s.hideOnTablet}>{description}</span>
+								{moment(datetime).format('DD.MM.YYYY')}
+							</td>
+							<td className={s.hideOnMobile}>{description}</td>
 							<td>{category.name}</td>
-              <td className={classNames(categoryTypes.EXPENSE ? s.expense : s.in)}>
-	
+              <td className={classNames({
+	              [s.expense]: categoryTypes.EXPENSE === type,
+	              [s.in]: categoryTypes.INCOME === type
+              })}>
                 {type === categoryTypes.EXPENSE && '-'}
 								{amount}
 							</td>

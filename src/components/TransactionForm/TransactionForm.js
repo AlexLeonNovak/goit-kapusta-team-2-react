@@ -123,9 +123,7 @@ export const TransactionForm = ({type}) => {
 
 					</div>
 					<div className={s.buttonWrapper}>
-
 						<button className={s.button} type="submit" onClick={notify}>
-
 							ВВОД
 						</button>
 
