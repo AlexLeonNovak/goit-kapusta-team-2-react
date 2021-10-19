@@ -37,7 +37,9 @@ const Balance = ({ isHiddenBtn }) => {
         <form className={s.balance} onSubmit={onSubmit}>
           <div className={s.balance_input}>
             <input
-              className={s.balance_input_zone}
+              className={
+                !hiddenBtn ? s.balance_input_zone : s.balance_input_zone_hidden
+              }
               type="money"
               name="balance"
               placeholder="00.00"
@@ -47,7 +49,13 @@ const Balance = ({ isHiddenBtn }) => {
               value={balance}
             />
             {!currentBalance && <Popover />}
-            <span className={s.balance_input_text}>UAH</span>
+            <span
+              className={
+                !hiddenBtn ? s.balance_input_text : s.balance_input_text_hidden
+              }
+            >
+              UAH
+            </span>
           </div>
           {!hiddenBtn && (
             <button

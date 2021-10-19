@@ -57,7 +57,7 @@ function Report() {
           <ClickBack />
         </div>
         <div className={s.balance}>
-          <Balance isHiddenBtn={false} />
+          <Balance isHiddenBtn={true} />
         </div>
         {summary && (
           <div className={s.currentPeriod}>
