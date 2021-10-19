@@ -42,6 +42,10 @@ border-radius: 50px ;
     display: none;
   }
 
+  @include for-size(tablet) {
+    display: table-cell;
+  }
+
 }
 
 //.columnCategoryName {
