@@ -57,6 +57,32 @@ th {
   }
 }
 
+.categoriesDesc {
+  display: none;
+
+  @include for-size(tablet) {
+    display: table-cell;
+  }
+}
+
+.dateDesc {
+  display: grid;
+
+  @include for-size(mobile) {
+    display: revert;
+  }
+}
+
+.categoriesDescHide {
+  margin-bottom: 15px;
+  font-size: 12px;
+  font-weight: 700;
+
+  @include for-size(mobile) {
+    display: none;
+  }
+}
+
 .date,
 .categoryName {
   font-size: 8px;

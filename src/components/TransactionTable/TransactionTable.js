@@ -64,12 +64,15 @@ export const TransactionTable = ({ type }) => {
           {transactions.map(
             ({ _id, datetime, description, category, amount }) => (
               <tr key={_id}>
-                <div className={s.tMain}>
-                  <td className={s.date}>
+                <td className={s.dateDesc}>
+                  <span className={s.categoriesDescHide}>{description}</span>
+                  <span className={s.date}>
                     {moment(datetime).format("DD.MM.YYYY")}
-                  </td>
-                  <td className={s.description}>{description}</td>
-                </div>
+                  </span>
+                </td>
+
+                <td className={s.categoriesDesc}>{description}</td>
+
                 <td className={s.categoryName}>{category.name}</td>
                 <td
                   className={classNames(
