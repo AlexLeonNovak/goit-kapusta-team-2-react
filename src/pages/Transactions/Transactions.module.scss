@@ -1,157 +1,143 @@
 @import "../../base/sass/main.scss";
 
-
 .transactions {
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		background: $bg-second;
-		border-bottom-left-radius: 150px;
-		z-index: -1;
-		height: 55%;
-	}
-
-	@include for-size(tablet) {
-
-		
-  
-		&:after {
-		content: '';
-		position: absolute;
-		right: 88px;
-		
-    background-image: url(../../base/images/desktop/kapusta2.png);
-    background-repeat: no-repeat;
-    
-   z-index: -2; 
-    height: 142px;
-	width: 182px;
-		
-		
-	}
-	}
-@include for-size(desktop) {
-	
-		
-	&:after {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-    background-image: url(../../base/images/desktop/kapusta.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-   	z-index: -2; 
-    height: 230px;
-	width: 100%;
-		
-		
-	}
-	}
-	
-}
-.container {
-	padding-top: 37px;
-
-	@include for-size(minmobile) {
-		padding-bottom: 30px;
-	}
-
-	@include for-size(tablet) {
-		padding-bottom: 40px;
-
-	}
-
-	@include for-size(desktop) {
-		padding-bottom: 83px;
-    margin-right: auto;
-		margin-left: auto;
-	}
-}
-.tabs{
-position: fixed;
-bottom: 0;
-width: 100%;
-	font-size: 12px;
-	text-transform: uppercase;
-	z-index: 5;
-
-@include for-size(tablet) {
-	position: static;
-	bottom: auto;
-	width: 1060px;
-	border-radius: 20px 20px 0 0;
-}
-
-  @include for-size(desktop) {
-		
-		margin-right: auto;
-		margin-left: auto;
-	}
-}
-.formWrapper {
-	margin-right: auto;
-	margin-left: auto;
-
-	@include for-size(mobile) {
-		padding: 28px 30px;
-		background-color: $bg-main;
-		box-shadow: 0px 10px 60px $box-shadow;
-		border-radius: 0 30px 30px 30px;
-	}
-
-	@include for-size(desktop) {
-		padding: 33px 20px;
-		width: 1060px;
-	}
-//border-radius: 0px 30px 30px 30px;
-//box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-}
-
-.tableWrapper {
-	display: flex;
-	margin-top: 60px;
-	justify-content: center;
-	padding-left: 20px;
-	padding-right: 20px;
-
-	@include for-size(desktop) {
-	display: flex;
-	
-}
-
-.transSummWrapper {
-  display: inline-block;
-  // width: 100%;
-  text-transform: uppercase;
-  margin: 60px auto;
-
-  // width: 320px;
-  // display: flow-root;
-  // margin-top: 170px;
-  // justify-content: space-between;
-  // align-items: flex-start;
-
-  @include for-size(mobile) {
-    // display: flow-root;
-    margin-top: 60px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $bg-second;
+    border-bottom-left-radius: 150px;
+    z-index: -1;
+    height: 55%;
   }
 
   @include for-size(tablet) {
-    display: inline-block;
-    margin-top: 60px;
+    &:after {
+      content: "";
+      position: absolute;
+      right: 88px;
+
+      background-image: url(../../base/images/desktop/kapusta2.png);
+      background-repeat: no-repeat;
+
+      z-index: -2;
+      height: 142px;
+      width: 182px;
+    }
+  }
+  @include for-size(desktop) {
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      background-image: url(../../base/images/desktop/kapusta.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -2;
+      height: 230px;
+      width: 100%;
+    }
+  }
+}
+.container {
+  // padding-top: 37px;
+
+  @include for-size(minmobile) {
+    // padding-bottom: 30px;
   }
 
-  // @include for-size(desktop) {
-  //   display: grid;
-  //   margin-top: 0;
-  //   justify-content: space-between;
-  //   align-items: flex-start;
-  // }
+  @include for-size(tablet) {
+    padding-bottom: 40px;
+  }
 
-  // width: 100%;
+  @include for-size(desktop) {
+    padding-bottom: 83px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
+.tabs {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 12px;
+  text-transform: uppercase;
+  z-index: 5;
+
+  @include for-size(tablet) {
+    position: static;
+    bottom: auto;
+    width: 1060px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  @include for-size(desktop) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.formWrapper {
+  margin-right: auto;
+  margin-left: auto;
+
+  @include for-size(mobile) {
+    padding: 28px 30px;
+    background-color: $bg-main;
+    box-shadow: 0px 10px 60px $box-shadow;
+    border-radius: 0 30px 30px 30px;
+  }
+
+  @include for-size(desktop) {
+    padding: 33px 20px;
+    width: 1060px;
+  }
+  //border-radius: 0px 30px 30px 30px;
+  //box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
+
+.tableWrapper {
+  display: flex;
+  margin-top: 60px;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include for-size(desktop) {
+    display: flex;
+  }
+
+  .transSummWrapper {
+    display: inline-block;
+    // width: 100%;
+    text-transform: uppercase;
+    margin: 60px auto;
+
+    // width: 320px;
+    // display: flow-root;
+    // margin-top: 170px;
+    // justify-content: space-between;
+    // align-items: flex-start;
+
+    @include for-size(mobile) {
+      // display: flow-root;
+      margin-top: 60px;
+    }
+
+    @include for-size(tablet) {
+      display: inline-block;
+      margin-top: 60px;
+    }
+
+    // @include for-size(desktop) {
+    //   display: grid;
+    //   margin-top: 0;
+    //   justify-content: space-between;
+    //   align-items: flex-start;
+    // }
+
+    // width: 100%;
+  }
 }
