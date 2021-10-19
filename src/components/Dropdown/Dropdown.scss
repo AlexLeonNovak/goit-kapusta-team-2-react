@@ -29,12 +29,11 @@
   }
 
   @include for-size(mobile) {
-    border: 2px solid #F5F6FB;
+    border: 2px solid #f5f6fb;
   }
 
   @include for-size(tablet) {
     border-radius: 0;
-    // border-right: none;
   }
 }
 
@@ -75,7 +74,7 @@
   z-index: 1000;
 
   @include for-size(mobile) {
-    border: 2px solid #F5F6FB;
+    border: 2px solid #f5f6fb;
     border-top: none;
   }
 }

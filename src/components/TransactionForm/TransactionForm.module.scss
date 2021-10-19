@@ -50,12 +50,12 @@
 
 .transFormItemWrapper {
   @include for-size(mobile) {
-    display: flex;
     margin-bottom: 30px;
   }
 
   @include for-size(tablet) {
     width: 100%;
+    display: flex;
     // margin-bottom: 30px;
     flex: 2;
   }
@@ -70,13 +70,15 @@
 
 .amountInputWrapper {
   position: relative;
+  margin: 30px;
+
   @include for-size(mobile) {
-    width: 183px;
+    // width: 183px;
   }
 
   @include for-size(tablet) {
-    position: relative;
     display: block;
+    margin: 0;
   }
 }
 
@@ -95,9 +97,7 @@
 .calc {
   display: inline-flex;
   height: 44px;
-  // width: 100%;
   width: 183px;
-
   border: 2px solid $bg-main;
   background-color: transparent;
   padding-left: 20px;
@@ -107,7 +107,12 @@
   border-radius: 16px 16px 16px 16px;
 
   @include for-size(tablet) {
-    border-color: $bg-second;
+    border: 2px solid $bg-main;
+    border-radius: 0 16px 16px 0;
+  }
+
+  @include for-size(desktop) {
+    border: 2px solid #f5f6fb;
     border-radius: 0 16px 16px 0;
   }
 }
@@ -117,6 +122,7 @@
   height: 44px;
   width: 100%;
   border: 2px solid $bg-main;
+  // border-color: #f5f6fb;
   border-radius: 16px 16px 0 0;
 
   background-color: transparent;
@@ -125,18 +131,14 @@
   font-size: 12px;
   line-height: 1.17;
 
-  @include for-size(tablet) {
+  @include for-size(mobile) {
     border-color: $bg-second;
     border-radius: 16px 0 0 0;
   }
-}
-
-.amountInputWrapper {
-  position: relative;
-  margin: 30px auto;
 
   @include for-size(tablet) {
-    margin: 0;
+    border-color: $bg-second;
+    border-radius: 16px 0 0 0;
   }
 }
 

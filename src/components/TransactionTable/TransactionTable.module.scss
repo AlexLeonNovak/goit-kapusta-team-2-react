@@ -44,8 +44,9 @@ th {
 }
 
 .tMain {
+  display: grid;
+
   @include for-size(mobile) {
-    display: grid;
   }
 
   @include for-size(tablet) {
@@ -60,11 +61,18 @@ th {
 .categoryName {
   font-size: 8px;
   font-weight: 400;
+
+  @include for-size(tablet) {
+    font-size: 12px;
+  }
 }
 
 .description {
   font-size: 12px;
   font-weight: 700;
+  // @include for-size(tablet) {
+  //   font-size: 12px;
+  // }
 }
 
 td {
