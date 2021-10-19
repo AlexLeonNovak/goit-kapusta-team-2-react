@@ -10,7 +10,7 @@ export default function LinkToReport() {
     <div className='linkToReportWrapper'> 
       <NavLink className='linkToReport' to={routes.report}>
         <span className='linkToReportText'>Перейти к отчетам</span>
-        <svg class="linkToReportIcon" aria-label="Ссылка на страницу отчетов">
+        <svg className="linkToReportIcon" aria-label="Ссылка на страницу отчетов">
           <use href={test + '#icon-bar_chart'} />
         </svg>
       </NavLink>

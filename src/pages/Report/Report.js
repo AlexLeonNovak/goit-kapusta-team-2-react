@@ -6,6 +6,7 @@ import { Accounting } from "../../components/Accounting";
 import Chartjs from "../../components/Chartjs/Chartjs";
 import { TotalTransactionsSum } from "../../components/TotalTransactionsSum";
 
+import Balance from '../../components/Balance';
 import s from "./Report.module.scss";
 import { categoryTypes } from "../../helpers/constants";
 import {
@@ -14,6 +15,7 @@ import {
 } from "../../redux/transactions";
 
 import "moment/locale/ru";
+import LinkToTransactions from "../../components/LinkToTransactions/LinkToTransactions";
 
 function Report() {
   const dispatch = useDispatch();
@@ -49,40 +51,46 @@ function Report() {
   };
 
   return (
-    <>
-      {summary && (
-        <div className={s.currentPeriod}>
-          <span className={s.currentPeriod_txt}>Текущий период:</span>
-          <Swiper
-            items={summary}
-            onSlideChange={(item) => handleChangeMonth(item)}
-            activeIndex={summaryIdx}
-            className={s.currentPeriod_swiper}
-          />
+    <div className={s.report}>
+      <div className={s.container}>
+        <div className={s.linkWrapper}>
+          <LinkToTransactions />
+          {summary && (
+            <div className={s.currentPeriod}>
+              <span className={s.currentPeriod_txt}>Текущий период:</span>
+              <Swiper
+                items={summary}
+                onSlideChange={(item) => handleChangeMonth(item)}
+                activeIndex={summaryIdx}
+                className={s.currentPeriod_swiper}
+              />
+            </div>
+          )}
+          <Balance isHiddenButton/>
         </div>
-      )}
-      <div className={s.categories}>
-        <div className={s.dataline}>
-          <TotalTransactionsSum />
-        </div>
-        <div className={s.expencesBlock}>
-          <Swiper
-            items={types}
-            onSlideChange={(item) => setCurrentType(item.value)}
-          />
-          <Accounting
-            type={currentType}
-            onChangeCategory={(id) => setCurrentCategory(id)}
-          />
-        </div>
-        <div className={s.expencesBlock}>
-          <div className={s.chartBlock}>
-            <Chartjs category={currentCategory} />
+        <div className={s.categories}>
+          <div className={s.dataline}>
+            <TotalTransactionsSum />
+          </div>
+          <div className={s.expencesBlock}>
+            <Swiper
+              items={types}
+              onSlideChange={(item) => setCurrentType(item.value)}
+            />
+            <Accounting
+              type={currentType}
+              onChangeCategory={(id) => setCurrentCategory(id)}
+            />
+          </div>
+          <div className={s.expencesBlock}>
+            <div className={s.chartBlock}>
+              <Chartjs category={currentCategory} />
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default Report;
