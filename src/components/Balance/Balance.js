@@ -63,7 +63,7 @@ const Balance = () => {
             type="submit"
             aria-describedby="tooltip"
           >
-            ПОДТВЕРДИТЬ
+            Подтвердить
           </button>
         </div>
       </form>
