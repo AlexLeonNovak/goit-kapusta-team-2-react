@@ -48,7 +48,7 @@ function App() {
   return (
     <>
       <AppBar />
-      {/* {isAuth && <Balance />} */}
+      {isAuth && <Balance />}
       <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute exact path="/">

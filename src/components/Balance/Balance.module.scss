@@ -10,7 +10,7 @@
   background: inherit;
   width: 248px;
   height: 70px;
-  margin: 118px auto 0 auto;
+  margin: 0 auto;
   justify-content: center;
 }
 
@@ -24,13 +24,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 6px;
   width: 83px;
   height: 20px;
-  color: $font-color-secondary;
+  color: rgba(82, 85, 95, 0.7);
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
+
+  @include for-size(mobile) {
+    margin-bottom: 0;
+  }
 }
 
 .balance_input {
@@ -76,13 +81,19 @@
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: rgba(82, 85, 95, 0.7);
   border: solid 2px $bg-main;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-radius: 0 16px 16px 0;
+  border-left: none;
   background: inherit;
   cursor: pointer;
-  color: $font-color-secondary;
   transition: 0.2s ease-in-out;
+
+  @include for-size(mobile) {
+    border-left: solid 2px $bg-main;
+  }
 }
 
 .balance_btn:hover {
