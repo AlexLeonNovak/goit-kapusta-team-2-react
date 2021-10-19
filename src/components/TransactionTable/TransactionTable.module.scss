@@ -44,7 +44,16 @@ th {
 }
 
 .tMain {
-  display: grid;
+  @include for-size(mobile) {
+    display: grid;
+  }
+
+  @include for-size(tablet) {
+    display: contents;
+  }
+
+  @include for-size(desktop) {
+  }
 }
 
 .date,
