@@ -7,6 +7,7 @@ import Popover from "../Popover/Popover";
 import styles from "./Balance.module.scss";
 
 import { toast } from "react-toastify";
+import classNames from 'classnames';
 
 const Balance = ({isHiddenButton = false}) => {
   const dispatch = useDispatch();
@@ -38,14 +39,14 @@ const Balance = ({isHiddenButton = false}) => {
     }
     toast.success('Balance entered')
   }
- 
+
   return (
     <div className={styles.container_balance}>
       <span className={styles.balance_title}>Баланс:</span>
       <form className={styles.balance} onSubmit={onSubmit}>
         <div className={styles.balance_input}>
           <input
-            className={styles.balance_input_zone}
+            className={classNames(styles.balance_input_zone,{ [styles.rounded]: isHiddenButton } )}
             type="money"
             name="balance"
             // pattern="\d+(\.\d{2})?"
@@ -57,7 +58,7 @@ const Balance = ({isHiddenButton = false}) => {
           <span className={styles.balance_input_text}>UAH</span>
         </div>
         {!isHiddenButton &&
-        <div>
+        <div className={styles.btnWrapper}>
           <button
             id="Popover1"
             className={styles.balance_btn}
@@ -66,7 +67,7 @@ const Balance = ({isHiddenButton = false}) => {
           >
             Подтвердить
           </button>
-        </div>}        
+        </div>}
       </form>
     </div>
   );

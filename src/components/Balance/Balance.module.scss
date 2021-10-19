@@ -9,11 +9,11 @@
   flex-direction: column;
   background: inherit;
   align-items: center;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
   justify-content: center;
 
   @include for-size(tablet) {
+    flex-direction: row;
     margin: 0;
     flex-wrap: nowrap;
     justify-content: center;
@@ -23,8 +23,9 @@
   }
 
   @include for-size(desktop) {
-    flex-basis: 66%;
-    justify-content: flex-end;
+    //flex-basis: 66%;
+    //justify-content: flex-end;
+
   }
 }
 
@@ -57,6 +58,10 @@
   align-items: center;
   position: relative;
   height: 44px;
+}
+
+.rounded {
+  border-radius: 16px;
 }
 
 .balance_input_zone {
@@ -115,7 +120,7 @@
   border-color: $accent-color-dark;
   color: $bg-main;
 }
-@include for-size(tablet) {  
+@include for-size(tablet) {
 
   .balance_title {
     height: 20px;
@@ -129,7 +134,7 @@
 
   .balance_input_text {
     right: 30px;
-  }  
+  }
 }
 
 
