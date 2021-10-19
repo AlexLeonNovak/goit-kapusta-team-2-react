@@ -1,23 +1,18 @@
 @import "../../base/sass/main.scss";
 
 
-.formWrapper{
-
+.formWrapper {
   text-align: center;
-  //height: 40px;
   display: inline-block;
   padding-top: 20px;
-  text-align: center;
-
   width: 100%;
-
 }
 
 .form {
   @include for-size(mobile) {
     width: 100%;
     flex-direction: row;
-   // margin-bottom: 90px;
+    // margin-bottom: 90px;
     justify-content: center;
     align-items: flex-start;
   }
@@ -63,7 +58,7 @@
 
   @include for-size(tablet) {
     width: 100%;
-   // margin-bottom: 30px;
+    // margin-bottom: 30px;
     flex: 2;
   }
 
@@ -74,13 +69,62 @@
     align-items: center;
   }
 }
+
 .amountInputWrapper {
-display: none;
-	@include for-size(tablet) {
- position: relative;
- display: block;
-	}
- 
+  @include for-size(tablet) {
+    position: relative;
+    display: block;
+  }
+
+}
+
+.calc::-webkit-outer-spin-button,
+.calc::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+}
+
+.calc {
+  display: block;
+  height: 44px;
+  width: 100%;
+  border: 2px solid $bg-main;
+  background-color: transparent;
+  padding-left: 20px;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.17;
+  border-radius: 0 16px 16px 0;
+
+  @include for-size(tablet) {
+    border-color: $bg-second;
+  }
+}
+
+.descr {
+  display: block;
+  height: 44px;
+  width: 100%;
+  border: 2px solid $bg-main;
+  background-color: transparent;
+  padding-left: 20px;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.17;
+
+  @include for-size(tablet) {
+    border-color: $bg-second;
+  }
+
+}
+.amountInputWrapper {
+  position: relative;
 }
 .calc::-webkit-outer-spin-button,
 .calc::-webkit-inner-spin-button {
@@ -93,67 +137,10 @@ display: none;
   right: 10px;
 }
 
-.calc {
-  display: block;
-  height: 44px;
-  width: 126px;
-  border: 2px solid $bg-second;
-  background-color: transparent;
-  padding-left: 20px;
-  font-family: inherit;
-  font-size: 12px;
-  line-height: 1.17;
-  border-radius: 0 16px 16px 0;
-}
-
-.descr {
-	
-  display: none;
-
-@include for-size(tablet){
-display: block;
-  height: 44px;
-  width: 100%;
-  border: 2px solid $bg-second;
-  background-color: transparent;
-  padding-left: 20px;
-  font-family: inherit;
-  font-size: 12px;
-  line-height: 1.17;
-	}
-  &:nth-child(1) {
-    border-bottom: none;
-
-    @include for-size(mobile) {
-      border-right: none;
-      border-bottom: 2px solid #f5f6fb;
-    }
-
-    @include for-size(tablet) {
-      width: 100%;
-    }
-  }
-
-  &:nth-child(2) {
-    border-radius: 16px 0 0 0;
-    margin-bottom: 30px;
-
-    @include for-size(mobile) {
-      margin-bottom: 0;
-    }
-
-    @include for-size(tablet) {
-      border-right: none;
-      width: 100%;
-    }
-  }
-}
-
 .buttonWrapper {
-  display: none;
 
   @include for-size(tablet) {
-	  display: block;
+    display: block;
     margin-top: 30px;
     //margin-bottom: 50px;
   }

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import classNames from "classnames";
-import s from "./Dropdown.scss";
+import "./Dropdown.scss";
 
 const Dropdown = ({ label, options, prompt, value, onChange }) => {
   const [open, setOpen] = useState(false);
