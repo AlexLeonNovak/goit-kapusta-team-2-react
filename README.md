@@ -34,15 +34,15 @@ And also to unite all our knowledge received for a year, to adjust communication
 
 ### \*Alexander Novak - `Team Lider`, engaged in debugging and resolving conflicts when merging branches, implemented the basic structure of the project, in the backend worked on authorization, authorization through Google, database creation and working API, as well as from the frontend implemented database connections and implemented graphs of transaction reports.
 
-[https://www.linkedin.com/in/alexleonnovak/]
+[https://www.linkedin.com/in/alexleonnovak]
 
 ### \*Iryna Dagli - `Scrum Master`, created a board on the Trello with the corresponding task cards, engaged in team communication, was responsible forregular stand-up meeting, created basic styles for the application, implemented the logic of registration, login and logout.
 
-[https://www.linkedin.com/in/iryna-dagli-56796497/]
+[https://www.linkedin.com/in/iryna-dagli-56796497]
 
 ### \* Evgeniya Obernikhina - realized the layout of the background for all pages, the layout of the login window, implemented the function of registration / login, implemented the logic of returning the user to the main page.
 
-[]
+[https://www.linkedin.com/in/evgeniya-obernikhina-bb902638]
 
 ### \* Tatiana Grogol - was engaged in the implementation of transaction logic on the backend, realized: endpoint of adding categories, endpoint of registration, login and logout, endpoint of income / expenditure, on the frontend was engaged in the implementation of a universal modal window and the implementation of transactions.
 
@@ -50,7 +50,7 @@ And also to unite all our knowledge received for a year, to adjust communication
 
 ### \* Alexandr Herasymenko - implemented the page of the category, its stylization, display in the table of addition / removal of the data is realized, logic of buttons of deletion of categories and transactions is realized and also logic of transition by the button to the section of expenses is realized.
 
-[https://www.linkedin.com/in/alexandr-herasymenko-8409a013b/]
+[https://www.linkedin.com/in/alexandr-herasymenko-8409a013b]
 
 ### \* Dmytro Filius - on the backend was engaged in the implementation of the user balance endpoint and its update on the first use, implemented the transaction delete endpoint, on the front implemented the sorting of categories to the corresponding transactions in the drop-down menu and table and added notification.
 
@@ -58,10 +58,10 @@ And also to unite all our knowledge received for a year, to adjust communication
 
 ### \* Volodymyr Viter - on the frontend was engaged in the page of transactions and its adaptive stylization, implemented logic of entering of transactions in the table with the corresponding categories, added the calendar for check of archive of transactions.
 
-[https://www.linkedin.com/in/viterd/]
+[https://www.linkedin.com/in/viterd]
 
 ### \* Vitaliy Mamchur - on the frontend was engaged in the implementation of the display of the user's balance on the page and its stylization, implemented a modal window with zero balance, as well as implemented a reporting page displaying the relevant graphs to the categories.
 
-[]
+[https://www.linkedin.com/in/vitalii-mamchur-610043224]
 
 # We wish everyone inspiration and clean code 😀
