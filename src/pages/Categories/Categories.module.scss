@@ -1,12 +1,6 @@
 @import "../../base/sass/main.scss";
 
 .categories {
-	background-repeat: no-repeat;
-	background-size: contain;
-
-	@include for-size(tablet) {
-		background-image: url(../../base/images/tablet/bg/bg-tablet.png);
-	}
 
 	&:before {
 		content: '';
@@ -15,10 +9,15 @@
 		left: 0;
 		right: 0;
 		background: #F5F6FB;
-		border-bottom-left-radius: 150px;
+		border-bottom-left-radius: 130px;
 		z-index: -1;
-		height: 97.8vw;
+		height: 480px;
+
+		@include for-size(mobile) {
+			height: 527px;
+		}
 	}
+
 	&:after {
 		content: '';
 		position: absolute;
@@ -28,9 +27,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1; 
-    height: 230px;
-		
-		
+    height: 230px;			
 	}
 }
 
@@ -47,6 +44,22 @@
 
 	@include for-size(desktop) {
 		padding-bottom: 83px;
+	}
+}
+
+.balanceWrapper {
+	@include for-size(tablet) {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		margin-bottom: 58px;
+	}
+
+	@include for-size(desktop) {
+		position: relative;
+		width: 1060px;
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
 
