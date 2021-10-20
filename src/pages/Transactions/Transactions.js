@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import classNames from "classnames";
+// import classNames from "classnames";
 
 import { TransactionForm } from "../../components/TransactionForm";
 import { TransactionTable } from "../../components/TransactionTable";
@@ -45,23 +45,21 @@ const Transactions = () => {
   return (
     <div>
       <div>
+        <Tabs
+          items={tabItems}
+          onChange={(item) => setCurrentType(item.value)}
+        />
+      </div>
+      <div>
+        <TransactionForm type={currentType} />
         <div>
-          <Tabs
-            items={tabItems}
-            onChange={(item) => setCurrentType(item.value)}
-          />
-        </div>
-        <div>
-          <TransactionForm type={currentType} />
-          <div>
-            <TransactionTable type={currentType} />
+          <TransactionTable type={currentType} />
 
-            <div>
-              <Summary type={currentType} />
-            </div>
+          <div>
+            <Summary type={currentType} />
           </div>
-          <ToastContainer />
         </div>
+        <ToastContainer />
       </div>
     </div>
   );

@@ -70,6 +70,7 @@ export const TransactionForm = ({ type }) => {
     },
     [dispatch, datetime, description, category, amount]
   );
+
   const notify = () => {
     if (!description || !amount || !category) {
       return toast.warning(

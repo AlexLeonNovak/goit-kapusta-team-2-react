@@ -9,6 +9,7 @@ import "moment/locale/ru";
 
 export const Summary = ({ type }) => {
   const summary = useSelector(transactionsSelectors.getSummary);
+
   return (
     <div>
       <h4>Сводка</h4>

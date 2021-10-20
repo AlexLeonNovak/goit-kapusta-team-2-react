@@ -1,11 +1,10 @@
 import { Bar } from "react-chartjs-2";
-import {useSelector} from 'react-redux';
-import {transactionsSelectors} from '../../redux/transactions'
-import {useEffect, useState} from 'react';
+import { useSelector } from "react-redux";
+import { transactionsSelectors } from "../../redux/transactions";
+import { useEffect, useState } from "react";
 
-const Chartjs = ({category}) => {
-
-  const [axis, setAxis] = useState('x');
+const Chartjs = ({ category }) => {
+  const [axis, setAxis] = useState("x");
 
   const options = {
     barWidth: 605,
@@ -27,13 +26,12 @@ const Chartjs = ({category}) => {
         borderRadius: 10,
       },
     },
-  }
-
+  };
 
   useEffect(() => {
     const handleResize = () => {
-      setAxis(window.matchMedia("(max-width: 767px)").matches ? 'y' : 'x');
-    }
+      setAxis(window.matchMedia("(max-width: 767px)").matches ? "y" : "x");
+    };
 
     window.addEventListener("resize", handleResize);
     return () => {
@@ -41,21 +39,22 @@ const Chartjs = ({category}) => {
     };
   }, []);
 
-
-  const transactions = useSelector(transactionsSelectors.getTransactionsByCategoryId(category));
+  const transactions = useSelector(
+    transactionsSelectors.getTransactionsByCategoryId(category)
+  );
   // console.log(transactions);
   const labels = [];
   const amounts = [];
 
-  transactions.forEach(transaction => {
+  transactions.forEach((transaction) => {
     const labelIdx = labels.indexOf(transaction.description);
     if (labelIdx !== -1) {
       amounts[labelIdx] += transaction.amount;
     } else {
       labels.push(transaction.description);
-      amounts.push(transaction.amount)
+      amounts.push(transaction.amount);
     }
-  })
+  });
 
   const data = {
     labels: [...labels],
@@ -69,10 +68,10 @@ const Chartjs = ({category}) => {
   };
 
   return (
-    <>
-      <Bar data={data} options={{...options, indexAxis: axis}} />
-    </>
+    <div>
+      <Bar data={data} options={{ ...options, indexAxis: axis }} />
+    </div>
   );
-}
+};
 
 export default Chartjs;

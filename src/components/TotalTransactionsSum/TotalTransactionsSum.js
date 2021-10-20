@@ -6,16 +6,15 @@ export const TotalTransactionsSum = () => {
   const expense = useSelector(transactionsSelectors.getExpenseSum);
   const income = useSelector(transactionsSelectors.getIncomeSum);
   return (
-    <>
+    <div>
       <div>
         <span>Расходы:</span>
         <span>-{expense} грн.</span>
       </div>
-      <span />
       <div>
         <span>Доходы:</span>
         <span>+{income} грн.</span>
       </div>
-    </>
+    </div>
   );
 };

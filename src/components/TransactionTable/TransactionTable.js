@@ -48,7 +48,7 @@ export const TransactionTable = ({ type }) => {
   );
 
   return (
-    <>
+    <div>
       <table>
         <thead>
           <tr>
@@ -84,6 +84,7 @@ export const TransactionTable = ({ type }) => {
           )}
         </tbody>
       </table>
+
       {showModal && (
         <Modal
           ChildComponent
@@ -92,7 +93,7 @@ export const TransactionTable = ({ type }) => {
           onClick={() => onDeleteTransaction(id)}
         />
       )}
-    </>
+    </div>
   );
 };
 

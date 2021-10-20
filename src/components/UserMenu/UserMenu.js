@@ -29,7 +29,7 @@ export default function UserMenu() {
   return (
     <div>
       <span>{emailFirstLetter}</span>
-      <span> {email}</span>
+      <span>{email}</span>
       <span />
 
       <button onClick={onOpenModal} type="button">

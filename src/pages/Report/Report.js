@@ -16,7 +16,7 @@ import {
 
 import "moment/locale/ru";
 import LinkToTransactions from "../../components/LinkToTransactions/LinkToTransactions";
-import classNames from "classnames";
+// import classNames from "classnames";
 
 function Report() {
   const dispatch = useDispatch();
@@ -55,43 +55,41 @@ function Report() {
     <div>
       <div>
         <div>
-          <div>
-            <LinkToTransactions />
-          </div>
-          <div>
-            {summary && (
-              <div>
-                <span>Текущий период:</span>
-                <Swiper
-                  items={summary}
-                  onSlideChange={(item) => handleChangeMonth(item)}
-                  activeIndex={summaryIdx}
-                />
-              </div>
-            )}
-          </div>
-          <div>
-            <Balance isHiddenButton />
-          </div>
+          <LinkToTransactions />
+        </div>
+        <div>
+          {summary && (
+            <div>
+              <span>Текущий период:</span>
+              <Swiper
+                items={summary}
+                onSlideChange={(item) => handleChangeMonth(item)}
+                activeIndex={summaryIdx}
+              />
+            </div>
+          )}
+        </div>
+        <div>
+          <Balance isHiddenButton />
+        </div>
+      </div>
+      <div>
+        <div>
+          <TotalTransactionsSum />
+        </div>
+        <div>
+          <Swiper
+            items={types}
+            onSlideChange={(item) => setCurrentType(item.value)}
+          />
+          <Accounting
+            type={currentType}
+            onChangeCategory={(id) => setCurrentCategory(id)}
+          />
         </div>
         <div>
           <div>
-            <TotalTransactionsSum />
-          </div>
-          <div>
-            <Swiper
-              items={types}
-              onSlideChange={(item) => setCurrentType(item.value)}
-            />
-            <Accounting
-              type={currentType}
-              onChangeCategory={(id) => setCurrentCategory(id)}
-            />
-          </div>
-          <div>
-            <div>
-              <Chartjs category={currentCategory} />
-            </div>
+            <Chartjs category={currentCategory} />
           </div>
         </div>
       </div>
