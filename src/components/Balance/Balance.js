@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { userOperations, userSelectors } from "../../redux/user";
 import { ReactComponent as Arrow } from "../../images/left-arrow.svg";
 import Popover from "../Popover/Popover";
-import styles from "./Balance.module.scss";
+// import styles from "./Balance.module.scss";
 
 import { toast } from "react-toastify";
-import classNames from 'classnames';
+// import classNames from 'classnames';
 
-const Balance = ({isHiddenButton = false}) => {
+const Balance = ({ isHiddenButton = false }) => {
   const dispatch = useDispatch();
   const currentBalance = useSelector(userSelectors.getBalance);
   const history = useHistory();
@@ -32,21 +32,19 @@ const Balance = ({isHiddenButton = false}) => {
     history.push("/");
   };
 
-
   const notify = () => {
     if (!balance || balance === "0") {
-      return toast.warning('Balance not entered')
+      return toast.warning("Balance not entered");
     }
-    toast.success('Balance entered')
-  }
+    toast.success("Balance entered");
+  };
 
   return (
-    <div className={styles.container_balance}>
-      <span className={styles.balance_title}>Баланс:</span>
-      <form className={styles.balance} onSubmit={onSubmit}>
-        <div className={styles.balance_input}>
+    <div>
+      <span>Баланс:</span>
+      <form onSubmit={onSubmit}>
+        <div>
           <input
-            className={classNames(styles.balance_input_zone,{ [styles.rounded]: isHiddenButton } )}
             type="money"
             name="balance"
             // pattern="\d+(\.\d{2})?"
@@ -55,19 +53,15 @@ const Balance = ({isHiddenButton = false}) => {
             value={balance}
           />
           {!currentBalance && <Popover />}
-          <span className={styles.balance_input_text}>UAH</span>
+          <span>UAH</span>
         </div>
-        {!isHiddenButton &&
-        <div className={styles.btnWrapper}>
-          <button
-            id="Popover1"
-            className={styles.balance_btn}
-            type="submit"
-            aria-describedby="tooltip"
-          >
-            Подтвердить
-          </button>
-        </div>}
+        {!isHiddenButton && (
+          <div>
+            <button id="Popover1" type="submit" aria-describedby="tooltip">
+              Подтвердить
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );

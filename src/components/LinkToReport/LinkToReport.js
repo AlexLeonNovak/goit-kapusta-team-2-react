@@ -1,19 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import routes from "../../routes";
-import './LinkToReport.scss';
-import test from '../../base/images/sprite.svg';
+// import './LinkToReport.scss';
+import test from "../../base/images/sprite.svg";
 
 export default function LinkToReport() {
-   
   return (
-    <div className='linkToReportWrapper'> 
-      <NavLink className='linkToReport' to={routes.report}>
-        <span className='linkToReportText'>Перейти к отчетам</span>
-        <svg className="linkToReportIcon" aria-label="Ссылка на страницу отчетов">
-          <use href={test + '#icon-bar_chart'} />
+    <div>
+      <NavLink to={routes.report}>
+        <span>Перейти к отчетам</span>
+        <svg aria-label="Ссылка на страницу отчетов">
+          <use href={test + "#icon-bar_chart"} />
         </svg>
       </NavLink>
     </div>
   );
-};
+}

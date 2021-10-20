@@ -1,43 +1,46 @@
-import React, { useState, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
-import s from '../CategoriesForm/CategoriesForm.module.scss'
-import Dropdown from '../Dropdown/Dropdown';
-import { categoryTypes } from '../../helpers/constants';
-import { toast } from 'react-toastify';
+import {
+  categoriesOperations,
+  categoriesSelectors,
+} from "../../redux/categories";
+// import s from '../CategoriesForm/CategoriesForm.module.scss'
+import Dropdown from "../Dropdown/Dropdown";
+import { categoryTypes } from "../../helpers/constants";
+import { toast } from "react-toastify";
 
 export const CategoriesForm = () => {
   const dispatch = useDispatch();
-  const categories = useSelector(categoriesSelectors.getAllCategories);  
+  const categories = useSelector(categoriesSelectors.getAllCategories);
 
-  const [name, setName] = useState('');
-  const [type, setType] = useState('');
-  const [filename, setFilename] = useState('Загрузите логотип');
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [filename, setFilename] = useState("Загрузите логотип");
   const [logo, setLogo] = useState(null);
 
-  const onChange = e => setType(e.currentTarget.value);
+  const onChange = (e) => setType(e.currentTarget.value);
 
   const types = [
     {
-      name: 'Доход',
-      value: categoryTypes.INCOME
+      name: "Доход",
+      value: categoryTypes.INCOME,
     },
     {
-      name: 'Расход',
-      value: categoryTypes.EXPENSE
-    }
-  ]
+      name: "Расход",
+      value: categoryTypes.EXPENSE,
+    },
+  ];
 
-  const handleChange = useCallback(e => {
+  const handleChange = useCallback((e) => {
     const { name, value, files } = e.currentTarget;
 
     switch (name) {
-      case 'name':
+      case "name":
         setName(value);
         break;
 
-      case 'filename':
+      case "filename":
         setLogo(files[0]);
         setFilename(files[0].name);
         break;
@@ -48,49 +51,42 @@ export const CategoriesForm = () => {
   }, []);
 
   const handleSubmit = useCallback(
-    e => {
+    (e) => {
       e.preventDefault();
 
-      categories.find(category => category.name === name)
+      categories.find((category) => category.name === name)
         ? alert(`${name} уже существует!`)
         : dispatch(
-          categoriesOperations.addCategory({
-            name,
-            type: type.value,
-            logo
-          })
-        );
+            categoriesOperations.addCategory({
+              name,
+              type: type.value,
+              logo,
+            })
+          );
       reset();
     },
     [categories, dispatch, name, type, logo]
   );
 
   const reset = () => {
-    setName('');
-    setType('');
-    setFilename('Загрузите логотип');
+    setName("");
+    setType("");
+    setFilename("Загрузите логотип");
     setLogo(null);
   };
   const notify = () => {
     if (!name || !type) {
-      return toast.warning('Name and type are required fields')
+      return toast.warning("Name and type are required fields");
     }
-    toast.success('Successful operation')
-  }
-
+    toast.success("Successful operation");
+  };
 
   return (
-    <div className={s.formWrapper}>
-      <form
-        encType="multipart/form-data"
-        className={s.form}
-        onSubmit={handleSubmit}
-      >
-        <div className={s.categoriesInputWrapper}>
-          <div className={s.categoriesFormItemWrapper}>
-
+    <div>
+      <form encType="multipart/form-data" onSubmit={handleSubmit}>
+        <div>
+          <div>
             <input
-              className={s.categoriesFormItem}
               onChange={handleChange}
               value={name}
               name="name"
@@ -107,36 +103,26 @@ export const CategoriesForm = () => {
               value={type}
               onChange={(value) => setType(value)}
             />
-            
           </div>
 
           <input
             type="file"
             name="filename"
             id="filename"
-            className={s.customFileUploader}
             onChange={handleChange}
           />
           <label htmlFor="filename">{filename}</label>
         </div>
-        <div className={s.buttonWrapper}>
-          <button
-            className={s.button}
-            type="submit"
-            onClick={notify}
-          >
+        <div>
+          <button type="submit" onClick={notify}>
             Ввод
           </button>
 
-          <button
-            className={s.button}
-            type="reset"
-            onClick={reset}
-          >
+          <button type="reset" onClick={reset}>
             Очистить
           </button>
         </div>
       </form>
     </div>
-  )
+  );
 };
