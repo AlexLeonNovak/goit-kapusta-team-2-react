@@ -1,30 +1,33 @@
-import { useSelector} from 'react-redux';
-import moment from 'moment';
-import PropTypes from 'prop-types';
-import styles from './Summary.module.scss';
-import {transactionsSelectors} from '../../redux/transactions';
-import {categoryTypes} from '../../helpers/constants';
+import { useSelector } from "react-redux";
+import moment from "moment";
+import PropTypes from "prop-types";
+// import styles from './Summary.module.scss';
+import { transactionsSelectors } from "../../redux/transactions";
+import { categoryTypes } from "../../helpers/constants";
 
-import 'moment/locale/ru';
+import "moment/locale/ru";
 
-export const Summary = ({type}) => {
-	const summary = useSelector(transactionsSelectors.getSummary);
-	return (
-		<div className={styles.containerSummary}>
-			<h4 className={styles.titleSummary}>Сводка</h4>
-			<ul className={styles.listSummary}>
-				{summary.map(item => (
-						<li key={`${item.year}${item.month}`} className={styles.item}>
-							<span>{moment().month(item.month - 1).format('MMMM')}</span>
-							<span>{item[type]}</span>
-						</li>
-					)
-				)}
-			</ul>
-		</div>
-	);
+export const Summary = ({ type }) => {
+  const summary = useSelector(transactionsSelectors.getSummary);
+  return (
+    <div>
+      <h4>Сводка</h4>
+      <ul>
+        {summary.map((item) => (
+          <li key={`${item.year}${item.month}`}>
+            <span>
+              {moment()
+                .month(item.month - 1)
+                .format("MMMM")}
+            </span>
+            <span>{item[type]}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 Summary.propTypes = {
-	type: PropTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME])
-}
+  type: PropTypes.oneOf([categoryTypes.EXPENSE, categoryTypes.INCOME]),
+};
