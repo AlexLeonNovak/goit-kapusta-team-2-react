@@ -1,0 +1,94 @@
+.table {
+  border-collapse: collapse;
+  max-width: 282px;
+  height: 40px;
+  text-align: center;
+  border: 2px solid #f5f6fb;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 1.17;
+  color: #52555f;
+
+  @media screen and (min-width: 768px) {
+    min-width: 760px;
+  }
+
+  // TODO не застосовує border-radius: 20px 20px 0 0;!!!
+
+  thead {
+    height: 38px;
+    border-bottom: 2px solid #f5f6fb;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #f5f6fb;
+
+    @media (max-width: 767px) {
+      thead {
+        display: none;
+      }
+    }
+
+    th {
+      @media (max-width: 767px) {
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    thead {
+      display: none;
+    }
+  }
+
+  tbody {
+    font-weight: 400;
+
+    td {
+      &:nth-last-child(2) {
+        color: rgba(231, 25, 46, 1);
+        font-weight: 700;
+      }
+
+      @media (max-width: 767px) {
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+
+      @media (max-width: 767px) {
+        &:first-child {
+          display: grid;
+        }
+      }
+    }
+
+    tr {
+      min-width: 282px;
+      transition: all 0.2s ease-in;
+      border-bottom: 1px solid #ddd;
+
+      @media (max-width: 767px) {
+        display: inline-table;
+      }
+
+      &:hover {
+        background-color: #f5f6fb;
+        transform: scale(1.01);
+        cursor: pointer;
+      }
+    }
+
+    span {
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #52555f;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}

@@ -10,6 +10,8 @@ import {
 // import s from './TransactionTable.module.scss';
 // import classNames from "classnames";
 
+import table from "../../base/sass/components/_table.scss";
+
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
 import Modal from "../Modal";
@@ -49,14 +51,14 @@ export const TransactionTable = ({ type }) => {
 
   return (
     <>
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th>Дата</th>
             <th>Описание</th>
             <th>Категория</th>
             <th>Сумма</th>
-            <th />
+            <th> </th>
           </tr>
         </thead>
 
@@ -71,8 +73,8 @@ export const TransactionTable = ({ type }) => {
                 <td>{description}</td>
                 <td>{category.name}</td>
                 <td>
-                  {type === categoryTypes.EXPENSE && "-"}
-                  {amount}
+                  {type === categoryTypes.EXPENSE && "- "}
+                  {amount} грн.
                 </td>
                 <td align="center">
                   <button onClick={() => onOpenModal(_id)}>
