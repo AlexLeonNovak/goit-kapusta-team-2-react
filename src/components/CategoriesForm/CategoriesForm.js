@@ -86,15 +86,17 @@ export const CategoriesForm = () => {
       <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <div>
           <div>
-            <input
-              onChange={handleChange}
-              value={name}
-              name="name"
-              type="text"
-              label="Category name"
-              placeholder="Описание категории"
-              required
-            />
+            <div>
+              <input
+                onChange={handleChange}
+                value={name}
+                name="name"
+                type="text"
+                label="Category name"
+                placeholder="Описание категории"
+                required
+              />
+            </div>
 
             <Dropdown
               label="name"
@@ -104,13 +106,14 @@ export const CategoriesForm = () => {
               onChange={(value) => setType(value)}
             />
           </div>
-
-          <input
-            type="file"
-            name="filename"
-            id="filename"
-            onChange={handleChange}
-          />
+          <div>
+            <input
+              type="file"
+              name="filename"
+              id="filename"
+              onChange={handleChange}
+            />
+          </div>
           <label htmlFor="filename">{filename}</label>
         </div>
         <div>

@@ -61,25 +61,29 @@ const AuthForm = () => {
         </param>
         <div>
           <label htmlFor="email">Электронная почта:</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={email}
-            onChange={hahdleChangeEmail}
-            required
-            placeholder="your@email.com"
-          />
+          <div>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={hahdleChangeEmail}
+              required
+              placeholder="your@email.com"
+            />
+          </div>
           <label htmlFor="password">Пароль:</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={password}
-            onChange={hahdleChangePassword}
-            required
-            placeholder="Пароль"
-          />
+          <div>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              value={password}
+              onChange={hahdleChangePassword}
+              required
+              placeholder="Пароль"
+            />
+          </div>
           <div>
             <button onClick={handleClickLoginButton} type="button">
               Войти
