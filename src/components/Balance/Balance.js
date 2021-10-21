@@ -44,14 +44,16 @@ const Balance = ({ isHiddenButton = false }) => {
       <span>Баланс:</span>
       <form onSubmit={onSubmit}>
         <div>
-          <input
-            type="money"
-            name="balance"
-            // pattern="\d+(\.\d{2})?"
-            step="any"
-            onChange={(e) => setBalance(e.target.value)}
-            value={balance}
-          />
+          <div>
+            <input
+              type="money"
+              name="balance"
+              // pattern="\d+(\.\d{2})?"
+              step="any"
+              onChange={(e) => setBalance(e.target.value)}
+              value={balance}
+            />
+          </div>
           {!currentBalance && <Popover />}
           <span>UAH</span>
         </div>

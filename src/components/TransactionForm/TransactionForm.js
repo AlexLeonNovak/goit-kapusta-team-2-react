@@ -85,14 +85,16 @@ export const TransactionForm = ({ type }) => {
         <div>
           <div>
             <DatePicker value={datetime} onChange={setDatetime} />
-            <input
-              // id={valueInputId}
-              name="description"
-              type="text"
-              placeholder="Описание"
-              value={description}
-              onChange={handleChange}
-            />
+            <div>
+              <input
+                // id={valueInputId}
+                name="description"
+                type="text"
+                placeholder="Описание"
+                value={description}
+                onChange={handleChange}
+              />
+            </div>
 
             <Dropdown
               // id={textValueInputId}
@@ -103,16 +105,18 @@ export const TransactionForm = ({ type }) => {
               onChange={(value) => setCategory(value)}
             />
             <div>
-              <input
-                value={amount}
-                name="amount"
-                type="number"
-                max="100000"
-                min="1"
-                placeholder="00.00"
-                pattern="\d+(.\d{2})?"
-                onChange={handleChange}
-              />
+              <div>
+                <input
+                  value={amount}
+                  name="amount"
+                  type="number"
+                  max="100000"
+                  min="1"
+                  placeholder="00.00"
+                  pattern="\d+(.\d{2})?"
+                  onChange={handleChange}
+                />
+              </div>
               <span>
                 <svg width="20" height="20">
                   <use href={sprite + "#icon-calculator"} />
