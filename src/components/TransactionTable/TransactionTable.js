@@ -7,10 +7,7 @@ import {
   transactionsSelectors,
 } from "../../redux/transactions";
 
-// import s from './TransactionTable.module.scss';
 // import classNames from "classnames";
-
-import table from "../../base/sass/components/_table.scss";
 
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
