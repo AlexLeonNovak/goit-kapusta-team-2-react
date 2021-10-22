@@ -1,6 +1,7 @@
 .table {
   border-collapse: collapse;
-  max-width: 282px;
+  // max-width: 282px;
+  // width: 760px;
   height: 40px;
   text-align: center;
   border: 2px solid #f5f6fb;
@@ -9,9 +10,9 @@
   line-height: 1.17;
   color: #52555f;
 
-  @media screen and (min-width: 768px) {
-    min-width: 760px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   min-width: 760px;
+  // }
 
   // TODO не застосовує border-radius: 20px 20px 0 0;!!!
 
@@ -22,19 +23,19 @@
     font-weight: 700;
     background-color: #f5f6fb;
 
-    @media (max-width: 767px) {
-      thead {
-        display: none;
-      }
-    }
+    // @media (max-width: 767px) {
+    //   thead {
+    //     display: none;
+    //   }
+    // }
 
-    th {
-      @media (max-width: 767px) {
-        &:nth-child(3) {
-          display: none;
-        }
-      }
-    }
+    // th {
+    //   @media (max-width: 767px) {
+    //     &:nth-child(3) {
+    //       display: none;
+    //     }
+    //   }
+    // }
   }
 
   @media (max-width: 767px) {
@@ -52,17 +53,17 @@
         font-weight: 700;
       }
 
-      @media (max-width: 767px) {
-        &:nth-child(3) {
-          display: none;
-        }
-      }
+      // @media (max-width: 767px) {
+      //   &:nth-child(3) {
+      //     display: none;
+      //   }
+      // }
 
-      @media (max-width: 767px) {
-        &:first-child {
-          display: grid;
-        }
-      }
+      // @media (max-width: 767px) {
+      //   &:first-child {
+      //     display: grid;
+      //   }
+      // }
     }
 
     tr {
