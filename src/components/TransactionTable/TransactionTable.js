@@ -55,7 +55,7 @@ export const TransactionTable = ({ type }) => {
             <th>Описание</th>
             <th>Категория</th>
             <th>Сумма</th>
-            <th> </th>
+            <th></th>
           </tr>
         </thead>
 

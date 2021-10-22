@@ -55,10 +55,7 @@ const Transactions = () => {
           <TransactionForm type={currentType} />
           <div>
             <TransactionTable type={currentType} />
-
-            <div>
-              <Summary type={currentType} />
-            </div>
+            <Summary type={currentType} />
           </div>
           <ToastContainer />
         </div>
