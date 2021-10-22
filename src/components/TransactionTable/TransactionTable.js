@@ -64,7 +64,7 @@ export const TransactionTable = ({ type }) => {
             ({ _id, datetime, description, category, amount }) => (
               <tr key={_id}>
                 <td>
-                  <span>{description}</span>
+                  {/* <span>{description}</span> */}
                   {moment(datetime).format("DD.MM.YYYY")}
                 </td>
                 <td>{description}</td>
