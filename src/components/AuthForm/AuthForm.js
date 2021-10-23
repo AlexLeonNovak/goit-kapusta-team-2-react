@@ -5,6 +5,7 @@ import GoogleLogin from "react-google-login";
 // import styles from '../AuthForm/AuthForm.module.scss';
 import logo from "../../images/logo.png";
 import { authOperations } from "../../redux/auth";
+import '../../base/sass/main.scss';
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
@@ -85,10 +86,10 @@ const AuthForm = () => {
             />
           </div>
           <div>
-            <button onClick={handleClickLoginButton} type="button">
+            <button className='btn btn-accent' onClick={handleClickLoginButton} type="button">
               Войти
             </button>
-            <button onClick={handleClickRegisterButton} type="button">
+            <button className='btn' onClick={handleClickRegisterButton} type="button">
               Регистрация
             </button>
           </div>
