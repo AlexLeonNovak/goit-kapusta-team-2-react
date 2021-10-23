@@ -9,6 +9,7 @@ import { userOperations } from "./redux/user";
 
 import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
+import Container from "./components/Container";
 import { Loader } from "./components/Loader";
 import { categoriesOperations } from "./redux/categories";
 import { transactionsOperations } from "./redux/transactions";
@@ -50,7 +51,7 @@ function App() {
   }, [dispatch, isAuth]);
 
   return (
-    <>
+    <Container>
       <AppBar />
       {/* {isAuth && <Balance />} */}
       <Suspense fallback={<Loader />}>
@@ -86,7 +87,7 @@ function App() {
       </Suspense>
       {/* <Summary /> */}
       {/* TODO раскоментить после добавления expensee and income <Summary /> */}
-    </>
+    </Container>
   );
 }
 
