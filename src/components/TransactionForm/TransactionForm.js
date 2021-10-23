@@ -52,7 +52,7 @@ export const TransactionForm = ({ type }) => {
   const reset = () => {
     setDescription("");
     setCategory(null);
-    setAmount("00.00");
+    setAmount("");
   };
 
   const handleSubmit = useCallback(
@@ -125,7 +125,7 @@ export const TransactionForm = ({ type }) => {
             </div>
           </div>
           <div>
-            <button type="submit" onClick={notify}>
+            <button type="submit" onClick={handleSubmit}>
               ВВОД
             </button>
 
