@@ -7,7 +7,6 @@ import {
   transactionsSelectors,
 } from "../../redux/transactions";
 
-// import s from './TransactionTable.module.scss';
 // import classNames from "classnames";
 
 import trash from "../../base/images/svg_black/trash.svg";
@@ -49,14 +48,14 @@ export const TransactionTable = ({ type }) => {
 
   return (
     <>
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th>Дата</th>
             <th>Описание</th>
             <th>Категория</th>
             <th>Сумма</th>
-            <th />
+            <th></th>
           </tr>
         </thead>
 
@@ -65,14 +64,14 @@ export const TransactionTable = ({ type }) => {
             ({ _id, datetime, description, category, amount }) => (
               <tr key={_id}>
                 <td>
-                  <span>{description}</span>
+                  {/* <span>{description}</span> */}
                   {moment(datetime).format("DD.MM.YYYY")}
                 </td>
                 <td>{description}</td>
                 <td>{category.name}</td>
                 <td>
-                  {type === categoryTypes.EXPENSE && "-"}
-                  {amount}
+                  {type === categoryTypes.EXPENSE && "- "}
+                  {amount} грн.
                 </td>
                 <td align="center">
                   <button onClick={() => onOpenModal(_id)}>

@@ -10,21 +10,26 @@ import "moment/locale/ru";
 export const Summary = ({ type }) => {
   const summary = useSelector(transactionsSelectors.getSummary);
   return (
-    <div>
-      <h4>Сводка</h4>
-      <ul>
+    <table className="table table-grey">
+      <thead>
+        <tr>
+          <th colspan="2">Сводка</th>
+        </tr>
+      </thead>
+
+      <tbody>
         {summary.map((item) => (
-          <li key={`${item.year}${item.month}`}>
-            <span>
+          <tr key={`${item.year}${item.month}`}>
+            <td>
               {moment()
                 .month(item.month - 1)
                 .format("MMMM")}
-            </span>
-            <span>{item[type]}</span>
-          </li>
+            </td>
+            <td>{item[type]}</td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
   );
 };
 
