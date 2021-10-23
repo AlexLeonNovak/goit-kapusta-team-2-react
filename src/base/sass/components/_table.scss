@@ -28,6 +28,8 @@
 
   tbody {
     font-weight: 400;
+    max-height: 200px;
+    overflow: scroll;
 
     tr {
       // border: 2px solid #f5f6fb;
@@ -59,7 +61,7 @@
       // padding: 20px;
     }
 
-    td:last-child {
+    tr:last-child td:last-child {
       border-bottom-right-radius: 20px;
     }
   }

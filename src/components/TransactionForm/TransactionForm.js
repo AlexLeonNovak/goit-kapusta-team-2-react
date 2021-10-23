@@ -81,7 +81,7 @@ export const TransactionForm = ({ type }) => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <div>
             <DatePicker value={datetime} onChange={setDatetime} />
