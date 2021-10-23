@@ -51,6 +51,11 @@ export default function Navigation() {
           </NavLink>
         </li>
         <li>
+          <NavLink to={routes.bills} onClick={closeMenu}>
+            <span>Счета</span>
+          </NavLink>
+        </li>
+        <li>
           <NavLink to={routes.report} onClick={closeMenu}>
             <span>Отчет</span>
           </NavLink>
