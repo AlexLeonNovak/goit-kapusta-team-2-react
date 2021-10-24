@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import classNames from 'classnames';
 
-// import s from '../Nav/Nav.module.scss';
 import logo from "../../base/images/desktop/logo.png";
 import sprite from "../../base/images/sprite.svg";
 import routes from "../../routes";
-// import classNames from 'classnames';
+import s from '../Nav/Nav.module.scss';
 
 export default function Navigation() {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -19,44 +19,43 @@ export default function Navigation() {
   };
 
   return (
-    <nav>
-      <button onClick={openMenu}>
-        <span />
-        <span />
-        <span />
-      </button>
-      <div />
+    <nav className={s.menuWrapper}>
 
-      <NavLink to="/">
-        <div>
-          <img src={logo} alt="Logo" />
-        </div>
+      <button className={s.menuBtnToggle} onClick={openMenu}>
+        <span className={s.burgerLine}/>
+        <span className={s.burgerLine}/>
+        <span className={s.burgerLine}/>
+      </button>
+      <div className={classNames(s.backdrop, {[s.open]: isMenuOpened})} onClick={closeMenu}/>
+
+      <NavLink className={s.logoLink} to="/">
+        <div><img src={logo} alt="Logo"/></div>
       </NavLink>
-      <ul>
-        <li>
-          <button onClick={closeMenu}>
-            <svg width="30" height="30">
-              <use href={sprite + "#icon-close"} />
+      <ul className={classNames(s.menu, {[s.open]: isMenuOpened})}>
+        <li className={s.closeButtonItem}>
+          <button className={s.closeButton} onClick={closeMenu}>
+            <svg width="30" height="30" className={s.closeImg}>
+              <use href={sprite + '#icon-close'}/>
             </svg>
           </button>
         </li>
-        <li>
-          <NavLink to={routes.transactions} onClick={closeMenu}>
+        <li className={s.menuItem}>
+          <NavLink className={s.menuLink} to={routes.transactions} onClick={closeMenu}>
             <span>Транзакции</span>
           </NavLink>
         </li>
-        <li>
-          <NavLink to={routes.categories} onClick={closeMenu}>
-            <span>Категории</span>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={routes.bills} onClick={closeMenu}>
+        <li className={s.menuItem}>
+          <NavLink className={s.menuLink} to={routes.bills} onClick={closeMenu}>
             <span>Счета</span>
           </NavLink>
         </li>
-        <li>
-          <NavLink to={routes.report} onClick={closeMenu}>
+        <li className={s.menuItem}>
+          <NavLink className={s.menuLink} to={routes.categories} onClick={closeMenu}>
+            <span>Категории</span>
+          </NavLink>
+        </li>
+        <li className={s.menuItem}>
+          <NavLink className={s.menuLink} to={routes.report} onClick={closeMenu}>
             <span>Отчет</span>
           </NavLink>
         </li>
