@@ -3,13 +3,10 @@ import { Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
-import AppBar from "./components/AppBar/AppBar";
-import { Loader } from "./components/Loader";
 
 import { authSelectors } from "./redux/auth";
 import { userOperations } from "./redux/user";
 
-import routes from "./routes";
 import AppBar from "./components/AppBar/AppBar";
 import Container from "./components/Container";
 import { Loader } from "./components/Loader";
