@@ -40,16 +40,6 @@ const year = createReducer(date.getFullYear(), {
   [transactionsActions.fetchTransactionsSuccess]: (state, { payload }) => payload.year
 })
 
-const isNoErrorAction = action => action.type.startsWith('transactions') &&
-  (action.type.endsWith('Request') || action.type.endsWith('Success'));
-const isErrorAction = action => action.type.startsWith('transactions') && action.type.endsWith('Error');
-
-const error = createReducer(null, builder => {
-  builder
-    .addMatcher(isNoErrorAction, () => null)
-    .addMatcher(isErrorAction, (_, {payload}) => payload.message);
-});
-
 export const transactionsReducer = combineReducers({
   items,
   month,
@@ -57,5 +47,4 @@ export const transactionsReducer = combineReducers({
   summary,
   filter,
   loading,
-  error,
 });

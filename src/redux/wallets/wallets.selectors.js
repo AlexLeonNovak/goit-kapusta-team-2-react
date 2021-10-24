@@ -13,3 +13,5 @@ export const getExpenseCategories = createSelector(
   categories => categories.filter((category) => category.type === categoryTypes.EXPENSE)
 );
 
+export const getLoading = state => state.wallets.loading;
+

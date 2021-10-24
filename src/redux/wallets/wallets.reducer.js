@@ -23,14 +23,5 @@ const filter = createReducer('', {
   [walletsActions.filterWallet]: (_, { payload }) => payload,
 });
 
-const isNoErrorAction = action => action.type.startsWith('wallets') &&
-  (action.type.endsWith('Request') || action.type.endsWith('Success'));
-const isErrorAction = action => action.type.startsWith('wallets') && action.type.endsWith('Error');
 
-const error = createReducer(null, builder => {
-  builder
-    .addMatcher(isNoErrorAction, () => null)
-    .addMatcher(isErrorAction, (_, {payload}) => payload.message);
-});
-
-export const walletsReducer = combineReducers({ items, filter, loading, error });
+export const walletsReducer = combineReducers({ items, filter, loading });

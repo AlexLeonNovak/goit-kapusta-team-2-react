@@ -21,20 +21,9 @@ const info = createReducer({}, {
 	[userActions.getCurrentUserSuccess]: (_, {payload: {user : { email, id }}}) => ({email, id}),
 });
 
-const isNoErrorAction = action => action.type.startsWith('user') &&
-	(action.type.endsWith('Request') || action.type.endsWith('Success'));
-const isErrorAction = action => action.type.startsWith('user') && action.type.endsWith('Error');
-
-const error = createReducer(null, builder => {
-	builder
-		.addMatcher(isNoErrorAction, () => null)
-		.addMatcher(isErrorAction, (_, {payload}) => payload.message);
-});
-
 export const userReducer = combineReducers({
 	balance,
 	loading,
 	info,
-	error,
 });
 

@@ -23,14 +23,4 @@ const filter = createReducer('', {
   [categoriesActions.filterCategory]: (_, { payload }) => payload,
 });
 
-const isNoErrorAction = action => action.type.startsWith('categories') &&
-  (action.type.endsWith('Request') || action.type.endsWith('Success'));
-const isErrorAction = action => action.type.startsWith('categories') && action.type.endsWith('Error');
-
-const error = createReducer(null, builder => {
-  builder
-    .addMatcher(isNoErrorAction, () => null)
-    .addMatcher(isErrorAction, (_, {payload}) => payload.message);
-});
-
-export const categoriesReducer = combineReducers({ items, filter, loading, error });
+export const categoriesReducer = combineReducers({ items, filter, loading });
