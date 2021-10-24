@@ -3,11 +3,13 @@ import { Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
-import AppBar from "./components/AppBar/AppBar";
-import { Loader } from "./components/Loader";
 
 import { authSelectors } from "./redux/auth";
 import { userOperations } from "./redux/user";
+
+import AppBar from "./components/AppBar/AppBar";
+import Container from "./components/Container";
+import { Loader } from "./components/Loader";
 import { categoriesOperations } from "./redux/categories";
 import { transactionsOperations } from "./redux/transactions";
 import { walletsOperations } from './redux/wallets';
@@ -62,7 +64,7 @@ function App() {
   }, [addToast, error]);
 
   return (
-    <>
+    <Container>
       <AppBar />
       <Suspense fallback={<Loader />}>
         <Switch>
@@ -97,7 +99,7 @@ function App() {
       </Suspense>
       {/* <Summary /> */}
       {/* TODO раскоментить после добавления expensee and income <Summary /> */}
-    </>
+    </Container>
   );
 }
 

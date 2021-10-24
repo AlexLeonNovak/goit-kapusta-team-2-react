@@ -56,10 +56,10 @@ const AuthForm = () => {
             </button>
           )}
         />
-        <param>
+        <p>
           Или зайти в приложение с помощью e-mail и пароля, предварительно
           зарегестрировавшись:
-        </param>
+        </p>
         <div>
           <label htmlFor="email">Электронная почта:</label>
           <div>
