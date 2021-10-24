@@ -14,6 +14,7 @@ import { categoryTypes } from "../../helpers/constants";
 import { toast } from "react-toastify";
 import '../../base/sass/main.scss';
 
+
 export const TransactionForm = ({ type }) => {
   const dispatch = useDispatch();
 
@@ -80,10 +81,10 @@ export const TransactionForm = ({ type }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div>
+    <div className='formWrapper'>
+      <form onSubmit={handleSubmit} className='form'>
+        <div className='inputWrap'>
+          <div className='flexInput'>
             <DatePicker value={datetime} onChange={setDatetime} />
             <div>
               <input
@@ -93,18 +94,20 @@ export const TransactionForm = ({ type }) => {
                 placeholder="Описание"
                 value={description}
                 onChange={handleChange}
+                className='input'
               />
             </div>
 
             <Dropdown
               // id={textValueInputId}
+              
               label="name"
               options={categoryFilter()}
               prompt="Категория товара"
               value={category}
               onChange={(value) => setCategory(value)}
             />
-            <div>
+            <div className='amountInputWrapper' >
               <div>
                 <input
                   value={amount}
@@ -115,9 +118,10 @@ export const TransactionForm = ({ type }) => {
                   placeholder="00.00"
                   pattern="\d+(.\d{2})?"
                   onChange={handleChange}
+                  className='input'
                 />
               </div>
-              <span>
+              <span className='iconCalcWrapper'>
                 <svg width="20" height="20">
                   <use href={sprite + "#icon-calculator"} />
                 </svg>
