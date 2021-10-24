@@ -15,6 +15,7 @@ import { transactionsReducer } from './transactions/transactions.reducer';
 import { categoriesReducer } from './categories/categories.reducer';
 import { authReducer } from './auth/auth.reducer';
 import { userReducer } from './user/user.reducer';
+import { walletsReducer } from './wallets/wallets.reducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionsReducer,
     categories: categoriesReducer,
+    wallets: walletsReducer,
     user: userReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({

@@ -9,9 +9,9 @@ const items = createReducer([], {
     state.filter(({ _id }) => _id !== payload),
 });
 
-const isLoadingAction = action => action.type.endsWith('Request');
-const isEndLoadingAction = action =>
-  action.type.endsWith('Success') || action.type.endsWith('Error');
+const isLoadingAction = action => action.type.startsWith('categories') && action.type.endsWith('Request');
+const isEndLoadingAction = action => action.type.startsWith('categories') &&
+  (action.type.endsWith('Success') || action.type.endsWith('Error'));
 
 const loading = createReducer(false, builder => {
   builder
@@ -23,6 +23,14 @@ const filter = createReducer('', {
   [categoriesActions.filterCategory]: (_, { payload }) => payload,
 });
 
-const error = createReducer(null, {});
+const isNoErrorAction = action => action.type.startsWith('categories') &&
+  (action.type.endsWith('Request') || action.type.endsWith('Success'));
+const isErrorAction = action => action.type.startsWith('categories') && action.type.endsWith('Error');
+
+const error = createReducer(null, builder => {
+  builder
+    .addMatcher(isNoErrorAction, () => null)
+    .addMatcher(isErrorAction, (_, {payload}) => payload.message);
+});
 
 export const categoriesReducer = combineReducers({ items, filter, loading, error });
