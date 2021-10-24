@@ -8,11 +8,11 @@ import DatePicker from "../DatePick/DatePicker";
 import { transactionsOperations } from "../../redux/transactions";
 import { categoriesSelectors } from "../../redux/categories";
 
-// import s from './TransactionForm.module.scss';
 import sprite from "../../base/images/sprite.svg";
 
 import { categoryTypes } from "../../helpers/constants";
 import { toast } from "react-toastify";
+import '../../base/sass/main.scss';
 
 export const TransactionForm = ({ type }) => {
   const dispatch = useDispatch();
@@ -125,11 +125,11 @@ export const TransactionForm = ({ type }) => {
             </div>
           </div>
           <div>
-            <button type="submit" onClick={notify}>
+            <button className='btn btn-accent' type="submit" onClick={notify}>
               ВВОД
             </button>
 
-            <button type="reset" onClick={reset}>
+            <button className='btn' type="reset" onClick={reset}>
               ОЧИСТИТЬ
             </button>
           </div>

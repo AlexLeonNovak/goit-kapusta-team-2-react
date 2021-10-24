@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ReactComponent as CloseIcon } from "../../images/close.svg";
 // import stylesModal from "../Modal/Modal.module.scss";
-
+import '../../base/sass/main.scss';
 export default function Modal({ title, onClose, onClick }) {
   useEffect(() => {
     const handleKeyDown = (evt) => {
@@ -40,8 +40,8 @@ export default function Modal({ title, onClose, onClick }) {
         </button>
         <h2>{title}</h2>
         <div>
-          <button onClick={handleButtonClickYes}>Да</button>
-          <button onClick={handleButtonClickNo}>Нет</button>
+          <button className='btn btn-accent' onClick={handleButtonClickYes}>Да</button>
+          <button className='btn' onClick={handleButtonClickNo}>Нет</button>
         </div>
       </div>
     </div>

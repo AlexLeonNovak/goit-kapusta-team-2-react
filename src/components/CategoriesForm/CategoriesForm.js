@@ -9,6 +9,7 @@ import {
 import Dropdown from "../Dropdown/Dropdown";
 import { categoryTypes } from "../../helpers/constants";
 import { toast } from "react-toastify";
+import '../../base/sass/main.scss';
 
 export const CategoriesForm = () => {
   const dispatch = useDispatch();
@@ -117,11 +118,11 @@ export const CategoriesForm = () => {
           <label htmlFor="filename">{filename}</label>
         </div>
         <div>
-          <button type="submit" onClick={notify}>
+          <button className='btn btn-accent' type="submit" onClick={notify}>
             Ввод
           </button>
 
-          <button type="reset" onClick={reset}>
+          <button className='btn' type="reset" onClick={reset}>
             Очистить
           </button>
         </div>

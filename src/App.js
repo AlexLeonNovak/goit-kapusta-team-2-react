@@ -3,6 +3,8 @@ import { Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
+import AppBar from "./components/AppBar/AppBar";
+import { Loader } from "./components/Loader";
 
 import { authSelectors } from "./redux/auth";
 import { userOperations } from "./redux/user";
@@ -13,6 +15,11 @@ import Container from "./components/Container";
 import { Loader } from "./components/Loader";
 import { categoriesOperations } from "./redux/categories";
 import { transactionsOperations } from "./redux/transactions";
+import { walletsOperations } from './redux/wallets';
+import { errorSelectors } from './redux/error'
+
+import routes from "./routes";
+import {useToasts} from 'react-toast-notifications';
 // import Balance from './components/Balance';
 
 const Auth = lazy(() =>
@@ -40,6 +47,8 @@ const Report = lazy(() =>
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(authSelectors.getIsAuthenticated);
+  const { addToast } = useToasts();
+  const error = useSelector(errorSelectors.getError);
 
   useEffect(() => {
     dispatch(userOperations.getCurrentUser());
@@ -47,13 +56,19 @@ function App() {
       dispatch(categoriesOperations.fetchCategories());
       dispatch(transactionsOperations.fetchTransactions());
       dispatch(transactionsOperations.fetchSummary());
+      dispatch(walletsOperations.fetchWallets());
     }
   }, [dispatch, isAuth]);
+
+  useEffect(() => {
+    if (error) {
+      addToast(error, {appearance: 'error'})
+    }
+  }, [addToast, error]);
 
   return (
     <Container>
       <AppBar />
-      {/* {isAuth && <Balance />} */}
       <Suspense fallback={<Loader />}>
         <Switch>
           <PublicRoute exact path="/">

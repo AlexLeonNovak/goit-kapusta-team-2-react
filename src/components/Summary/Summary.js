@@ -13,7 +13,7 @@ export const Summary = ({ type }) => {
     <table className="table table-grey">
       <thead>
         <tr>
-          <th colspan="2">Сводка</th>
+          <th colSpan="2">Сводка</th>
         </tr>
       </thead>
 
