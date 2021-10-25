@@ -43,35 +43,35 @@ const Dropdown = ({ label, options, prompt, value, onChange }) => {
   }
 
   return (
-    <div>
+    <div className="dropdown">
       <div>
-        <div>
-          <input
-            type="text"
-            ref={ref}
-            placeholder={value ? value[label] : prompt}
-            value={displayValue()}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              onChange(null);
-            }}
-            onClick={toggle}
-            onTouchEnd={toggle}
-          />
-        </div>
-        <div />
+        <input
+          type="text"
+          ref={ref}
+          placeholder={value ? value[label] : prompt}
+          value={displayValue()}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            onChange(null);
+          }}
+          onClick={toggle}
+          onTouchEnd={toggle}
+        />
       </div>
-      <div>
+
+      <div className={`arrow ${open ? "open" : null}`} />
+
+      <ul className={`${open ? "open" : null}`}>
         {filter(options).map((option) => (
-          <div
+          <li
             key={option._id}
             onClick={(e) => selectOption(e, option)}
             onTouchEnd={(e) => selectOption(e, option)}
           >
             {option[label]}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
