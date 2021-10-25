@@ -2,6 +2,9 @@ html {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+html, body, #root {
+  height: 100%;
+}
 
 *,
 *::before,
@@ -65,7 +68,7 @@ ul {
 /* Задаём ширину основного контейнера */
 .container {
   width: 100%;
- 
+
   padding-left: 19px;
   padding-right: 19px;
   margin-left: auto;

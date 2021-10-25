@@ -1,4 +1,7 @@
 .mainBackgroud {
+	position: relative;
+	height: calc(100% - 56px);
+
 	&:before {
 		content: "";
 		position: absolute;
@@ -15,18 +18,17 @@
 		}
 	}
 
-	// @include for-size(tablet) {
-	// 	&:after {
-	// 		content: "";
-	// 		position: absolute;
-	// 		bottom: 20px;
-	// 		right: 20px;
-	// 		width: 183px;
-	// 		height: 142px;
-	// 		background-image: url(../../images/desktop/kapusta2.png);
-	// 		background-repeat: no-repeat;
-	// 		background-size: cover;
-	// 		z-index: 100;
-	// 	}
-	// }
+	 @include for-size(tablet) {
+	 	&:after {
+	 		content: "";
+	 		position: absolute;
+	 		bottom: 20px;
+	 		right: 20px;
+	 		width: 183px;
+	 		height: 142px;
+	 		background-image: url(../../images/desktop/kapusta2.png);
+	 		background-repeat: no-repeat;
+	 		background-size: cover;
+	 	}
+	 }
 }

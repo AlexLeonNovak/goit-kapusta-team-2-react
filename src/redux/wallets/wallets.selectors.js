@@ -1,17 +1,12 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { categoryTypes } from '../../helpers/constants';
 
-export const getAllCategories = state => state.categories.items;
+export const getAllWallets = state => state.wallets.items;
 
-export const getIncomeCategories = createSelector(
-  [getAllCategories],
-  categories => categories.filter((category) => category.type === categoryTypes.INCOME)
-);
+export const getSumWallets = createSelector(
+	[getAllWallets],
+	wallets => wallets.reduce((acc, wallet) => acc += wallet.balance, 0)
+)
 
-export const getExpenseCategories = createSelector(
-  [getAllCategories],
-  categories => categories.filter((category) => category.type === categoryTypes.EXPENSE)
-);
 
 export const getLoading = state => state.wallets.loading;
 
