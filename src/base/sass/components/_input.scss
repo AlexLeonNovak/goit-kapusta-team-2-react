@@ -1,0 +1,94 @@
+@import "../utils/variables";
+
+
+// .formWrapper {
+//   text-align: center;
+//   display: inline-block;
+//   padding-top: 20px;
+//   width: 100%;
+// }
+
+// .form {
+//     width: 100%;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: flex-start;
+  
+//   @include for-size(tablet) {
+//     display: inline-flex;
+    
+//   }
+
+//   @include for-size(desktop) {
+//     margin-bottom: 60px;
+    
+//   }
+// }
+
+.inputWrap {
+
+  @include for-size(tablet) {
+    display: flex;
+  }
+
+  @include for-size(desktop) {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+}
+
+.flexInput {
+    //margin-bottom: 30px;
+
+  @include for-size(tablet) {
+    display: flex;
+    width: 100%;
+    flex: 2;
+    justify-content: center;
+  }
+
+  @include for-size(desktop) {
+    align-items: center;
+  }
+}
+
+
+.amountInputWrapper {
+  @include for-size(tablet) {
+    width: 126px;
+    position: relative;
+    display: block;
+  }
+
+}
+input {
+  display: block;
+  height: 44px;
+  width: 100%;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.17;
+  //border-radius: 16px 0 0 0;
+  padding: 20px 2px 20px 2px;
+  text-align: center;
+
+ 
+
+  @include for-size(tablet) {
+    border-color: $bg-second;
+  }
+}
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.iconCalcWrapper {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+}
+
+
