@@ -1,0 +1,22 @@
+.balance {
+  display: flex;
+  height: 44px;
+  align-items: center;
+
+  form {
+    margin-right: 20px;
+  }
+
+  input {
+    width: 125px;
+    height: 44px;
+    text-align: end;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    border-radius: 16px;
+    border: 2px solid #bbb;
+    box-sizing: border-box;
+    margin-left: 20px;
+  }
+}

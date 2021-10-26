@@ -40,31 +40,30 @@ const Balance = ({ isHiddenButton = false }) => {
   };
 
   return (
-    <div>
-      <span>Баланс:</span>
+    <div className="balance">
       <form onSubmit={onSubmit}>
-        <div>
-          <div>
-            <input
-              type="money"
-              name="balance"
-              // pattern="\d+(\.\d{2})?"
-              step="any"
-              onChange={(e) => setBalance(e.target.value)}
-              value={balance}
-            />
-          </div>
-          {!currentBalance && <Popover />}
-          <span>UAH</span>
-        </div>
-        {!isHiddenButton && (
-          <div>
-            <button id="Popover1" type="submit" aria-describedby="tooltip">
-              Подтвердить
-            </button>
-          </div>
-        )}
+        <span>Баланс:</span>
+        <input
+          type="money"
+          name="balance"
+          // pattern="\d+(\.\d{2})?"
+          step="any"
+          onChange={(e) => setBalance(e.target.value)}
+          value={balance}
+        />
+        <span>UAH</span>
       </form>
+      {!isHiddenButton && (
+        <button
+          className="btn btn-accent"
+          id="Popover1"
+          type="submit"
+          aria-describedby="tooltip"
+        >
+          Подтвердить
+        </button>
+      )}
+      {!currentBalance && <Popover />}
     </div>
   );
 };

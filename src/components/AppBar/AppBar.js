@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Navigation from "../Nav/Nav";
+import Balance from "../Balance";
 import UserMenu from "../UserMenu/UserMenu";
 import s from "../AppBar/AppBar.module.scss";
 
@@ -12,6 +13,7 @@ export default function AppBar() {
   return (
     <div className={s.header}>
       <Navigation />
+      <Balance />
       {isLoggedIn ? <UserMenu /> : null}
     </div>
   );
