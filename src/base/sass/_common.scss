@@ -11,6 +11,10 @@ html, body, #root {
 *::after {
   box-sizing: inherit;
 }
+:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px $accent-color-light; ;
+}
 
 address {
   font-style: normal;

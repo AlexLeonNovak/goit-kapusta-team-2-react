@@ -51,7 +51,7 @@ const Transactions = () => {
             onChange={(item) => setCurrentType(item.value)}
           />
         </div>
-        <div>
+        <div style={{backgroundColor: '#fff'}}>
           <TransactionForm type={currentType} />
           <div>
             <TransactionTable type={currentType} />

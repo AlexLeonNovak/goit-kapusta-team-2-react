@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
+import classNames from 'classnames';
 
-// import classNames from "classnames";
-// import "./Dropdown.scss";
+import "./Dropdown.scss";
 
-const Dropdown = ({ label, options, prompt, value, onChange }) => {
+const Dropdown = ({ label, options, prompt, value, onChange, className }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -44,7 +44,6 @@ const Dropdown = ({ label, options, prompt, value, onChange }) => {
 
   return (
     <div className="dropdown">
-      <div>
         <input
           type="text"
           ref={ref}
@@ -56,12 +55,12 @@ const Dropdown = ({ label, options, prompt, value, onChange }) => {
           }}
           onClick={toggle}
           onTouchEnd={toggle}
+          className={className}
         />
-      </div>
 
-      <div className={`arrow ${open ? "open" : null}`} />
+      <span className={classNames('arrow', {open})} />
 
-      <ul className={`${open ? "open" : null}`}>
+      <ul className={classNames({open})}>
         {filter(options).map((option) => (
           <li
             key={option._id}
