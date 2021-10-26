@@ -14,9 +14,6 @@ import {
   transactionsSelectors,
 } from "../../redux/transactions";
 
-import { ToastContainer } from "react-toastify";
-// import 'react-toastify/dist/ReactToastify.css';
-
 const Transactions = () => {
   const dispatch = useDispatch();
   const year = useSelector(transactionsSelectors.getYear);
@@ -57,7 +54,6 @@ const Transactions = () => {
             <TransactionTable type={currentType} />
             <Summary type={currentType} />
           </div>
-          <ToastContainer />
         </div>
       </div>
     </div>

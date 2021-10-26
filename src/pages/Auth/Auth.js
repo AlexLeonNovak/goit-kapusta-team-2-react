@@ -8,7 +8,7 @@ const Auth = () => {
     <div>
       <AuthArticle />
       <AuthForm />
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   );
 };

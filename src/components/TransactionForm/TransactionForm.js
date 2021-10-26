@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,8 +11,8 @@ import { categoriesSelectors } from "../../redux/categories";
 import sprite from "../../base/images/sprite.svg";
 
 import { categoryTypes } from "../../helpers/constants";
-import { toast } from "react-toastify";
 import '../../base/sass/main.scss';
+import { useToasts } from 'react-toast-notifications';
 
 
 export const TransactionForm = ({ type }) => {
@@ -66,20 +66,30 @@ export const TransactionForm = ({ type }) => {
           category: category._id,
           amount,
         })
-      );
+        );
+        notify()
       reset();
     },
     [dispatch, datetime, description, category, amount]
   );
+  const { addToast } = useToasts()
   const notify = () => {
-    if (!description || !amount || !category) {
-      return toast.warning(
-        "Description, amount and category are required fields"
-      );
+      if (!description || !amount || !category) {
+        return addToast(
+          "Description, amount and category are required fields",
+          {
+            appearance: 'error',
+            autoDismiss: false
+          });
+      }
+      else {
+        return addToast("Successful operation", {
+          appearance: 'success',
+          autoDismiss: true
+         })
     }
-    toast.success("Successful operation");
-  };
-
+  }
+  
   return (
     <div className='formWrapper'>
       <form onSubmit={handleSubmit} className='form'>
@@ -129,7 +139,7 @@ export const TransactionForm = ({ type }) => {
             </div>
           </div>
           <div>
-            <button className='btn btn-accent' type="submit" onClick={notify}>
+            <button className='btn btn-accent' type="submit">
               ВВОД
             </button>
 
