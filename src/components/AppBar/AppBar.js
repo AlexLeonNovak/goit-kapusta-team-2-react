@@ -13,7 +13,9 @@ export default function AppBar() {
   return (
     <div className={s.header}>
       <Navigation />
-      <Balance />
+
+      {isLoggedIn ? <Balance /> : null}
+
       {isLoggedIn ? <UserMenu /> : null}
     </div>
   );
