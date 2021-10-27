@@ -42,7 +42,7 @@ const Balance = ({ isHiddenButton = false }) => {
   return (
     <div className="balance">
       <form onSubmit={onSubmit}>
-        <span>Баланс: {currentBalance} </span>
+        <span>Баланс: {currentBalance} UAH</span>
         {/* <input
           type="money"
           name="balance"
@@ -51,7 +51,7 @@ const Balance = ({ isHiddenButton = false }) => {
           onChange={(e) => setBalance(e.target.value)}
           value={balance}
         /> */}
-        <span>UAH</span>
+        {/* <span>UAH</span> */}
       </form>
       {/* {!isHiddenButton && (
         <button
