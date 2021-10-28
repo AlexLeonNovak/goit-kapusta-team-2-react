@@ -73,29 +73,36 @@ ul {
 .container {
   width: 100%;
 
-  padding-left: 19px;
-  padding-right: 19px;
   margin-left: auto;
   margin-right: auto;
 
   @include for-size(minmobile) {
-    min-width: 320px;
+    max-width: 320px;
   }
 
   @include for-size(mobile) {
-    min-width: 480px;
+    max-width: 480px;
   }
 
   @include for-size(tablet) {
-    min-width: 768px;
+    max-width: 768px;
     padding-left: 51px;
     padding-right: 51px;
   }
 
   @include for-size(desktop) {
-    width: 1280px;
+    max-width: 1280px;
     padding-left: 110px;
     padding-right: 110px;
     overflow: hidden;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+
+  &-col {
+    flex-direction: column;
   }
 }

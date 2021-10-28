@@ -1,19 +1,20 @@
 import {useState, useCallback} from 'react';
-import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
+import PropTypes from 'prop-types';
+import DatePicker from "react-datepicker";
 
 import Dropdown from '../Dropdown/Dropdown';
-import DatePicker from '../DatePick/DatePicker';
 
 import {transactionsOperations} from '../../redux/transactions';
 import {categoriesSelectors} from '../../redux/categories';
-
-import sprite from '../../base/images/sprite.svg';
-
 import {categoryTypes} from '../../helpers/constants';
 import {toast} from 'react-toastify';
-import '../../base/sass/main.scss';
 
+import sprite from '../../base/images/sprite.svg';
+import calendarIcon from '../../images/calendar.png';
+
+import "react-datepicker/dist/react-datepicker.css";
+import s from './TransactionForm.module.scss';
 
 export const TransactionForm = ({type}) => {
 	const dispatch = useDispatch();
@@ -81,64 +82,81 @@ export const TransactionForm = ({type}) => {
 	};
 
 	return (
-		<div className="formWrapper">
-			<form onSubmit={handleSubmit} className="form">
-				<div className="inputWrap">
-					<div className="flexInput">
-						<DatePicker value={datetime} onChange={setDatetime}/>
-						<div className="formGroup">
-							<div className="inputWrapper">
-								<input
-									name="description"
-									type="text"
-									placeholder="Описание"
-									value={description}
-									onChange={handleChange}
-									className="input"
-								/>
-							</div>
-							<div className="inputWrapper">
-								<Dropdown
-									label="name"
-									options={categoryFilter()}
-									prompt="Категория товара"
-									value={category}
-									onChange={(value) => setCategory(value)}
-									className="input"
-								/>
-							</div>
-							<div className="inputWrapper amountInputWrapper">
-								<input
-									value={amount}
-									name="amount"
-									type="number"
-									max="100000"
-									min="1"
-									placeholder="00.00"
-									pattern="\d+(.\d{2})?"
-									onChange={handleChange}
-									className="input"
-								/>
-								<span className="iconCalcWrapper">
+		<form onSubmit={handleSubmit} className={`form ${s.form}`}>
+			<div className={s.calendarWrapper}>
+				<DatePicker
+					selected={datetime}
+					onChange={setDatetime}
+					dateFormat="dd.MM.yyyy"
+					customInput={
+						<input type="text" className={`input ${s.calendarInput}`}/>
+					}
+				/>
+				<span className={s.calendarImg}>
+					<img src={calendarIcon} alt={calendarIcon}/>
+				</span>
+			</div>
+			<div className="formGroup">
+				<div className="inputWrapper">
+					<input
+						name="description"
+						type="text"
+						placeholder="Описание"
+						value={description}
+						onChange={handleChange}
+						className="input"
+					/>
+				</div>
+				<div className="inputWrapper">
+					{/*TODO add wallets */}
+					<Dropdown
+						label="name"
+						options={categoryFilter()}
+						prompt="Счета"
+						value={category}
+						onChange={(value) => setCategory(value)}
+						className="input"
+					/>
+				</div>
+				<div className="inputWrapper">
+					<Dropdown
+						label="name"
+						options={categoryFilter()}
+						prompt="Категория товара"
+						value={category}
+						onChange={(value) => setCategory(value)}
+						className="input"
+					/>
+				</div>
+				<div className={`inputWrapper ${s.amountInputWrapper}`}>
+					<input
+						value={amount}
+						name="amount"
+						type="number"
+						max="100000"
+						min="1"
+						placeholder="00.00"
+						pattern="\d+(.\d{2})?"
+						onChange={handleChange}
+						className="input"
+					/>
+					<span className={s.iconCalcWrapper}>
 	                <svg width="20" height="20">
 	                  <use href={sprite + '#icon-calculator'}/>
 	                </svg>
 	              </span>
-							</div>
-						</div>
-					</div>
-					<div>
-						<button className="btn btn-accent" type="submit" onClick={notify}>
-							ВВОД
-						</button>
-
-						<button className="btn" type="reset" onClick={reset}>
-							ОЧИСТИТЬ
-						</button>
-					</div>
 				</div>
-			</form>
-		</div>
+			</div>
+			<div className={s.btnGroup}>
+				<button className="btn btn-accent" type="submit" onClick={notify}>
+					ВВОД
+				</button>
+
+				<button className="btn" type="reset" onClick={reset}>
+					ОЧИСТИТЬ
+				</button>
+			</div>
+		</form>
 	);
 };
 
