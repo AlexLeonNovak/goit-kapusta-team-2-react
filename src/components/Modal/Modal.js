@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { ReactComponent as CloseIcon } from "../../images/close.svg";
 // import stylesModal from "../Modal/Modal.module.scss";
 import '../../base/sass/main.scss';
+import { useToasts } from 'react-toast-notifications';
 export default function Modal({ title, onClose, onClick }) {
   useEffect(() => {
     const handleKeyDown = (evt) => {
@@ -30,7 +31,16 @@ export default function Modal({ title, onClose, onClick }) {
   const handleButtonClickYes = () => {
     onClick();
     onClose();
+    notify();
   };
+
+  const { addToast } = useToasts()
+  const notify = () => {
+        addToast("Successful operation", {
+          appearance: 'success',
+          autoDismiss: true
+         })
+  }
 
   return (
     <div onClick={handleBackdropClick}>
