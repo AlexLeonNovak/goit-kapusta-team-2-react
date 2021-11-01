@@ -1,8 +1,8 @@
 import { useState } from "react";
-// import classNames from 'classnames';
+import classNames from 'classnames';
 import PropTypes from "prop-types";
 
-// import s from "../Tabs/Tabs.module.scss";
+import s from "../Tabs/Tabs.module.scss";
 
 export const Tabs = ({ items, onChange }) => {
   const [activeTabIdx, setActiveTabIdx] = useState(0);
@@ -13,10 +13,13 @@ export const Tabs = ({ items, onChange }) => {
   };
 
   return (
-    <div>
-      <ul>
-        {items.map(({ label, value }, index) => (
-          <li key={index} onClick={() => tabHandleClick(index)}>
+    <div className={s.tabs}>
+      <ul className={s.tabsList}>
+        {items.map(({label, value}, index) => (
+          <li key={index}
+              className={classNames(s.tabListItem, {[s.tabListActive]: activeTabIdx === index})}
+              onClick={() => tabHandleClick(index)}
+          >
             {label}
           </li>
         ))}

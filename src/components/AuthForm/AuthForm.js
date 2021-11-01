@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import GoogleLogin from "react-google-login";
 
-// import styles from '../AuthForm/AuthForm.module.scss';
+import styles from '../AuthForm/AuthForm.module.scss';
 import logo from "../../images/logo.png";
 import { authOperations } from "../../redux/auth";
 import '../../base/sass/main.scss';
@@ -41,61 +41,73 @@ const AuthForm = () => {
   };
 
   return (
-    <div>
-      <form autoComplete="off">
-        <p>Вы можете авторизироваться с помощью Google Account:</p>
-        <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          onSuccess={responseGoogleSuccess}
-          onFailure={responseGoogleFail}
-          cookiePolicy={"single_host_origin"}
-          render={(props) => (
-            <button {...props}>
-              <img src={logo} alt="logo_google" />
-              Google
-            </button>
-          )}
-        />
-        <p>
-          Или зайти в приложение с помощью e-mail и пароля, предварительно
-          зарегестрировавшись:
-        </p>
-        <div>
-          <label htmlFor="email">Электронная почта:</label>
-          <div>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={email}
-              onChange={hahdleChangeEmail}
-              required
-              placeholder="your@email.com"
-            />
-          </div>
-          <label htmlFor="password">Пароль:</label>
-          <div>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={password}
-              onChange={hahdleChangePassword}
-              required
-              placeholder="Пароль"
-            />
-          </div>
-          <div>
-            <button className='btn btn-accent' onClick={handleClickLoginButton} type="button">
-              Войти
-            </button>
-            <button className='btn' onClick={handleClickRegisterButton} type="button">
-              Регистрация
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <div className={styles.wrapper}>
+			<form className={styles.form} autoComplete="off">
+				<p className={styles.form_titleGoogle}>
+					Вы можете авторизироваться с помощью Google Account:
+				</p>
+				<GoogleLogin
+					clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+					onSuccess={responseGoogleSuccess}
+					onFailure={responseGoogleFail}
+					cookiePolicy={'single_host_origin'}
+					render={props => (
+						<button className={styles.form_googleLink} {...props}>
+							<img className={styles.form_googleLogo} src={logo} alt="logo_google"/>
+							Google
+						</button>
+					)}
+				/>
+				<p className={styles.form_title}>
+					Или зайти в приложение с помощью e-mail и пароля, предварительно
+					зарегестрировавшись:
+				</p>
+				<div className={styles.form_inputArea}>
+					<label htmlFor="email" className={styles.form_inputDescription}>
+						Электронная почта:
+					</label>
+					<input
+						id="email"
+						name="email"
+						type="email"
+						value={email}
+						onChange={hahdleChangeEmail}
+						required
+						className={styles.form_input}
+						placeholder="your@email.com"
+					/>
+					<label htmlFor="password" className={styles.form_inputDescription}>
+						Пароль:
+					</label>
+					<input
+						id="password"
+						name="password"
+						type="password"
+						value={password}
+						onChange={hahdleChangePassword}
+						required
+						className={styles.form_input}
+						placeholder="Пароль"
+					/>
+					<div className={styles.form_buttons}>
+						<button
+							onClick={handleClickLoginButton}
+							type="button"
+							className={styles.form_button}
+						>
+							Войти
+						</button>
+						<button
+							onClick={handleClickRegisterButton}
+							type="button"
+							className={styles.form_button}
+						>
+							Регистрация
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
   );
 };
 

@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authOperations } from "../../redux/auth";
 import { userSelectors } from "../../redux/user";
-import defaultAvatar from "../../base/images/desktop/kapustaVip.png";
-// import s from '../UserMenu/UserMenu.module.scss';
+//import defaultAvatar from "../../base/images/desktop/kapustaVip.png";
+import s from '../UserMenu/UserMenu.module.scss';
 import Modal from "../Modal";
 
 export default function UserMenu() {
@@ -27,14 +27,17 @@ export default function UserMenu() {
   //const shortName = email.toString().charAt(0);
   //console.log(email[0]);
   return (
-    <div>
-      <span>{emailFirstLetter}</span>
-      <span> {email}</span>
-      <span />
+   <div className={s.userMenu}>
+			<span className={s.avatar}>{emailFirstLetter}</span>
+			<span className={s.name}> {email}</span>
+			<span className={s.line}/>
 
-      <button onClick={onOpenModal} type="button">
-        <u>Выйти</u>
-      </button>
+			<button
+				onClick={onOpenModal}
+				type="button"
+				className={`${s.button} ${s.buttonPhone}`}>
+				<u>Выйти</u>
+			</button>
 
       {showModal && (
         <Modal
