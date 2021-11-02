@@ -26,6 +26,9 @@ export const addWallet = (wallet) => async (dispatch) => {
     }
   };
 
+  
+
+
 export const deleteWallet = (walletId) => async (dispatch) => {
   dispatch(walletsActions.deleteWalletRequest());
 

@@ -1,23 +1,21 @@
 import React, { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import classNames from 'classnames'
 
 import {
-  categoriesOperations,
-  categoriesSelectors,
-} from "../../redux/categories";
-// import s from '../CategoriesList/CategoriesList.module.scss';
+    walletsOperations,
+    walletsSelectors,
+} from "../../redux/wallets";
 import trash from "../../base/images/svg_black/trash.svg";
 import Modal from "../Modal";
-import { categoryTypes } from "../../helpers/constants";
 
-const CategoriesList = () => {
+
+export const BillsList = () => {
   const dispatch = useDispatch();
-  const categories = useSelector(categoriesSelectors.getAllCategories);
+  const wallets = useSelector(walletsSelectors.getAllWallets);
+  console.log(wallets);
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState("");
 
-console.log(categories);
   const toggleModal = () => {
     setShowModal(!showModal);
     setId("");
@@ -30,9 +28,9 @@ console.log(categories);
 
   const API_URL = `${process.env.REACT_APP_API_URL}/`;
 
-  const onDeleteContact = useCallback(
+  const onDeleteWallet = useCallback(
     (id) => {
-      dispatch(categoriesOperations.deleteCategory(id));
+      dispatch(walletsOperations.deleteWallet(id));
     },
     [dispatch]
   );
@@ -42,27 +40,20 @@ console.log(categories);
       <table>
         <thead>
           <tr>
-            <th>Лого</th>
             <th>Название</th>
-            <th>Тип</th>
+            <th>Сума</th>
             <th />
           </tr>
         </thead>
         <tbody>
-          {categories.map(({ _id, name, type, logo }) => (
-            <tr key={_id}>
-              <td>
-                <img src={API_URL + logo} alt="logo" />
+          {wallets.map((item) => (
+            <tr key={item.wallet._id}>
+                  <td>
+                <span>{item.wallet.name}</span>
               </td>
-              <td>
-                <span>{name}</span>
-                <span>
-                  {type === categoryTypes.INCOME ? "Доход" : "Расход"}
-                </span>
-              </td>
-              <td>{type === categoryTypes.INCOME ? "Доход" : "Расход"}</td>
+              <td>{item.wallet.balance}</td>
               <td align="center">
-                <button onClick={() => onOpenModal(_id)}>
+                <button onClick={() => onOpenModal(item.wallet._id)}>
                   <img src={trash} alt="Delete" />
                 </button>
               </td>
@@ -75,11 +66,10 @@ console.log(categories);
           ChildComponent
           title={"Вы уверены?"}
           onClose={toggleModal}
-          onClick={() => onDeleteContact(id)}
+          onClick={() => onDeleteWallet(id)}
         />
       )}
     </div>
   );
 };
 
-export default CategoriesList;

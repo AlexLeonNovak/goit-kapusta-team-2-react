@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userOperations, userSelectors } from "../../redux/user";
 import { ReactComponent as Arrow } from "../../images/left-arrow.svg";
-import Popover from "../Popover/Popover";
+// import Popover from "../Popover/Popover";
 import "./balance.scss";
 
 import { toast } from "react-toastify";
@@ -42,7 +42,7 @@ const Balance = ({ isHiddenButton = false }) => {
   return (
     <div className="balance">
       <span>Баланс: {currentBalance} UAH</span>
-      {!currentBalance && <Popover />}
+      {/* {!currentBalance && <Popover />} */}
     </div>
   );
 };

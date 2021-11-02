@@ -38,6 +38,7 @@ export const TransactionTable = ({ type }) => {
     transactionsSelectors.getAllTransactions
   ).filter((transaction) => transaction.category.type === type);
 
+
   const onDeleteTransaction = useCallback(
     (id) => {
       dispatch(transactionsOperations.deleteTransaction(id));
