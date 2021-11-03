@@ -1,19 +1,19 @@
 import {useState, useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {useToasts} from 'react-toast-notifications';
 import PropTypes from 'prop-types';
-import DatePicker from "react-datepicker";
+
+import DatePicker from 'react-datepicker';
 
 import Dropdown from '../Dropdown/Dropdown';
-
 import {transactionsOperations} from '../../redux/transactions';
 import {categoriesSelectors} from '../../redux/categories';
+
 import {categoryTypes} from '../../helpers/constants';
-import {toast} from 'react-toastify';
-
 import sprite from '../../base/images/sprite.svg';
-import calendarIcon from '../../images/calendar.png';
 
-import "react-datepicker/dist/react-datepicker.css";
+import calendarIcon from '../../images/calendar.png';
+import 'react-datepicker/dist/react-datepicker.css';
 import s from './TransactionForm.module.scss';
 
 export const TransactionForm = ({type}) => {
@@ -23,6 +23,7 @@ export const TransactionForm = ({type}) => {
 	const [description, setDescription] = useState('');
 	const [category, setCategory] = useState(null);
 	const [amount, setAmount] = useState(0);
+	const {addToast} = useToasts()
 
 	const categories = useSelector(categoriesSelectors.getAllCategories);
 
@@ -68,18 +69,27 @@ export const TransactionForm = ({type}) => {
 					amount,
 				})
 			);
+			notify();
 			reset();
 		},
 		[dispatch, datetime, description, category, amount]
 	);
+
 	const notify = () => {
 		if (!description || !amount || !category) {
-			return toast.warning(
-				'Description, amount and category are required fields'
-			);
+			return addToast(
+				'Description, amount and category are required fields',
+				{
+					appearance: 'error',
+					autoDismiss: false
+				});
+		} else {
+			return addToast('Successful operation', {
+				appearance: 'success',
+				autoDismiss: true
+			})
 		}
-		toast.success('Successful operation');
-	};
+	}
 
 	return (
 		<form onSubmit={handleSubmit} className={`form ${s.form}`}>
@@ -148,7 +158,7 @@ export const TransactionForm = ({type}) => {
 				</div>
 			</div>
 			<div className={s.btnGroup}>
-				<button className="btn btn-accent" type="submit" onClick={notify}>
+				<button className="btn btn-accent" type="submit">
 					ВВОД
 				</button>
 
