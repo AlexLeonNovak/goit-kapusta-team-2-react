@@ -8,6 +8,7 @@ import DatePicker from 'react-datepicker';
 import Dropdown from '../Dropdown/Dropdown';
 import {transactionsOperations} from '../../redux/transactions';
 import {categoriesSelectors} from '../../redux/categories';
+import {walletsSelectors} from '../../redux/wallets';
 
 import {categoryTypes} from '../../helpers/constants';
 import sprite from '../../base/images/sprite.svg';
