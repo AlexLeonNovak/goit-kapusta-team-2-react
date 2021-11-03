@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { userOperations, userSelectors } from "../../redux/user";
-import { ReactComponent as Arrow } from "../../images/left-arrow.svg";
-import Popover from "../Popover/Popover";
-import "./balance.scss";
+import React, { useCallback, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { userOperations, userSelectors } from '../../redux/user';
+import { ReactComponent as Arrow } from '../../images/left-arrow.svg';
+import Popover from '../Popover/Popover';
+import './balance.scss';
 
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 // import classNames from 'classnames';
 
 const Balance = ({ isHiddenButton = false }) => {
@@ -33,16 +33,16 @@ const Balance = ({ isHiddenButton = false }) => {
   // };
 
   const notify = () => {
-    if (!balance || balance === "0") {
-      return toast.warning("Balance not entered");
+    if (!balance || balance === '0') {
+      return toast.warning('Balance not entered');
     }
-    toast.success("Balance entered");
+    toast.success('Balance entered');
   };
 
   return (
-    <div className="balance">
+    <div className='balance'>
       <span>Баланс: {currentBalance} UAH</span>
-      {!currentBalance && <Popover />}
+      {/* {!currentBalance && <Popover />} */}
     </div>
   );
 };

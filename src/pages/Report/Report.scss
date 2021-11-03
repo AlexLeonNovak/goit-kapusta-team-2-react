@@ -1,0 +1,138 @@
+@import '../../base/sass/main.scss';
+
+.topSection {
+  padding: 15px 19px;
+  @include for-size(tablet) {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0 30px;
+  }
+}
+
+.wrapperLink {
+  @include for-size(tablet) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.sectionTotalTransactionsSum {
+  margin: 15px 19px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  @include for-size(tablet) {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.section {
+  width: 100%;
+  background-color: #ffffff;
+
+  @include for-size(tablet) {
+    margin-bottom: 30px;
+    border-radius: 30px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  }
+}
+
+.accountingSection {
+  padding: 20px 19px;
+  @include for-size(tablet) {
+    padding: 20px 20px 30px 30px;
+  }
+  @include for-size(desktop) {
+    padding: 20px 220px;
+  }
+}
+
+.currentPeriodWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  @include for-size(tablet) {
+    margin-top: 0;
+  }
+
+  .swiperText {
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: rgba(82, 85, 95, 0.7);
+  }
+
+  .swiperWrapper {
+    margin-bottom: 30px;
+  }
+}
+
+.currentPeriod_txt {
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(82, 85, 95, 0.7);
+  margin-bottom: 5px;
+}
+
+.dataline {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 85px;
+  width: 282px;
+  border: solid 1px #ffffff;
+  background: #ffffff;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+
+  @include for-size(tablet) {
+    .dataline {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+      justify-content: center;
+      flex-flow: row nowrap;
+      height: 50px;
+      width: 668px;
+      box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+      border-radius: 30px;
+    }
+  }
+
+  @include for-size(desktop) {
+    .dataline {
+      height: 50px;
+      width: 1060px;
+    }
+  }
+}
+
+.chartSection {
+  padding: 34px 19px;
+  @include for-size(tablet) {
+    padding: 45px 30px;
+  }
+  @include for-size(desktop) {
+    padding: 20px 150px;
+  }
+}
+
+.chartBlock {
+  @include for-size(tablet) {
+    .chartBlock {
+      width: 605px;
+    }
+  }
+}

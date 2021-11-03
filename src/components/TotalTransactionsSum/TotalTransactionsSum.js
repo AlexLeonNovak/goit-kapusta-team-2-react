@@ -1,21 +1,21 @@
-import { useSelector } from "react-redux";
-import { transactionsSelectors } from "../../redux/transactions";
-// import s from "./TotalTransactionsSum.module.scss";
+import { useSelector } from 'react-redux';
+import { transactionsSelectors } from '../../redux/transactions';
+import './TotalTransactionsSum.scss';
 
 export const TotalTransactionsSum = () => {
   const expense = useSelector(transactionsSelectors.getExpenseSum);
   const income = useSelector(transactionsSelectors.getIncomeSum);
   return (
-    <>
-      <div>
-        <span>Расходы:</span>
-        <span>-{expense} грн.</span>
+    <div className='summary'>
+      <div className='block blockExpenses'>
+        <span className='label labelLeftBias'>Расходы:</span>
+        <span className='expenses'>-{expense} грн.</span>
       </div>
       <span />
-      <div>
-        <span>Доходы:</span>
-        <span>+{income} грн.</span>
+      <div className='block blockIncome'>
+        <span className='label'>Доходы:</span>
+        <span className='income'>+{income} грн.</span>
       </div>
-    </>
+    </div>
   );
 };

@@ -1,0 +1,87 @@
+@import '../../base/sass/main.scss';
+@import '../../base/sass/utils/variables';
+
+.summary {
+  display: flex;
+  height: 85px;
+  @include for-size(tablet) {
+    height: 50px;
+  }
+}
+
+.block {
+  display: flex;
+  flex-flow: column wrap;
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+
+  @include for-size(tablet) {
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+}
+
+.blockExpenses {
+  @include for-size(tablet) {
+    justify-content: right;
+  }
+}
+
+.blockExpenses::after {
+  content: '';
+  width: 0px;
+  height: 70px;
+  border: 1px solid #e0e5eb;
+  background: #e0e5eb;
+  @include for-size(tablet) {
+    height: 36px;
+  }
+}
+
+.blockIncome {
+  @include for-size(tablet) {
+    justify-content: left;
+  }
+}
+
+.label {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #52555f;
+
+  @include for-size(tablet) {
+    display: inline;
+    margin-left: 20px;
+  }
+}
+
+.labelLeftBias {
+  @include for-size(tablet) {
+    text: right;
+  }
+}
+
+.expenses,
+.income {
+  width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  @include for-size(tablet) {
+    display: inline;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 20px;
+  }
+}
+
+.expenses {
+  color: $balance-out;
+}
+
+.income {
+  color: $balance-in;
+}

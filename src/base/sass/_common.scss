@@ -1,8 +1,10 @@
 html {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -10,10 +12,6 @@ html, body, #root {
 *::before,
 *::after {
   box-sizing: inherit;
-}
-:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px $accent-color-light; ;
 }
 
 address {
@@ -23,7 +21,7 @@ address {
 body {
   margin: 0px;
   padding: 0px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 12px;
   line-height: 1.17;
 }
@@ -73,36 +71,29 @@ ul {
 .container {
   width: 100%;
 
+  // padding-left: 19px;
+  // padding-right: 19px;
   margin-left: auto;
   margin-right: auto;
 
   @include for-size(minmobile) {
-    max-width: 320px;
+    min-width: 320px;
   }
 
   @include for-size(mobile) {
-    max-width: 480px;
+    min-width: 480px;
   }
 
   @include for-size(tablet) {
-    max-width: 768px;
+    min-width: 768px;
     padding-left: 51px;
     padding-right: 51px;
   }
 
   @include for-size(desktop) {
-    max-width: 1280px;
+    width: 1280px;
     padding-left: 110px;
     padding-right: 110px;
     overflow: hidden;
-  }
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-
-  &-col {
-    flex-direction: column;
   }
 }

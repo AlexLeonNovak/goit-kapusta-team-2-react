@@ -1,28 +1,20 @@
-
-
 * {
   box-sizing: border-box;
 }
 
 .swiperContainer {
-  /* margin-top: 20px; */
+  padding: 5px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  height: 20px;
+  height: 25px;
   width: 170px;
   overflow: hidden;
 }
 
 .swiperSlider {
   background-position: center;
-  /* background-size: cover; */
 }
-
-//.containerTitle {
-//  margin: 0 auto;
-//  border: solid 2px #000;
-//}
 
 .swiperTitle {
   display: block;
@@ -32,7 +24,4 @@
   line-height: 16px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  margin-left: auto;
-  margin-right: auto;
 }
-
