@@ -22,13 +22,21 @@ export const TransactionForm = ({type}) => {
 	const [datetime, setDatetime] = useState(new Date());
 	const [description, setDescription] = useState('');
 	const [category, setCategory] = useState(null);
+	const [wallet, setWallet] = useState(null);
+
 	const [amount, setAmount] = useState(0);
 	const {addToast} = useToasts()
 
 	const categories = useSelector(categoriesSelectors.getAllCategories);
+	const wallets = useSelector(walletsSelectors.getAllWallets);
+
 
 	const categoryFilter = () => {
 		return categories.filter((category) => category.type === type);
+	};
+
+	const newWallets = () => {
+		return wallets.map((item) => item.wallet);
 	};
 
 	const handleChange = useCallback((e) => {
@@ -43,6 +51,10 @@ export const TransactionForm = ({type}) => {
 				setCategory(value);
 				break;
 
+				case 'wallet':
+					setWallet(value);
+					break;
+
 			case 'amount':
 				setAmount(value);
 				break;
@@ -56,6 +68,7 @@ export const TransactionForm = ({type}) => {
 		setDescription('');
 		setCategory(null);
 		setAmount('00.00');
+		setWallet(null);
 	};
 
 	const handleSubmit = useCallback(
@@ -67,12 +80,13 @@ export const TransactionForm = ({type}) => {
 					description,
 					category: category._id,
 					amount,
+					wallet: wallet._id,
 				})
 			);
 			notify();
 			reset();
 		},
-		[dispatch, datetime, description, category, amount]
+		[dispatch, datetime, description, category, amount, wallet]
 	);
 
 	const notify = () => {
@@ -121,10 +135,10 @@ export const TransactionForm = ({type}) => {
 					{/*TODO add wallets */}
 					<Dropdown
 						label="name"
-						options={categoryFilter()}
+						options={newWallets()}
 						prompt="Счета"
-						value={category}
-						onChange={(value) => setCategory(value)}
+						value={wallet}
+						onChange={(value) => setWallet(value)}
 						className="input"
 					/>
 				</div>

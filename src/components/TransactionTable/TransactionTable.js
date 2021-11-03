@@ -38,6 +38,7 @@ export const TransactionTable = ({ type }) => {
     transactionsSelectors.getAllTransactions
   ).filter((transaction) => transaction.category.type === type);
 
+
   const onDeleteTransaction = useCallback(
     (id) => {
       dispatch(transactionsOperations.deleteTransaction(id));
@@ -54,6 +55,7 @@ export const TransactionTable = ({ type }) => {
             <th>Дата</th>
             <th>Описание</th>
             <th>Категория</th>
+            <th>Счет</th>
             <th>Сумма</th>
             <th></th>
           </tr>
@@ -61,7 +63,7 @@ export const TransactionTable = ({ type }) => {
 
         <tbody>
           {transactions.map(
-            ({ _id, datetime, description, category, amount }) => (
+            ({ _id, datetime, description, category, amount, wallet }) => (
               <tr key={_id}>
                 <td>
                   {/* <span>{description}</span> */}
@@ -69,6 +71,7 @@ export const TransactionTable = ({ type }) => {
                 </td>
                 <td>{description}</td>
                 <td>{category.name}</td>
+                <td>{wallet.name}</td>
                 <td>
                   {type === categoryTypes.EXPENSE && "- "}
                   {amount} грн.
