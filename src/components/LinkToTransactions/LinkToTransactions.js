@@ -17,5 +17,6 @@ export default function LinkToTransactions() {
         <span className={s.LinkToTransactionsText}>Вернуться на главную</span>
       </div>
     </NavLink>
+
   );
 }

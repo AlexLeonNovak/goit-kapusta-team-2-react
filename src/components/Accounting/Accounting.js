@@ -65,7 +65,7 @@ export const Accounting = ({ type, onChangeCategory }) => {
                 )}
               </div>
               <span className={s.container_item_txt}>{category.name}</span>
-            </li>
+          </li>
           );
         })}
       </ul>
