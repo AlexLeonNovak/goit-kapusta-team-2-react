@@ -2,98 +2,71 @@
 
 .dropdown {
   position: relative;
-  color: $bg-second;
-  cursor: default;
 
-  @include for-size(mobile) {
+  .arrow {
+    position: absolute;
+    right: 20px;
+    top: 45%;
+    transition: all 250ms;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top: 5px solid $color-light-grey;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      transition: all 250ms;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 0;
+      border-top: 3px solid $bg-main;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      transition: all 250ms;
+    }
+    &.open {
+      top: 55%;
+      transform: rotateX(180deg);
+    }
+
+  }
+
+  ul {
+    display: none;
+    background-color: $bg-main;
+    border: 2px solid $bg-second;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     width: 100%;
-  }
-}
-
-.dropdownInput {
-  line-height: 1.17;
-  font-size: 12px;
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 0 0 16px 0;
-  box-sizing: border-box;
-  height: 44px;
-  cursor: default;
-  outline: none;
-  padding-left: 20px;
-  transition: all 200ms ease;
-  width: 100%;
-
-  &::placeholder {
-    color: #c7ccdc;
+    z-index: 1000;
   }
 
-  @include for-size(mobile) {
-    border: 2px solid #F5F6FB;
+  ul.open {
+    display: block;
   }
 
-  @include for-size(tablet) {
-    border-radius: 0;
-    // border-right: none;
+  li {
+    box-sizing: border-box;
+    color: $color-light-grey;
+    cursor: pointer;
+    display: block;
+    padding: 8px 10px;
   }
-}
 
-.arrow {
-  border-color: #999 transparent transparent;
-  border-style: solid;
-  border-width: 5px 5px 0;
-  content: " ";
-  display: block;
-  height: 0;
-  margin-top: 0.3rem;
-  position: absolute;
-  right: 10px;
-  top: 14px;
-  width: 0;
-}
-
-.arrow.open {
-  border-color: transparent transparent #999;
-  border-width: 0 5px 5px;
-}
-
-.options {
-  display: none;
-  background-color: #fff;
-  border: 2px solid #fff;
-  border-radius: 2px;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-  box-sizing: border-box;
-  margin-top: -13px;
-  max-height: 400px;
-  overflow-y: auto;
-  position: absolute;
-  top: 45px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1000;
-
-  @include for-size(mobile) {
-    border: 2px solid #F5F6FB;
-    border-top: none;
+  li.selected,
+  li:hover, li:focus {
+    background-color: $bg-second;
+    color: $font-color-secondary;
   }
-}
-
-.options.open {
-  display: block;
-}
-
-.option {
-  box-sizing: border-box;
-  color: rgba(51, 51, 51, 0.8);
-  cursor: pointer;
-  display: block;
-  padding: 8px 10px;
-}
-
-.dropdown .option.selected,
-.dropdown .option:hover {
-  background-color: #f2f9fc;
-  color: #333;
 }

@@ -1,13 +1,10 @@
-@import "../../base/sass/main.scss";
+@import '../../base/sass/main.scss';
 
 .categoriesListContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: auto;
-  margin: 20px auto;
-  // border: solid 1px #000;
+  margin: 20px auto 0 auto;
 }
 
 .categoriesList {
@@ -26,17 +23,17 @@
   cursor: pointer;
   list-style: none;
 
-  &:hover, &:focus, &.active {
+  &:hover,
+  &:focus,
+  &.active {
     .categoryLogoWrapper:before {
       background-color: $accent-color-light;
     }
     .categoryLogo {
-      fill: $accent-color-dark
+      fill: $accent-color-dark;
     }
   }
 }
-
-
 
 .container_item_txt {
   display: block;
@@ -44,16 +41,11 @@
   margin: 8px;
 }
 
-@media screen and (min-width: 768px) {
-  .categoriesListContainer {
-    width: 613px;
-  }
+.container_item_amount {
+  padding-bottom: 5px;
 }
 
-@media screen and (min-width: 1280px) {
-}
-
-.categoryLogoWrapper{
+.categoryLogoWrapper {
   position: relative;
 }
 

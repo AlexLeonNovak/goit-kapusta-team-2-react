@@ -9,7 +9,7 @@ const items = createReducer([], {
 
   [transactionsActions.deleteTransactionSuccess]: (state, { payload }) =>
     state.filter((transaction) => transaction._id !== payload),
-    
+
 });
 
 const summary = createReducer([], {
@@ -17,9 +17,9 @@ const summary = createReducer([], {
     payload.summary.sort((a,b) => a.year - b.year || a.month - b.month),
 });
 
-const isLoadingAction = action => action.type.endsWith('Request');
-const isEndLoadingAction = action =>
-  action.type.endsWith('Success') || action.type.endsWith('Error');
+const isLoadingAction = action => action.type.startsWith('transactions') && action.type.endsWith('Request');
+const isEndLoadingAction = action => action.type.startsWith('transactions') &&
+  (action.type.endsWith('Success') || action.type.endsWith('Error'));
 
 const loading = createReducer(false, builder => {
   builder
@@ -40,8 +40,6 @@ const year = createReducer(date.getFullYear(), {
   [transactionsActions.fetchTransactionsSuccess]: (state, { payload }) => payload.year
 })
 
-const error = createReducer(null, {});
-
 export const transactionsReducer = combineReducers({
   items,
   month,
@@ -49,5 +47,4 @@ export const transactionsReducer = combineReducers({
   summary,
   filter,
   loading,
-  error,
 });

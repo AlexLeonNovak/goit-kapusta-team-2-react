@@ -1,0 +1,36 @@
+@import "../utils/variables";
+
+.btn {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  color: rgba(82, 85, 95, 1);
+
+  padding: 12px 34px;
+  border: 2px solid #f6f7fc;
+  border-radius: 16px;
+  background-color: inherit;
+  width: 125px;
+  box-shadow: 2px 2px 4px rgba(100, 84, 84, 0.54);
+
+  cursor: pointer;
+  outline: none;
+}
+.btn:first-child {
+  margin-right: 15px;
+}
+
+.btn:focus,
+.btn:hover {
+  background-color: rgba(189, 189, 189, 0.1);
+}
+.btn-accent {
+  border: 2px solid $accent-color-dark;
+  background-color: $accent-color-dark;
+  color: $bg-main;
+}
+.btn-accent:focus,
+.btn-accent:hover {
+  background-color: rgba(255, 117, 29, 0.8);
+}

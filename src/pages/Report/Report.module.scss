@@ -1,100 +1,77 @@
-@import "../../base/sass/main.scss";
+@import '../../base/sass/main.scss';
 
-.report {
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #f5f6fb;
-    border-bottom-left-radius: 125px;
-    z-index: -1;
-    height: 286px;
-
-    @include for-size(tablet) {
-      height: 526px;
-    }
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    background-image: url(../../base/images/desktop/kapusta.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
-    height: 30px;
+.topSection {
+  padding: 15px 19px;
+  @include for-size(tablet) {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0 30px;
   }
 }
 
-.container {
-  padding-top: 37px;
-
-  @include for-size(minmobile) {
-    padding-bottom: 30px;
+.wrapperLink {
+  @include for-size(tablet) {
+    display: flex;
+    align-items: center;
   }
+}
+
+.sectionTotalTransactionsSum {
+  margin: 15px 19px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  @include for-size(tablet) {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.section {
+  width: 100%;
+  background-color: #ffffff;
 
   @include for-size(tablet) {
-    padding-bottom: 40px;
-  }
-
-  @include for-size(desktop) {
-    padding-bottom: 83px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   }
 }
 
-.linkWrapper {
+.accountingSection {
+  padding: 20px 19px;
+  @include for-size(tablet) {
+    padding: 20px 20px 30px 30px;
+  }
+  @include for-size(desktop) {
+    padding: 20px 220px;
+  }
+}
+
+.currentPeriodWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+
+  @include for-size(tablet) {
+    margin-top: 0;
+  }
+
+  .swiperText {
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: rgba(82, 85, 95, 0.7);
+  }
 
   .swiperWrapper {
     margin-bottom: 30px;
   }
-
-  @include for-size(tablet) {
-    flex-direction: row;
-    margin: 0 auto 30px;
-    align-items: center;
-    width: 668px;
-
-    .swiperWrapper {
-      order: 3;
-      text-align: right;
-      align-items: self-end;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 0;
-    }
-  }
-
-  @include for-size(desktop) {
-    width: 1060px;
-
-    .flexColumn {
-      flex: 1 1 0;
-    }
-  }
-}
-
-.currentPeriod {
-  // position: absolute;
-  // top: 105px;
-  // left: 50%;
-  // transform: translate(-50%);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  //width: 155px;
-  //height: 39px;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  //margin-bottom: 30px;
-  //order: 3;
 }
 
 .currentPeriod_txt {
@@ -106,10 +83,6 @@
 }
 
 .dataline {
-  // position: absolute;
-  // top: 228px;
-  // left: 50%;
-  // transform: translate(-50%);
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -122,66 +95,44 @@
   border-radius: 20px;
   margin: 0 auto;
   margin-bottom: 40px;
-}
-
-.expencesBlock {
-  width: 100%;
-  height: auto;
-  // padding: 40px 20px 20px 20px;
-  background: #ffffff;
 
   @include for-size(tablet) {
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    .dataline {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+      justify-content: center;
+      flex-flow: row nowrap;
+      height: 50px;
+      width: 668px;
+      box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+      border-radius: 30px;
+    }
+  }
+
+  @include for-size(desktop) {
+    .dataline {
+      height: 50px;
+      width: 1060px;
+    }
+  }
+}
+
+.chartSection {
+  padding: 34px 19px;
+  @include for-size(tablet) {
+    padding: 45px 30px;
+  }
+  @include for-size(desktop) {
+    padding: 20px 150px;
   }
 }
 
 .chartBlock {
-  width: 100%;
-  margin: 0 auto;
-}
-
-@include for-size(tablet) {
-  .dataline {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    justify-content: center;
-    flex-flow: row nowrap;
-    height: 50px;
-    width: 668px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 30px;
-  }
-
-  .currentPeriod {
-    margin: 0;
-    top: 96px;
-    right: 54px;
-    transform: none;
-    left: auto;
-  }
-
-  .expencesBlock {
-    width: 666px;
-    border-radius: 30px;
-    margin: 30px auto 0 auto;
-    padding: 20px;
-  }
-  .chartBlock {
-    width: 605px;
-  }
-}
-
-@include for-size(desktop) {
-  .currentPeriod {
-    right: calc(100% / 5);
-  }
-  .dataline {
-    height: 50px;
-    width: 1060px;
-  }
-  .expencesBlock {
-    width: 1060px;
+  @include for-size(tablet) {
+    .chartBlock {
+      width: 605px;
+    }
   }
 }

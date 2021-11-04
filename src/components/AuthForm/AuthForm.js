@@ -1,47 +1,47 @@
-import {useState} from 'react';
-import {useDispatch} from 'react-redux';
-import GoogleLogin from 'react-google-login';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import GoogleLogin from "react-google-login";
 
 import styles from '../AuthForm/AuthForm.module.scss';
-import logo from '../../images/logo.png';
-import { authOperations } from '../../redux/auth';
-
+import logo from "../../images/logo.png";
+import { authOperations } from "../../redux/auth";
+import '../../base/sass/main.scss';
 
 const AuthForm = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const dispatch = useDispatch();
-	const hahdleChangeEmail = e => setEmail(e.target.value);
-	const hahdleChangePassword = e => setPassword(e.target.value);
-	const registerFunc = data => dispatch(authOperations.register(data));
-	const loginFunc = data => dispatch(authOperations.logIn(data));
-	const googleAuth = token => dispatch(authOperations.googleAuth(token));
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const hahdleChangeEmail = (e) => setEmail(e.target.value);
+  const hahdleChangePassword = (e) => setPassword(e.target.value);
+  const registerFunc = (data) => dispatch(authOperations.register(data));
+  const loginFunc = (data) => dispatch(authOperations.logIn(data));
+  const googleAuth = (token) => dispatch(authOperations.googleAuth(token));
 
-	const handleClickRegisterButton = () => {
-		registerFunc({email, password});
-		reset();
-	};
+  const handleClickRegisterButton = () => {
+    registerFunc({ email, password });
+    reset();
+  };
 
-	const handleClickLoginButton = () => {
-		loginFunc({email, password});
-		reset();
-	};
+  const handleClickLoginButton = () => {
+    loginFunc({ email, password });
+    reset();
+  };
 
-	const reset = () => {
-		setEmail('');
-		setPassword('');
-	};
+  const reset = () => {
+    setEmail("");
+    setPassword("");
+  };
 
-	const responseGoogleSuccess = (response) => {
-		googleAuth(response.tokenId);
-	}
+  const responseGoogleSuccess = (response) => {
+    googleAuth(response.tokenId);
+  };
 
-	const responseGoogleFail = (response) => {
-		console.log(response);
-	}
+  const responseGoogleFail = (response) => {
+    console.log(response);
+  };
 
-	return (
-		<div className={styles.wrapper}>
+  return (
+    <div className={styles.wrapper}>
 			<form className={styles.form} autoComplete="off">
 				<p className={styles.form_titleGoogle}>
 					Вы можете авторизироваться с помощью Google Account:
@@ -108,8 +108,7 @@ const AuthForm = () => {
 				</div>
 			</form>
 		</div>
-	);
-
-}
+  );
+};
 
 export default AuthForm;

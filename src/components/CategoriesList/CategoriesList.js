@@ -1,13 +1,15 @@
-import React, { useCallback, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import classNames from 'classnames'
+import React, { useCallback, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+// import classNames from 'classnames'
 
-import { categoriesOperations, categoriesSelectors } from '../../redux/categories';
-import s from '../CategoriesList/CategoriesList.module.scss';
-import trash from '../../base/images/svg_black/trash.svg';
+import {
+  categoriesOperations,
+  categoriesSelectors,
+} from "../../redux/categories";
+// import s from '../CategoriesList/CategoriesList.module.scss';
+import trash from "../../base/images/svg_black/trash.svg";
 import Modal from "../Modal";
-import { categoryTypes } from '../../helpers/constants';
-
+import { categoryTypes } from "../../helpers/constants";
 
 const CategoriesList = () => {
   const dispatch = useDispatch();
@@ -15,11 +17,12 @@ const CategoriesList = () => {
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState("");
 
+console.log(categories);
   const toggleModal = () => {
     setShowModal(!showModal);
     setId("");
   };
-  
+
   const onOpenModal = (id) => {
     setShowModal(true);
     setId(id);
@@ -28,39 +31,39 @@ const CategoriesList = () => {
   const API_URL = `${process.env.REACT_APP_API_URL}/`;
 
   const onDeleteContact = useCallback(
-    id => {
+    (id) => {
       dispatch(categoriesOperations.deleteCategory(id));
     },
-    [dispatch],
+    [dispatch]
   );
 
   return (
     <div>
-      <table className={s.categoriesTable}>
-        <thead className={s.categoriesHead}>
-          <tr className={s.categoriesHeadList}>
-            <th className={s.categoriesHeadItem}>Лого</th>
-            <th className={classNames(s.categoriesHeadItem, s.categoriesHeadItemName)}>Название</th>
-            <th className={classNames(s.categoriesHeadItem, s.categoriesHeadType)}>Тип</th>
+      <table>
+        <thead>
+          <tr>
+            <th>Лого</th>
+            <th>Название</th>
+            <th>Тип</th>
             <th />
           </tr>
         </thead>
-        <tbody className={s.categoriesBody}>
+        <tbody>
           {categories.map(({ _id, name, type, logo }) => (
-            <tr key={_id} className={s.categoriesList}>
-              <td className={s.categoriesLogo}>
-                <img src={API_URL + logo} alt="logo" className={s.categoriesImg} />
+            <tr key={_id}>
+              <td>
+                <img src={API_URL + logo} alt="logo" />
               </td>
-              <td className={s.categoriesInfo}>
-                <span className={s.categoriesName}>{name}</span>
-                <span className={s.categoriesType}>{type===categoryTypes.INCOME ? 'Доход' : 'Расход'}</span>
+              <td>
+                <span>{name}</span>
+                <span>
+                  {type === categoryTypes.INCOME ? "Доход" : "Расход"}
+                </span>
               </td>
-              <td className={s.categoriesTypeColumn}>
-                {type===categoryTypes.INCOME ? 'Доход' : 'Расход'}
-              </td>
-              <td align="center" className={s.categoriesActions}>
-                <button onClick={() => onOpenModal(_id)} className={s.categoriesActionsDelete}>
-                  <img src={trash} alt="Delete" className={s.categoriesActionsDeleteIcon} />
+              <td>{type === categoryTypes.INCOME ? "Доход" : "Расход"}</td>
+              <td align="center">
+                <button onClick={() => onOpenModal(_id)}>
+                  <img src={trash} alt="Delete" />
                 </button>
               </td>
             </tr>
@@ -78,5 +81,5 @@ const CategoriesList = () => {
     </div>
   );
 };
- 
+
 export default CategoriesList;

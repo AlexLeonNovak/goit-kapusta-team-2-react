@@ -4,8 +4,14 @@
 @import "./utils/fonts";
 @import "./utils/mixins";
 @import "./common";
-//@import './layouts/header';
 
+@import "./components/container";
+@import "./components/table";
+@import "./components/btn";
+@import "./components/input";
+
+
+// @import "./layouts/header";
 //@import './layouts/modal';
-//@import './layouts/preloader';
+// @import "./layouts/preloader";
 @import "./bg/bg";

@@ -1,16 +1,16 @@
-import { useState} from 'react';
+import { useState } from "react";
 import classNames from 'classnames';
 import PropTypes from "prop-types";
 
 import s from "../Tabs/Tabs.module.scss";
 
-export const Tabs = ({items, onChange}) => {
+export const Tabs = ({ items, onChange }) => {
   const [activeTabIdx, setActiveTabIdx] = useState(0);
 
   const tabHandleClick = (index) => {
     setActiveTabIdx(index);
-    onChange(items[index])
-  }
+    onChange(items[index]);
+  };
 
   return (
     <div className={s.tabs}>
@@ -25,16 +25,17 @@ export const Tabs = ({items, onChange}) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 Tabs.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.string
-  })),
-  onChange: PropTypes.func
-}
-
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+    })
+  ),
+  onChange: PropTypes.func,
+};
 
 export default Tabs;
