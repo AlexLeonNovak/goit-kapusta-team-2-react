@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
-import SVG from "react-inlinesvg";
-import { useEffect, useState } from "react";
-// import classNames from 'classnames';
-import PropTypes from "prop-types";
+import { useSelector } from 'react-redux';
+import SVG from 'react-inlinesvg';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-import { categoriesSelectors } from "../../redux/categories";
-import { transactionsSelectors } from "../../redux/transactions";
-// import s from './Accounting.module.scss';
-import { categoryTypes } from "../../helpers/constants";
+import { categoriesSelectors } from '../../redux/categories';
+import { transactionsSelectors } from '../../redux/transactions';
+import s from './Accounting.module.scss';
+import { categoryTypes } from '../../helpers/constants';
 
 export const Accounting = ({ type, onChangeCategory }) => {
   const transactions = useSelector(transactionsSelectors.getAllTransactions);
@@ -30,16 +30,25 @@ export const Accounting = ({ type, onChangeCategory }) => {
   }, [currentIndex, categories, onChangeCategory]);
 
   return (
-    <div>
-      <ul>
+    <div className={s.categoriesListContainer}>
+      <ul className={s.categoriesList}>
         {categories.map((category, index) => {
-          const isSvg = category.logo.split(".").pop().toLowerCase() === "svg";
+          const isSvg = category.logo.split('.').pop().toLowerCase() === 'svg';
           return (
-            <li key={category._id} onClick={() => setCurrentIndex(index)}>
-              <span>{amounts[category._id] || 0}</span>
-              <div>
+            <li
+              key={category._id}
+              className={classNames(s.categoryItem, {
+                [s.active]: currentIndex === index,
+              })}
+              onClick={() => setCurrentIndex(index)}
+            >
+              <span className={s.container_item_txt}>
+                {amounts[category._id] || '00.00'}
+              </span>
+              <div className={s.categoryLogoWrapper}>
                 {isSvg ? (
                   <SVG
+                    className={s.categoryLogo}
                     width={65}
                     height={57}
                     title={category.name}
@@ -47,15 +56,16 @@ export const Accounting = ({ type, onChangeCategory }) => {
                   />
                 ) : (
                   <img
+                    className={s.categoryLogo}
                     src={`${process.env.REACT_APP_API_URL}/${category.logo}`}
                     alt={category.name}
-                    width="65"
-                    height="57"
+                    width='65'
+                    height='57'
                   />
                 )}
               </div>
-              <span>{category.name}</span>
-            </li>
+              <span className={s.container_item_txt}>{category.name}</span>
+          </li>
           );
         })}
       </ul>

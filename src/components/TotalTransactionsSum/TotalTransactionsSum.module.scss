@@ -1,8 +1,15 @@
-@import "../../base/sass/main.scss";
-@import "../../base/sass/utils/variables";
+@import '../../base/sass/main.scss';
+@import '../../base/sass/utils/variables';
 
-.block_expenses,
-.block_income {
+.summary {
+  display: flex;
+  height: 85px;
+  @include for-size(tablet) {
+    height: 50px;
+  }
+}
+
+.block {
   display: flex;
   flex-flow: column wrap;
   width: 50%;
@@ -10,26 +17,49 @@
   text-align: center;
 
   @include for-size(tablet) {
-    display: block;
-    margin: 20px;
+    flex-flow: row nowrap;
+    align-items: center;
   }
 }
 
-.block_expenses {
-  text-align: right;
+.blockExpenses {
+  @include for-size(tablet) {
+    justify-content: right;
+  }
 }
-.block_income {
-  text-align: left;
+
+.blockExpenses::after {
+  content: '';
+  width: 0px;
+  height: 70px;
+  border: 1px solid #e0e5eb;
+  background: #e0e5eb;
+  @include for-size(tablet) {
+    height: 36px;
+  }
+}
+
+.blockIncome {
+  @include for-size(tablet) {
+    justify-content: left;
+  }
 }
 
 .label {
-  width: 100%;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
+  color: #52555f;
 
   @include for-size(tablet) {
-    margin-right: 15px;
+    display: inline;
+    margin-left: 20px;
+  }
+}
+
+.labelLeftBias {
+  @include for-size(tablet) {
+    text: right;
   }
 }
 
@@ -40,6 +70,12 @@
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.04em;
+  @include for-size(tablet) {
+    display: inline;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 20px;
+  }
 }
 
 .expenses {
@@ -48,14 +84,4 @@
 
 .income {
   color: $balance-in;
-}
-
-.splitter {
-  border-left: solid 1px #e0e5eb;
-  height: 70.5px;
-  width: 1px;
-
-  @include for-size(tablet) {
-    height: 36px;
-  }
 }
