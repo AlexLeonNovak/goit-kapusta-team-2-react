@@ -12,7 +12,7 @@ import Modal from "../Modal";
 export const BillsList = () => {
   const dispatch = useDispatch();
   const wallets = useSelector(walletsSelectors.getAllWallets);
-  console.log(wallets);
+
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState("");
 
@@ -25,9 +25,6 @@ export const BillsList = () => {
     setShowModal(true);
     setId(id);
   };
-
-  const API_URL = `${process.env.REACT_APP_API_URL}/`;
-
   const onDeleteWallet = useCallback(
     (id) => {
       dispatch(walletsOperations.deleteWallet(id));
@@ -47,13 +44,13 @@ export const BillsList = () => {
         </thead>
         <tbody>
           {wallets.map((item) => (
-            <tr key={item.wallet._id}>
+            <tr key={item._id}>
                   <td>
-                <span>{item.wallet.name}</span>
+                <span>{item.name}</span>
               </td>
-              <td>{item.wallet.balance}</td>
+              <td>{item.balance}</td>
               <td align="center">
-                <button onClick={() => onOpenModal(item.wallet._id)}>
+                <button onClick={() => onOpenModal(item._id)}>
                   <img src={trash} alt="Delete" />
                 </button>
               </td>

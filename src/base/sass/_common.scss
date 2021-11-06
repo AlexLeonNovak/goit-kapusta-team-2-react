@@ -72,13 +72,8 @@ ul {
 /* Задаём ширину основного контейнера */
 .container {
   width: 100%;
-
   margin-left: auto;
   margin-right: auto;
-
-  @include for-size(minmobile) {
-    max-width: 320px;
-  }
 
   @include for-size(mobile) {
     max-width: 480px;

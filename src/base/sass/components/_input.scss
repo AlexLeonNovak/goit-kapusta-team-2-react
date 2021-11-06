@@ -12,7 +12,7 @@
 }
 
 .inputWrapper {
-  border: 2px solid $bg-second;
+  border: 2px solid $bg-main;
 
   & + & {
     border-top: none;
@@ -40,6 +40,7 @@
   }
 
   @include for-size(tablet) {
+    border-color: $bg-second;
     & + & {
       border-top: 2px solid $bg-second;
       border-left: none;
@@ -88,7 +89,7 @@
 .input {
   display: block;
   width: 100%;
-  background-color: $bg-main;
+  background-color: transparent;
   font-family: inherit;
   font-size: 12px;
   line-height: 1.17;
@@ -97,9 +98,9 @@
   padding: 15px 20px;
   color: $font-color-secondary;
 
-  //@include for-size(tablet) {
-  //  border-color: $bg-second;
-  //}
+  @include for-size(tablet) {
+    border-color: $bg-main;
+  }
 
   &::placeholder {
     color: $color-light-grey;

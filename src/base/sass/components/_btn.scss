@@ -16,6 +16,8 @@
 
   cursor: pointer;
   outline: none;
+
+  transition: all 250ms;
 }
 .btn:first-child {
   margin-right: 15px;
@@ -33,4 +35,25 @@
 .btn-accent:focus,
 .btn-accent:hover {
   background-color: rgba(255, 117, 29, 0.8);
+}
+
+.btn-rounded {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover, &:focus {
+    background-color: $bg-second;
+    border-radius: 50%;
+  }
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
 }

@@ -4,11 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px;
 
   @include for-size(tablet) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0;
   }
 
   @include for-size(desktop) {
@@ -16,21 +18,51 @@
   }
 }
 
-.amountInputWrapper {
+.amountInputWrapper:last-child {
   position: relative;
-}
 
+  @include for-size(mobile-only) {
+    margin-top: 30px;
+    border: 2px solid $bg-main;
+    border-radius: 22px;
+    width: 180px;
+    align-self: center;
+    padding-right: 50px;
+
+    .amountInput {
+      border-right: 2px solid $bg-main;
+    }
+  }
+
+  @include for-size(tablet) {
+    border-color: $bg-second;
+    margin-top: 0;
+  }
+}
+@include for-size(mobile-only) {
+  .categoryInputWrapper {
+    border-bottom-right-radius: 16px;
+  }
+}
 .iconCalcWrapper {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
+
+  @include for-size(mobile-only) {
+    right: 17px;
+  }
 }
 
 .btnGroup {
   text-align: center;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 50px;
+
+  @include for-size(tablet) {
+    margin-top: 30px;
+  }
 
   @include for-size(desktop) {
     width: auto;
@@ -44,6 +76,14 @@
   position: relative;
   padding: 0 0 0 25px;
   max-width: 100px;
+
+  @include for-size(tablet) {
+    flex: 1 0 100px;
+  }
+}
+
+.formGroupWrapper {
+  flex: 2 1 80%;
 }
 
 .calendarImg {

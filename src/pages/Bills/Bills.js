@@ -5,8 +5,8 @@ import React from "react";
 import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
-import {BillsForm} from "../../components/BillsForm/BillsForm";
-import {BillsList} from "../../components/BillsList/BillsList";
+import {BillsForm} from '../../components/BillsForm';
+import {BillsList} from '../../components/BillsList';
 import LinkToReport from "../../components/LinkToReport/LinkToReport";
 import Balance from "../../components/Balance";
 // import s from '../Categories/Categories.module.scss'

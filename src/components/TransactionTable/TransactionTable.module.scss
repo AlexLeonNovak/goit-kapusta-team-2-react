@@ -1,5 +1,58 @@
 @import "../../base/sass/main.scss";
 
+
+.tableHead {
+  display: none;
+
+  @include for-size(tablet) {
+    display: table-header-group;
+  }
+}
+
+.amount {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+
+.mobileDescription {
+  display: block;
+  color: $font-color-secondary;
+  font-weight: 700;
+  font-size: 12px;
+
+  @include for-size(tablet) {
+    display: none;
+  }
+}
+
+.mobileWallet {
+  display: block;
+
+  @include for-size(tablet) {
+    display: none;
+  }
+}
+
+.hideMobile {
+  @include for-size(minmobile) {
+    display: none;
+  }
+
+  @include for-size(tablet) {
+    display: table-cell;
+  }
+}
+
+.table {
+  font-size: 8px;
+  flex-shrink: 1;
+  @include for-size(tablet) {
+    font-size: 12px;
+  }
+
+}
+
 .income {
 
   width: 100%;
@@ -32,25 +85,9 @@ display: none;
   /* border-radius: 30px 30px 0px 0px; */
 }
 }
-.tBody{
 
-border-radius: 50px ;
-}
 
-.hideOnMobile {
-  @include for-size(minmobile) {
-    display: none;
-  }
 
-  @include for-size(tablet) {
-    display: table-cell;
-  }
-
-}
-
-//.columnCategoryName {
-//
-//}
 
 .hideOnTablet {
   display: block;
@@ -73,9 +110,12 @@ th {
 }
 
 td {
-  padding: 10px;
   background-color: $bg-main;
   vertical-align: bottom;
+
+  @include for-size(tablet) {
+    padding: 0 20px;
+  }
 }
 
 .expense {

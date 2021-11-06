@@ -7,13 +7,16 @@ import {
   transactionsSelectors,
 } from "../../redux/transactions";
 
-// import classNames from "classnames";
+import classNames from "classnames";
 
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
 import Modal from "../Modal";
 
 import { toast } from "react-toastify";
+import s from './TransactionTable.module.scss'
+
+const MIN_ROW_COUNT = 9;
 
 export const TransactionTable = ({ type }) => {
   const dispatch = useDispatch();
@@ -49,15 +52,15 @@ export const TransactionTable = ({ type }) => {
 
   return (
     <>
-      <table className="table">
-        <thead>
+      <table className={`table ${s.table}`}>
+        <thead className={s.tableHead}>
           <tr>
             <th>Дата</th>
             <th>Описание</th>
             <th>Категория</th>
             <th>Счет</th>
             <th>Сумма</th>
-            <th></th>
+            <th />
           </tr>
         </thead>
 
@@ -66,24 +69,31 @@ export const TransactionTable = ({ type }) => {
             ({ _id, datetime, description, category, amount, wallet }) => (
               <tr key={_id}>
                 <td>
-                  {/* <span>{description}</span> */}
-                  {moment(datetime).format("DD.MM.YYYY")}
+                  <span className={s.mobileDescription}>{description}</span>
+                  <span className={s.date}>{moment(datetime).format("DD.MM.YYYY")}</span>
                 </td>
-                <td>{description}</td>
+                <td className={s.hideMobile}>{description}</td>
                 <td>{category.name}</td>
-                <td>{wallet.name}</td>
+                <td className={s.hideMobile}>{wallet.name}</td>
                 <td>
+                  <span className={classNames(s.amount, s[type])}>
                   {type === categoryTypes.EXPENSE && "- "}
                   {amount} грн.
+                  </span>
+                  <span className={s.mobileWallet}>{wallet.name}</span>
                 </td>
                 <td align="center">
-                  <button onClick={() => onOpenModal(_id)}>
-                    <img src={trash} alt="Delete" />
+                  <button onClick={() => onOpenModal(_id)} className="btn btn-rounded">
+                    <img src={trash} alt="Delete" className="btn-icon" />
                   </button>
                 </td>
               </tr>
             )
           )}
+          {transactions.length <= MIN_ROW_COUNT &&
+          [...Array(MIN_ROW_COUNT - transactions.length)]
+            .map((_, i) => (<tr key={i}><td colSpan={6}  className={s.hideMobile}>&nbsp;</td></tr>))
+          }
         </tbody>
       </table>
       {showModal && (

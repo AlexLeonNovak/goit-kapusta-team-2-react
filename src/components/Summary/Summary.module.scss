@@ -1,5 +1,23 @@
 @import "../../base/sass/main.scss";
 
+.summaryTable {
+  flex-shrink: 3;
+  display: none;
+
+  @include for-size(tablet) {
+    display: table;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(calc(100% + 40px));
+    width: 38%;
+  }
+
+  @include for-size(desktop) {
+    position: static;
+    transform: translateY(0);
+    width: 100%;
+  }
+}
 
 .containerSummary {
 display: none;

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import moment from "moment";
 import PropTypes from "prop-types";
-// import styles from './Summary.module.scss';
+import s from './Summary.module.scss';
 import { transactionsSelectors } from "../../redux/transactions";
 import { categoryTypes } from "../../helpers/constants";
 
@@ -10,10 +10,10 @@ import "moment/locale/ru";
 export const Summary = ({ type }) => {
   const summary = useSelector(transactionsSelectors.getSummary);
   return (
-    <table className="table table-grey">
+    <table className={`table table-grey ${s.summaryTable}`}>
       <thead>
         <tr>
-          <th colSpan="2">Сводка</th>
+          <th colSpan="2" align="center">Сводка</th>
         </tr>
       </thead>
 

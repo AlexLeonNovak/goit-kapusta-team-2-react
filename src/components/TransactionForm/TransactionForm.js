@@ -36,9 +36,6 @@ export const TransactionForm = ({type}) => {
 		return categories.filter((category) => category.type === type);
 	};
 
-	const newWallets = () => {
-		return wallets.map((item) => item.wallet);
-	};
 
 	const handleChange = useCallback((e) => {
 		const {name, value} = e.currentTarget;
@@ -121,7 +118,7 @@ export const TransactionForm = ({type}) => {
 					<img src={calendarIcon} alt={calendarIcon}/>
 				</span>
 			</div>
-			<div className="formGroup">
+			<div className={`formGroup ${s.formGroupWrapper}`}>
 				<div className="inputWrapper">
 					<input
 						name="description"
@@ -133,17 +130,16 @@ export const TransactionForm = ({type}) => {
 					/>
 				</div>
 				<div className="inputWrapper">
-					{/*TODO add wallets */}
 					<Dropdown
 						label="name"
-						options={newWallets()}
+						options={wallets}
 						prompt="Счета"
 						value={wallet}
 						onChange={(value) => setWallet(value)}
 						className="input"
 					/>
 				</div>
-				<div className="inputWrapper">
+				<div className={`inputWrapper ${s.categoryInputWrapper}`}>
 					<Dropdown
 						label="name"
 						options={categoryFilter()}
@@ -163,7 +159,7 @@ export const TransactionForm = ({type}) => {
 						placeholder="00.00"
 						pattern="\d+(.\d{2})?"
 						onChange={handleChange}
-						className="input"
+						className={`input ${s.amountInput}`}
 					/>
 					<span className={s.iconCalcWrapper}>
 	                <svg width="20" height="20">
