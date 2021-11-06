@@ -19,7 +19,7 @@ export const addWallet = (wallet) => async (dispatch) => {
 
     try {
       const { data } = await axios.post("/wallets", wallet);
-      dispatch(walletsActions.addWalletSuccess(data.data));
+      dispatch(walletsActions.addWalletSuccess(data.data.wallet));
 
     } catch (error) {
       dispatch(walletsActions.addWalletError(error.message));

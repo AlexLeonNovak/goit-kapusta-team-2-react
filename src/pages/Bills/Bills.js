@@ -19,7 +19,6 @@ const Bills = () => {
       {isLoading && <Loader />}
       <div>
         <LinkToReport />
-        <Balance />
       </div>
       <div>
         <h2>Счета</h2>

@@ -13,10 +13,10 @@ export default function AppBar() {
   return (
     <div className={s.header}>
       <Navigation />
-
-      {isLoggedIn ? <Balance /> : null}
-
-      {isLoggedIn ? <UserMenu /> : null}
+      <div className={s.userData}>
+        {isLoggedIn ? <Balance /> : null}
+        {isLoggedIn ? <UserMenu /> : null}
+      </div>
     </div>
   );
 }
