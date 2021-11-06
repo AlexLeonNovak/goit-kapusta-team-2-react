@@ -1,14 +1,16 @@
 import AuthArticle from "../../components/AuthArticle/AuthArticle";
 import AuthForm from "../../components/AuthForm/AuthForm";
-// import styles from './Auth.module.scss';
-import { ToastContainer } from "react-toastify";
+import s from './Auth.module.scss';
+//import { ToastContainer } from "react-toastify";
 
 const Auth = () => {
   return (
-    <div>
+     <div className={s.wrap}>
+      <div className={s.wrapper}>
       <AuthArticle />
       <AuthForm />
-      {/* <ToastContainer /> */}
+      
+    </div>
     </div>
   );
 };

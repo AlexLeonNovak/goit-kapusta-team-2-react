@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ReactComponent as CloseIcon } from "../../images/close.svg";
-// import stylesModal from "../Modal/Modal.module.scss";
+import s from "../Modal/Modal.module.scss";
 import '../../base/sass/main.scss';
 import { useToasts } from 'react-toast-notifications';
 export default function Modal({ title, onClose, onClick }) {
@@ -43,12 +43,12 @@ export default function Modal({ title, onClose, onClick }) {
   }
 
   return (
-    <div onClick={handleBackdropClick}>
-      <div>
-        <button onClick={handleButtonClickNo}>
+    <div className={s.Overlay} onClick={handleBackdropClick}>
+      <div className={s.modal}>
+        <button className={s.modalClose} onClick={handleButtonClickNo}>
           <CloseIcon width="12" height="12" />
         </button>
-        <h2>{title}</h2>
+        <h2 className={s.modalTitle}>{title}</h2>
         <div>
           <button className='btn btn-accent' onClick={handleButtonClickYes}>Да</button>
           <button className='btn' onClick={handleButtonClickNo}>Нет</button>
