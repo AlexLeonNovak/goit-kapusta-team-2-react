@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 
 import {BillsForm} from '../../components/BillsForm';
 import {BillsList} from '../../components/BillsList';
-import LinkToReport from "../../components/LinkToReport/LinkToReport";
+import {LinkToReport} from "../../components/LinkToReport";
 import Balance from "../../components/Balance";
 // import s from '../Categories/Categories.module.scss'
 
