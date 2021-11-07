@@ -2,7 +2,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import classNames from 'classnames';
 
-import logo from "../../base/images/desktop/logo.png";
 import sprite from "../../base/images/sprite.svg";
 import routes from "../../routes";
 import s from '../Nav/Nav.module.scss';
@@ -28,9 +27,6 @@ export default function Navigation() {
       </button>
       <div className={classNames(s.backdrop, {[s.open]: isMenuOpened})} onClick={closeMenu}/>
 
-      <NavLink className={s.logoLink} to="/">
-        <div><img src={logo} alt="Logo"/></div>
-      </NavLink>
       <ul className={classNames(s.menu, {[s.open]: isMenuOpened})}>
         <li className={s.closeButtonItem}>
           <button className={s.closeButton} onClick={closeMenu}>

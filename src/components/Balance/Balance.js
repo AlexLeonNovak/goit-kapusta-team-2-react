@@ -6,13 +6,13 @@ import { walletsSelectors } from "../../redux/wallets";
 // import Popover from "../Popover/Popover";
 import s from './Balance.module.scss';
 
-const Balance = () => {
+const Balance = ({className}) => {
   const totalBalance = useSelector(walletsSelectors.getSumWallets);
   const wallets = useSelector(walletsSelectors.getAllWallets);
   const [active, setActive] = useState(false);
 
   return (
-    <div className={s.balanceWrapper}
+    <div className={classNames(s.balanceWrapper, className)}
          onClick={() => setActive(!active)}
          onMouseEnter={() => setActive(true)}
          onMouseLeave={() => setActive(false)}

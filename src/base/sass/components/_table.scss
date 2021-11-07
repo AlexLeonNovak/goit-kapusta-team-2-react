@@ -8,15 +8,20 @@
   color: #52555f;
   width: 100%;
   border-spacing: 0;
+  table-layout: fixed;
   //border: 2px solid $bg-second;
 
   thead {
     height: 38px;
     text-transform: uppercase;
     font-weight: 700;
+
     th {
       background-color: $bg-second;
       border: 2px solid $bg-second;
+      display: flex;
+      flex: 1 1 120px;
+      min-height: 38px;
     }
 
     th:first-child {
@@ -30,43 +35,20 @@
 
   tbody {
     font-weight: 400;
-    max-height: 200px;
-    overflow: scroll;
-
-    @include for-size(tablet) {
-      tr td:first-child::after {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-        min-height: 40px;
-      }
-    }
-    tr {
-      //transition: all 0.2s ease-in;
-      //position: relative;
-
-      //&:hover {
-      //  box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.1);
-      //  cursor: pointer;
-      //  z-index: 1;
-      //  border-radius: 5px;
-      //
-      //  td:first-child {
-      //    border-top-left-radius: 5px;
-      //    border-bottom-left-radius: 5px;
-      //  }
-      //  td:last-child {
-      //    border-top-right-radius: 5px;
-      //    border-bottom-right-radius: 5px;
-      //  }
-      //}
-    }
+    max-height: 345px;
+    display: block;
+    overflow: auto;
+    width: 100%;
 
     td {
+      display: flex;
+      flex: 1 1 120px;
+      align-items: center;
       border-bottom: 2px solid $bg-second;
       text-align: left;
       vertical-align: bottom;
       transition: all 0.2s ease-in;
+      min-height: 38px;
 
       @include for-size(tablet) {
         vertical-align: middle;
@@ -80,6 +62,13 @@
         border-right: 2px solid $bg-second;
       }
     }
+  }
+
+  tr {
+    display: flex;
+    table-layout: fixed;
+    width: 100%;
+    align-items: center;
   }
 }
 

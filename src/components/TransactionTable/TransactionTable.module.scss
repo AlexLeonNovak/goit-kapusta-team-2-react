@@ -34,21 +34,32 @@
   }
 }
 
-.hideMobile {
-  @include for-size(minmobile) {
-    display: none;
-  }
 
-  @include for-size(tablet) {
-    display: table-cell;
-  }
-}
 
 .table {
   font-size: 8px;
   flex-shrink: 1;
   @include for-size(tablet) {
     font-size: 12px;
+  }
+
+  td.hideMobile {
+    @include for-size(mobile-only) {
+      display: none;
+    }
+  }
+
+  td {
+    @include for-size(mobile-only) {
+      margin-top: 10px;
+    }
+  }
+
+  .column {
+    @include for-size(mobile-only) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
 }
