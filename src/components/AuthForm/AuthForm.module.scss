@@ -1,43 +1,113 @@
-// @import '../../base/sass/utils/variables';
+@import '../../base/sass/main.scss';
 
 .form {
-  width: 304px;
-  padding: 15px 15px;
-  margin: 0 auto;
+  width: 300px;
+  height: 525px ;
+  padding: 10px 10px;
+  //margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 9px 57px #b3b9c740;
   border-radius: 25px;
   display: flex;
   flex-flow: column;
+
+  @include for-size(tablet) {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+    padding: 20px 30px;
+    background-color: #fff;
+  }
+  @include for-size(desktop){
+  width: 436px;
+  height: 535px ;
+
+  }
 }
 
 .wrapper {
   position: relative;
-}
+  z-index: 3;
 
+  @include for-size(tablet){
+  width: 436px;
+  height: 535px ;
+
+  }
+  @include for-size(desktop){
+ 
+    padding: 0;
+    
+
+  }
+ 
+}
+.wrapper::before {
+  position: absolute;
+  content: '';
+  height: 89px;
+  width: 83px;
+  right: 10px;
+  top: -20%;
+  transform: rotate(180deg);
+  padding-top: -20px;
+  padding-bottom: 20px;
+  background-image: url('../../images/authForm_bg320.png');
+  background-repeat: no-repeat;
+  @include for-size(tablet){
+    display: none;
+  }
+}
 .wrapper::after {
   position: absolute;
   content: '';
-  height: 70px;
-  width: 90px;
+  height: 89px;
+  width: 83px;
   left: 10px;
   padding-top: -20px;
   padding-bottom: 20px;
   background-image: url('../../images/authForm_bg320.png');
   background-repeat: no-repeat;
+
+ @include for-size(tablet){
+   width: 180px;
+    height: 222px;
+    background-image: url('../../images/kapusta_jump.png');
+    left: 0;
+    right: auto;
+    // bottom: 5px;
+ }
+  @include for-size(desktop){
+ 
+    display: none;
+    
+
+  }
 }
 
 .form_titleGoogle {
   font: normal normal 12px/14px "Roboto";
   text-align: center;
   color: #52555F;
+ @include for-size(desktop){
+    text-align: left;
+    font-size: 12px;
+ }
 }
 
 .form_title {
   font: normal normal 12px/14px "Roboto";
-  margin-left: 63px;
+  //margin-left: 63px;
   letter-spacing: 0.04em;
   color: #52555F;
+  text-align: center;
+
+   @include for-size(desktop){
+font-size: 12px;
+   }
+
 }
 
 .form_inputArea {
@@ -140,39 +210,5 @@
   box-shadow: 2px 3px 5px rgba(255, 107, 8, 0.34);
 }
 
-@media screen and (min-width: 768px) {
-  .wrapper::after {
-    width: 180px;
-    height: 222px;
-    background-image: url('../../images/kapusta_jump.png');
-    left: 200px;
-    right: auto;
-    // bottom: 5px;
-  }
-  .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 420px;
-    padding: 20px 30px;
-    background-color: #fff;
-  }
-  .form_titleG {
-    text-align: left;
-    font-size: 12px;
-  }
-  .form_title {
-    font-size: 12px;
-  }
-}
 
-@media screen and (min-width: 1280px) {
-  .wrapper {
-    padding: 0;
-    margin: 115px auto 0 auto;
-  }
-  .wrapper::after {
-    display: none;
-  }
 
-}

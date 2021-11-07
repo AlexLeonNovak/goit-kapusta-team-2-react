@@ -2,25 +2,28 @@
 
 .article {
   position: relative;
-  user-select: none;
-  width: 100%;
-  padding: 85px 90px 0px 60px;
+  display: inline-block;
+ margin-top: 86px;
+ margin-bottom: 50px;
+  //padding: 85px 90px 0px 60px;
+  //text-align: right;
+  align-self: center;
 }
 
-.article::after {
-  background-image: url('../../images/auth_bg320.png');
-  content: '';
-  position: absolute;
-  right: 150px;
-  top: 95px;
-  width: 53px;
-  height: 90px;
-}
+// .article::after {
+//   background-image: url('../../images/auth_bg320.png');
+//   content: '';
+//   position: absolute;
+//   right: 150px;
+//   top: 95px;
+//   width: 53px;
+//   height: 90px;
+// }
 
 .article__title {
   font-size: 50px;
   font-weight: 700;
-  margin: 0  0 0 50px;
+  //margin: 0  0 0 50px;
 }
 
 .article__text {
@@ -30,12 +33,13 @@
   font-weight: 700;
   line-height: 23px;
   padding-left: 12px;
-  margin: 0 0 30px 40px;
+  //margin: 0 0 30px 40px;
 }
 
 @media screen and (min-width: 768px) {
   .article {
-    padding: 115px 300px 50px 175px;
+  margin-bottom: 50px;
+  margin-top: 90px;
   }
   .article::after {
     display: none;
@@ -47,20 +51,22 @@
     font-size: 15px;
     padding-left: 30px;
   }
-   .article__title::after {
-    position: absolute;
-    width: 180px;
-    height: 145px;
-    content: '';
-    top: 275px;
-    left: 10px;
-    background-image: url('../../images/kapusta_jump.png');
-  }
+  //  .article__title::after {
+  //   position: absolute;
+  //   width: 180px;
+  //   height: 145px;
+  //   content: '';
+  //   top: 275px;
+  //   left: 10px;
+  //   background-image: url('../../images/kapusta_jump.png');
+  // }
 }
 
 @media screen and (min-width: 1280px) {
   .article {
-    padding: 320px 50px 350px 215px;
+   margin-right: 128px;
+   margin-top: 0;
+   margin-bottom: 0;
   }
   .article::after {
     display: none;

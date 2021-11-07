@@ -9,6 +9,7 @@ import {userOperations} from './redux/user';
 
 import AppBar from './components/AppBar/AppBar';
 import Container from './components/Container';
+import AuthContainer from './components/ContainerAuth';
 import {Loader} from './components/Loader';
 import {categoriesOperations} from './redux/categories';
 import {transactionsOperations} from './redux/transactions';
@@ -66,9 +67,10 @@ function App() {
 	return (
 		<>
 			<AppBar/>
-			<Container>
+			
 				<Suspense fallback={<Loader/>}>
-					<Switch>
+				<Switch>
+						<AuthContainer>
 						<PublicRoute exact path="/">
 							<Redirect to={routes.auth}/>
 						</PublicRoute>
@@ -79,8 +81,10 @@ function App() {
 							redirectTo={routes.transactions}
 						>
 							<Auth/>
+						
 						</PublicRoute>
-
+						</AuthContainer>
+	<Container>
 						<PrivateRoute path={routes.transactions} redirectTo={routes.auth}>
 							<Transactions/>
 						</PrivateRoute>
@@ -95,10 +99,11 @@ function App() {
 
 						<PrivateRoute path={routes.report} redirectTo={routes.auth}>
 							<Report/>
-						</PrivateRoute>
+					</PrivateRoute>
+						</Container>
 					</Switch>
 				</Suspense>
-			</Container>
+		
 		</>
 	);
 }
