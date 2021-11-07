@@ -1,8 +1,8 @@
 import React from 'react';
 
 const AuthContainer = ({ children }) => (
-  <main className='authBackgroud'>
-    <div className='containerauth'>{children}</div>
+  <main className='authBackground'>
+    <div className='container'>{children}</div>
   </main>
 );
 

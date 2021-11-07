@@ -67,43 +67,52 @@ function App() {
 	return (
 		<>
 			<AppBar/>
-			
-				<Suspense fallback={<Loader/>}>
+
+			<Suspense fallback={<Loader/>}>
 				<Switch>
+
+					<PublicRoute exact path="/">
+						<Redirect to={routes.auth}/>
+					</PublicRoute>
+
+					<PublicRoute
+						path={routes.auth}
+						restricted
+						redirectTo={routes.transactions}
+					>
 						<AuthContainer>
-						<PublicRoute exact path="/">
-							<Redirect to={routes.auth}/>
-						</PublicRoute>
-
-						<PublicRoute
-							path={routes.auth}
-							restricted
-							redirectTo={routes.transactions}
-						>
 							<Auth/>
-						
-						</PublicRoute>
 						</AuthContainer>
-	<Container>
-						<PrivateRoute path={routes.transactions} redirectTo={routes.auth}>
+					</PublicRoute>
+
+
+					<PrivateRoute path={routes.transactions} redirectTo={routes.auth}>
+						<Container>
 							<Transactions/>
-						</PrivateRoute>
-
-						<PrivateRoute path={routes.categories} redirectTo={routes.auth}>
-							<Categories/>
-						</PrivateRoute>
-
-						<PrivateRoute path={routes.bills} redirectTo={routes.auth}>
-							<Bills/>
-						</PrivateRoute>
-
-						<PrivateRoute path={routes.report} redirectTo={routes.auth}>
-							<Report/>
-					</PrivateRoute>
 						</Container>
-					</Switch>
-				</Suspense>
-		
+					</PrivateRoute>
+
+					<PrivateRoute path={routes.categories} redirectTo={routes.auth}>
+						<Container>
+							<Categories/>
+						</Container>
+					</PrivateRoute>
+
+					<PrivateRoute path={routes.bills} redirectTo={routes.auth}>
+						<Container>
+							<Bills/>
+						</Container>
+					</PrivateRoute>
+
+					<PrivateRoute path={routes.report} redirectTo={routes.auth}>
+						<Container>
+							<Report/>
+						</Container>
+					</PrivateRoute>
+
+				</Switch>
+			</Suspense>
+
 		</>
 	);
 }

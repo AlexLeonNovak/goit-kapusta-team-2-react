@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Container = ({ children }) => (
-  <main className='mainBackgroud'>
+  <main className='mainBackground'>
     <div className='container'>{children}</div>
   </main>
 );
