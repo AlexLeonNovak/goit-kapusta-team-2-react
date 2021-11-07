@@ -1,6 +1,5 @@
 .mainBackground {
 	position: relative;
-	min-height: calc(100% + 83px);
 
 	&:before {
 		content: "";
@@ -34,6 +33,7 @@
 	}
 
 	@include for-size(desktop) {
+		min-height: calc(100% - 56px);
 		&:after {
 			background-image: url(../../images/desktop/kapusta.png);
 			bottom: 0;
