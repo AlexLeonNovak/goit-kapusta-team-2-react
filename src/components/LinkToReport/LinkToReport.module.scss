@@ -1,0 +1,25 @@
+@import "../../base/sass/main.scss";
+
+.reportLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 15px;
+
+  &:hover *,
+  &:focus * {
+    fill: $accent-color-dark;
+    color: $accent-color-dark;
+  }
+}
+
+.barIcon {
+  fill: $font-color-secondary;
+  * {
+    transition: fill 250ms;
+  }
+}
+.reportText {
+  color: $font-color-secondary-02;
+  transition: color 250ms;
+}

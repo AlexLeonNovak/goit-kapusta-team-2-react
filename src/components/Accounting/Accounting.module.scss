@@ -23,6 +23,12 @@
   cursor: pointer;
   list-style: none;
 
+  @include for-size(mobile-only) {
+    border-bottom: 1px solid #E0E5EB;
+    margin: 0;
+    padding: 0 3px;
+  }
+
   &:hover,
   &:focus,
   &.active {

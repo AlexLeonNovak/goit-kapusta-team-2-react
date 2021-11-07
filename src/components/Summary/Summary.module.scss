@@ -17,6 +17,25 @@
     transform: translateY(0);
     width: 100%;
   }
+
+  .summaryItem {
+    cursor: pointer;
+
+    &:focus, &:hover {
+      td {
+        background-color: $accent-color-light;
+      }
+    }
+    &.active td{
+      background-color: $accent-color-dark;
+      color: $bg-main;
+    }
+  }
+
+  .alignCenter {
+    justify-content: center;
+  }
+
 }
 
 .containerSummary {
@@ -80,3 +99,5 @@ display: none;
   padding: 10px;
   border-bottom: 1px solid white;
 }
+
+

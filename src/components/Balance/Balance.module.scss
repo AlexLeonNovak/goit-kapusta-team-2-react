@@ -1,170 +1,32 @@
 @import "../../base/sass/main.scss";
-@import "../../base/sass/utils/variables";
-.container {
-  display: flex;
-}
 
-.container_balance {
-  display: flex;
-  flex-direction: column;
-  background: inherit;
-  align-items: center;
-  margin: 0 auto 30px;
-  justify-content: center;
-
-  @include for-size(tablet) {
-    flex-direction: row;
-    margin: 0;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 44px;
-  }
-
-  @include for-size(desktop) {
-    //flex-basis: 66%;
-    //justify-content: flex-end;
-
-  }
-}
-
-.balance {
-  display: flex;
-  height: 44px;
-  align-items: center;
-}
-
-.balance_title {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 6px;
-  width: 83px;
-  height: 20px;
-  color: rgba(82, 85, 95, 0.7);
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-
-  @include for-size(mobile) {
-    margin-bottom: 0;
-  }
-}
-
-.balance_input {
-  display: flex;
-  text-align: center;
-  align-items: center;
+.balanceWrapper {
   position: relative;
-  height: 44px;
-}
-
-.rounded {
-  border-radius: 16px;
-}
-
-.balance_input_zone {
-  height: 100%;
-  width: 125px;
-  text-align: right;
-  padding-right: 45px;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: 700;
-  border: solid 2px $bg-main;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  background: inherit;
-}
-
-.balance_input_zone:focus {
-  outline: 0;
-}
-
-.balance_input_text {
-  position: absolute;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: bold;
-  right: 15px;
-  align-items: center;
-}
-
-.balance_btn {
-  height: 44px;
-  width: 125px;
-  padding: 0;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-  font-family: inherit;
-  text-transform: uppercase;
-  color: rgba(82, 85, 95, 0.7);
-  border: solid 2px $bg-main;
-  border-radius: 0 16px 16px 0;
-  border-left: none;
-  background: inherit;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+}
+.walletsList {
+  opacity: 0;
+  position: absolute;
+  box-shadow: 0 0 7px 2px rgba(170, 178, 197, 0.2);
+  background-color: $bg-main;
+  border-radius: 16px;
+  left: 0;
+  transition: opacity 250ms;
+  padding: 0 15px;
+  z-index: 22;
 
-  @include for-size(tablet) {
-    border-radius: 16px;
-    border-left: solid 2px $bg-main;
+  &.active {
+    opacity: 1;
   }
 }
 
-.balance_btn:hover {
-  background: $accent-color-dark;
-  border-color: $accent-color-dark;
-  color: $bg-main;
-}
-@include for-size(tablet) {
-
-  .balance_title {
-    height: 20px;
-    width: 83px;
-  }
-
-  .balance_input_zone {
-    border-radius: 16px;
-    margin-right: 15px;
-  }
-
-  .balance_input_text {
-    right: 30px;
-  }
-}
-
-
-
-.arrowBtn {
+.walletItem {
   display: flex;
-  justify-content: flex-start;
-  top: 18px;
-  left: 20px;
-  border: none;
-  background-color: #f2f5fc;
-  // margin-left: 80px;
-  color: rgba(82, 85, 95, 0.7);
-}
+  gap: 15px;
+  padding: 10px 0;
+  justify-content: space-between;
 
-.arrowSvg {
-  color: #ff751d;
-  width: 30px;
-  height: 20px;
-  margin-right: 18px;
-}
-
-.backText {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  font: normal normal 12px/14px "Roboto";
-  letter-spacing: 0.04em;
-}
-
-.backTextTabl {
-  display: none;
+  &:not(:last-child) {
+    border-bottom: 2px solid $bg-second;
+  }
 }

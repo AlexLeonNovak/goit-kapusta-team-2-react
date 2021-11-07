@@ -68,14 +68,14 @@ export const TransactionTable = ({ type }) => {
           {transactions.map(
             ({ _id, datetime, description, category, amount, wallet }) => (
               <tr key={_id}>
-                <td>
+                <td className={s.column}>
                   <span className={s.mobileDescription}>{description}</span>
                   <span className={s.date}>{moment(datetime).format("DD.MM.YYYY")}</span>
                 </td>
                 <td className={s.hideMobile}>{description}</td>
                 <td>{category.name}</td>
                 <td className={s.hideMobile}>{wallet.name}</td>
-                <td>
+                <td className={s.column}>
                   <span className={classNames(s.amount, s[type])}>
                   {type === categoryTypes.EXPENSE && "- "}
                   {amount} грн.

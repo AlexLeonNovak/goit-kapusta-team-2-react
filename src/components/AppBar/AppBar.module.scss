@@ -1,4 +1,4 @@
-@import '../../base/sass/utils/variables';
+@import '../../base/sass/main.scss';
 
 .header {
   display: flex;
@@ -11,3 +11,23 @@
   background: #fff;
 }
 
+.userData {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.logoLink {
+  @include for-size(desktop) {
+    order: -1;
+  }
+}
+
+.nav {
+  display: flex;
+}
+
+.hideOnMobile {
+  @include for-size(mobile-only) {
+    display: none;
+  }
+}

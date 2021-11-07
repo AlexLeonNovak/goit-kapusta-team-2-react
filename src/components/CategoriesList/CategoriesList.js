@@ -6,7 +6,7 @@ import {
   categoriesOperations,
   categoriesSelectors,
 } from "../../redux/categories";
-// import s from '../CategoriesList/CategoriesList.module.scss';
+import s from '../CategoriesList/CategoriesList.module.scss';
 import trash from "../../base/images/svg_black/trash.svg";
 import Modal from "../Modal";
 import { categoryTypes } from "../../helpers/constants";
@@ -39,7 +39,7 @@ console.log(categories);
 
   return (
     <div>
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th>Лого</th>
@@ -62,8 +62,8 @@ console.log(categories);
               </td>
               <td>{type === categoryTypes.INCOME ? "Доход" : "Расход"}</td>
               <td align="center">
-                <button onClick={() => onOpenModal(_id)}>
-                  <img src={trash} alt="Delete" />
+                <button onClick={() => onOpenModal(_id)} className="btn btn-rounded">
+                  <img src={trash} alt="Delete" className="btn-icon" />
                 </button>
               </td>
             </tr>
