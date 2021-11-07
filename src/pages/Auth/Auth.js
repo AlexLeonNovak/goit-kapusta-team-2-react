@@ -5,12 +5,9 @@ import s from './Auth.module.scss';
 
 const Auth = () => {
   return (
-     <div className={s.wrap}>
-      <div className={s.wrapper}>
+    <div className={s.wrap}>
       <AuthArticle />
       <AuthForm />
-      
-    </div>
     </div>
   );
 };
