@@ -12,5 +12,9 @@ export const deleteWalletRequest = createAction('wallets/deleteWalletRequest');
 export const deleteWalletSuccess = createAction('wallets/deleteWalletSuccess');
 export const deleteWalletError = createAction('wallets/deleteWalletError');
 
+export const updateWalletRequest = createAction('wallets/updateBalanceRequest');
+export const updateWalletSuccess = createAction('wallets/updateBalanceSuccess');
+export const updateWalletError = createAction('wallets/updateBalanceError');
+
 // export const changeFilter = createAction('wallets/changeFilter');
 export const filterWallet = createAction("wallets/Filter");

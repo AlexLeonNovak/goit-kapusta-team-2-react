@@ -40,13 +40,13 @@ export const deleteWallet = (walletId) => async (dispatch) => {
 };
 
 export const updateWallet = (id, wallet) => async (dispatch) => {
-  dispatch(walletsActions.deleteWalletRequest());
+  dispatch(walletsActions.updateWalletRequest());
 
   try {
     await axios.patch(`/wallets/${id}`, wallet);
-    dispatch(walletsActions.deleteWalletSuccess(wallet));
+    dispatch(walletsActions.updateWalletSuccess(id, wallet));
   } catch (error) {
-    dispatch(walletsActions.deleteWalletError(error.message));
+    dispatch(walletsActions.updateWalletError(error.message));
   }
 };
 
