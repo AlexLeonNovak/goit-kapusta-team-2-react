@@ -34,10 +34,6 @@ export const TransactionForm = ({ type }) => {
     return categories.filter((category) => category.type === type);
   };
 
-  const newWallets = () => {
-    return wallets.map((item) => item);
-  };
-
   const handleChange = useCallback((e) => {
     const { name, value } = e.currentTarget;
 
@@ -64,6 +60,7 @@ export const TransactionForm = ({ type }) => {
   }, []);
 
   const reset = () => {
+	updateBalans(wallet._id, newBalance(wallet, amount));
     setDescription("");
     setCategory(null);
     setAmount("00.00");
@@ -82,7 +79,6 @@ export const TransactionForm = ({ type }) => {
           wallet: wallet._id,
         })
       );
-      updateBalans(wallet._id, newBalance(wallet, amount));
       reset();
     },
     [dispatch, datetime, description, category, amount, wallet]
