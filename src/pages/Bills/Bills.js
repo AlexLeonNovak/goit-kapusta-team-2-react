@@ -24,11 +24,11 @@ const Bills = () => {
       <div className={s.billsTitle}>
         <h2>Счета</h2>
       </div>
-      <div className={s.Bills}>
+      <section className={s.billsWrapper}>
         <BillsForm />
         <BillsList />
         <ToastContainer />
-      </div>
+      </section>
     </div>
   );
 };
