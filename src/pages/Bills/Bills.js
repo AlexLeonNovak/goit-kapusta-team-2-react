@@ -1,33 +1,34 @@
-import { walletsSelectors } from '../../redux/wallets'
-import {useSelector} from 'react-redux';
-import {Loader} from '../../components/Loader';
+import { walletsSelectors } from "../../redux/wallets";
+import { useSelector } from "react-redux";
+import { Loader } from "../../components/Loader";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
-import {BillsForm} from '../../components/BillsForm';
-import {BillsList} from '../../components/BillsList';
-import {LinkToReport} from "../../components/LinkToReport";
-import Balance from "../../components/Balance";
-// import s from '../Categories/Categories.module.scss'
+import { BillsForm } from "../../components/BillsForm";
+import { BillsList } from "../../components/BillsList";
+import { LinkToReport } from "../../components/LinkToReport";
+// import Balance from "../../components/Balance";
+import s from "./Bills.module.scss";
+// import styles from "./Swiper.module.scss";
 
 const Bills = () => {
   const isLoading = useSelector(walletsSelectors.getLoading);
 
   return (
-    <div>
+    <div className={s.wrapper}>
       {isLoading && <Loader />}
-      <div>
+      <section className={s.navigation}>
         <LinkToReport />
-      </div>
-      <div>
+      </section>
+      <div className={s.billsTitle}>
         <h2>Счета</h2>
       </div>
-      <div>
+      <section className={s.billsWrapper}>
         <BillsForm />
         <BillsList />
         <ToastContainer />
-      </div>
+      </section>
     </div>
   );
 };

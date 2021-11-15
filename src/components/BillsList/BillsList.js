@@ -1,13 +1,11 @@
 import React, { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-    walletsOperations,
-    walletsSelectors,
-} from "../../redux/wallets";
+import { walletsOperations, walletsSelectors } from "../../redux/wallets";
 import trash from "../../base/images/svg_black/trash.svg";
 import Modal from "../Modal";
 
+import s from "./BillsList.module.scss";
 
 export const BillsList = () => {
   const dispatch = useDispatch();
@@ -34,7 +32,7 @@ export const BillsList = () => {
 
   return (
     <div>
-      <table>
+      <table className={`table ${s.billsTable}`}>
         <thead>
           <tr>
             <th>Название</th>
@@ -45,13 +43,16 @@ export const BillsList = () => {
         <tbody>
           {wallets.map((item) => (
             <tr key={item._id}>
-                  <td>
+              <td>
                 <span>{item.name}</span>
               </td>
               <td>{item.balance}</td>
               <td align="center">
-                <button onClick={() => onOpenModal(item._id)}>
-                  <img src={trash} alt="Delete" />
+                <button
+                  onClick={() => onOpenModal(item._id)}
+                  className="btn btn-rounded"
+                >
+                  <img src={trash} alt="Delete" className="btn-icon" />
                 </button>
               </td>
             </tr>
@@ -69,4 +70,3 @@ export const BillsList = () => {
     </div>
   );
 };
-
