@@ -198,24 +198,24 @@
   transition: 0.2s ease-in-out;
 }
 
-// .form_button:hover {
-//   background-color: #fd812d;
-//   color: #fff;
-//   transition: 0.2s ease-in-out;
-//   cursor: pointer;
-// }
+.form_button:hover {
+  background-color: #fd812d;
+  color: #fff;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
 
-// .form_button__active {
-//   width: 125px;
-//   height: 45px;
-//   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
-//   border: none;
-//   font-size: 11px;
-//   text-transform: uppercase;
-//   border-radius: 17px;
-//   background-color: #f4f6fb;
-//   text-align: center;
-//   color: #ffffff;
-//   background-color: var(--orange);
-//   box-shadow: 2px 3px 5px rgba(255, 107, 8, 0.34);
-// }
+.form_button__active {
+  width: 125px;
+  height: 45px;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-radius: 17px;
+  background-color: #f4f6fb;
+  text-align: center;
+  color: #ffffff;
+  background-color: var(--orange);
+  box-shadow: 2px 3px 5px rgba(255, 107, 8, 0.34);
+}
