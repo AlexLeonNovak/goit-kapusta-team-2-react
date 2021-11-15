@@ -136,6 +136,8 @@
   background-color: #fd812d;
   border: none;
   color: #fff;
+  cursor: pointer;
+
   /* transition: 0.2s ease-in-out; */
 }
 
@@ -192,6 +194,7 @@
   background-color: #fd812d;
   color: #fff;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .form_button__active {
