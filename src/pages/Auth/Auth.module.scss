@@ -6,30 +6,29 @@
   position: relative;
 
   @include for-size(tablet) {
-    display: inline-block;
-    align-items: center;
-    padding-left: 166px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @include for-size(desktop) {
-    display: flex;
-    padding-top: 115px;
-    padding-bottom: 140px;
+    display: inline-flex;
+    left: 50%;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
-    background-image: url(../../images/authForm_bg320.png);
-    bottom: 0;
-    left: 100px;
-    width: 185px;
-    background-size: auto;
-    background-repeat: no-repeat;
-    height: 150px;
+  // &:after {
+  //   content: "";
+  //   position: absolute;
+  //   background-image: url(../../images/authForm_bg320.png);
+  //   bottom: 0;
+  //   left: 100px;
+  //   width: 185px;
+  //   background-size: auto;
+  //   background-repeat: no-repeat;
+  //   height: 150px;
 
-    @include for-size(tablet) {
-      background-image: url(../../images/kapusta_jump.png);
-    }
-  }
+  //   @include for-size(tablet) {
+  //     background-image: url(../../images/kapusta_jump.png);
+  //   }
+  // }
 }
