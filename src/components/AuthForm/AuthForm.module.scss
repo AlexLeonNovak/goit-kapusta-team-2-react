@@ -44,22 +44,24 @@
     // margin-right: 110px;
   }
 }
-.wrapper::before {
-  position: absolute;
-  content: "";
-  height: 89px;
-  width: 83px;
-  right: 10px;
-  top: -20%;
-  transform: rotate(180deg);
-  padding-top: -20px;
-  padding-bottom: 20px;
-  background-image: url("../../images/authForm_bg320.png");
-  background-repeat: no-repeat;
-  @include for-size(tablet) {
-    display: none;
-  }
-}
+// .wrapper::before {
+//   position: absolute;
+//   content: "";
+//   height: 89px;
+//   width: 83px;
+//   right: 10px;
+//   top: -20%;
+//   transform: rotate(180deg);
+//   padding-top: -20px;
+//   padding-bottom: 20px;
+//   background-image: url("../../images/authForm_bg320.png");
+//   background-repeat: no-repeat;
+
+//   @include for-size(tablet) {
+//     display: none;
+//   }
+// }
+
 .wrapper::after {
   position: absolute;
   content: "";
