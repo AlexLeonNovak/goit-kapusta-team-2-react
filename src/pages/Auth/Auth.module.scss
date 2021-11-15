@@ -1,4 +1,4 @@
-@import '../../base/sass/main.scss';
+@import "../../base/sass/main.scss";
 
 .wrap {
   display: inline-block;
@@ -7,12 +7,14 @@
 
   @include for-size(tablet) {
     display: inline-block;
+    align-items: center;
+    padding-left: 166px;
   }
 
   @include for-size(desktop) {
     display: flex;
     padding-top: 115px;
-    padding-bottom: 150px;
+    padding-bottom: 140px;
   }
 
   &:after {
@@ -31,7 +33,3 @@
     }
   }
 }
-
-
-
-

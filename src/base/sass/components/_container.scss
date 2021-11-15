@@ -1,47 +1,47 @@
 .mainBackground {
-	position: relative;
+  position: relative;
 
-	&:before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		background: #f5f6fb;
-		border-bottom-left-radius: 125px;
-		z-index: -1;
-		height: 360px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #f5f6fb;
+    border-bottom-left-radius: 125px;
+    z-index: -1;
+    height: 360px;
 
-		@include for-size(tablet) {
-			height: 583px;
-		}
-	}
+    @include for-size(tablet) {
+      height: 583px;
+    }
+  }
 
-	 @include for-size(tablet) {
-	 	&:after {
-	 		content: "";
-	 		position: absolute;
-	 		bottom: 20px;
-	 		right: 20px;
-	 		width: 183px;
-	 		height: 142px;
-	 		background-image: url(../../images/desktop/kapusta2.png);
-	 		background-repeat: no-repeat;
-	 		background-size: cover;
-			z-index: -1;
-	 	}
-	}
+  @include for-size(tablet) {
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 183px;
+      height: 142px;
+      background-image: url(../../images/desktop/kapusta2.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+    }
+  }
 
-	@include for-size(desktop) {
-		min-height: calc(100% - 56px);
-		&:after {
-			background-image: url(../../images/desktop/kapusta.png);
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			background-size: auto;
-			background-repeat-x: repeat;
-			height: 200px;
-		}
-	}
+  @include for-size(desktop) {
+    min-height: calc(100% - 56px);
+    &:after {
+      background-image: url(../../images/desktop/kapusta.png);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-size: auto;
+      background-repeat: repeat-x;
+      height: 200px;
+    }
+  }
 }

@@ -2,7 +2,9 @@ html {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -13,7 +15,7 @@ html, body, #root {
 }
 :focus {
   outline: none;
-  box-shadow: 0 0 2px 2px $accent-color-light; ;
+  box-shadow: 0 0 2px 2px $accent-color-light;
 }
 
 address {
@@ -81,8 +83,8 @@ ul {
 
   @include for-size(tablet) {
     max-width: 768px;
-    padding-left: 51px;
-    padding-right: 51px;
+    // padding-left: 51px;
+    // padding-right: 51px;
   }
 
   @include for-size(desktop) {

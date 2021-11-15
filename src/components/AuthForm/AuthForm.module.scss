@@ -1,9 +1,9 @@
-@import '../../base/sass/main.scss';
+@import "../../base/sass/main.scss";
 
 .form {
-  width: 300px;
-  height: 525px ;
-  padding: 10px 10px;
+  // min-width: 300px;
+  // height: 525px;
+  padding: 40px 30px 50px;
   //margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 9px 57px #b3b9c740;
@@ -12,41 +12,41 @@
   flex-flow: column;
 
   @include for-size(tablet) {
-
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 420px;
-    padding: 20px 30px;
+    // width: 420px;
+    // padding: 20px 30px;
+    padding: 50px 80px;
+
     background-color: #fff;
   }
-  @include for-size(desktop){
-  width: 436px;
-  height: 535px ;
-
+  @include for-size(desktop) {
+    width: 436px;
+    height: 535px;
   }
 }
 
 .wrapper {
   position: relative;
   z-index: 3;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
 
-  @include for-size(tablet){
-  width: 436px;
-  height: 535px ;
-
+  @include for-size(tablet) {
+    // align-items: center;
+    max-width: 436px;
+    height: 535px;
   }
-  @include for-size(desktop){
- 
+  @include for-size(desktop) {
     padding: 0;
-    
-
+    // margin-right: 110px;
   }
- 
 }
 .wrapper::before {
   position: absolute;
-  content: '';
+  content: "";
   height: 89px;
   width: 83px;
   right: 10px;
@@ -54,64 +54,61 @@
   transform: rotate(180deg);
   padding-top: -20px;
   padding-bottom: 20px;
-  background-image: url('../../images/authForm_bg320.png');
+  background-image: url("../../images/authForm_bg320.png");
   background-repeat: no-repeat;
-  @include for-size(tablet){
+  @include for-size(tablet) {
     display: none;
   }
 }
 .wrapper::after {
   position: absolute;
-  content: '';
+  content: "";
   height: 89px;
   width: 83px;
   left: 10px;
   padding-top: -20px;
   padding-bottom: 20px;
-  background-image: url('../../images/authForm_bg320.png');
+  background-image: url("../../images/authForm_bg320.png");
   background-repeat: no-repeat;
 
- @include for-size(tablet){
-   width: 180px;
+  @include for-size(tablet) {
+    width: 180px;
     height: 222px;
-    background-image: url('../../images/kapusta_jump.png');
+    background-image: url("../../images/kapusta_jump.png");
     left: 0;
     right: auto;
     // bottom: 5px;
- }
-  @include for-size(desktop){
- 
+  }
+  @include for-size(desktop) {
     display: none;
-    
-
   }
 }
 
 .form_titleGoogle {
+  // font-size: 12px;
   font: normal normal 12px/14px "Roboto";
   text-align: center;
-  color: #52555F;
- @include for-size(desktop){
+  color: #52555f;
+  @include for-size(desktop) {
     text-align: left;
     font-size: 12px;
- }
+  }
 }
 
 .form_title {
-  font: normal normal 12px/14px "Roboto";
+  font: normal normal 10px/12px "Roboto";
   //margin-left: 63px;
-  letter-spacing: 0.04em;
-  color: #52555F;
-  text-align: center;
+  // letter-spacing: 0.04em;
+  color: #52555f;
+  // text-align: center;
 
-   @include for-size(desktop){
-font-size: 12px;
-   }
-
+  @include for-size(desktop) {
+    font-size: 12px;
+  }
 }
 
 .form_inputArea {
-  padding-top: 25px;
+  // padding: 29px 18px;
   width: 270px;
 }
 
@@ -151,24 +148,26 @@ font-size: 12px;
 .form_inputDescription {
   display: block;
   font: normal normal 12px/14px "Roboto";
-  margin: 10px 0;
+  // margin: 10px 0;
+  margin-top: 24px;
+  margin-bottom: 10px;
   letter-spacing: 0.04em;
   color: #000000;
 }
 
 .form_input {
-  width: 270px;
+  min-width: 253px;
   height: 48px;
   border-radius: 30px;
   border: 2px solid #f4f6fb;
   background-color: #f5f7fa;
-  padding: 0 0 0 27px;
+  padding-left: 20px;
 }
 
 .form_buttons {
-  width: 270px;
+  width: 253px;
   padding-top: 40px;
-  margin-left: 20px;
+  // margin-left: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -181,7 +180,7 @@ font-size: 12px;
   border-radius: 17px;
   background-color: #f4f6fb;
   text-align: center;
-  color: #52555F;
+  color: #52555f;
   font-size: 11px;
   font-weight: 700;
   line-height: 45px;
@@ -209,6 +208,3 @@ font-size: 12px;
   background-color: var(--orange);
   box-shadow: 2px 3px 5px rgba(255, 107, 8, 0.34);
 }
-
-
-
