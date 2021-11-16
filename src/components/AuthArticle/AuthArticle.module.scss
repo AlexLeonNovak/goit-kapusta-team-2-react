@@ -5,6 +5,7 @@
   display: inline-block;
  margin-top: 86px;
  margin-bottom: 50px;
+  margin-left: 50px;
   //padding: 85px 90px 0px 60px;
   //text-align: right;
   align-self: center;
@@ -40,6 +41,7 @@
   .article {
   margin-bottom: 50px;
   margin-top: 90px;
+    margin-left: 0;
   }
   .article::after {
     display: none;

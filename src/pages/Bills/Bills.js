@@ -1,16 +1,12 @@
-import { walletsSelectors } from "../../redux/wallets";
-import { useSelector } from "react-redux";
-import { Loader } from "../../components/Loader";
 import React from "react";
-import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
+import { walletsSelectors } from "../../redux/wallets";
+import { Loader } from "../../components/Loader";
 import { BillsForm } from "../../components/BillsForm";
 import { BillsList } from "../../components/BillsList";
 import { LinkToReport } from "../../components/LinkToReport";
-// import Balance from "../../components/Balance";
 import s from "./Bills.module.scss";
-// import styles from "./Swiper.module.scss";
 
 const Bills = () => {
   const isLoading = useSelector(walletsSelectors.getLoading);
@@ -27,7 +23,6 @@ const Bills = () => {
       <section className={s.billsWrapper}>
         <BillsForm />
         <BillsList />
-        <ToastContainer />
       </section>
     </div>
   );

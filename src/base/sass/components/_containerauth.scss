@@ -8,13 +8,14 @@
     top: 0;
     left: 0;
     right: 0;
-    background: url(../../images/desktop/kapusta.png) repeat-x 0 30px #f5f6fb;
+    background: url(../../../images/auth_bg320.png) no-repeat 100% 120px #f5f6fb;
     border-bottom-left-radius: 125px;
     z-index: -1;
     height: 360px;
 
     @include for-size(tablet) {
       height: 583px;
+      background: url(../../images/desktop/kapusta.png) repeat-x 0 30px #f5f6fb;
     }
   }
 

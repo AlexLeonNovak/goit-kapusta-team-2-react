@@ -1,16 +1,19 @@
 @import '../../base/sass/main.scss';
 
 .wrap {
-  display: inline-block;
+  //display: inline-block;
   width: 100%;
   position: relative;
 
   @include for-size(tablet) {
-    display: inline-block;
+    //display: inline-block;
+    width: 436px;
+    margin: 0 auto;
   }
 
   @include for-size(desktop) {
     display: flex;
+    width: auto;
     padding-top: 115px;
     padding-bottom: 150px;
   }

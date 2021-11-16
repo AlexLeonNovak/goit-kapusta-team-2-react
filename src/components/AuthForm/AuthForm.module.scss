@@ -1,9 +1,9 @@
 @import '../../base/sass/main.scss';
 
 .form {
-  width: 300px;
+  margin: 0 15px;
   height: 525px ;
-  padding: 10px 10px;
+  padding: 40px 30px;
   //margin: 0 auto;
   background-color: #fff;
   box-shadow: 0 9px 57px #b3b9c740;
@@ -12,7 +12,7 @@
   flex-flow: column;
 
   @include for-size(tablet) {
-
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,12 +37,12 @@
 
   }
   @include for-size(desktop){
- 
+
     padding: 0;
-    
+
 
   }
- 
+
 }
 .wrapper::before {
   position: absolute;
@@ -54,8 +54,8 @@
   transform: rotate(180deg);
   padding-top: -20px;
   padding-bottom: 20px;
-  background-image: url('../../images/authForm_bg320.png');
-  background-repeat: no-repeat;
+  //background-image: url('../../images/authForm_bg320.png');
+  //background-repeat: no-repeat;
   @include for-size(tablet){
     display: none;
   }
@@ -72,17 +72,17 @@
   background-repeat: no-repeat;
 
  @include for-size(tablet){
-   width: 180px;
+    width: 180px;
     height: 222px;
     background-image: url('../../images/kapusta_jump.png');
-    left: 0;
+    left: -50px;
     right: auto;
     // bottom: 5px;
  }
   @include for-size(desktop){
- 
+
     display: none;
-    
+
 
   }
 }
@@ -112,7 +112,7 @@ font-size: 12px;
 
 .form_inputArea {
   padding-top: 25px;
-  width: 270px;
+  //width: 270px;
 }
 
 .form_googleLink {
@@ -157,7 +157,7 @@ font-size: 12px;
 }
 
 .form_input {
-  width: 270px;
+  width: 100%;
   height: 48px;
   border-radius: 30px;
   border: 2px solid #f4f6fb;
@@ -166,11 +166,12 @@ font-size: 12px;
 }
 
 .form_buttons {
-  width: 270px;
+  width: 100%;
   padding-top: 40px;
-  margin-left: 20px;
+  //margin-left: 20px;
   display: flex;
   justify-content: space-between;
+  gap: 15px;
 }
 
 .form_button {
