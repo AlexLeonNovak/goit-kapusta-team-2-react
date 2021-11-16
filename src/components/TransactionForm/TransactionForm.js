@@ -70,6 +70,9 @@ export const TransactionForm = ({ type }) => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
+	  if(!description || !amount || !category || !wallet){
+		  return notify();
+	  }
       dispatch(
         transactionsOperations.addTransaction({
           datetime,
@@ -86,8 +89,8 @@ export const TransactionForm = ({ type }) => {
   );
 
   const notify = () => {
-    if (!description || !amount || !category) {
-      return addToast("Description, amount and category are required fields", {
+    if (!description || !amount || !category || !wallet) {
+      return addToast("Description, wallet, amount and category are required fields", {
         appearance: "error",
         autoDismiss: false,
       });
