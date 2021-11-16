@@ -8,7 +8,7 @@ const items = createReducer([], {
   [transactionsActions.addTransactionSuccess]: (state, { payload }) => [payload.result, ...state],
 
   [transactionsActions.deleteTransactionSuccess]: (state, { payload }) =>
-    state.filter((transaction) => transaction._id !== payload),
+    state.filter((transaction) => transaction._id !== payload.transaction._id),
 
 });
 

@@ -29,8 +29,8 @@ export const deleteTransaction = (transactionId) => async (dispatch) => {
   dispatch(transactionsActions.deleteTransactionRequest());
 
   try {
-    await axios.delete(`/transactions/${transactionId}`);
-    dispatch(transactionsActions.deleteTransactionSuccess(transactionId));
+    const { data } = await axios.delete(`/transactions/${transactionId}`);
+    dispatch(transactionsActions.deleteTransactionSuccess(data.data));
     dispatch(fetchSummary())
   } catch (error) {
     dispatch(transactionsActions.deleteTransactionError(error.message));

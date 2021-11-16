@@ -5,7 +5,7 @@
   border-collapse: separate;
   font-size: 12px;
   line-height: 1.17;
-  color: #52555f;
+  color: $font-color-secondary;
   width: 100%;
   border-spacing: 0;
   table-layout: fixed;
@@ -22,6 +22,10 @@
       display: flex;
       flex: 1 1 120px;
       min-height: 38px;
+      padding: 10px 20px;
+      overflow: hidden;
+      text-transform: uppercase;
+      color: $font-color-main;
     }
 
     th:first-child {
@@ -102,7 +106,7 @@
 ::-webkit-scrollbar-thumb {
   height: 60px;
   border-radius: 2px;
-  background: #ff751d;
+  background: $accent-color-dark;
 }
 
 ::-webkit-scrollbar-thumb:hover {
