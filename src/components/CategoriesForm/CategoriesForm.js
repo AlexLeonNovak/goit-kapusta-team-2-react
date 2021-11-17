@@ -124,11 +124,11 @@ export const CategoriesForm = () => {
         </div>
         
         <div className={s.btnWrapper}>
-          <button className='btn btn-accent' type="submit" onClick={notify}>
+          <button className={`btn btn-accent ${s.btn}`} type="submit" onClick={notify}>
             Ввод
           </button>
 
-          <button className='btn' type="reset" onClick={reset}>
+          <button className={`btn ${s.btn}`} type="reset" onClick={reset}>
             Очистить
           </button>
         </div>

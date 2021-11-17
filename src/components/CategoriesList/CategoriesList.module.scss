@@ -4,19 +4,19 @@
 }
 
 .tableHead {
-	display: none;  
+	display: none;
 
-  @include for-size(tablet) {
-    display: flex;    
-  }
+	@include for-size(tablet) {
+		display: flex;
+	}
 
-  th {
-    align-items: center;
-  }
+	th {
+		align-items: center;
+	}
 
-  th:first-child {
-    justify-content: center;
-  }
+	th:first-child {
+		justify-content: center;
+	}
 }
 
 .tableRow {
@@ -31,15 +31,15 @@
 	height: 25px;
 	width: 25px;
 
-  @include for-size(tablet) {
-    height: 35px;
-	width: 35px;    
-  }
+	@include for-size(tablet) {
+		height: 35px;
+		width: 35px;
+	}
 }
 
 .tableType1 {
 	flex-direction: column;
-  justify-content: center;
+	justify-content: center;
 }
 
 .tableType1Info {
@@ -47,22 +47,26 @@
 
 	&:first-child {
 		font-weight: 700;
+
+		@include for-size(desktop) {
+			font-weight: normal;
+		}
 	}
 	&:last-child {
 		font-size: 10px;
 
-    @include for-size(tablet) {
-      display: none;
-    }
+		@include for-size(tablet) {
+			display: none;
+		}
 	}
 }
 
 .table .tableType2 {
 	display: none;
 
-  @include for-size(tablet) {
-      display: flex;
-    }
+	@include for-size(tablet) {
+		display: flex;
+	}
 }
 
 .btnIcon {

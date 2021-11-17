@@ -6,12 +6,21 @@
 	@include for-size(tablet) {
 		margin-bottom: 48px;
 	}
+	@include for-size(desktop) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .formGoup {
 	@include for-size(tablet) {
 		justify-content: center;
 		margin-bottom: 30px;
+	}
+	@include for-size(desktop) {
+		margin-bottom: 0;
+		margin-right: 27px;
 	}
 }
 
@@ -71,4 +80,12 @@
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+
+	@include for-size(desktop) {
+		margin: 0;
+	}
+}
+
+.btn {
+	text-transform: uppercase;
 }
