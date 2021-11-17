@@ -16,8 +16,8 @@ const Categories = () => {
           <LinkToTransactions />
         </div>
         <div className={s.LinkToReport}>
-          <LinkToReport className={s.test}/>
-        </div>        
+          <LinkToReport className={s.test} />
+        </div>
       </section>
       <div className={s.categoriesTitleWrapper}>
         <h2 className={s.categoriesTitle}>Категории</h2>

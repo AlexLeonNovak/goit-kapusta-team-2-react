@@ -48,7 +48,7 @@ console.log(categories);
             <th />
           </tr>
         </thead>
-        <tbody>
+        <tbody className={s.tableBody}>
           {categories.map(({ _id, name, type, logo }) => (
             <tr key={_id} className={s.tableRow}>
               <td className={s.tableLogo}>
@@ -60,9 +60,7 @@ console.log(categories);
                   {type === categoryTypes.INCOME ? "Доход" : "Расход"}
                 </span>
               </td>
-              <div className={s.tableType2}>
-                <td>{type === categoryTypes.INCOME ? "Доход" : "Расход"}</td>
-              </div>
+                <td className={s.tableType2}>{type === categoryTypes.INCOME ? "Доход" : "Расход"}</td>
               <td align="center" className={s.btnIcon}>
                 <button onClick={() => onOpenModal(_id)} className="btn btn-rounded">
                   <img src={trash} alt="Delete" className="btn-icon" />

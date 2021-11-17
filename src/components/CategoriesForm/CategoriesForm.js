@@ -86,50 +86,52 @@ export const CategoriesForm = () => {
     <form
       encType="multipart/form-data"
       onSubmit={handleSubmit}
-      className={`formGroup ${s.form}`}
+      className={s.form}
     >
-      <div className="inputWrapper">
-        <input
-          onChange={handleChange}
-          value={name}
-          name="name"
-          type="text"
-          label="Category name"
-          placeholder="Описание категории"
-          required
-          className={`input`}
-        />
-      </div>
-      <div className={`inputWrapper ${s.categoryTypeInputWrapper}`}>
-        <Dropdown
-          label="name"
-          options={types}
-          prompt="Тип категории"
-          value={type}
-          onChange={(value) => setType(value)}
-          className="input"
-        />
-      </div>      
-      <div>
-        <input
-          type="file"
-          name="filename"
-          id="filename"
-          onChange={handleChange}
-          className={s.customFileUploader}
-        />
-        <label htmlFor="filename">{filename}</label>
-      </div>
-      
-      <div className={s.btnWrapper}>
-        <button className='btn btn-accent' type="submit" onClick={notify}>
-          Ввод
-        </button>
+        <div className={`formGroup ${s.formGoup}`}>
+          <div className="inputWrapper">
+            <input
+              onChange={handleChange}
+              value={name}
+              name="name"
+              type="text"
+              label="Category name"
+              placeholder="Описание категории"
+              required
+              className={`input`}
+            />
+          </div>
+          <div className={`inputWrapper ${s.categoryTypeInputWrapper}`}>
+            <Dropdown
+              label="name"
+              options={types}
+              prompt="Тип категории"
+              value={type}
+              onChange={(value) => setType(value)}
+              className="input"
+            />
+          </div>
+          <div>
+            <input
+              type="file"
+              name="filename"
+              id="filename"
+              onChange={handleChange}
+              className={s.customFileUploader}
+            />
+            <label htmlFor="filename">{filename}</label>
+          </div>
+        </div>
+        
+        <div className={s.btnWrapper}>
+          <button className='btn btn-accent' type="submit" onClick={notify}>
+            Ввод
+          </button>
 
-        <button className='btn' type="reset" onClick={reset}>
-          Очистить
-        </button>
-      </div>
+          <button className='btn' type="reset" onClick={reset}>
+            Очистить
+          </button>
+        </div>
     </form>
   );
 };

@@ -4,7 +4,19 @@
 }
 
 .tableHead {
-	display: none;
+	display: none;  
+
+  @include for-size(tablet) {
+    display: flex;    
+  }
+
+  th {
+    align-items: center;
+  }
+
+  th:first-child {
+    justify-content: center;
+  }
 }
 
 .tableRow {
@@ -18,6 +30,11 @@
 .tableImg {
 	height: 25px;
 	width: 25px;
+
+  @include for-size(tablet) {
+    height: 35px;
+	width: 35px;    
+  }
 }
 
 .tableType1 {
@@ -33,11 +50,19 @@
 	}
 	&:last-child {
 		font-size: 10px;
+
+    @include for-size(tablet) {
+      display: none;
+    }
 	}
 }
 
-.tableType2 {
+.table .tableType2 {
 	display: none;
+
+  @include for-size(tablet) {
+      display: flex;
+    }
 }
 
 .btnIcon {

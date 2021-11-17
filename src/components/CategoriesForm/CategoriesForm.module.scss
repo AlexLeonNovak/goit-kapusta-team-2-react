@@ -1,11 +1,17 @@
 @import "../../base/sass/main.scss";
 
 .form {
-	display: flex;
-	flex-direction: column;
 	margin-bottom: 40px;
 
-	@include for-size(desktop) {
+	@include for-size(tablet) {
+		margin-bottom: 48px;
+	}
+}
+
+.formGoup {
+	@include for-size(tablet) {
+		justify-content: center;
+		margin-bottom: 30px;
 	}
 }
 
@@ -30,22 +36,19 @@
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 30px;
-	background-color: transparent;	
+	background-color: transparent;
 	border: 2px solid #ffffff;
 	border-radius: 0 0 16px 0;
 	border-top: none;
 	cursor: pointer;
 	color: #c7ccdc;
 
-	@include for-size(mobile) {
-	}
-
 	@include for-size(tablet) {
+		border: 2px solid #f5f6fb;
 		margin: 0;
-		width: 100%;
 		border-radius: 0 16px 16px 0;
+		height: 100%;
 		border-left: none;
-		flex: 1;
 	}
 }
 
@@ -67,4 +70,5 @@
 .btnWrapper {
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
