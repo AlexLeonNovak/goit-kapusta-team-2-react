@@ -39,8 +39,8 @@ console.log(categories);
 
   return (
     <div>
-      <table className="table">
-        <thead>
+      <table className={`table ${s.table}`}>
+        <thead className={s.tableHead}>
           <tr>
             <th>Лого</th>
             <th>Название</th>
@@ -48,20 +48,20 @@ console.log(categories);
             <th />
           </tr>
         </thead>
-        <tbody>
+        <tbody className={s.tableBody}>
           {categories.map(({ _id, name, type, logo }) => (
-            <tr key={_id}>
-              <td>
-                <img src={API_URL + logo} alt="logo" />
+            <tr key={_id} className={s.tableRow}>
+              <td className={s.tableLogo}>
+                <img src={API_URL + logo} alt="logo"  className={s.tableImg}/>
               </td>
-              <td>
-                <span>{name}</span>
-                <span>
+              <td className={s.tableType1}>
+                <span className={s.tableType1Info}>{name}</span>
+                <span className={s.tableType1Info}>
                   {type === categoryTypes.INCOME ? "Доход" : "Расход"}
                 </span>
               </td>
-              <td>{type === categoryTypes.INCOME ? "Доход" : "Расход"}</td>
-              <td align="center">
+                <td className={s.tableType2}>{type === categoryTypes.INCOME ? "Доход" : "Расход"}</td>
+              <td align="center" className={s.btnIcon}>
                 <button onClick={() => onOpenModal(_id)} className="btn btn-rounded">
                   <img src={trash} alt="Delete" className="btn-icon" />
                 </button>
