@@ -14,7 +14,7 @@ import {Loader} from './components/Loader';
 import {categoriesOperations} from './redux/categories';
 import {transactionsOperations} from './redux/transactions';
 import {walletsOperations} from './redux/wallets';
-import {errorSelectors} from './redux/error'
+import {toastSelectors} from './redux/toast'
 
 import routes from './routes';
 import {useToasts} from 'react-toast-notifications';
@@ -46,7 +46,7 @@ function App() {
 	const dispatch = useDispatch();
 	const isAuth = useSelector(authSelectors.getIsAuthenticated);
 	const {addToast} = useToasts();
-	const error = useSelector(errorSelectors.getError);
+	const toast = useSelector(toastSelectors.getToast);
 
 	useEffect(() => {
 		dispatch(userOperations.getCurrentUser());
@@ -59,10 +59,10 @@ function App() {
 	}, [dispatch, isAuth]);
 
 	useEffect(() => {
-		if (error) {
-			addToast(error, {appearance: 'error'})
+		if (toast) {
+			addToast(toast.message, {appearance: toast.type})
 		}
-	}, [addToast, error]);
+	}, [addToast, toast]);
 
 	return (
 		<>

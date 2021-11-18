@@ -10,13 +10,17 @@ import LinkToTransactions from '../../components/LinkToTransactions/LinkToTransa
 
 const Categories = () => {
   return (
-    <div>
-      <div>
-        <LinkToTransactions />
-        <LinkToReport />
-      </div>
-      <div>
-        <h2>Категории</h2>
+    <div className={s.container}>
+      <section className={s.categoriesNavigation}>
+        <div className={s.LinkToTransactions}>
+          <LinkToTransactions />
+        </div>
+        <div className={s.LinkToReport}>
+          <LinkToReport className={s.test} />
+        </div>
+      </section>
+      <div className={s.categoriesTitleWrapper}>
+        <h2 className={s.categoriesTitle}>Категории</h2>
       </div>
       <section className={s.categoriesWrapper}>
         <CategoriesForm />

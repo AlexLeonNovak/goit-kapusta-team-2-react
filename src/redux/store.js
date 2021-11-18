@@ -16,7 +16,7 @@ import { categoriesReducer } from './categories/categories.reducer';
 import { authReducer } from './auth/auth.reducer';
 import { userReducer } from './user/user.reducer';
 import { walletsReducer } from './wallets/wallets.reducer';
-import { errorReducer } from './error/error.reducer'
+import { toastReducer } from './toast/toast.reducer'
 
 const authPersistConfig = {
   key: 'auth',
@@ -31,7 +31,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     wallets: walletsReducer,
     user: userReducer,
-    error: errorReducer
+    toast: toastReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: {

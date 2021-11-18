@@ -5,7 +5,7 @@ import {
   categoriesOperations,
   categoriesSelectors,
 } from "../../redux/categories";
-// import s from '../CategoriesForm/CategoriesForm.module.scss'
+import s from '../CategoriesForm/CategoriesForm.module.scss'
 import Dropdown from "../Dropdown/Dropdown";
 import { categoryTypes } from "../../helpers/constants";
 import { toast } from "react-toastify";
@@ -58,12 +58,12 @@ export const CategoriesForm = () => {
       categories.find((category) => category.name === name)
         ? alert(`${name} уже существует!`)
         : dispatch(
-            categoriesOperations.addCategory({
-              name,
-              type: type.value,
-              logo,
-            })
-          );
+          categoriesOperations.addCategory({
+            name,
+            type: type.value,
+            logo,
+          })
+        );
       reset();
     },
     [categories, dispatch, name, type, logo]
@@ -83,28 +83,32 @@ export const CategoriesForm = () => {
   };
 
   return (
-    <div>
-      <form encType="multipart/form-data" onSubmit={handleSubmit}>
-        <div>
-          <div>
-            <div>
-              <input
-                onChange={handleChange}
-                value={name}
-                name="name"
-                type="text"
-                label="Category name"
-                placeholder="Описание категории"
-                required
-              />
-            </div>
-
+    <form
+      encType="multipart/form-data"
+      onSubmit={handleSubmit}
+      className={s.form}
+    >
+        <div className={`formGroup ${s.formGoup}`}>
+          <div className="inputWrapper">
+            <input
+              onChange={handleChange}
+              value={name}
+              name="name"
+              type="text"
+              label="Category name"
+              placeholder="Описание категории"
+              required
+              className={`input`}
+            />
+          </div>
+          <div className={`inputWrapper ${s.categoryTypeInputWrapper}`}>
             <Dropdown
               label="name"
               options={types}
               prompt="Тип категории"
               value={type}
               onChange={(value) => setType(value)}
+              className="input"
             />
           </div>
           <div>
@@ -113,20 +117,21 @@ export const CategoriesForm = () => {
               name="filename"
               id="filename"
               onChange={handleChange}
+              className={s.customFileUploader}
             />
+            <label htmlFor="filename">{filename}</label>
           </div>
-          <label htmlFor="filename">{filename}</label>
         </div>
-        <div>
-          <button className='btn btn-accent' type="submit" onClick={notify}>
+        
+        <div className={s.btnWrapper}>
+          <button className={`btn btn-accent ${s.btn}`} type="submit" onClick={notify}>
             Ввод
           </button>
 
-          <button className='btn' type="reset" onClick={reset}>
+          <button className={`btn ${s.btn}`} type="reset" onClick={reset}>
             Очистить
           </button>
         </div>
-      </form>
-    </div>
+    </form>
   );
 };

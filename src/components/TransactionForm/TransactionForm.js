@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useToasts } from "react-toast-notifications";
 import PropTypes from "prop-types";
 
 import DatePicker from "react-datepicker";
@@ -9,6 +8,7 @@ import Dropdown from "../Dropdown/Dropdown";
 import { transactionsOperations } from "../../redux/transactions";
 import { categoriesSelectors } from "../../redux/categories";
 import { walletsSelectors } from "../../redux/wallets";
+import { toastActions } from '../../redux/toast'
 
 import { categoryTypes } from "../../helpers/constants";
 import sprite from "../../base/images/sprite.svg";
@@ -26,7 +26,6 @@ export const TransactionForm = ({ type }) => {
   const [wallet, setWallet] = useState(null);
 
   const [amount, setAmount] = useState("");
-  const { addToast } = useToasts();
 
   const categories = useSelector(categoriesSelectors.getAllCategories);
   const wallets = useSelector(walletsSelectors.getAllWallets);
@@ -70,6 +69,10 @@ export const TransactionForm = ({ type }) => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
+      if (!description || !amount || !category || !wallet) {
+        dispatch(toastActions.errorMessage('Все поля обязательны для заполнения'));
+        return;
+      }
       dispatch(
         transactionsOperations.addTransaction({
           datetime,
@@ -79,25 +82,10 @@ export const TransactionForm = ({ type }) => {
           wallet: wallet._id,
         })
       );
-      notify();
       reset();
     },
     [dispatch, datetime, description, category, amount, wallet]
   );
-
-  const notify = () => {
-    if (!description || !amount || !category) {
-      return addToast("Description, amount and category are required fields", {
-        appearance: "error",
-        autoDismiss: false,
-      });
-    } else {
-      return addToast("Successful operation", {
-        appearance: "success",
-        autoDismiss: true,
-      });
-    }
-  };
 
   return (
     <form onSubmit={handleSubmit} className={`form ${s.form}`}>
