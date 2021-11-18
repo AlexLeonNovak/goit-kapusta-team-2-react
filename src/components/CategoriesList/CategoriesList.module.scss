@@ -1,6 +1,9 @@
 @import "../../base/sass/main.scss";
 
-.table {
+.table .tableHead th {
+	@include for-size(tablet) {
+			padding: 10px 0;
+		}
 }
 
 .tableHead {
@@ -12,10 +15,22 @@
 
 	th {
 		align-items: center;
+
+		
 	}
 
 	th:first-child {
 		justify-content: center;
+	}
+}
+
+.tableBody td {
+	@include for-size(tablet) {
+		height: 40px;
+	}
+
+	@include for-size(desktop) {
+		height: 60px;
 	}
 }
 
@@ -34,6 +49,11 @@
 	@include for-size(tablet) {
 		height: 35px;
 		width: 35px;
+	}
+
+	@include for-size(desktop) {
+		height: 50px;
+		width: 50px;
 	}
 }
 
