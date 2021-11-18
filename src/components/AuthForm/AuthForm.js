@@ -13,17 +13,14 @@ const AuthForm = () => {
   const dispatch = useDispatch();
   const hahdleChangeEmail = (e) => setEmail(e.target.value);
   const hahdleChangePassword = (e) => setPassword(e.target.value);
-  const registerFunc = (data) => dispatch(authOperations.register(data));
-  const loginFunc = (data) => dispatch(authOperations.logIn(data));
-  const googleAuth = (token) => dispatch(authOperations.googleAuth(token));
 
   const handleClickRegisterButton = () => {
-    registerFunc({ email, password });
+	  dispatch(authOperations.register({ email, password }));
     reset();
   };
 
   const handleClickLoginButton = () => {
-    loginFunc({ email, password });
+	  dispatch(authOperations.logIn({ email, password }));
     reset();
   };
 
@@ -33,7 +30,7 @@ const AuthForm = () => {
   };
 
   const responseGoogleSuccess = (response) => {
-    googleAuth(response.tokenId);
+	  dispatch(authOperations.googleAuth(response.tokenId));
   };
 
   const responseGoogleFail = (response) => {

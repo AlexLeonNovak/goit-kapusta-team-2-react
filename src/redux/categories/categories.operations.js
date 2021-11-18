@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { categoriesActions } from './index';
+import { toastActions } from '../toast'
 
 export const fetchCategories = () => async dispatch => {
   dispatch(categoriesActions.fetchCategoryRequest());
@@ -9,6 +10,7 @@ export const fetchCategories = () => async dispatch => {
     dispatch(categoriesActions.fetchCategorySuccess(data.data.categories));
   } catch (error) {
     dispatch(categoriesActions.fetchCategoryError(error.message));
+    dispatch(toastActions.errorMessage('Categories fetch error'));
   }
 };
 
@@ -29,9 +31,10 @@ export const addCategory = ({name, type, logo}) => async (dispatch) => {
         }
       });
       dispatch(categoriesActions.addCategorySuccess(data.data.result));
-
+      dispatch(toastActions.successMessage('Категория успешно добавлена'));
     } catch (error) {
       dispatch(categoriesActions.addCategoryError(error.message));
+      dispatch(toastActions.errorMessage(`Add category error: ${error.message}`));
     }
   };
 
@@ -41,8 +44,10 @@ export const deleteCategory = (categoryId) => async (dispatch) => {
   try {
     await axios.delete(`/categories/${categoryId}`);
     dispatch(categoriesActions.deleteCategorySuccess(categoryId));
+    dispatch(toastActions.successMessage('Категория успешно удалена'));
   } catch (error) {
     dispatch(categoriesActions.deleteCategoryError(error.message));
+    dispatch(toastActions.errorMessage(`Delete category error: ${error.message}`));
   }
 };
 

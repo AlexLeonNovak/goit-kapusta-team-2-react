@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { userActions } from './index';
-// import { toast } from 'react-toastify';
+import { toastActions } from '../toast'
 
-
-//axios.defaults.baseURL = 'http://localhost:3000';
 const token = {
 	set(token) {
 		axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -29,16 +27,17 @@ export const getCurrentUser = () => async (dispatch, getState) => {
 		dispatch(userActions.getCurrentUserSuccess(response.data.data));
 	} catch (error) {
 		dispatch(userActions.getCurrentUserError(error.message));
+		dispatch(toastActions.errorMessage(`Get current user error: ${error.message}`));
 	}
 };
 
-export const updateBalance = (balance) => async (dispatch) => {
-
-	dispatch(userActions.updateBalanceRequest());
-	try {
-		const response = await axios.patch('/user', {balance})
-		dispatch(userActions.updateBalanceSuccess(response.data.data))
-	} catch (error) {
-		dispatch(userActions.updateBalanceError(error.message))
-	}
-}
+// export const updateBalance = (balance) => async (dispatch) => {
+//
+// 	dispatch(userActions.updateBalanceRequest());
+// 	try {
+// 		const response = await axios.patch('/user', {balance})
+// 		dispatch(userActions.updateBalanceSuccess(response.data.data))
+// 	} catch (error) {
+// 		dispatch(userActions.updateBalanceError(error.message))
+// 	}
+// }
