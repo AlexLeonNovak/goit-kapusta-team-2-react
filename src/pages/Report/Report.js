@@ -15,7 +15,6 @@ import {
 
 import 'moment/locale/ru';
 import LinkToTransactions from '../../components/LinkToTransactions/LinkToTransactions';
-// import classNames from 'classnames';
 
 function Report() {
   const dispatch = useDispatch();

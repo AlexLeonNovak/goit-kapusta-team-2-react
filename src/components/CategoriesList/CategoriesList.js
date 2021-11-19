@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import classNames from 'classnames'
 
 import {
   categoriesOperations,
@@ -17,7 +16,6 @@ const CategoriesList = () => {
   const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState("");
 
-console.log(categories);
   const toggleModal = () => {
     setShowModal(!showModal);
     setId("");
