@@ -31,13 +31,3 @@ export const getCurrentUser = () => async (dispatch, getState) => {
 	}
 };
 
-// export const updateBalance = (balance) => async (dispatch) => {
-//
-// 	dispatch(userActions.updateBalanceRequest());
-// 	try {
-// 		const response = await axios.patch('/user', {balance})
-// 		dispatch(userActions.updateBalanceSuccess(response.data.data))
-// 	} catch (error) {
-// 		dispatch(userActions.updateBalanceError(error.message))
-// 	}
-// }

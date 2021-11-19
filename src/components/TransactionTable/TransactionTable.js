@@ -1,19 +1,18 @@
 import React, { useCallback, useState } from "react";
 import moment from "moment";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
+
+import Modal from "../Modal";
+
 import {
   transactionsOperations,
   transactionsSelectors,
 } from "../../redux/transactions";
-
-import classNames from "classnames";
-
 import trash from "../../base/images/svg_black/trash.svg";
 import { categoryTypes } from "../../helpers/constants";
-import Modal from "../Modal";
 
-import { toast } from "react-toastify";
 import s from './TransactionTable.module.scss'
 
 const MIN_ROW_COUNT = 9;
@@ -31,11 +30,6 @@ export const TransactionTable = ({ type }) => {
     setShowModal(true);
     setId(id);
   };
-  const notify = (id) => {
-    if (id) {
-      return toast.success("The transaction has been deleted");
-    }
-  };
 
   const transactions = useSelector(
     transactionsSelectors.getAllTransactions
@@ -45,7 +39,6 @@ export const TransactionTable = ({ type }) => {
   const onDeleteTransaction = useCallback(
     (id) => {
       dispatch(transactionsOperations.deleteTransaction(id));
-      notify(id);
     },
     [dispatch]
   );

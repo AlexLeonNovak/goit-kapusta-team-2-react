@@ -8,8 +8,8 @@ import {
 import s from '../CategoriesForm/CategoriesForm.module.scss'
 import Dropdown from "../Dropdown/Dropdown";
 import { categoryTypes } from "../../helpers/constants";
-import { toast } from "react-toastify";
 import '../../base/sass/main.scss';
+import {toastActions} from '../../redux/toast';
 
 export const CategoriesForm = () => {
   const dispatch = useDispatch();
@@ -19,8 +19,6 @@ export const CategoriesForm = () => {
   const [type, setType] = useState("");
   const [filename, setFilename] = useState("Загрузите логотип");
   const [logo, setLogo] = useState(null);
-
-  const onChange = (e) => setType(e.currentTarget.value);
 
   const types = [
     {
@@ -54,9 +52,12 @@ export const CategoriesForm = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-
+      if (!name || !type) {
+        dispatch(toastActions.errorMessage('Все поля обязательны для заполнения'));
+        return;
+      }
       categories.find((category) => category.name === name)
-        ? alert(`${name} уже существует!`)
+        ? dispatch(toastActions.errorMessage(`${name} уже существует!`))
         : dispatch(
           categoriesOperations.addCategory({
             name,
@@ -75,12 +76,7 @@ export const CategoriesForm = () => {
     setFilename("Загрузите логотип");
     setLogo(null);
   };
-  const notify = () => {
-    if (!name || !type) {
-      return toast.warning("Name and type are required fields");
-    }
-    toast.success("Successful operation");
-  };
+
 
   return (
     <form
@@ -122,9 +118,9 @@ export const CategoriesForm = () => {
             <label htmlFor="filename">{filename}</label>
           </div>
         </div>
-        
+
         <div className={s.btnWrapper}>
-          <button className={`btn btn-accent ${s.btn}`} type="submit" onClick={notify}>
+          <button className={`btn btn-accent ${s.btn}`} type="submit">
             Ввод
           </button>
 

@@ -1,12 +1,9 @@
 import React from "react";
-import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
 import { CategoriesForm } from "../../components/CategoriesForm";
 import CategoriesList from "../../components/CategoriesList/CategoriesList";
 import {LinkToReport} from "../../components/LinkToReport";
-import s from '../Categories/Categories.module.scss'
 import LinkToTransactions from '../../components/LinkToTransactions/LinkToTransactions';
+import s from '../Categories/Categories.module.scss'
 
 const Categories = () => {
   return (
@@ -25,7 +22,6 @@ const Categories = () => {
       <section className={s.categoriesWrapper}>
         <CategoriesForm />
         <CategoriesList />
-        <ToastContainer />
       </section>
     </div>
   );

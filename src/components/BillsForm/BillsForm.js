@@ -1,22 +1,19 @@
 import { useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { walletsOperations } from "../../redux/wallets";
-import { walletsSelectors } from "../../redux/wallets";
-import { toast } from "react-toastify";
 
 import sprite from "../../base/images/sprite.svg";
 
 import "react-datepicker/dist/react-datepicker.css";
 import s from "../TransactionForm/TransactionForm.module.scss";
+import {toastActions} from '../../redux/toast';
 
 export const BillsForm = () => {
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
   const [balance, setBalance] = useState("");
-
-  const wallets = useSelector(walletsSelectors.getAllWallets);
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.currentTarget;
@@ -43,6 +40,10 @@ export const BillsForm = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
+      if (!name || !balance) {
+        dispatch(toastActions.errorMessage('Все поля обязательны для заполнения'));
+        return;
+      }
       dispatch(
         walletsOperations.addWallet({
           name,
@@ -53,14 +54,6 @@ export const BillsForm = () => {
     },
     [dispatch, name, balance]
   );
-  const notify = () => {
-    if (!name || !balance) {
-      return toast.warning(
-        "Description, amount and category are required fields"
-      );
-    }
-    toast.success("Successful operation");
-  };
 
   return (
     <form onSubmit={handleSubmit} className={`form ${s.form}`}>
